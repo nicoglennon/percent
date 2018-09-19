@@ -1,3 +1,8 @@
 html {
   font-family: monospace;
 }
+
+img.telescope-logo {
+  width: 40px;
+  height: 40px;
+}

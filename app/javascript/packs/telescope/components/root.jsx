@@ -1,10 +1,14 @@
 import React from 'react';
+import Main from './main';
+import Navbar from './navbar';
+
 
 class Root extends React.Component {
   render() {
     return(
       <div>
-        <h1>Hello World</h1>
+        <Navbar />
+        <Main />
       </div>
     )
   }
