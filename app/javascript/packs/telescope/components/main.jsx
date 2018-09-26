@@ -1,12 +1,16 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import UserSnapshot from './userSnapshot';
 
 class Main extends React.Component {
+
   render() {
     return(
       <div>
-        <h1>Main</h1>
+        <Route path="/@:username" render={(props) => <UserSnapshot {...props} fetchCurrentUserSnapshot={this.props.fetchCurrentUserSnapshot} currentUser={this.props.currentUser} currentUserSnapshot={this.props.currentUserSnapshot} />} />
       </div>
     )
   }
 }
+
 export default Main

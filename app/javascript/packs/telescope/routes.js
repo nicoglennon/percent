@@ -4,7 +4,7 @@ import Root from './components/root';
 const App = (props) => (
   <Router>
     <div>
-      <Route exact path='/' component={Root} />
+      <Route path='/' component={Root} />
     </div>
   </Router>
 )

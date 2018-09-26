@@ -4,9 +4,10 @@ import Telescope from '../assets/images/telescope-emoji.png';
 class Navbar extends React.Component {
   render() {
     return(
-      <div>
-        <img src={Telescope} className="telescope-logo" />
-        <h1>Navbar</h1>
+      <div className='navbar-wrapper'>
+        <img src={Telescope} className="navbar-telescope-logo" />
+        &nbsp;
+        <p className="navbar-username-box">@{this.props.currentUser.username}</p>
       </div>
     )
   }

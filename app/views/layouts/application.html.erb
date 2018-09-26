@@ -4,10 +4,14 @@
     <title>Telescope</title>
     <%= csrf_meta_tags %>
 
-    <!-- <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
+    <!-- <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
     <!-- <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> -->
+    <%= favicon_link_tag asset_path('telescope-favicon.png'), :rel => 'icon', :type =>  'image/png' %>
     <%= javascript_pack_tag 'telescope/index' %>
     <%= stylesheet_pack_tag 'telescope/assets/stylesheets/main' %>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,700" rel="stylesheet">
   </head>
 
   <body>

@@ -10,16 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180918034447) do
+ActiveRecord::Schema.define(version: 20180919162643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "weeks", force: :cascade do |t|
-    t.string "date"
-    t.string "percentage"
+  create_table "users", force: :cascade do |t|
+    t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "weeks", force: :cascade do |t|
+    t.string "date"
+    t.string "percentage"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_weeks_on_user_id"
+  end
+
+  add_foreign_key "weeks", "users"
 end

@@ -1,0 +1,47 @@
+import React from 'react';
+import WeekCardsWrapper from './weekCardsWrapper';
+import { Route, Switch } from 'react-router-dom';
+import WeekPage from './weekPage';
+import NewWeekPage from './newWeekPage';
+
+
+class UserSnapshot extends React.Component {
+
+  componentDidMount(){
+    this.props.fetchCurrentUserSnapshot(this.props.match.params.username);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.username !== prevProps.match.params.username) {
+      this.props.fetchCurrentUserSnapshot(this.props.match.params.username);
+    }
+  }
+
+  render(){
+    var weeks = this.props.currentUserSnapshot.weeks;
+    var currentUserSnapshot = this.props.currentUserSnapshot;
+
+    return(
+      <div>
+        <WeekCardsWrapper currentUser={this.props.currentUserSnapshot} weekCards={this.props.currentUserSnapshot.weeks} />
+
+        <Switch>
+          <Route exact path="/@:username/weeks/new"
+            render={(props) => <NewWeekPage {...props}
+              username={currentUserSnapshot.username}
+              template={'template'}
+            />}
+          />
+
+          <Route exact path="/@:username/weeks/:weekId"
+          render={(props) => <WeekPage {...props}
+            username={currentUserSnapshot.username}
+            week={weeks.filter(week => String(week.id) === props.match.params.weekId)[0]}
+          />}
+        />
+        </Switch>
+      </div>
+    )
+  }
+}
+export default UserSnapshot

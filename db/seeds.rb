@@ -7,43 +7,73 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.delete_all
-
-User.create! (
-  {
-    username: "nico"
-  },
-  {
-    username: "chris"
-  }
-)
-puts "Users seeded!"
-
-
-
 Week.delete_all
 
+# create users
+nico = User.new({ username: "nico" })
+chris = User.new({ username: "chris" })
+greta = User.new({ username: "greta" })
+
+
+nico.save
+chris.save
+greta.save
+
+puts "Users seeded!"
+
+# create weeks
 Week.create! (
   [
     {
       date: "Sep 16",
-      percentage: "99%"
+      percentage: "99%",
+      user_id: nico.id
     },
     {
       date: "Sep 9",
-      percentage: "22%"
+      percentage: "22%",
+      user_id: nico.id
     },
     {
       date: "Sep 2",
-      percentage: "46%"
+      percentage: "46%",
+      user_id: nico.id
     },
     {
       date: "Oct 25",
-      percentage: "61%"
+      percentage: "61%",
+      user_id: nico.id
     },
     {
       date: "Oct 18",
-      percentage: "43%"
-    }
+      percentage: "43%",
+      user_id: chris.id
+    },
+    {
+      date: "Oct 11",
+      percentage: "31%",
+      user_id: chris.id
+    },
+    {
+      date: "Oct 4",
+      percentage: "59%",
+      user_id: chris.id
+    },
+    {
+      date: "Aug 27",
+      percentage: "88%",
+      user_id: chris.id
+    },
+    {
+      date: "Aug 20",
+      percentage: "22%",
+      user_id: chris.id
+    },
+    {
+      date: "Aug 13",
+      percentage: "65%",
+      user_id: chris.id
+    },
   ]
 )
 

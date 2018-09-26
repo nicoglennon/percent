@@ -1,8 +1,139 @@
 html {
-  font-family: monospace;
+  font-family: 'Work Sans', monospace;
 }
 
-img.telescope-logo {
-  width: 40px;
-  height: 40px;
+div:focus {outline:0;}
+
+div.navbar-wrapper {
+  padding: 2px;
+  margin-bottom: 20px;
+}
+
+img.navbar-telescope-logo {
+  width: 36px;
+  height: 36px;
+}
+
+p.navbar-username-box {
+  display: inline-block;
+  float: right;
+  margin: 10px;
+}
+
+a.weekCard-alink{
+  color: white;
+  width: 150px;
+  padding: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  border-radius: 9px;
+  height: 200px;
+  display: inline-block;
+  text-decoration: none;
+  background-color: rgb(121, 110, 255);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .1);
+  transition: transform 250ms ease-out, background-color 250ms ease-out;
+}
+
+a.weekCard-alink:hover {
+  background-color: rgb(105, 93, 255);
+  transform: translateY(-2px);
+  transition: all 200ms ease-out;
+}
+
+div.weekCardsWrapper-div {
+  padding: 20px 20px 20px 80px;
+}
+
+p.weekCardsWrapper-title {
+  color: #62676d;
+  display: inline-block;
+}
+
+a.weekCardsWrapper-new {
+  color: white;
+  background-color: rgb(242, 158, 123);
+  border-radius: 9px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 3px 6px;
+  transition: transform 250ms ease-out, background-color 250ms ease-out;
+}
+
+a.weekCardsWrapper-new:hover {
+  background-color: rgb(238, 140, 99);
+  transition: all 200ms ease-out;
+}
+
+p.weekCard-date {
+  margin-top: 5px;
+  font-size: 24px;
+}
+
+p.weekCard-percentage {
+  font-size: 36px;
+  text-align: center;
+}
+
+li.weekCard-li {
+  text-decoration: none;
+  list-style: none;
+  display: inline-block;
+}
+
+ul.weekCardsWrapper-ul {
+  padding: 0px;
+  max-width: 1000px;
+}
+
+div.weekPage-background {
+  position:fixed;
+  width:100%;
+  left:0;right:0;top:0;bottom:0;
+  background-color: rgba(0,0,0,0.7);
+  z-index:9;
+}
+
+div.weekPage-container {
+  min-height: 85%;
+  margin: auto;
+  vertical-align: center;
+  background-color: rgb(105, 93, 255);
+  padding: 20px;
+  color: white;
+  max-width: 700px;
+  border-radius: 9px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index:11;
+}
+
+h2.weekPageContent-date {
+  margin-top: 14px;
+  font-size: 40px;
+  display: inline-block;
+}
+
+p.weekPageContent-percentage {
+  text-align: right;
+  vertical-align: bottom;
+  font-size: 50px;
+  /* display: block; */
+}
+
+div.h2.weekPageContent-wrapper {
+  height: 100%;
+}
+
+button,input:focus {outline:0;}
+
+button.weekPage-closeModal {
+  font-size: 28px;
+  color: white;
+  float: right;
+  display: inline-block;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
 }
