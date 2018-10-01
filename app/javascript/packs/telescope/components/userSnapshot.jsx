@@ -23,13 +23,14 @@ class UserSnapshot extends React.Component {
 
     return(
       <div>
-        <WeekCardsWrapper currentUser={this.props.currentUserSnapshot} weekCards={this.props.currentUserSnapshot.weeks} />
+        <WeekCardsWrapper currentUser={currentUserSnapshot} weekCards={weeks} />
 
         <Switch>
           <Route exact path="/@:username/weeks/new"
             render={(props) => <NewWeekPage {...props}
-              username={currentUserSnapshot.username}
+              currentUser={currentUserSnapshot}
               template={'template'}
+              submitNewWeek={this.props.submitNewWeek}
             />}
           />
 

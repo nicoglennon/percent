@@ -4730,6 +4730,10 @@ react-modal@^3.6.1:
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
 
+react-notifications-component@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-notifications-component/-/react-notifications-component-0.1.1.tgz#f8728fe786fc9f0b69a113330dbfbfecf82f80ea"
+
 react-router-dom@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.3.1.tgz#4c2619fc24c4fa87c9fd18f4fb4a43fe63fbd5c6"
