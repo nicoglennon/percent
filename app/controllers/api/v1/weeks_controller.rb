@@ -1,19 +1,20 @@
 class Api::V1::WeeksController < ApplicationController
 
-  def index
-    @weeks = Week.all
-    render :json => @weeks
-  end
-
   def create
     @week = Week.new(week_params)
-    p @week
-    if @week.errors
-      p @week.errors
+    if @week.save
+      render :json => @week
+    else
+      @errors = []
+      if @week.errors
+        if @week.errors.full_messages
+          @week.errors.full_messages.each do |error_message|
+            @errors << error_message
+          end
+        end
+      end
+      render :json => {status: "error", code: 4000, error_messages: @errors}
     end
-    @week.save!
-    p @week
-    render :json => @week
   end
 
   private

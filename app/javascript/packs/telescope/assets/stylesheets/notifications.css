@@ -51,7 +51,7 @@
 
 .notification-success {
     background-color: #3CB371;
-    /* border-left: 8px solid #19692c */
+    border-left: 8px solid #19692c
 }
 
 .notification-danger {

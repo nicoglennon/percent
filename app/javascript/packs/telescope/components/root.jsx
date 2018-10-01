@@ -46,17 +46,29 @@ class Root extends React.Component {
     axios.post(`/api/v1/users/${currentUserId}/weeks`, week)
     .then(function (response) {
       console.log(response);
-      self.addNotification('success', 'Success! Your new week has been logged.');
-      self.props.history.goBack();
-      self.fetchCurrentUserSnapshot(currentUserUsername);
+      var errorString = '';
+      if (response.status === 200 && response.data.status ==='error'){
+        if (response.data.error_messages && response.data.error_messages.length > 0) {
+
+          response.data.error_messages.forEach(function(errorMessage){
+            errorString += errorMessage + ', ';
+          })
+        }
+        self.addNotification('danger', 'Oops!','We found the following errors before saving: ' + errorString.slice(0,-2) + '.');
+      } else if (response.status === 200){
+        self.addNotification('success', 'Success!','Your new week was saved.');
+        self.props.history.goBack();
+        self.fetchCurrentUserSnapshot(currentUserUsername);
+      }
     })
     .catch(function (error) {
       console.log(error);
     });
   }
 
-  addNotification(type, message) {
+  addNotification(type, title, message) {
     this.notificationDOMRef.current.addNotification({
+      title: title,
       message: message,
       type: type,
       insert: "top",
