@@ -21,6 +21,37 @@ greta.save
 
 puts "Users seeded!"
 
+week_one = Week.new({ date: "Week with goals", percentage: "50%", user_id: nico.id})
+week_one.save
+
+puts "Week one seeded!"
+
+# create test goals
+goal_1 = Goal.new({title: "Brush teeth", completed: true, week_id: week_one.id})
+goal_2 = Goal.new({title: "Walk Baker around the city", completed: false, week_id: week_one.id})
+goal_3 = Goal.new({title: "Promote Mathbay in local coffeeshops / bars", completed: true, week_id: week_one.id})
+goal_4 = Goal.new({title: "Focus on output, not input", completed: true, week_id: week_one.id})
+goal_5 = Goal.new({title: "Make an inpact on latest project at work", completed: false, week_id: week_one.id})
+goal_6 = Goal.new({title: "Help Greta with harmonica class", completed: true, week_id: week_one.id})
+goal_7 = Goal.new({title: "Get application ID as soon as possible", completed: true, week_id: week_one.id})
+goal_8 = Goal.new({title: "Sign up for YMCA", completed: false, week_id: week_one.id})
+
+
+goal_1.save
+goal_2.save
+goal_3.save
+goal_4.save
+goal_5.save
+goal_6.save
+goal_7.save
+goal_8.save
+
+
+puts "Goals saved!"
+
+puts week_one
+puts week_one.goals
+
 # create weeks
 Week.create! (
   [

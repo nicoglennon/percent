@@ -37,8 +37,6 @@ class Root extends React.Component {
   }
 
   submitNewWeek(week) {
-    console.log(week);
-    console.log(this.state)
     var currentUserId = this.state.currentUserSnapshot.id;
     var currentUserUsername = this.state.currentUserSnapshot.username;
     week['user_id'] = currentUserId;

@@ -28,12 +28,12 @@ p.navbar-username-box {
 
 a.weekCard-alink{
   color: white;
-  width: 220px;
+  width: 200px;
   padding: 15px;
   margin-right: 15px;
   margin-bottom: 15px;
   border-radius: 9px;
-  height: 250px;
+  height: 220px;
   display: inline-block;
   text-decoration: none;
   background-color: rgb(113, 101, 255);
@@ -46,10 +46,11 @@ a.weekCard-alink:hover {
   transform: translateY(-3px);
   box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, .3);
   transition: all 200ms ease-out;
+  transform: scale(1.02);
 }
 
 div.weekCardsWrapper-div {
-  padding: 20px 20px 20px 80px;
+  padding: 40px 20px 0px 80px;
 }
 
 p.weekCardsWrapper-title {
@@ -96,6 +97,7 @@ li.weekCard-li {
 
 ul.weekCardsWrapper-ul {
   padding: 0px;
+  margin-bottom: 0px;
   max-width: 1200px;
 }
 
@@ -108,7 +110,7 @@ div.weekPage-background {
 }
 
 div.weekPage-container {
-  min-height: 85%;
+  height: 85%;
   margin: auto;
   vertical-align: center;
   background-color: rgb(105, 93, 255);
@@ -172,20 +174,20 @@ input.newWeekPage-form-submit:hover {
 }
 
 h2.weekPageContent-date {
-  margin-top: 14px;
+  margin-top: 24px;
+  margin-bottom: 5px;
   font-size: 40px;
   display: inline-block;
 }
 
 p.weekPageContent-percentage {
-  text-align: right;
-  vertical-align: bottom;
   font-size: 50px;
-  /* display: block; */
+  margin: 0px;
 }
 
-div.h2.weekPageContent-wrapper {
-  height: 100%;
+div.weekPageContent-wrapper {
+  /* height: 100%; */
+  padding: 15px;
 }
 
 button,input:focus {outline:0;}
@@ -205,4 +207,41 @@ button.weekPage-closeModal {
 button.weekPage-closeModal:hover {
   opacity: 1;
   transition: all 150ms ease-out;
+}
+
+div.goalLineWrapper {
+  background-color: inherit;
+  border: 3px solid rgb(125, 114, 255);
+  font-size: 20px;
+  border-radius: 9px;
+  padding: 13px 18px;
+  margin: 10px 0px;
+  transition: border 200ms ease-out;
+}
+
+div.goalLineWrapper:hover {
+  border: 3px solid rgb(148, 139, 248);
+  transition: border 200ms ease-out;
+}
+
+div.goalLineWrapper-completed {
+  border: 3px rgb(125, 114, 255) solid;
+  background-color: rgb(125, 114, 255);
+  transition: all 200ms ease-out;
+}
+
+div.goalLineWrapper-completed:hover {
+  border: 3px rgb(148, 139, 248) solid;
+  background-color: rgb(148, 139, 248);
+  transition: all 200ms ease-out;
+}
+
+div.goalsWrapper {
+  padding: 0px;
+}
+
+input.goalLineInput {
+  float: right;
+  margin: 6px;
+  vertical-align: middle;
 }
