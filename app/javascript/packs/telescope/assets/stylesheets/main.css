@@ -1,17 +1,29 @@
 html {
-  font-family: 'Work Sans', monospace;
+  font-family: 'Karla', sans-serif;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
 }
 
 div:focus {outline:0;}
 
+div.rootInnerWrapper {
+  max-width: 1150px;
+  margin: 20px auto;
+}
+
 div.navbar-wrapper {
-  padding: 2px;
-  margin-bottom: 20px;
+  padding: 5px 15px;
+  margin-bottom: 30px;
+}
+
+a.navbar-telescope-logo-link {
+  text-decoration: none;
+  vertical-align: middle;
 }
 
 img.navbar-telescope-logo {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   transition: transform 150ms ease-out;
 }
 
@@ -20,11 +32,37 @@ img.navbar-telescope-logo:hover {
   transition: all 150ms ease-out;
 }
 
-p.navbar-username-box {
+p.navbar-telescope-logotitle {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 34px;
+  margin: 0px 0px 0px 5px;
+  letter-spacing: -1.5px;
+  font-weight: bold;
+  color: hsl(0, 0%, 25%);
+  /* transform: translateY(-2px); */
+}
+
+div.navbar-float-box {
   display: inline-block;
   float: right;
-  margin: 10px;
 }
+
+p.navbar-wrap-box {
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+p.navbar-get-started {
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 8px 10px;
+}
+a:visited {
+  color: inherit;
+}
+
 
 a.weekCard-alink{
   color: white;
@@ -36,21 +74,20 @@ a.weekCard-alink{
   height: 220px;
   display: inline-block;
   text-decoration: none;
-  background-color: rgb(113, 101, 255);
+  background-color: rgb(125, 114, 255);
   box-shadow: 3 3px 5px 0 rgba(0, 0, 0, .3);
   transition: transform 250ms ease-out, box-shadow 250ms ease-out, background-color 250ms ease-out;
 }
 
 a.weekCard-alink:hover {
-  background-color: rgb(125, 114, 255);
   transform: translateY(-3px);
   box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, .3);
   transition: all 200ms ease-out;
-  transform: scale(1.02);
+  transform: scale(1.025);
 }
 
 div.weekCardsWrapper-div {
-  padding: 40px 20px 0px 80px;
+  padding: 40px 20px 20px 20px;
 }
 
 p.weekCardsWrapper-title {
@@ -74,9 +111,14 @@ a.weekCardsWrapper-new:hover {
   transition: all 200ms ease-out;
 }
 
+input {
+  font-family: 'Karla';
+}
+
 input::placeholder {
   color: inherit;
   opacity: 0.4;
+  font-family: 'Karla';
 }
 
 p.weekCard-date {
@@ -116,7 +158,7 @@ div.weekPage-container {
   background-color: rgb(105, 93, 255);
   padding: 20px;
   color: white;
-  max-width: 700px;
+  max-width: 900px;
   border-radius: 9px;
   position: relative;
   top: 50%;
@@ -146,7 +188,7 @@ input.newWeekPage-form-date {
   margin-top: 14px;
   font-size: 40px;
   display: inline-block;
-  font-weight: bold;
+  letter-spacing: -1px;
 }
 
 input.newWeekPage-form-percentage {
@@ -177,7 +219,7 @@ h2.weekPageContent-date {
   margin-top: 24px;
   margin-bottom: 5px;
   font-size: 40px;
-  display: inline-block;
+  display: block;
 }
 
 p.weekPageContent-percentage {
@@ -211,37 +253,142 @@ button.weekPage-closeModal:hover {
 
 div.goalLineWrapper {
   background-color: inherit;
-  border: 3px solid rgb(125, 114, 255);
-  font-size: 20px;
+  border: 2px solid rgb(125, 114, 255);
+  font-size: 18px;
   border-radius: 9px;
-  padding: 13px 18px;
-  margin: 10px 0px;
+  padding: 10px 14px;
+  margin: 12px 0px;
   transition: border 200ms ease-out;
 }
 
 div.goalLineWrapper:hover {
-  border: 3px solid rgb(148, 139, 248);
+  border: 2px solid rgb(148, 139, 248);
   transition: border 200ms ease-out;
 }
 
 div.goalLineWrapper-completed {
-  border: 3px rgb(125, 114, 255) solid;
+  border: 2px rgb(125, 114, 255) solid;
   background-color: rgb(125, 114, 255);
   transition: all 200ms ease-out;
 }
 
 div.goalLineWrapper-completed:hover {
-  border: 3px rgb(148, 139, 248) solid;
+  border: 2px rgb(148, 139, 248) solid;
   background-color: rgb(148, 139, 248);
   transition: all 200ms ease-out;
 }
 
+span.goalLineSpan {
+}
+
 div.goalsWrapper {
   padding: 0px;
+  width: 55%;
+  display: inline-block;
+}
+div.weekPageContent-goalsdata {
+  position: sticky;
+  top: 25px;
+  float: right;
+  width: 40%;
+  border: 2px rgb(125, 114, 255) solid;
+  border-radius: 9px;
+  margin: 12px 0px;
+  padding: 12px;
 }
 
 input.goalLineInput {
   float: right;
   margin: 6px;
   vertical-align: middle;
+}
+
+/**************************/
+/* HeroPage */
+/**************************/
+
+div.heropage-main {
+  margin: auto;
+  padding: 40px 0px;
+}
+
+img.heroPage-mainImage {
+  width: 100%;
+}
+
+div.heropage-firstdiv {
+  padding: 0px 30px;
+}
+
+div.heropage-firstdiv-left {
+  width: 44%;
+  display: inline-block;
+  margin-top: 60px;
+}
+
+div.heropage-firstdiv-right {
+  float: right;
+  width: 55%;
+}
+
+
+h1.heropage-title {
+  letter-spacing: -2px;
+  font-weight: bold;
+  font-size: 4.5em;
+  margin-top: 30px;
+  color: hsl(0, 0%, 20%);
+  line-height: 1em;
+  margin-bottom: 0px;
+}
+
+p.heropage-subheader {
+  margin-top: 20px;
+  font-size: 1.6em;
+  letter-spacing: -1px;
+  color: hsl(0, 0%, 55%);
+  line-height: 1.4em;
+}
+
+span.heropage-subheader-telescope-span {
+  color: hsl(0, 0%, 25%);
+}
+
+input.heropage-form-input-email {
+  border: none;
+  width: 55%;
+  background-color: hsla(0,0%,0%,0.05);
+  border: 2px solid hsla(0,0%,0%,0.00);
+  padding: 15px;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+input.heropage-form-input-email:focus {
+  border: 2px solid hsla(0,0%,0%,0.2);
+}
+
+input.heropage-form-input-submit {
+  border: none;
+  background-color: #2d7ff9;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+input.heropage-form-input-submit:hover {
+  cursor: pointer;
+  background-color: #135ac4;
+}
+
+p.heropage-alreadymember {
+  color: hsl(0, 0%, 50%);
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+a.heropage-alreadymember-login {
+  color: hsl(0, 0%, 20%);
 }

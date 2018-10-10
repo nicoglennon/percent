@@ -9,8 +9,8 @@ class GoalLine extends React.Component {
     }
     return(
       <div className={'goalLineWrapper' + goalLineWrapperStyling} >
-        {this.props.goal.title}&nbsp;&nbsp;
-        <input className="goalLineInput" type="checkbox" checked={this.props.goal.completed} disabled />
+        <span className="goalLineSpan">{this.props.goal.title}</span>&nbsp;
+        <input className="goalLineInput" type="checkbox" checked={this.props.goal.completed} />
       </div>
     )
   }

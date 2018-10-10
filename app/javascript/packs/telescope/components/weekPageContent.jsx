@@ -15,9 +15,11 @@ class WeekPageContent extends React.Component {
     return(
       <div className="weekPageContent-wrapper">
         <h2 className="weekPageContent-date">{this.props.week.date}</h2>
-        <p className="weekPageContent-percentage">{this.props.week.percentage}</p>
         <div className="goalsWrapper">
           {goalsToDisplay}
+        </div>
+        <div className="weekPageContent-goalsdata">
+          <p className="weekPageContent-percentage">{this.props.week.percentage}</p>
         </div>
       </div>
     )

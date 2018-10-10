@@ -1,0 +1,22 @@
+<h1>Sign Up</h1>
+
+<%= form_for(@user, as: :user, url: api_v1_users_path) do |f| %>
+  <div class="form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control', required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control', required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
+  </div>
+  <%= f.submit 'Sign Up', class: 'btn btn-primary btn-lg' %>
+<% end %>

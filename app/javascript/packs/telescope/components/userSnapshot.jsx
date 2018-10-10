@@ -18,30 +18,37 @@ class UserSnapshot extends React.Component {
   }
 
   render(){
-    var weeks = this.props.currentUserSnapshot.weeks;
+    var displayUserInfo;
     var currentUserSnapshot = this.props.currentUserSnapshot;
+    if (currentUserSnapshot === undefined){
+     displayUserInfo = <p>This page could not be found.</p>
+   } else if (currentUserSnapshot === null) {
+     displayUserInfo = <p>Loading...</p>
+   } else {
+      var weeks = this.props.currentUserSnapshot.weeks;
+      displayUserInfo = <div>
+                          <WeekCardsWrapper currentUser={currentUserSnapshot} weekCards={weeks} />
 
+                          <Switch>
+                            <Route exact path="/@:username/weeks/new"
+                              render={(props) => <NewWeekPage {...props}
+                                currentUser={currentUserSnapshot}
+                                template={'template'}
+                                submitNewWeek={this.props.submitNewWeek}
+                              />}
+                            />
+
+                            <Route exact path="/@:username/weeks/:weekId"
+                            render={(props) => <WeekPage {...props}
+                              username={currentUserSnapshot.username}
+                              week={weeks.filter(week => String(week.id) === props.match.params.weekId)[0]}
+                            />}
+                          />
+                          </Switch>
+                        </div>
+    }
     return(
-      <div>
-        <WeekCardsWrapper currentUser={currentUserSnapshot} weekCards={weeks} />
-
-        <Switch>
-          <Route exact path="/@:username/weeks/new"
-            render={(props) => <NewWeekPage {...props}
-              currentUser={currentUserSnapshot}
-              template={'template'}
-              submitNewWeek={this.props.submitNewWeek}
-            />}
-          />
-
-          <Route exact path="/@:username/weeks/:weekId"
-          render={(props) => <WeekPage {...props}
-            username={currentUserSnapshot.username}
-            week={weeks.filter(week => String(week.id) === props.match.params.weekId)[0]}
-          />}
-        />
-        </Switch>
-      </div>
+      <div>{displayUserInfo}</div>
     )
   }
 }

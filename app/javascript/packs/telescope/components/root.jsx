@@ -28,8 +28,11 @@ class Root extends React.Component {
   fetchCurrentUserSnapshot(username) {
     axios.get( `/api/v1/users/${username}` )
         .then(response => {
-          console.log(response.data);
-          this.setState({ currentUserSnapshot: response.data, currentUser: { username: response.data.username } });
+          if(response.data){
+            this.setState({ currentUserSnapshot: response.data, currentUser: { username: response.data.username } });
+          } else if (response.data === null){
+            this.setState({ currentUserSnapshot: undefined, currentUser: { username: undefined } });
+          }
         })
         .catch(error => {
           console.error(error);
@@ -80,13 +83,15 @@ class Root extends React.Component {
 
   render() {
     return(
-      <div>
-        <Navbar currentUser={this.state.currentUser}/>
-        <Main currentUser={this.state.currentUser}
-              fetchCurrentUserSnapshot={this.fetchCurrentUserSnapshot}
-              submitNewWeek={this.submitNewWeek}
-              currentUserSnapshot={this.state.currentUserSnapshot}
-        />
+      <div className="rootOuterWrapper">
+        <div className="rootInnerWrapper">
+          <Navbar currentUser={this.state.currentUser}/>
+          <Main currentUser={this.state.currentUser}
+            fetchCurrentUserSnapshot={this.fetchCurrentUserSnapshot}
+            submitNewWeek={this.submitNewWeek}
+            currentUserSnapshot={this.state.currentUserSnapshot}
+          />
+        </div>
         <ReactNotification ref={this.notificationDOMRef} />
       </div>
     )

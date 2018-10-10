@@ -29,12 +29,19 @@ puts "Week one seeded!"
 # create test goals
 goal_1 = Goal.new({title: "Brush teeth", completed: true, week_id: week_one.id})
 goal_2 = Goal.new({title: "Walk Baker around the city", completed: false, week_id: week_one.id})
-goal_3 = Goal.new({title: "Promote Mathbay in local coffeeshops / bars", completed: true, week_id: week_one.id})
+goal_3 = Goal.new({title: "Promote Mathbay in local coffeeshops / bars, or do you get out of those randomly where the thing is celebrity", completed: true, week_id: week_one.id})
 goal_4 = Goal.new({title: "Focus on output, not input", completed: true, week_id: week_one.id})
 goal_5 = Goal.new({title: "Make an inpact on latest project at work", completed: false, week_id: week_one.id})
 goal_6 = Goal.new({title: "Help Greta with harmonica class", completed: true, week_id: week_one.id})
-goal_7 = Goal.new({title: "Get application ID as soon as possible", completed: true, week_id: week_one.id})
+goal_7 = Goal.new({title: "Get application ID as soon as possible, do you do this or that all I want all of you to know who are you?", completed: true, week_id: week_one.id})
 goal_8 = Goal.new({title: "Sign up for YMCA", completed: false, week_id: week_one.id})
+goal_9 = Goal.new({title: "Sign up for YMCA", completed: true, week_id: week_one.id})
+goal_10 = Goal.new({title: "Sign up for YMCA", completed: false, week_id: week_one.id})
+goal_11 = Goal.new({title: "Sign up for YMCA", completed: true, week_id: week_one.id})
+goal_12 = Goal.new({title: "Sign up for YMCA", completed: false, week_id: week_one.id})
+goal_13 = Goal.new({title: "Sign up for YMCA", completed: true, week_id: week_one.id})
+goal_14 = Goal.new({title: "Sign up for YMCA", completed: false, week_id: week_one.id})
+goal_15 = Goal.new({title: "Sign up for YMCA", completed: false, week_id: week_one.id})
 
 
 goal_1.save
@@ -45,7 +52,13 @@ goal_5.save
 goal_6.save
 goal_7.save
 goal_8.save
-
+goal_9.save
+goal_10.save
+goal_11.save
+goal_12.save
+goal_13.save
+goal_14.save
+goal_15.save
 
 puts "Goals saved!"
 
