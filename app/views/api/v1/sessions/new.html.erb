@@ -1,0 +1,28 @@
+<div class="signin wrapper">
+  <div class="signin center">
+    <div class="signin telescope-div">
+      <a href="/" class="signin telescope-name">Telescope</a>
+    </div>
+    <div class="signin form-div">
+      <h1 class="signin signin-title">Sign In</h1>
+
+      <%= form_tag login_path, method: :post do %>
+        <% if @error %>
+          <ul class="signin errors">
+            <li><%= @error %></li>
+          </ul>
+        <% end %>
+        <div class="signin form-group">
+          <%= text_field_tag :email_or_username, nil, class: 'signin form-control em', placeholder: 'Email or Username', required: true %>
+        </div>
+
+        <div class="signin form-group">
+          <%= password_field_tag :password, nil, class: 'signin form-control pw', placeholder: 'Password' ,required: true %>
+        </div>
+
+        <%= submit_tag 'Sign In', class: 'signin btn' %>
+      <% end %>
+    </div>
+    <p class="signin not-member-yet">Not on Telescope yet? <a href="/signup" class="signin not-member-yet-link">Sign up</a>.</p>
+  </div>
+</div>

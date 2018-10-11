@@ -1,0 +1,91 @@
+div.signup.wrapper {
+  width: 100%;
+  height: 95vh;
+}
+
+div.signup.telescope-div {
+  margin:auto;
+  text-align:center;
+  margin-bottom: 15px;
+}
+
+
+a.signup.telescope-name {
+  margin: 5px auto 25px auto;
+  text-decoration: none;
+  font-size: 34px;
+  letter-spacing: -1.5px;
+  font-weight: bold;
+  color: hsl(0, 0%, 25%);
+  text-decoration: none;
+}
+
+div.signup.center {
+  width: 350px;
+  margin: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+h1.signup.signup-title {
+  margin: 0px;
+  font-size: 1.3em;
+}
+
+div.signup.form-div {
+  border-radius: 9px;
+  padding: 25px;
+  background-color: hsla(0, 0%, 0%, 0.05);
+}
+
+input.signup.form-control {
+  margin-top: 15px;
+  border: none;
+  width: 100%;
+  background-color: hsla(0,0%,0%,0.05);
+  border: 2px solid hsla(0,0%,0%,0.00);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+input.signup.form-control:focus {
+  border: 2px solid hsla(0,0%,0%,0.2);
+}
+
+input.signup.btn {
+  margin-top: 15px;
+  width: 100%;
+  border: none;
+  background-color: #2d7ff9;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+input.signup.btn:hover {
+  cursor: pointer;
+  background-color: #135ac4;
+}
+
+p.signup.already-member {
+  color: hsl(0, 0%, 50%);
+  font-size: 0.9em;
+}
+
+a.signup.already-member-link {
+  color: hsl(0, 0%, 20%);
+}
+
+a.signup.already-member-link:visited {
+  color: hsl(0, 0%, 20%);
+}
+
+ul.signup.errors {
+  color: white;
+  margin: 10px auto 0px auto;
+  padding: 10px 10px 10px 30px;
+  background-color: #e13f3f;
+  border-radius: 5px;
+}

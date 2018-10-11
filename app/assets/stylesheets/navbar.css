@@ -1,0 +1,69 @@
+div.navbar-wrapper {
+  padding: 5px 15px;
+  margin-bottom: 30px;
+  color: hsl(0, 0%, 25%);
+}
+
+a.navbar-telescope-logo-link {
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+img.navbar-telescope-logo {
+  width: 30px;
+  height: 30px;
+  transition: transform 150ms ease-out;
+}
+
+img.navbar-telescope-logo:hover {
+  transform: scale(1.2);
+  transition: all 150ms ease-out;
+}
+
+p.navbar-telescope-logotitle {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 34px;
+  margin: 0px 0px 0px 5px;
+  letter-spacing: -1.5px;
+  font-weight: bold;
+  color: hsl(0, 0%, 25%);
+  /* transform: translateY(-2px); */
+}
+
+div.navbar-float-box {
+  display: inline-block;
+  float: right;
+}
+
+p.navbar-wrap-box {
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+p.navbar-sign-in:hover {
+  text-decoration: underline;
+}
+
+p.navbar-sign-up {
+  border: 1px hsl(0, 0%, 25%) solid;
+  border-radius: 5px;
+  padding: 8px 10px;
+}
+
+p.navbar-sign-up:hover {
+  border: 1px hsl(340, 100%, 56%) solid;
+  background-color: hsl(340, 100%, 56%);
+  color: white;
+}
+
+a.navbar-signup-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.navbar-signup-link:visited {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,16 +1,23 @@
 Rails.application.routes.draw do
 
-  root to: "pages#home"
-  get '/@:username', :to => 'pages#home'
-  get '@:username/weeks/:week_id', :to => 'pages#home'
-  get '/login', :to => 'pages#home'
-  get '/register', :to => 'pages#home'
+  root to: "pages#hero"
+  get '/@:username', :to => 'pages#app'
+  get '@:username/weeks/:week_id', :to => 'pages#app'
+
+  post '/welcome', to: 'api/v1/users#new'
+  get '/welcome', to: 'api/v1/users#new'
+
 
   get '/signup', to: 'api/v1/users#new', as: :signup
   post '/signup', to: 'api/v1/users#create'
 
+  get '/login', to: 'api/v1/sessions#new', as: :login
+  post '/login', to: 'api/v1/sessions#create'
+  delete '/logout', to: 'api/v1/sessions#destroy', as: :logout
+
   namespace :api do
     namespace :v1 do
+      resources :sessions, only: [:new, :create, :destroy]
       resources :users, only: [ :new, :create, :show ] do
         resources :weeks, only: [ :create, :show ]
       end

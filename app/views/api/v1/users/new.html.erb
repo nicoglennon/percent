@@ -1,22 +1,39 @@
-<h1>Sign Up</h1>
+<div class="signup wrapper">
+  <div class="signup center">
+    <div class="signup telescope-div">
+      <a href="/" class="signup telescope-name">Telescope</a>
+    </div>
+    <div class="signup form-div">
+      <h1 class="signup signup-title">Sign Up</h1>
 
-<%= form_for(@user, as: :user, url: api_v1_users_path) do |f| %>
-  <div class="form-group">
-    <%= f.label :username %>
-    <%= f.text_field :username, class: 'form-control', required: true %>
-  </div>
+      <%= form_for(@user, as: :user, url: signup_path) do |f| %>
+      <% if @errors %>
+        <ul class="signup-errors">
+          <% @errors.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+        <div class="form-group">
+          <%= f.email_field :email, class: 'signup form-control em', placeholder: 'Email', required: true %>
+        </div>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control', required: true %>
+        <div class="form-group">
+          <%= f.text_field :username, class: 'signup form-control un', placeholder: 'Username', required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password, class: 'signup form-control pw', placeholder: 'Password', required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password_confirmation, class: 'signup form-control cpw', placeholder: 'Confirm Password', required: true %>
+        </div>
+
+        <%= f.submit 'Sign Up', class: 'signup btn' %>
+      <% end %>
+
+    </div>
+    <p class="signup already-member">Already on Telescope? <a href="/login" class="signup already-member-link">Sign in</a>.</p>
   </div>
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control', required: true %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
-  </div>
-  <%= f.submit 'Sign Up', class: 'btn btn-primary btn-lg' %>
-<% end %>
+</div>

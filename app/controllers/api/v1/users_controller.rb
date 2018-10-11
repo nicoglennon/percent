@@ -1,7 +1,16 @@
 class Api::V1::UsersController < ApplicationController
 
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to '/@' + current_user.username
+    else
+      @user = User.new
+      if params[:email]
+        @user.email = params[:email]
+        @user.username = params[:email].split(/(?=\@\b)/)[0];
+      end
+      @user
+    end
   end
 
   def create
@@ -9,16 +18,22 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       login(params[:user][:email], params[:user][:password])
       flash[:success] = 'Welcome!'
-      redirect_to root_path
+      redirect_to '/@' + @user.username
     else
+      @errors = @user.errors.full_messages
       render 'new'
     end
   end
 
   def show
-    @user = User.find_by_username(params[:id])
-    p @user
-    render :json => @user, :include => { :weeks => { :include => :goals } }
+    if logged_in? && current_user.username == params[:id]
+      @user = User.find_by_username(params[:id])
+      render :json => @user, :except => [:email, :crypted_password, :salt, :created_at, :updated_at], :include => { :weeks => { :include => :goals } }
+    elsif logged_in? && current_user.username != params[:id]
+      redirect_to '/@' + current_user.username
+    else
+      redirect_to '/'
+    end
   end
 
   private

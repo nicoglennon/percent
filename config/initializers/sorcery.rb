@@ -199,8 +199,7 @@ Rails.application.config.sorcery.configure do |config|
     # -- core --
     # specify username attributes, for example: [:username, :email].
     # Default: `[:email]`
-    #
-    # user.username_attribute_names =
+    user.username_attribute_names = [:email, :username]
 
     # change *virtual* password attribute, the one which is used until an encrypted one is generated.
     # Default: `:password`
@@ -366,7 +365,7 @@ Rails.application.config.sorcery.configure do |config|
     # Default: `5 * 60`
     #
     # user.reset_password_time_between_emails =
-    
+
     # access counter to a reset password page attribute name
     # Default: `:access_count_to_reset_password_page`
     #

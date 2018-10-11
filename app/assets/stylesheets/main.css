@@ -1,0 +1,16 @@
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+}
+
+html {
+  font-family: 'Karla', sans-serif;
+  font-weight: normal;
+  color: hsl(0, 0%, 25%);
+  text-rendering: optimizeLegibility;
+}
+
+a:visited {
+  color: inherit;
+}
