@@ -6,7 +6,7 @@
     <div class="signup form-div">
       <h1 class="signup signup-title">Sign Up</h1>
 
-      <%= form_for(@user, as: :user, url: signup_path) do |f| %>
+      <%= form_for(@user, as: :user, url: register_path) do |f| %>
       <% if @errors %>
         <ul class="signup-errors">
           <% @errors.each do |error| %>

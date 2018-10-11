@@ -10,8 +10,7 @@ class Navbar extends React.Component {
     var topRight;
     if(username === null){
       topRight =  <div className="navbar-float-box">
-                    <a href='/login'><p className="navbar-wrap-box">Sign In</p></a>
-                    <a href='/signup'><p className="navbar-wrap-box navbar-get-started">Get Started</p></a>
+                    <p>Loading...</p>
                   </div>
 
     } else if (username != undefined) {

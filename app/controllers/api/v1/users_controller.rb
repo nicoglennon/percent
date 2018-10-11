@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
 
   def new
     if logged_in?
-      redirect_to '/@' + current_user.username
+      return redirect_to '/@' + current_user.username
     else
       @user = User.new
       if params[:email]
@@ -17,8 +17,8 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(params[:user][:email], params[:user][:password])
-      flash[:success] = 'Welcome!'
-      redirect_to '/@' + @user.username
+      p logged_in?
+      return redirect_to '/@' + @user.username
     else
       @errors = @user.errors.full_messages
       render 'new'

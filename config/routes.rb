@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get '/welcome', to: 'api/v1/users#new'
 
 
-  get '/signup', to: 'api/v1/users#new', as: :signup
-  post '/signup', to: 'api/v1/users#create'
+  get '/signup', to: 'api/v1/users#new'
+  post '/signup', to: 'api/v1/users#create', as: :register
 
   get '/login', to: 'api/v1/sessions#new', as: :login
   post '/login', to: 'api/v1/sessions#create'

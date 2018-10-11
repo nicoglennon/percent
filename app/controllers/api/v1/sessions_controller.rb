@@ -1,6 +1,7 @@
 class Api::V1::SessionsController < ApplicationController
 
   def new
+    p logged_in?
     if logged_in?
       redirect_to '/@' + current_user.username
     end

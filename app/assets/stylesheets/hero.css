@@ -23,8 +23,9 @@ div.heropage-firstdiv-left {
 }
 
 div.heropage-firstdiv-right {
+  margin-top: 30px;
   float: right;
-  width: 55%;
+  width: 52%;
 }
 
 
