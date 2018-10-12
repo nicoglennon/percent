@@ -73,11 +73,13 @@ input.heropage-form-input-submit {
   padding: 15px;
   border-radius: 5px;
   font-size: 18px;
+  transition: background-color 150ms ease-out;
 }
 
 input.heropage-form-input-submit:hover {
   cursor: pointer;
   background-color: #135ac4;
+  transition: background-color 150ms ease-out;
 }
 
 p.heropage-alreadymember {

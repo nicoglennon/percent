@@ -50,12 +50,14 @@ p.navbar-sign-up {
   border: 1px hsl(0, 0%, 25%) solid;
   border-radius: 5px;
   padding: 8px 10px;
+  transition: border 150ms ease-out, background-color 150ms ease-out, color 150ms ease-out;
 }
 
 p.navbar-sign-up:hover {
   border: 1px hsl(340, 100%, 56%) solid;
   background-color: hsl(340, 100%, 56%);
   color: white;
+  transition: all 150ms ease-out;
 }
 
 a.navbar-signup-link {
