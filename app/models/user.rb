@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
-  has_many :weeks
+  has_many :weeks, dependent: :destroy
+  has_many :boards, dependent: :destroy
 
   validates :username, presence: true, uniqueness: :true
   validates :password, length: { minimum: 3 }

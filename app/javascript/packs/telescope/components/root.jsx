@@ -15,7 +15,8 @@ class Root extends React.Component {
       currentUser: { username: null },
       currentUserSnapshot: {
         username: null,
-        weeks: []
+        weeks: [],
+        boards: []
       }
     };
 

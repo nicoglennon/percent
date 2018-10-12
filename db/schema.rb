@@ -10,18 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181001220807) do
+ActiveRecord::Schema.define(version: 20181012041243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "boards", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_boards_on_user_id"
+  end
+
   create_table "goals", force: :cascade do |t|
     t.string "title"
     t.boolean "completed"
-    t.bigint "week_id", null: false
+    t.string "goalable_type"
+    t.bigint "goalable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["week_id"], name: "index_goals_on_week_id"
+    t.index ["goalable_id", "goalable_type"], name: "index_goals_on_goalable_id_and_goalable_type"
+    t.index ["goalable_type", "goalable_id"], name: "index_goals_on_goalable_type_and_goalable_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,6 +52,6 @@ ActiveRecord::Schema.define(version: 20181001220807) do
     t.index ["user_id"], name: "index_weeks_on_user_id"
   end
 
-  add_foreign_key "goals", "weeks"
+  add_foreign_key "boards", "users"
   add_foreign_key "weeks", "users"
 end

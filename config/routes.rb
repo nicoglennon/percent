@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   root to: "pages#hero"
   get '/@:username', :to => 'pages#app'
-  get '@:username/weeks/:week_id', :to => 'pages#app'
+  get '/@:username/weeks/:week_id', :to => 'pages#app'
+  get '/@:username/board', :to => 'pages#app'
 
   post '/welcome', to: 'api/v1/users#new'
   get '/welcome', to: 'api/v1/users#new'
@@ -19,7 +20,12 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :sessions, only: [:new, :create, :destroy]
       resources :users, only: [ :new, :create, :show ] do
-        resources :weeks, only: [ :create, :show ]
+        resources :weeks, only: [ :create ] do
+          resources :goals
+        end
+        resources :boards, only: [ :create ] do
+          resources :goals
+        end
       end
     end
   end
