@@ -1,14 +1,21 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html {
   font-family: 'Karla', sans-serif;
   font-weight: normal;
   text-rendering: optimizeLegibility;
+  color: hsl(0, 0%, 25%);
 }
 
 div:focus {outline:0;}
 
 div.rootInnerWrapper {
   max-width: 1150px;
-  margin: 20px auto;
+  margin: 20px auto 100px auto;
 }
 
 div.navbar-wrapper {
@@ -66,12 +73,12 @@ a:visited {
 
 a.weekCard-alink{
   color: white;
-  width: 200px;
+  width: 230px;
   padding: 15px;
   margin-right: 15px;
   margin-bottom: 15px;
   border-radius: 9px;
-  height: 220px;
+  height: 250px;
   display: inline-block;
   text-decoration: none;
   background-color: rgb(125, 114, 255);
@@ -86,6 +93,10 @@ a.weekCard-alink:hover {
   transform: scale(1.025);
 }
 
+a.weekCard-alink.boardCard {
+  background-color: rgba(253, 122, 134, 0.9);
+}
+
 div.weekCardsWrapper-div {
   padding: 40px 20px 20px 20px;
 }
@@ -98,17 +109,17 @@ p.weekCardsWrapper-title {
 
 a.weekCardsWrapper-new {
   color: white;
-  background-color: rgb(241, 119, 112);
+  background-color: #ffb936;
   border-radius: 9px;
   text-decoration: none;
   display: inline-block;
   padding: 3px 6px;
-  transition: transform 250ms ease-out, background-color 250ms ease-out;
+  transition: background-color 150ms ease-out;
 }
 
 a.weekCardsWrapper-new:hover {
-  background-color: rgb(255, 162, 152);
-  transition: all 200ms ease-out;
+  background-color: #efa61d;
+  transition: background-color 200ms ease-out;
 }
 
 input {
@@ -147,17 +158,21 @@ div.weekPage-background {
   position:fixed;
   width:100%;
   left:0;right:0;top:0;bottom:0;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(125, 114, 255, 0.9);
   z-index:9;
+}
+
+div.weekPage-background.boardPage-background {
+  background-color: rgba(253, 122, 134, 0.9);
 }
 
 div.weekPage-container {
   height: 85%;
   margin: auto;
   vertical-align: center;
-  background-color: rgb(105, 93, 255);
+  background-color: white;
   padding: 20px;
-  color: white;
+  /* color: white; */
   max-width: 900px;
   border-radius: 9px;
   position: relative;
@@ -166,11 +181,15 @@ div.weekPage-container {
   z-index:11;
 }
 
+div.weekPage-container.boardPage-container{
+  background-color: white;
+}
+
 div.newWeekPage-container {
   min-height: 85%;
   margin: auto;
   vertical-align: center;
-  background-color: rgb(255, 162, 152);
+  background-color: #ffb936;
   padding: 20px;
   color: white;
   max-width: 700px;
@@ -198,38 +217,45 @@ input.newWeekPage-form-percentage {
   border: none;
 }
 
-input.newWeekPage-form-submit {
+input.boardPageContent-newGoalForm-title {
+  border: 2px solid rgba(0, 0, 0, .1);
+  width: 100%;
   background-color: inherit;
-  color: inherit;
-  font-size: 26px;
-  border: 3px white solid;
-  border-radius: 9px;
-  cursor: pointer;
-  float: right;
-  transition: background-color 150ms ease-out, color 150ms ease-out;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 4px;
 }
 
-input.newWeekPage-form-submit:hover {
-  background-color: white;
-  color: rgb(250,128,114);
-  transition: all 150ms ease-out;
+input.boardPageContent-newGoalForm-title:hover {
+  border: 2px solid rgba(0, 0, 0, .2);
+}
+
+
+input.boardPageContent-newGoalForm-title:focus {
+  border: 2px solid rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, .05);
+}
+
+p.weekPageContent-newgoallabel {
+  margin: 5px 0px;
+
 }
 
 h2.weekPageContent-date {
   margin-top: 24px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   font-size: 40px;
   display: block;
 }
 
-p.weekPageContent-percentage {
-  font-size: 50px;
-  margin: 0px;
+p.weekPageContent-numberofgoals {
+  font-size: 30px;
+  margin: 20px 0px;
 }
 
 div.weekPageContent-wrapper {
   /* height: 100%; */
-  padding: 15px;
+  padding: 5px;
 }
 
 button,input:focus {outline:0;}
@@ -252,37 +278,36 @@ button.weekPage-closeModal:hover {
 }
 
 div.goalLineWrapper {
-  background-color: inherit;
-  border: 2px solid rgb(125, 114, 255);
-  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.03);
+  font-size: 17px;
   border-radius: 9px;
-  padding: 10px 14px;
-  margin: 12px 0px;
+  padding: 14px 14px;
+  margin: 10px 0px;
   transition: border 200ms ease-out;
 }
 
 div.goalLineWrapper:hover {
-  border: 2px solid rgb(148, 139, 248);
+  background-color: rgba(0, 0, 0, 0.06);
   transition: border 200ms ease-out;
 }
 
-div.goalLineWrapper-completed {
-  border: 2px rgb(125, 114, 255) solid;
-  background-color: rgb(125, 114, 255);
+div.goalLineWrapper.goalLineWrapper-completed {
+  background-color: rgba(0, 0, 0, 0.03);
   transition: all 200ms ease-out;
 }
 
-div.goalLineWrapper-completed:hover {
-  border: 2px rgb(148, 139, 248) solid;
-  background-color: rgb(148, 139, 248);
+div.goalLineWrapper.goalLineWrapper-completed:hover {
+  background-color: rgba(0, 0, 0, 0.06);
   transition: all 200ms ease-out;
 }
 
-span.goalLineSpan {
+input.goalLineInput{
+  background-color: inherit;
+  border: none;
 }
 
 div.goalsWrapper {
-  padding: 0px;
+  padding: 15px 0px 10px 0px;
   width: 55%;
   display: inline-block;
 }
@@ -290,105 +315,31 @@ div.weekPageContent-goalsdata {
   position: sticky;
   top: 25px;
   float: right;
-  width: 40%;
-  border: 2px rgb(125, 114, 255) solid;
+  width: 45%;
+  border: 2px rgba(255, 255, 255, 0.2) solid;
   border-radius: 9px;
-  margin: 12px 0px;
-  padding: 12px;
+  margin: 0px 0px;
+  padding: 0px 0px 10px 30px;
+  transition: border 200ms ease-out;
 }
 
-input.goalLineInput {
+div.weekPageContent-goalsdata:hover {
+  border: 2px rgba(255, 255, 255, 0.4) solid;
+  transition: border 200ms ease-out;
+}
+
+input.goalLineCheck {
   float: right;
-  margin: 6px;
+  margin: 3px;
   vertical-align: middle;
 }
 
-/**************************/
-/* HeroPage */
-/**************************/
-
-/* div.heropage-main {
-  margin: auto;
-  padding: 40px 0px;
+span.goalLine-deletebuttonspan {
+ float: right;
+ cursor: pointer;
+ opacity: 0.15;
 }
 
-img.heroPage-mainImage {
-  width: 100%;
+span.goalLine-deletebuttonspan:hover {
+ opacity: 0.5;
 }
-
-div.heropage-firstdiv {
-  padding: 0px 30px;
-}
-
-div.heropage-firstdiv-left {
-  width: 44%;
-  display: inline-block;
-  margin-top: 60px;
-}
-
-div.heropage-firstdiv-right {
-  float: right;
-  width: 55%;
-}
-
-
-h1.heropage-title {
-  letter-spacing: -2px;
-  font-weight: bold;
-  font-size: 4.5em;
-  margin-top: 30px;
-  color: hsl(0, 0%, 20%);
-  line-height: 1em;
-  margin-bottom: 0px;
-}
-
-p.heropage-subheader {
-  margin-top: 20px;
-  font-size: 1.6em;
-  letter-spacing: -1px;
-  color: hsl(0, 0%, 55%);
-  line-height: 1.4em;
-}
-
-span.heropage-subheader-telescope-span {
-  color: hsl(0, 0%, 25%);
-}
-
-input.heropage-form-input-email {
-  border: none;
-  width: 55%;
-  background-color: hsla(0,0%,0%,0.05);
-  border: 2px solid hsla(0,0%,0%,0.00);
-  padding: 15px;
-  border-radius: 5px;
-  margin-right: 10px;
-  font-size: 18px;
-}
-
-input.heropage-form-input-email:focus {
-  border: 2px solid hsla(0,0%,0%,0.2);
-}
-
-input.heropage-form-input-submit {
-  border: none;
-  background-color: #2d7ff9;
-  color: white;
-  padding: 15px;
-  border-radius: 5px;
-  font-size: 18px;
-}
-
-input.heropage-form-input-submit:hover {
-  cursor: pointer;
-  background-color: #135ac4;
-}
-
-p.heropage-alreadymember {
-  color: hsl(0, 0%, 50%);
-  margin-top: 20px;
-  font-size: 0.9em;
-}
-
-a.heropage-alreadymember-login {
-  color: hsl(0, 0%, 20%);
-} */

@@ -5,7 +5,7 @@ class BoardCard extends React.Component {
   render(){
     return(
       <li className="weekCard-li" >
-        <Link className="weekCard-alink" to={`/@${this.props.username}/board`} >
+        <Link className="weekCard-alink boardCard" to={`/@${this.props.username}/board`} >
           <div className="weekCard-div">
             <p className="weekCard-date">{this.props.board.title}</p>
           </div>

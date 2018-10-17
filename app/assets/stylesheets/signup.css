@@ -39,8 +39,16 @@ div.signup.form-div {
   background-color: hsla(0, 0%, 0%, 0.05);
 }
 
-input.signup.form-control {
+div.signup-form-group {
   margin-top: 15px;
+}
+
+label.signup.form-label {
+  opacity: 0.75;
+}
+
+input.signup.form-control {
+  margin-top: 5px;
   border: none;
   width: 100%;
   background-color: hsla(0,0%,0%,0.05);

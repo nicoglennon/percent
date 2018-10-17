@@ -25,7 +25,7 @@ class UserSnapshot extends React.Component {
     var currentUserSnapshot = this.props.currentUserSnapshot;
     if (currentUserSnapshot === undefined){
      displayUserInfo = <p>This page could not be found.</p>
-   } else if (currentUserSnapshot === null) {
+   } else if (currentUserSnapshot.username === null) {
      displayUserInfo = <p>Loading...</p>
    } else {
       var weeks = this.props.currentUserSnapshot.weeks;
@@ -47,13 +47,16 @@ class UserSnapshot extends React.Component {
                               render={(props) => <WeekPage {...props}
                                 username={currentUserSnapshot.username}
                                 week={weeks.filter(week => String(week.id) === props.match.params.weekId)[0]}
+                                deleteGoal={this.props.deleteGoal}
                               />}
                             />
 
                             <Route exact path="/@:username/board"
                               render={(props) => <BoardPage {...props}
                                 username={currentUserSnapshot.username}
-                                boards={currentUserSnapshot.boards}
+                                board={currentUserSnapshot.boards[0]}
+                                submitNewBoardGoal={this.props.submitNewBoardGoal}
+                                deleteGoal={this.props.deleteGoal}
                               />}
                             />
                           </Switch>

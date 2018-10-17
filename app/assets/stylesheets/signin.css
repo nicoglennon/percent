@@ -47,8 +47,16 @@ div.signin.form-div {
   background-color: hsla(0, 0%, 0%, 0.05);
 }
 
-input.signin.form-control {
+div.signin-form-group {
   margin-top: 15px;
+}
+
+label.signin.form-label {
+  opacity: 0.75;
+}
+
+input.signin.form-control {
+  margin-top: 5px;
   border: none;
   width: 100%;
   background-color: hsla(0,0%,0%,0.05);
@@ -56,6 +64,7 @@ input.signin.form-control {
   padding: 10px;
   border-radius: 5px;
 }
+
 
 input.signin.form-control:focus {
   border: 2px solid hsla(0,0%,0%,0.2);

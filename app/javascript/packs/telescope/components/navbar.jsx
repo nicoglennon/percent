@@ -14,7 +14,7 @@ class Navbar extends React.Component {
                   </div>
 
     } else if (username != undefined) {
-      topRight = <div className="navbar-float-box"><Link to={`/@${username}`}><p className="navbar-wrap-box">@{this.props.currentUser.username}</p></Link></div>
+      topRight = <div className="navbar-float-box"><a href="/logout" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><p className="navbar-wrap-box">@{this.props.currentUser.username}</p></a></div>
     }
     return(
       <div className='navbar-wrapper'>

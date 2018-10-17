@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
 
     <!-- <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
-    <!-- <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> -->
+    <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag asset_path('telescope-favicon.png'), :rel => 'icon', :type =>  'image/png' %>
 
     <% if logged_in? %>
@@ -23,9 +23,5 @@
 
   <body>
     <%= yield %>
-    <% if logged_in? %>
-      <%= current_user.username %>
-      <%= button_to "Logout", logout_path, :method => "delete", data: { confirm: 'Are you sure?' } %>
-    <% end %>
   </body>
 </html>

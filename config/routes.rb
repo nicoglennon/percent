@@ -21,10 +21,10 @@ Rails.application.routes.draw do
       resources :sessions, only: [:new, :create, :destroy]
       resources :users, only: [ :new, :create, :show ] do
         resources :weeks, only: [ :create ] do
-          resources :goals
+          resources :goals, only: [ :create, :update, :destroy ]
         end
         resources :boards, only: [ :create ] do
-          resources :goals
+          resources :goals, only: [ :create, :update, :destroy ]
         end
       end
     end

@@ -16,13 +16,17 @@ class Root extends React.Component {
       currentUserSnapshot: {
         username: null,
         weeks: [],
-        boards: []
+        boards: null
       }
     };
 
     this.fetchCurrentUserSnapshot = this.fetchCurrentUserSnapshot.bind(this);
     this.submitNewWeek = this.submitNewWeek.bind(this);
     this.addNotification = this.addNotification.bind(this);
+    this.submitNewBoardGoal = this.submitNewBoardGoal.bind(this);
+    this.deleteGoal = this.deleteGoal.bind(this);
+
+
     this.notificationDOMRef = React.createRef();
   }
 
@@ -36,6 +40,7 @@ class Root extends React.Component {
           }
         })
         .catch(error => {
+          this.setState({ currentUserSnapshot: undefined, currentUser: { username: undefined } });
           console.error(error);
         });
   }
@@ -68,6 +73,37 @@ class Root extends React.Component {
     });
   }
 
+  submitNewBoardGoal(newBoardGoal){
+    var currentUserId = this.state.currentUserSnapshot.id;
+    var self = this;
+    axios.post(`/api/v1/users/${currentUserId}/boards/${newBoardGoal.goalable_id}/goals`, newBoardGoal)
+    .then(function (response) {
+      console.log(response);
+      var currentUsername = self.state.currentUserSnapshot.username;
+      self.fetchCurrentUserSnapshot(currentUsername);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  deleteGoal(goal) {
+    var currentUserId = this.state.currentUserSnapshot.id;
+    var self = this;
+    var goalType = goal.goalable_type;
+    var cleanGoalType = goalType.toLowerCase() + 's';
+    console.log(cleanGoalType);
+    axios.delete(`/api/v1/users/${currentUserId}/${cleanGoalType}/${goal.goalable_id}/goals/${goal.id}`)
+    .then(function (response) {
+      console.log(response);
+      var currentUsername = self.state.currentUserSnapshot.username;
+      self.fetchCurrentUserSnapshot(currentUsername);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   addNotification(type, title, message) {
     this.notificationDOMRef.current.addNotification({
       title: title,
@@ -87,10 +123,11 @@ class Root extends React.Component {
       <div className="rootOuterWrapper">
         <div className="rootInnerWrapper">
           <Navbar currentUser={this.state.currentUser}/>
-          <Main currentUser={this.state.currentUser}
+          <Main currentUserSnapshot={this.state.currentUserSnapshot}
             fetchCurrentUserSnapshot={this.fetchCurrentUserSnapshot}
             submitNewWeek={this.submitNewWeek}
-            currentUserSnapshot={this.state.currentUserSnapshot}
+            submitNewBoardGoal={this.submitNewBoardGoal}
+            deleteGoal={this.deleteGoal}
           />
         </div>
         <ReactNotification ref={this.notificationDOMRef} />

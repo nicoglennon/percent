@@ -1,5 +1,5 @@
 div.navbar-wrapper {
-  padding: 5px 15px;
+  padding: 5px 30px;
   margin-bottom: 30px;
   color: hsl(0, 0%, 25%);
 }
@@ -13,6 +13,14 @@ img.navbar-telescope-logo {
   width: 30px;
   height: 30px;
   transition: transform 150ms ease-out;
+}
+
+img.navbar-logo {
+  position: fixed;
+  top: 14px;
+  left: 168px;
+  height: 50px;
+  z-index: -90;
 }
 
 img.navbar-telescope-logo:hover {
@@ -42,25 +50,32 @@ p.navbar-wrap-box {
   margin: 0 10px;
 }
 
+p.navbar-sign-in {
+  margin: 0px;
+  padding: 10px 10px;
+}
+
 p.navbar-sign-in:hover {
   text-decoration: underline;
 }
 
 p.navbar-sign-up {
+  margin: 0px;
   border: 1px hsl(0, 0%, 25%) solid;
   border-radius: 5px;
-  padding: 8px 10px;
+  padding: 10px 10px;
   transition: border 150ms ease-out, background-color 150ms ease-out, color 150ms ease-out;
 }
 
 p.navbar-sign-up:hover {
-  border: 1px hsl(340, 100%, 56%) solid;
-  background-color: hsl(340, 100%, 56%);
+  border: 1px #00d7ae solid;
+  background-color: #00d7ae;
   color: white;
   transition: all 150ms ease-out;
 }
 
 a.navbar-signup-link {
+  margin-left: 20px;
   text-decoration: none;
   color: inherit;
 }

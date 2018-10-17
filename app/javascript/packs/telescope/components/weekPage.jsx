@@ -19,7 +19,8 @@ class WeekPage extends React.Component {
     if (week === undefined || week === null){
       content = <p>Loading...</p>;
     } else {
-      content = <WeekPageContent week={week} />
+      content = <WeekPageContent week={week} deleteGoal={this.props.deleteGoal} />
+
     }
     return(
       <ReactModal

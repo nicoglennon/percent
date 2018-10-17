@@ -5,9 +5,10 @@ class WeekPageContent extends React.Component {
   render(){
     var goalsToDisplay;
     if (this.props && this.props.week.goals){
+      var self = this;
       var goalsToDisplay = this.props.week.goals.map( function(goal){
         return(
-          <GoalLine goal={goal} key={goal.id}/>
+          <GoalLine goal={goal} key={goal.id} showCheckbox={true} deleteGoal={self.props.deleteGoal} />
         )
       })
     }

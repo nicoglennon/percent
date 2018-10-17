@@ -1,7 +1,6 @@
 class Api::V1::SessionsController < ApplicationController
 
   def new
-    p logged_in?
     if logged_in?
       redirect_to '/@' + current_user.username
     end
@@ -18,9 +17,7 @@ class Api::V1::SessionsController < ApplicationController
   end
 
   def destroy
-    p 'destroyed!'
     logout
-    flash[:success] = 'See you!'
     redirect_to login_path
   end
 end

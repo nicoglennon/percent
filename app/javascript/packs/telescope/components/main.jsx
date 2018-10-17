@@ -17,7 +17,11 @@ class Main extends React.Component {
           <Route exact path="/register" component={RegisterPage} />
           <Route path="/@:username" render={(props) => <UserSnapshot {...props}
               fetchCurrentUserSnapshot={this.props.fetchCurrentUserSnapshot}
-              submitNewWeek={this.props.submitNewWeek} currentUser={this.props.currentUser} currentUserSnapshot={this.props.currentUserSnapshot} />} />
+              submitNewWeek={this.props.submitNewWeek}
+              submitNewBoardGoal={this.props.submitNewBoardGoal}
+              deleteGoal={this.props.deleteGoal}
+              currentUserSnapshot={this.props.currentUserSnapshot} />} />
+
           <Route component={NoMatch} />
         </Switch>
       </div>
