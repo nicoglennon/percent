@@ -1,4 +1,5 @@
 import React from 'react';
+import ContentEditable from 'react-contenteditable';
 
 class GoalLine extends React.Component {
   constructor(){
@@ -12,6 +13,7 @@ class GoalLine extends React.Component {
     this.handleHoverGoal = this.handleHoverGoal.bind(this);
     this.handleUnhoverGoal = this.handleUnhoverGoal.bind(this);
     this.handleGoalInputChange = this.handleGoalInputChange.bind(this);
+    this.handleGoalInputBlur = this.handleGoalInputBlur.bind(this);
   }
 
   componentDidMount(){
@@ -24,6 +26,15 @@ class GoalLine extends React.Component {
     this.setState({
       goalInput: e.target.value
     })
+  }
+
+  handleGoalInputBlur(){
+    console.log(this.props.goal.title);
+    console.log(this.state.goalInput);
+
+    if (this.state.goalInput !== this.props.goal.title){
+      this.props.updateGoal(this.props.goal, this.state.goalInput)
+    }
   }
 
   handleDeleteGoal() {
@@ -59,7 +70,12 @@ class GoalLine extends React.Component {
     }
     return(
       <div className={'goalLineWrapper' + goalLineWrapperStyling} onMouseOver={this.handleHoverGoal} onMouseLeave={this.handleUnhoverGoal}>
-        <input className="goalLineInput" value={this.state.goalInput} onChange={this.handleGoalInputChange} />
+        <ContentEditable
+          className="goalLineInput"
+          onChange={this.handleGoalInputChange}
+          onBlur={this.handleGoalInputBlur}
+          html={this.state.goalInput}
+        />
         {deleteGoalButton}
         {checkbox}
       </div>

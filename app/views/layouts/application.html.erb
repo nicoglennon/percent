@@ -4,7 +4,6 @@
     <title>Telescope</title>
     <%= csrf_meta_tags %>
 
-    <!-- <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag asset_path('telescope-favicon.png'), :rel => 'icon', :type =>  'image/png' %>
 
@@ -14,7 +13,7 @@
       <%= stylesheet_pack_tag 'telescope/assets/stylesheets/app' %>
       <%= stylesheet_pack_tag 'telescope/assets/stylesheets/notifications' %>
     <% else %>
-      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag 'application', media: 'all' %>
     <% end %>
 
     <!-- Google Fonts -->

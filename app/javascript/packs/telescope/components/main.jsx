@@ -20,6 +20,7 @@ class Main extends React.Component {
               submitNewWeek={this.props.submitNewWeek}
               submitNewBoardGoal={this.props.submitNewBoardGoal}
               deleteGoal={this.props.deleteGoal}
+              updateGoal ={this.props.updateGoal}
               currentUserSnapshot={this.props.currentUserSnapshot} />} />
 
           <Route component={NoMatch} />

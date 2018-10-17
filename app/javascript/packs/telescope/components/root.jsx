@@ -25,6 +25,7 @@ class Root extends React.Component {
     this.addNotification = this.addNotification.bind(this);
     this.submitNewBoardGoal = this.submitNewBoardGoal.bind(this);
     this.deleteGoal = this.deleteGoal.bind(this);
+    this.updateGoal = this.updateGoal.bind(this);
 
 
     this.notificationDOMRef = React.createRef();
@@ -87,6 +88,22 @@ class Root extends React.Component {
     });
   }
 
+  updateGoal(goal, newHtml){
+    var currentUserId = this.state.currentUserSnapshot.id;
+    var self = this;
+    var goalType = goal.goalable_type;
+    var cleanGoalType = goalType.toLowerCase() + 's';
+    axios.put(`/api/v1/users/${currentUserId}/${cleanGoalType}/${goal.goalable_id}/goals/${goal.id}`, {title: newHtml})
+    .then(function (response) {
+      console.log(response);
+      var currentUsername = self.state.currentUserSnapshot.username;
+      self.fetchCurrentUserSnapshot(currentUsername);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   deleteGoal(goal) {
     var currentUserId = this.state.currentUserSnapshot.id;
     var self = this;
@@ -128,6 +145,7 @@ class Root extends React.Component {
             submitNewWeek={this.submitNewWeek}
             submitNewBoardGoal={this.submitNewBoardGoal}
             deleteGoal={this.deleteGoal}
+            updateGoal ={this.updateGoal}
           />
         </div>
         <ReactNotification ref={this.notificationDOMRef} />

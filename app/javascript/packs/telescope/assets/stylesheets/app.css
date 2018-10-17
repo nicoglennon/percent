@@ -218,10 +218,11 @@ input.newWeekPage-form-percentage {
 }
 
 input.boardPageContent-newGoalForm-title {
+  color: inherit;
   border: 2px solid rgba(0, 0, 0, .1);
   width: 100%;
   background-color: inherit;
-  font-size: 18px;
+  font-size: 17px;
   padding: 10px;
   border-radius: 4px;
 }
@@ -249,13 +250,13 @@ h2.weekPageContent-date {
 }
 
 p.weekPageContent-numberofgoals {
-  font-size: 30px;
+  font-size: 26px;
   margin: 20px 0px;
 }
 
 div.weekPageContent-wrapper {
   /* height: 100%; */
-  padding: 5px;
+  padding: 10px;
 }
 
 button,input:focus {outline:0;}
@@ -301,9 +302,11 @@ div.goalLineWrapper.goalLineWrapper-completed:hover {
   transition: all 200ms ease-out;
 }
 
-input.goalLineInput{
-  background-color: inherit;
+div.goalLineInput{
+  background-color: none;
   border: none;
+  width: 90%;
+  display: inline-block;
 }
 
 div.goalsWrapper {
@@ -335,7 +338,9 @@ input.goalLineCheck {
 }
 
 span.goalLine-deletebuttonspan {
+  padding: 2px;
  float: right;
+ display: inline-block;
  cursor: pointer;
  opacity: 0.15;
 }

@@ -32,9 +32,10 @@ class BoardPageContent extends React.Component {
 
   handleSubmitNewBoardGoal(e) {
     e.preventDefault();
-    console.log(this.props.board.id);
-    this.props.submitNewBoardGoal(this.state.newGoalForm);
-    this.clearNewBoardForm();
+    if (this.state.newGoalForm.title !== '' ) {
+      this.props.submitNewBoardGoal(this.state.newGoalForm);
+      this.clearNewBoardForm();
+    }
   }
 
   clearNewBoardForm(){
@@ -55,7 +56,7 @@ class BoardPageContent extends React.Component {
       var self = this;
       var goalsToDisplay = this.props.board.goals.map( function(goal){
         return(
-          <GoalLine goal={goal} key={goal.id} showCheckbox={false} deleteGoal={self.props.deleteGoal} />
+          <GoalLine goal={goal} key={goal.id} showCheckbox={false} updateGoal={self.props.updateGoal} deleteGoal={self.props.deleteGoal} />
         )
       })
     }
@@ -73,7 +74,7 @@ class BoardPageContent extends React.Component {
           <form onSubmit={this.handleSubmitNewBoardGoal} className="boardPageContent-newGoalForm">
             <input type="text" name="newGoal" value={this.state.newGoalForm.title} onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
           </form>
-          <p className="weekPageContent-numberofgoals"><strong>{numberOfGoals}</strong> goals</p>
+          <p className="weekPageContent-numberofgoals"> goals <strong>{numberOfGoals}</strong></p>
         </div>
       </div>
     )

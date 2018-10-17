@@ -28,7 +28,26 @@ class Api::V1::UsersController < ApplicationController
   def show
     if logged_in? && current_user.username == params[:id]
       @user = User.find_by_username(params[:id])
-      render :json => @user, :except => [:email, :crypted_password, :salt, :created_at, :updated_at], :include => [{ :weeks => { :include => :goals }}, { :boards => { :include => :goals} } ]
+      render :json => @user,
+                        :except => [:email, :crypted_password, :salt, :created_at, :updated_at],
+                        :include => [
+                          { :weeks => {
+                              :include => :goals
+                            }
+                          },
+                          { :boards => {
+                              :include => [
+                                :goals => {
+                                  :except => [
+                                    :created_at,
+                                    :updated_at
+                                  ]
+                                }
+                              ]
+                            }
+                          }
+                        ]
+
     elsif logged_in? && current_user.username != params[:id]
       redirect_to '/@' + current_user.username
     else

@@ -48,6 +48,7 @@ class UserSnapshot extends React.Component {
                                 username={currentUserSnapshot.username}
                                 week={weeks.filter(week => String(week.id) === props.match.params.weekId)[0]}
                                 deleteGoal={this.props.deleteGoal}
+                                updateGoal ={this.props.updateGoal}
                               />}
                             />
 
@@ -57,6 +58,7 @@ class UserSnapshot extends React.Component {
                                 board={currentUserSnapshot.boards[0]}
                                 submitNewBoardGoal={this.props.submitNewBoardGoal}
                                 deleteGoal={this.props.deleteGoal}
+                                updateGoal ={this.props.updateGoal}
                               />}
                             />
                           </Switch>
