@@ -23,6 +23,7 @@ class WeekPage extends React.Component {
 
     }
     return(
+      
       <ReactModal
            isOpen={true}
            contentLabel="onRequestClose Example"
@@ -32,8 +33,8 @@ class WeekPage extends React.Component {
            className="weekPage-container"
            style={{content: {overflow: 'scroll'}}}
         >
-          {content}
-        </ReactModal>
+        {content}
+      </ReactModal>
     )
   }
 }

@@ -14,3 +14,7 @@ html {
 a:visited {
   color: inherit;
 }
+
+*:focus {
+  outline: 0;
+}

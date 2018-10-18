@@ -86,6 +86,10 @@ input.signin.btn:hover {
   background-color: #135ac4;
 }
 
+input.signin.btn:focus {
+  background-color: #135ac4;
+}
+
 p.signin.not-member-yet {
   color: hsl(0, 0%, 50%);
   font-size: 0.9em;

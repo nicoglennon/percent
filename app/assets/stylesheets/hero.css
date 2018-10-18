@@ -82,6 +82,10 @@ input.heropage-form-input-submit:hover {
   transition: background-color 150ms ease-out;
 }
 
+input.heropage-form-input-submit:focus {
+  background-color: #135ac4;
+}
+
 p.heropage-alreadymember {
   color: hsl(0, 0%, 50%);
   margin-top: 20px;

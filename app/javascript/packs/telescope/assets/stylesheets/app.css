@@ -151,6 +151,7 @@ li.weekCard-li {
 ul.weekCardsWrapper-ul {
   padding: 0px;
   margin-bottom: 0px;
+  margin-top: 12px;
   max-width: 1200px;
 }
 
@@ -158,12 +159,12 @@ div.weekPage-background {
   position:fixed;
   width:100%;
   left:0;right:0;top:0;bottom:0;
-  background-color: rgba(125, 114, 255, 0.9);
+  background-color: rgba(125, 114, 255, 0.925);
   z-index:9;
 }
 
 div.weekPage-background.boardPage-background {
-  background-color: rgba(253, 122, 134, 0.9);
+  background-color: rgba(253, 122, 134, 0.925);
 }
 
 div.weekPage-container {
@@ -181,8 +182,11 @@ div.weekPage-container {
   z-index:11;
 }
 
-div.weekPage-container.boardPage-container{
-  background-color: white;
+div.weekPage-container-closemodal.boardPage-container-closemodal {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  /* color: white; */
 }
 
 div.newWeekPage-container {
@@ -218,22 +222,21 @@ input.newWeekPage-form-percentage {
 }
 
 input.boardPageContent-newGoalForm-title {
+  border: 0px;
   color: inherit;
-  border: 2px solid rgba(0, 0, 0, .1);
   width: 100%;
-  background-color: inherit;
+  background-color: rgba(0, 0, 0, .03);
   font-size: 17px;
-  padding: 10px;
+  padding: 12px;
   border-radius: 4px;
 }
 
 input.boardPageContent-newGoalForm-title:hover {
-  border: 2px solid rgba(0, 0, 0, .2);
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 
 input.boardPageContent-newGoalForm-title:focus {
-  border: 2px solid rgba(0, 0, 0, 0);
   background-color: rgba(0, 0, 0, .05);
 }
 
@@ -255,8 +258,7 @@ p.weekPageContent-numberofgoals {
 }
 
 div.weekPageContent-wrapper {
-  /* height: 100%; */
-  padding: 10px;
+  padding: 0px;
 }
 
 button,input:focus {outline:0;}
@@ -322,7 +324,7 @@ div.weekPageContent-goalsdata {
   border: 2px rgba(255, 255, 255, 0.2) solid;
   border-radius: 9px;
   margin: 0px 0px;
-  padding: 0px 0px 10px 30px;
+  padding: 0px 0px 10px 25px;
   transition: border 200ms ease-out;
 }
 
@@ -338,7 +340,7 @@ input.goalLineCheck {
 }
 
 span.goalLine-deletebuttonspan {
-  padding: 2px;
+  padding: 1px;
  float: right;
  display: inline-block;
  cursor: pointer;
@@ -346,5 +348,5 @@ span.goalLine-deletebuttonspan {
 }
 
 span.goalLine-deletebuttonspan:hover {
- opacity: 0.5;
+ opacity: 0.7;
 }
