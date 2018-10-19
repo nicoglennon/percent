@@ -172,14 +172,14 @@ class NewWeekPage extends React.Component {
         style={{content: {overflow: 'scroll'}}}
         >
         <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
-
         <div className="weekPageContent-wrapper">
           <div className="goalsWrapper">
             {goalsToDisplay}
           </div>
 
           <div className="weekPageContent-goalsdata">
-            <p className="weekPageContent-newgoallabel">New Goal</p>
+            <h2 className="weekPageContent-date">New Week</h2>
+            <p className="weekPageContent-newgoallabel">Add Goal</p>
             <form onSubmit={this.handleSubmitNewWeekGoal} className="boardPageContent-newGoalForm">
               <input type="text" name="newGoal" value={this.state.newGoalForm.title} onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
             </form>
