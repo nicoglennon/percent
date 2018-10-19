@@ -70,6 +70,7 @@ class GoalLine extends React.Component {
     }
     return(
       <div className={'goalLineWrapper' + goalLineWrapperStyling} onMouseOver={this.handleHoverGoal} onMouseLeave={this.handleUnhoverGoal}>
+        {checkbox}
         <ContentEditable
           className="goalLineInput"
           onChange={this.handleGoalInputChange}
@@ -77,7 +78,6 @@ class GoalLine extends React.Component {
           html={this.state.goalInput}
         />
         {deleteGoalButton}
-        {checkbox}
       </div>
     )
   }

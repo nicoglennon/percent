@@ -38,6 +38,7 @@ class UserSnapshot extends React.Component {
                             <Route exact path="/@:username/weeks/new"
                               render={(props) => <NewWeekPage {...props}
                                 currentUser={currentUserSnapshot}
+                                board={currentUserSnapshot.boards[0]}
                                 template={'template'}
                                 submitNewWeek={this.props.submitNewWeek}
                               />}

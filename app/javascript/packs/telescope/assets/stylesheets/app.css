@@ -190,13 +190,12 @@ div.weekPage-container-closemodal.boardPage-container-closemodal {
 }
 
 div.newWeekPage-container {
-  min-height: 85%;
+  height: 85%;
   margin: auto;
   vertical-align: center;
-  background-color: #ffb936;
+  background-color: white;
   padding: 20px;
-  color: white;
-  max-width: 700px;
+  max-width: 900px;
   border-radius: 9px;
   position: relative;
   top: 50%;
@@ -265,8 +264,8 @@ button,input:focus {outline:0;}
 
 button.weekPage-closeModal {
   font-size: 28px;
-  color: white;
-  opacity: 0.5;
+  color: black;
+  opacity: 0.1;
   float: right;
   display: inline-block;
   border: none;
@@ -276,7 +275,7 @@ button.weekPage-closeModal {
 }
 
 button.weekPage-closeModal:hover {
-  opacity: 1;
+  opacity: 0.5;
   transition: all 150ms ease-out;
 }
 
@@ -307,7 +306,7 @@ div.goalLineWrapper.goalLineWrapper-completed:hover {
 div.goalLineInput{
   background-color: none;
   border: none;
-  width: 90%;
+  width: 85%;
   display: inline-block;
 }
 
@@ -334,8 +333,8 @@ div.weekPageContent-goalsdata:hover {
 }
 
 input.goalLineCheck {
-  float: right;
-  margin: 3px;
+  float: left;
+  margin: 1px 10px 1px 1px;
   vertical-align: middle;
 }
 

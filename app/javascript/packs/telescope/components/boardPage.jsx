@@ -22,21 +22,20 @@ class BoardPage extends React.Component {
       content = <BoardPageContent board={board} submitNewBoardGoal={this.props.submitNewBoardGoal} deleteGoal={this.props.deleteGoal} updateGoal ={this.props.updateGoal} />
     }
     return(
-      <div>
-        <ReactModal
-             isOpen={true}
-             contentLabel="onRequestClose Example"
-             onRequestClose={this.handleCloseModal}
-             shouldCloseOnOverlayClick={true}
-             overlayClassName="weekPage-background boardPage-background"
-             className="weekPage-container boardPage-container"
-             style={{content: {overflow: 'scroll'}}}
-          >
-          <div>
-            {content}
-          </div>
-        </ReactModal>
-      </div>
+      <ReactModal
+        isOpen={true}
+        contentLabel="onRequestClose Example"
+        onRequestClose={this.handleCloseModal}
+        shouldCloseOnOverlayClick={true}
+        overlayClassName="weekPage-background boardPage-background"
+        className="weekPage-container boardPage-container"
+        style={{content: {overflow: 'scroll'}}}
+        >
+        <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
+        <div>
+          {content}
+        </div>
+      </ReactModal>
     )
   }
 }
