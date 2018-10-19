@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactModal from 'react-modal';
 import GoalLine from './goalLine';
+import shortid from 'shortid';
 
 class NewWeekPage extends React.Component {
   constructor(){
@@ -15,8 +16,7 @@ class NewWeekPage extends React.Component {
       newGoalForm: {
         title: '',
         goalable_type: 'Week'
-      },
-      todoCounter = 0;
+      }
     };
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleNewGoalInputChange = this.handleNewGoalInputChange.bind(this);
@@ -32,6 +32,7 @@ class NewWeekPage extends React.Component {
     var goals = this.props.board.goals;
     var newGoals = goals.map((goal, index) => {
       goal.id = index;
+      goal.shortid = shortid.generate();
       return goal;
     })
     this.setState((prevState) =>({
@@ -71,6 +72,7 @@ class NewWeekPage extends React.Component {
   submitNewWeekGoal(newGoalForm){
     var goals_attributes = this.state.newWeek.goals_attributes;
     newGoalForm.id = goals_attributes.length;
+    newGoalForm.shortid = shortid.generate();
     goals_attributes.push(newGoalForm);
     this.setState((prevState) =>({
       newWeek: {
@@ -128,7 +130,7 @@ class NewWeekPage extends React.Component {
       } else {
         goalsToDisplay = this.state.newWeek.goals_attributes.map( function(goal){
           return(
-            <GoalLine goal={goal} key={goal.id} showCheckbox={true} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} />
+            <GoalLine goal={goal} key={goal.shortid} showCheckbox={true} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} />
           )
         })
       }
