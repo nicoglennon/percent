@@ -25,14 +25,15 @@ class NewWeekPage extends React.Component {
     this.updateGoalLine = this.updateGoalLine.bind(this);
     this.deleteGoalLine = this.deleteGoalLine.bind(this);
     this.submitNewWeekGoal = this.submitNewWeekGoal.bind(this);
+    this.updateCheckbox = this.updateCheckbox.bind(this);
   }
 
   componentDidMount(){
-    console.log("component mounted");
     var goals = this.props.board.goals;
     var newGoals = goals.map((goal, index) => {
       goal.id = index;
       goal.shortid = shortid.generate();
+      goal.completed = false;
       return goal;
     })
     this.setState((prevState) =>({
@@ -40,10 +41,6 @@ class NewWeekPage extends React.Component {
         date: prevState.newGoalForm.date,
         goals_attributes: newGoals,
         percentage: 0
-      },
-      newGoalForm: {
-        title: '',
-        goalable_type: 'Week'
       }
     }));
   }
@@ -94,8 +91,40 @@ class NewWeekPage extends React.Component {
     }
   }
 
-  updateGoalLine(goal, goalInput){
+  updateGoalLine(updatedGoal, updatedlInput){
     // edit the goalLine with the same key?
+    var goalsAttributes = this.state.newWeek.goals_attributes;
+    var editedGoals = goalsAttributes.map((goal) => {
+      if(goal.shortid === updatedGoal.shortid){
+        goal.title = updatedlInput;
+      }
+      return goal;
+    })
+    this.setState((prevState) =>({
+      newWeek: {
+        date: prevState.newWeek.date,
+        goals_attributes: editedGoals,
+        percentage: prevState.newWeek.percentage
+      }
+    }));
+    console.log(this.state.newWeek.goals_attributes);
+  }
+
+  updateCheckbox(updatedGoal, checkboxValue){
+    var goalsAttributes = this.state.newWeek.goals_attributes;
+    var updatedGoals = goalsAttributes.map((goal) => {
+      if(updatedGoal.id === goal.id){
+        goal.completed = checkboxValue;
+      }
+      return goal;
+    })
+    this.setState((prevState) =>({
+      newWeek: {
+        date: prevState.newWeek.date,
+        goals_attributes: updatedGoals,
+        percentage: prevState.newWeek.percentage
+      }
+    }));
   }
 
   deleteGoalLine(goal){
@@ -110,10 +139,6 @@ class NewWeekPage extends React.Component {
         date: prevState.newWeek.date,
         goals_attributes: indexedGoals,
         percentage: prevState.newWeek.percentage
-      },
-      newGoalForm: {
-        title: prevState.newGoalForm.title,
-        goalable_type: 'Week'
       }
     }));
   }
@@ -130,7 +155,7 @@ class NewWeekPage extends React.Component {
       } else {
         goalsToDisplay = this.state.newWeek.goals_attributes.map( function(goal){
           return(
-            <GoalLine goal={goal} key={goal.shortid} showCheckbox={true} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} />
+            <GoalLine goal={goal} key={goal.shortid} showCheckbox={true} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} updateCheckbox={self.updateCheckbox} />
           )
         })
       }

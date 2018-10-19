@@ -6,7 +6,8 @@ class GoalLine extends React.Component {
     super();
     this.state = {
       isHovered: false,
-      goalInput: ''
+      goalInput: '',
+      isChecked: false
     }
 
     this.handleDeleteGoal = this.handleDeleteGoal.bind(this);
@@ -14,6 +15,7 @@ class GoalLine extends React.Component {
     this.handleUnhoverGoal = this.handleUnhoverGoal.bind(this);
     this.handleGoalInputChange = this.handleGoalInputChange.bind(this);
     this.handleGoalInputBlur = this.handleGoalInputBlur.bind(this);
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
   }
 
   componentDidMount(){
@@ -29,9 +31,6 @@ class GoalLine extends React.Component {
   }
 
   handleGoalInputBlur(){
-    console.log(this.props.goal.title);
-    console.log(this.state.goalInput);
-
     if (this.state.goalInput !== this.props.goal.title){
       this.props.updateGoal(this.props.goal, this.state.goalInput)
     }
@@ -53,6 +52,13 @@ class GoalLine extends React.Component {
     })
   }
 
+  handleCheckboxChange(e){
+    this.setState({
+      isChecked: e.target.checked
+    });
+    this.props.updateCheckbox(this.props.goal, e.target.checked);
+  }
+
   render(){
 
     var goalLineWrapperStyling = '';
@@ -63,7 +69,7 @@ class GoalLine extends React.Component {
     }
 
     if (this.props && this.props.showCheckbox) {
-      checkbox = <input className="goalLineCheck" type="checkbox" checked={this.props.goal.completed} />
+      checkbox = <input className="goalLineCheck" type="checkbox" checked={this.props.goal.completed} onChange={this.handleCheckboxChange} />
       if (this.props && this.props.goal.completed) {
         goalLineWrapperStyling = ' goalLineWrapper-completed';
       }
