@@ -69,15 +69,17 @@ class BoardPageContent extends React.Component {
     return(
       <div className="weekPageContent-wrapper">
         <div className="goalsWrapper">
+          <div className="weekPageContent-newGoalFormWrapper">
+            <form onSubmit={this.handleSubmitNewBoardGoal} className="boardPageContent-newGoalForm">
+              <input type="text" name="newGoal" value={this.state.newGoalForm.title} placeholder="Add new goal" onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
+              <button className="weekPage-addNewGoalButton" onClick={this.handleSubmitNewBoardGoal}>Add</button>
+            </form>
+          </div>
           {goalsToDisplay}
+          <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>
         </div>
         <div className="weekPageContent-goalsdata">
           <h2 className="weekPageContent-date">{this.props.board.title}</h2>
-          <p className="weekPageContent-newgoallabel">Add a Goal</p>
-          <form onSubmit={this.handleSubmitNewBoardGoal} className="boardPageContent-newGoalForm">
-            <input type="text" name="newGoal" value={this.state.newGoalForm.title} onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
-          </form>
-          <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>
         </div>
       </div>
     )

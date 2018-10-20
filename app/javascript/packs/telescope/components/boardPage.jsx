@@ -31,8 +31,8 @@ class BoardPage extends React.Component {
         className="weekPage-container boardPage-container"
         style={{content: {overflow: 'scroll'}}}
         >
-        <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
         <div>
+          <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
           {content}
         </div>
       </ReactModal>
