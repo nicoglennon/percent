@@ -45,7 +45,7 @@ class NewWeekPage extends React.Component {
       },
       hoverRange: undefined,
       selectedDays: [],
-      circleColor: '#FE8C6A'
+      lineColor: 'rgba(0,0,0, 0.7)'
     };
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleNewGoalInputChange = this.handleNewGoalInputChange.bind(this);
@@ -80,8 +80,17 @@ class NewWeekPage extends React.Component {
   }
 
   handleSubmitNewWeek(e){
+    console.log(this.state);
     e.preventDefault();
-    this.props.submitNewWeek(this.state);
+    // cleanse the state data before sending the week object!
+    // 1. clean the goals
+    // 2. Make sure a week can take multiple attached goals in the backend (allowe_nested thing)
+
+    var cleanWeek = {
+
+    }
+
+    this.props.submitNewWeek(cleanWeek);
   }
 
   handleNewGoalInputChange(e){
@@ -154,13 +163,8 @@ class NewWeekPage extends React.Component {
     var color;
     if(currentGoals.length > 0){
       percent = Math.round(checkedGoals.length/currentGoals.length*100);
-      if(percent < 33){
-        color = '#FE8C6A';
-      } else if(percent >= 33 && percent < 66){
-        color = '#3FC7FA';
-      } else {
-        color = '#85D262'
-      }
+      var hue=Math.round(((345 - (percent/100)*200)).toString(10));
+      color = ["hsla(",hue,",100%,40%, 0.8)"].join("");
     }
     this.setState( (prevState) => ({
       newWeek: {
@@ -168,7 +172,7 @@ class NewWeekPage extends React.Component {
         goals_attributes: currentGoals,
         percentage: percent
       },
-      circleColor: color
+      lineColor: color
     }));
   }
 
@@ -219,7 +223,6 @@ class NewWeekPage extends React.Component {
 
   render(){
     const { hoverRange, selectedDays } = this.state;
-
     const daysAreSelected = selectedDays.length > 0;
 
     const modifiers = {
@@ -259,7 +262,7 @@ class NewWeekPage extends React.Component {
         shouldCloseOnOverlayClick={true}
         overlayClassName="newWeekPage-background"
         className="newWeekPage-container"
-        style={{content: {overflow: 'scroll'}}}
+        style={{content: {overflow: 'scroll'}, overlay: {backgroundColor: this.state.lineColor, transition: 'background-color 500ms ease-out'}}}
         >
         <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
         <div className="weekPageContent-wrapper">
@@ -285,12 +288,14 @@ class NewWeekPage extends React.Component {
               <div className="weekPage-progressLineContainer">
                 <Line
                   percent={this.state.newWeek.percentage}
-                  strokeWidth="10"
+                  strokeWidth="2"
+                  trailWidth="2"
                   strokeLinecap="round"
-                  strokeColor={this.state.circleColor}
+                  strokeColor={this.state.lineColor}
                 />
               </div>
             </div>
+            <button className="newWeekPage-submitNewWeekButton" onClick={this.handleSubmitNewWeek}>Save Week</button>
           </div>
 
           <div className="goalsWrapper">

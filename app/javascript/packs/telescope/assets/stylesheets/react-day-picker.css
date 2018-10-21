@@ -36,7 +36,7 @@
 .DayPicker-NavButton {
   position: absolute;
   top: 1em;
-  right: 1.5em;
+  right: 0.5em;
   left: auto;
 
   display: inline-block;

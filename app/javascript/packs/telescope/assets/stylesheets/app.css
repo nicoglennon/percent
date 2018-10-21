@@ -276,8 +276,9 @@ h2.weekPageContent-date {
 }
 
 p.weekPageContent-percentageText {
-  font-size: 20px;
-  margin: 2px 0px;
+  font-size: 40px;
+  margin: 0px;
+  margin-bottom: -10px;
   display: inline-block;
 }
 
@@ -309,6 +310,7 @@ button.weekPage-closeModal {
 }
 
 button.weekPage-addNewGoalButton {
+  cursor: pointer;
   padding: 12px;
   float: right;
   background-color: hsl(0, 0%, 25%);
@@ -318,18 +320,12 @@ button.weekPage-addNewGoalButton {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
+  transition: background-color 200ms ease-out;
 }
 
 button.weekPage-addNewGoalButton:hover {
-  padding: 12px;
-  float: right;
-  background-color: hsl(0, 0%, 25%);
-  border: 1px hsl(0, 0%, 25%) solid;
-  color: white;
-  border-radius: 9px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
+  background-color: hsl(0, 0%, 35%);
+  transition: background-color 150ms ease-out;
 }
 
 button.weekPage-closeModal:hover {
@@ -369,7 +365,7 @@ div.goalLineInput{
 }
 
 div.goalsWrapper {
-  padding: 0px 0px 250px 0px;
+  padding: 0px 0px 155px 0px;
   width: 66%;
   display: inline-block;
 }
@@ -378,7 +374,7 @@ div.weekPageContent-goalsdata {
   position: sticky;
   top: 30px;
   width: 34%;
-  margin: 70px 0px 0px 0px;
+  margin: 130px 0px 0px 0px;
   padding: 0px 20px 10px 0px;
 }
 
@@ -407,12 +403,26 @@ div.weekPageContent-datepicker-wrapper {
 }
 
 div.weekPage-progressLineContainer {
-  margin-top: 4px;
-  width: 79%;
-  display: inline-block;
-  float: right;
 }
 
 div.weekPageContent-percentagesWrapper {
-  padding: 0px 15px 0px 5px;
+  padding: 0px 15px 0px 5px
+}
+
+button.newWeekPage-submitNewWeekButton {
+  cursor: pointer;
+  margin: 20px 0px;
+  padding: 12px;
+  background-color: hsl(0, 0%, 25%);
+  border: 1px hsl(0, 0%, 25%) solid;
+  color: white;
+  border-radius: 9px;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 200ms ease-out;
+}
+
+button.newWeekPage-submitNewWeekButton:hover {
+  background-color: hsl(0, 0%, 35%);
+  transition: background-color 150ms ease-out;
 }
