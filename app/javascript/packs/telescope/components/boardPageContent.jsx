@@ -1,5 +1,6 @@
 import React from 'react';
 import GoalLine from './goalLine';
+import NoGoals from '../assets/images/nogoals.gif';
 
 class BoardPageContent extends React.Component {
   constructor(){
@@ -56,7 +57,11 @@ class BoardPageContent extends React.Component {
       var self = this;
 
       if (numberOfGoals === 0) {
-        goalsToDisplay = <p>No goals yet.</p>
+        goalsToDisplay = <div className="boardPageContent-noGoalsDiv">
+        <img className="boardPageContent-noGoalsImg" src={NoGoals} />
+        <p className="boardPageContent-noGoalsText">No goals yet! <br />Add a new one above.</p>
+        </div>
+
       } else {
         goalsToDisplay = this.props.board.goals.map( function(goal){
           return(

@@ -228,6 +228,27 @@ input.newWeekPage-form-percentage {
   border: none;
 }
 
+div.boardPageContent-noGoalsDiv {
+  margin-left: 30%;
+  margin-top: 60px;
+  width: 40%;
+  text-align: center;
+  display: inline-block;
+}
+
+img.boardPageContent-noGoalsImg {
+  height: 300px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+p.boardPageContent-noGoalsText {
+  text-align: center;
+  font-size: 20px;
+  margin: 0px;
+  color: hsl(0, 0%, 45%);
+}
+
 form.boardPageContent-newGoalForm {
 }
 
@@ -365,7 +386,7 @@ div.goalLineInput{
 }
 
 div.goalsWrapper {
-  padding: 0px 0px 155px 0px;
+  padding: 0px 0px 90px 0px;
   width: 66%;
   display: inline-block;
 }
@@ -374,7 +395,7 @@ div.weekPageContent-goalsdata {
   position: sticky;
   top: 30px;
   width: 34%;
-  margin: 130px 0px 0px 0px;
+  margin: 100px 0px 0px 0px;
   padding: 0px 20px 10px 0px;
 }
 

@@ -6,6 +6,7 @@ import shortid from 'shortid';
 import DayPicker from 'react-day-picker';
 import moment from 'moment';
 import { Line } from 'rc-progress';
+import NoGoals from '../assets/images/nogoals.gif';
 
 function getWeekDays(weekStart) {
   const days = [weekStart];
@@ -244,7 +245,10 @@ class NewWeekPage extends React.Component {
       var self = this;
 
       if (numberOfGoals === 0) {
-        goalsToDisplay = <p>No goals yet.</p>
+        goalsToDisplay = <div className="boardPageContent-noGoalsDiv">
+        <img className="boardPageContent-noGoalsImg" src={NoGoals} />
+        <p className="boardPageContent-noGoalsText">No goals yet! <br />Add a new one above.</p>
+        </div>
       } else {
         goalsToDisplay = this.state.newWeek.goals_attributes.map( function(goal){
           return(
