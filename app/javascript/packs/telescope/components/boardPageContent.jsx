@@ -26,7 +26,7 @@ class BoardPageContent extends React.Component {
       newGoalForm: {
         title: value,
         goalable_id: props.board.id,
-        goalable_type: prevState.newGoalForm.goalable_type
+        goalable_type: prevState.newGoalForm.goalable_type,
       }
     }));
   }

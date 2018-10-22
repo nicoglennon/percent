@@ -2,6 +2,7 @@ class Api::V1::GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
+    p goal_params
     if @goal.save
       render :json => @goal
     else

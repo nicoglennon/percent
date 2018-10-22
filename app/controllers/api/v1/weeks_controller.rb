@@ -2,8 +2,13 @@ class Api::V1::WeeksController < ApplicationController
 
   def create
     @week = Week.new(week_params)
+    p 'params arriving to server'
+    p week_params
+    p @week.goals
     if @week.save
-      render :json => @week
+      p 'week saved to server:'
+      p @week
+      render :json => @week.goals
     else
       @errors = []
       if @week.errors
@@ -19,6 +24,6 @@ class Api::V1::WeeksController < ApplicationController
 
   private
   def week_params
-    params.require(:week).permit(:date, :percentage, :user_id)
+    params.require(:week).permit(:date, :percentage, :user_id, { :goals_attributes => [ :title, :completed, :goalable_type, :goalable_id ]})
   end
 end

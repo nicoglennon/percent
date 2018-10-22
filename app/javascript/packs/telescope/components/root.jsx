@@ -50,9 +50,12 @@ class Root extends React.Component {
     var currentUserId = this.state.currentUserSnapshot.id;
     var currentUserUsername = this.state.currentUserSnapshot.username;
     week['user_id'] = currentUserId;
+    console.log('week sent to server:')
+    console.log(week);
     var self = this;
-    axios.post(`/api/v1/users/${currentUserId}/weeks`, week)
+    axios.post(`/api/v1/users/${currentUserId}/weeks`, {week: week})
     .then(function (response) {
+      console.log('server response:');
       console.log(response);
       var errorString = '';
       if (response.status === 200 && response.data.status ==='error'){
@@ -77,8 +80,11 @@ class Root extends React.Component {
   submitNewBoardGoal(newBoardGoal){
     var currentUserId = this.state.currentUserSnapshot.id;
     var self = this;
+    console.log('sent to server:');
+    console.log(newBoardGoal);
     axios.post(`/api/v1/users/${currentUserId}/boards/${newBoardGoal.goalable_id}/goals`, newBoardGoal)
     .then(function (response) {
+      console.log('response from server:');
       console.log(response);
       var currentUsername = self.state.currentUserSnapshot.username;
       self.fetchCurrentUserSnapshot(currentUsername);

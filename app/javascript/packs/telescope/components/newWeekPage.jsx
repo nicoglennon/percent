@@ -81,17 +81,23 @@ class NewWeekPage extends React.Component {
   }
 
   handleSubmitNewWeek(e){
-    console.log(this.state);
+    // console.log(this.state);
     e.preventDefault();
     // cleanse the state data before sending the week object!
     // 1. clean the goals
+    var dirtyGoals = this.state.newWeek.goals_attributes;
+    var cleanGoals = [];
+    dirtyGoals.forEach(function(dirtyGoal){
+      var temp = dirtyGoal;
+      delete temp.id;
+      delete temp.shortid;
+      cleanGoals.push(temp);
+    })
     // 2. Make sure a week can take multiple attached goals in the backend (allowe_nested thing)
 
-    var cleanWeek = {
-
-    }
-
-    this.props.submitNewWeek(cleanWeek);
+    var weekToSubmit = this.state.newWeek;
+    weekToSubmit.goals_attributes = cleanGoals;
+    this.props.submitNewWeek(weekToSubmit);
   }
 
   handleNewGoalInputChange(e){
@@ -128,7 +134,6 @@ class NewWeekPage extends React.Component {
   }
 
   updateGoalLine(updatedGoal, updatedlInput){
-    // edit the goalLine with the same key?
     var goalsAttributes = this.state.newWeek.goals_attributes;
     var editedGoals = goalsAttributes.map((goal) => {
       if(goal.shortid === updatedGoal.shortid){
@@ -143,14 +148,13 @@ class NewWeekPage extends React.Component {
         percentage: prevState.newWeek.percentage
       }
     }));
-    console.log(this.state.newWeek.goals_attributes);
   }
 
   updateCheckbox(updatedGoal, checkboxValue){
     var goalsAttributes = this.state.newWeek.goals_attributes;
 
     var updatedGoals = goalsAttributes.map((goal) => {
-      if(updatedGoal.id === goal.id){
+      if(updatedGoal.shortid === goal.shortid){
         goal.completed = checkboxValue;
       }
       return goal;

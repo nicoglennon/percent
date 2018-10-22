@@ -32,7 +32,14 @@ class Api::V1::UsersController < ApplicationController
                         :except => [:email, :crypted_password, :salt, :created_at, :updated_at],
                         :include => [
                           { :weeks => {
-                              :include => :goals
+                              :include => [
+                                :goals => {
+                                  :except => [
+                                    :created_at,
+                                    :updated_at
+                                  ]
+                                }
+                              ]
                             }
                           },
                           { :boards => {
