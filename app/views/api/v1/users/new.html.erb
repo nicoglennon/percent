@@ -8,7 +8,7 @@
 
       <%= form_for(@user, as: :user, url: register_path) do |f| %>
       <% if @errors %>
-        <ul class="signup-errors">
+        <ul class="signup errors">
           <% @errors.each do |error| %>
             <li><%= error %></li>
           <% end %>

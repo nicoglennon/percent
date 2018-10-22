@@ -30,7 +30,6 @@ div.heropage-firstdiv-right {
 
 
 h1.heropage-title {
-  letter-spacing: -2px;
   font-weight: bold;
   font-size: 4.5em;
   margin-top: 30px;
@@ -42,7 +41,6 @@ h1.heropage-title {
 p.heropage-subheader {
   margin-top: 20px;
   font-size: 1.6em;
-  letter-spacing: -1px;
   color: hsl(0, 0%, 55%);
   line-height: 1.4em;
 }
