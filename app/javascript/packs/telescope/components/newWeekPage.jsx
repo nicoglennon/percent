@@ -280,6 +280,7 @@ class NewWeekPage extends React.Component {
               <DayPicker
                 selectedDays={selectedDays}
                 showOutsideDays
+                todayButton="Go to Today"
                 modifiers={modifiers}
                 onDayClick={this.handleDayChange}
                 onDayMouseEnter={this.handleDayEnter}
