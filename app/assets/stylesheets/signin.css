@@ -17,7 +17,7 @@ a.signin.telescope-name-link:visited {
 a.signin.telescope-name {
   margin: 5px auto 25px auto;
   text-decoration: none;
-  font-size: 34px;
+  font-size: 30px;
   letter-spacing: -0.5px;
   font-weight: 500;
   color: hsl(0, 0%, 25%);
@@ -38,14 +38,15 @@ div.signin.center {
 
 h1.signin.signin-title {
   margin: 0px;
+  font-weight: 500;
   font-size: 1.3em;
-  color: hsl(0, 0%, 30%);
+  color: hsl(0, 0%, 25%);
 }
 
 div.signin.form-div {
   border-radius: 9px;
   padding: 25px;
-  background-color: hsla(0, 0%, 0%, 0.05);
+  background-color: hsla(0, 0%, 0%, 0.03);
 }
 
 div.signin-form-group {

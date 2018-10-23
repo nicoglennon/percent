@@ -1,7 +1,8 @@
 div.navbar-wrapper {
   padding: 5px 30px;
   margin-bottom: 30px;
-  color: hsl(0, 0%, 25%);
+  color: inherit;
+  /* color: hsl(0, 0%, 25%); */
 }
 
 a.navbar-telescope-logo-link {
@@ -31,17 +32,18 @@ img.navbar-telescope-logo:hover {
 p.navbar-telescope-logotitle {
   text-decoration: none;
   display: inline-block;
-  font-size: 34px;
+  font-size: 30px;
   margin: 0px 0px 0px 5px;
   letter-spacing: -0.5px;
   font-weight: 500;
-  color: hsl(0, 0%, 25%);
+  /* color: hsl(0, 0%, 25%); */
   /* transform: translateY(-2px); */
 }
 
 div.navbar-float-box {
   display: inline-block;
   float: right;
+  padding: 2px;
 }
 
 p.navbar-wrap-box {
@@ -52,30 +54,44 @@ p.navbar-wrap-box {
 
 p.navbar-sign-in {
   margin: 0px;
-  padding: 10px 10px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: background-color 150ms ease-out;
 }
 
 p.navbar-sign-in:hover {
-  text-decoration: underline;
+  background-color: hsl(250, 35%, 92%);
+  transition: all 200ms ease-out;
+}
+
+div.navbar-separator-div {
+  margin-bottom: -5px;
+  display: inline-block;
+  width: 1px;
+  height: 22px;
+  border-left: 1px solid #00000020;
 }
 
 p.navbar-sign-up {
   margin: 0px;
-  border: 1px hsl(0, 0%, 25%) solid;
   border-radius: 5px;
-  padding: 10px 10px;
-  transition: border 150ms ease-out, background-color 150ms ease-out, color 150ms ease-out;
+  padding: 8px 10px;
+  transition: background-color 150ms ease-out;
 }
 
 p.navbar-sign-up:hover {
-  border: 1px #00d7ae solid;
-  background-color: #00d7ae;
-  color: white;
+  background-color: hsl(120, 35%, 92%);
   transition: all 150ms ease-out;
 }
 
 a.navbar-signup-link {
-  margin-left: 20px;
+  margin-left: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.navbar-signin-link {
+  margin-right: 12px;
   text-decoration: none;
   color: inherit;
 }

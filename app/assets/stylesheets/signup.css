@@ -13,7 +13,7 @@ div.signup.telescope-div {
 a.signup.telescope-name {
   margin: 5px auto 25px auto;
   text-decoration: none;
-  font-size: 34px;
+  font-size: 30px;
   letter-spacing: -0.5px;
   font-weight: 500;
   color: hsl(0, 0%, 25%);
@@ -29,6 +29,7 @@ div.signup.center {
 }
 
 h1.signup.signup-title {
+  font-weight: 500;
   margin: 0px;
   font-size: 1.3em;
   color: hsl(0, 0%, 30%);
@@ -37,7 +38,7 @@ h1.signup.signup-title {
 div.signup.form-div {
   border-radius: 9px;
   padding: 25px;
-  background-color: hsla(0, 0%, 0%, 0.05);
+  background-color: hsla(0, 0%, 0%, 0.03);
 }
 
 div.signup-form-group {

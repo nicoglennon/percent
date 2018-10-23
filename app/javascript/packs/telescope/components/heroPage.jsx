@@ -1,5 +1,4 @@
 import React from 'react';
-import HeroImage from '../assets/images/shapes_collaboration.png';
 
 class HeroPage extends React.Component {
   render(){
@@ -18,7 +17,7 @@ class HeroPage extends React.Component {
             <p className="heropage-alreadymember">Already on Telescope? <a href="/login" className="heropage-alreadymember-login">Sign in</a>.</p>
           </div>
           <div className="heropage-firstdiv-right">
-            <img src={HeroImage} className="heroPage-mainImage" />
+            {/* Image here? */}
           </div>
         </div>
       </div>

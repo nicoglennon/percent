@@ -56,7 +56,9 @@ class GoalLine extends React.Component {
     this.setState({
       isChecked: e.target.checked
     });
-    this.props.updateCheckbox(this.props.goal, e.target.checked);
+    if (this.props.updateCheckbox){
+      this.props.updateCheckbox(this.props.goal, e.target.checked);
+    }
   }
 
   render(){

@@ -5,8 +5,63 @@ import moment from 'moment';
 import { Line } from 'rc-progress';
 import NoGoals from '../assets/images/nogoals.gif';
 
+function getWeekDays(weekStart) {
+  const days = [weekStart];
+  for (let i = 1; i < 7; i += 1) {
+    days.push(
+      moment(weekStart)
+        .add(i, 'days')
+        .toDate()
+    );
+  }
+  return days;
+}
+
+function getWeekRange(date) {
+  return {
+    from: moment(date)
+      .startOf('isoWeek')
+      .toDate(),
+    to: moment(date)
+      .endOf('isoWeek')
+      .toDate(),
+  };
+}
+
 class WeekPageContent extends React.Component {
+
+  constructor(){
+    super();
+    this.state = {
+      selectedDays: [],
+      lineColor: "hsla(0,100%,40%, 0.8)"
+    }
+  }
+
+  componentDidMount(){
+    var selectedDays = getWeekDays(getWeekRange(this.props.week.date).from);
+    var hue = Math.round(((345 - (this.props.week.percentage/100)*200)).toString(10));
+    var color = ["hsla(",hue,",100%,40%, 0.8)"].join("");
+    this.setState({
+      selectedDays: selectedDays,
+      lineColor: color
+    })
+  }
+
+
   render(){
+    const { selectedDays } = this.state;
+    const daysAreSelected = selectedDays.length > 0;
+
+    const modifiers = {
+      selectedRange: daysAreSelected && {
+        from: selectedDays[0],
+        to: selectedDays[6],
+      },
+      selectedRangeStart: daysAreSelected && selectedDays[0],
+      selectedRangeEnd: daysAreSelected && selectedDays[6],
+    };
+
     var numberOfGoals = 0;
     var goalsToDisplay;
     if (this.props && this.props.week.goals){
@@ -21,7 +76,7 @@ class WeekPageContent extends React.Component {
       } else {
         goalsToDisplay = this.props.week.goals.map( function(goal){
           return(
-            <GoalLine goal={goal} key={goal.id} showCheckbox={false} updateGoal={self.props.updateGoal} deleteGoal={self.props.deleteGoal} />
+            <GoalLine goal={goal} key={goal.id} showCheckbox={true} updateGoal={self.props.updateGoal} deleteGoal={self.props.deleteGoal} />
           )
         })
       }
@@ -29,7 +84,7 @@ class WeekPageContent extends React.Component {
 
     return(
       <div className="weekPageContent-wrapper">
-        <div className="goalsWrapper">
+        <div className="goalsWrapper weekPageGoalsWrapper">
           {/* <div className="weekPageContent-newGoalFormWrapper">
             <form onSubmit={this.handleSubmitNewBoardGoal} className="boardPageContent-newGoalForm">
               <input type="text" name="newGoal" value={this.state.newGoalForm.title} placeholder="Add new goal" onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
@@ -40,18 +95,34 @@ class WeekPageContent extends React.Component {
           <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>
         </div>
         <div className="weekPageContent-goalsdata">
-          <h2 className="weekPageContent-date">{this.props.week.date}</h2>
+          <p className="weekPageContent-weekOfSubtitle">Week of</p>
+          <h2 className="weekPageContent-date">{moment(this.props.week.date).format('ll')}</h2>
+          <div className="weekPageContent-datepicker-wrapper SelectedWeekExample">
+            <DayPicker
+              selectedDays={selectedDays}
+              showOutsideDays
+              modifiers={modifiers}
+              firstDayOfWeek={1}
+              month={selectedDays[0]}
+            />
+          </div>
+          <div className="weekPageContent-percentagesWrapper">
+            <p className="weekPageContent-percentageText">
+              <strong>{this.props.week.percentage}</strong>
+              {'%'}
+            </p>
+            <div className="weekPage-progressLineContainer">
+              <Line
+                percent={this.props.week.percentage}
+                strokeWidth="2"
+                trailWidth="2"
+                strokeLinecap="round"
+                strokeColor={this.state.lineColor}
+              />
+            </div>
+          </div>
         </div>
       </div>
-      // <div className="weekPageContent-wrapper">
-      //   <h2 className="weekPageContent-date">{this.props.week.date}</h2>
-      //   <div className="goalsWrapper">
-      //     {goalsToDisplay}
-      //   </div>
-      //   <div className="weekPageContent-goalsdata">
-      //     <p className="weekPageContent-percentage">{this.props.week.percentage}</p>
-      //   </div>
-      // </div>
     )
   }
 }

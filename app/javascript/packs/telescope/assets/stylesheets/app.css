@@ -8,13 +8,13 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: normal;
   text-rendering: optimizeLegibility;
-  color: hsl(0, 0%, 25%);
+  color: hsl(0, 0%, 20%);
 }
 
 div:focus {outline:0;}
 
 div.rootInnerWrapper {
-  max-width: 1150px;
+  max-width: 1000px;
   margin: 20px auto 100px auto;
 }
 
@@ -42,11 +42,11 @@ img.navbar-telescope-logo:hover {
 p.navbar-telescope-logotitle {
   text-decoration: none;
   display: inline-block;
-  font-size: 34px;
+  font-size: 30px;
   margin: 0px 0px 0px 5px;
   letter-spacing: -0.5px;
   font-weight: 500;
-  color: hsl(0, 0%, 25%);
+  color: hsl(0, 0%, 20%);;
 }
 
 div.navbar-float-box {
@@ -54,10 +54,25 @@ div.navbar-float-box {
   float: right;
 }
 
+a.navbar-newWeek-link {
+  color: hsl(0, 0%, 5%);;
+  text-decoration: none;
+  padding: 10px;
+  background-color: hsl(0, 0%, 95%);
+  margin-right: 20px;
+  border-radius: 6px;
+}
+
+a.navbar-newWeek-link:hover {
+  background-color: hsl(0, 0%, 92%);
+  color: hsl(0, 0%, 1%);
+}
+
 p.navbar-wrap-box {
   display: inline-block;
   text-decoration: none;
   margin: 0 10px;
+  padding: 10px;
 }
 
 p.navbar-get-started {
@@ -70,31 +85,30 @@ a:visited {
   color: inherit;
 }
 
-
 a.weekCard-alink{
-  color: white;
-  width: 230px;
+  width: 224px;
   padding: 15px;
-  margin-right: 15px;
-  margin-bottom: 15px;
+  margin-right: 16px;
+  margin-bottom: 16px;
   border-radius: 9px;
-  height: 250px;
+  height: 220px;
   display: inline-block;
   text-decoration: none;
-  /* background-color: rgb(125, 114, 255); */
   box-shadow: 3 3px 5px 0 rgba(0, 0, 0, .3);
   transition: transform 250ms ease-out, box-shadow 250ms ease-out, background-color 250ms ease-out;
 }
 
 a.weekCard-alink:hover {
-  transform: translateY(-3px);
-  box-shadow: 3px 3px 20px 0 rgba(0, 0, 0, .3);
+  transform: translateY(-2px);
+  /* box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, .2); */
+  /* background-color: rgba(0, 0, 0, .04); */
+  opacity: 0.7;
   transition: all 200ms ease-out;
-  transform: scale(1.025);
+  /* transform: scale(1.025); */
 }
 
 a.weekCard-alink.boardCard {
-  background-color: rgba(253, 122, 134, 0.9);
+  border: solid 4px rgba(0, 0, 0, .3);
 }
 
 div.weekCardsWrapper-div {
@@ -107,21 +121,6 @@ p.weekCardsWrapper-title {
   margin-bottom: 0px;
 }
 
-a.weekCardsWrapper-new {
-  color: white;
-  background-color: #ffb936;
-  border-radius: 9px;
-  text-decoration: none;
-  display: inline-block;
-  padding: 3px 6px;
-  transition: background-color 150ms ease-out;
-}
-
-a.weekCardsWrapper-new:hover {
-  background-color: #efa61d;
-  transition: background-color 200ms ease-out;
-}
-
 input {
   font-family: inherit;
 }
@@ -132,14 +131,23 @@ input::placeholder {
   font-family: inherit;
 }
 
-p.weekCard-date {
+p.weekCard-weekOf {
   margin-top: 5px;
-  font-size: 24px;
+  margin-bottom: 0px;
+}
+
+p.weekCard-date {
+  margin: 0px;
+  font-size: 22px;
 }
 
 p.weekCard-percentage {
-  font-size: 36px;
+  font-size: 32px;
+  font-weight: 600;
   text-align: center;
+}
+
+div.weekCard-div {
 }
 
 li.weekCard-li {
@@ -172,7 +180,7 @@ div.newWeekPage-background {
 }
 
 div.weekPage-background.boardPage-background {
-  background-color: rgba(253, 122, 134, 0.925);
+  background-color: rgba(0,0,0, 0.7);
 }
 
 div.weekPage-container {
@@ -263,7 +271,7 @@ input.boardPageContent-newGoalForm-title {
   border: 0px;
   color: inherit;
   width: 88%;
-  border: 1px solid  hsl(0, 0%, 25%);
+  border: 1px solid  hsl(0, 0%, 20%);
   background-color: white;
   font-size: 17px;
   padding: 12px;
@@ -286,7 +294,11 @@ input.boardPageContent-newGoalForm-title:focus {
 
 p.weekPageContent-newgoallabel {
   margin: 5px 0px;
+}
 
+p.weekPageContent-weekOfSubtitle {
+  margin-bottom: 0px;
+  color: hsl(0, 0%, 50%);
 }
 
 h2.weekPageContent-date {
@@ -387,14 +399,19 @@ div.goalLineInput{
 
 div.goalsWrapper {
   padding: 0px 0px 90px 0px;
-  width: 66%;
+  width: 65%;
   display: inline-block;
 }
+
+div.goalsWrapper.weekPageGoalsWrapper {
+  padding-top: 20px;
+}
+
 div.weekPageContent-goalsdata {
   float: left;
   position: sticky;
   top: 30px;
-  width: 34%;
+  width: 35%;
   margin: 100px 0px 0px 0px;
   padding: 0px 20px 10px 0px;
 }

@@ -22,7 +22,7 @@ class WeekCardsWrapper extends React.Component {
     }
     return (
       <div className="weekCardsWrapper-div">
-        <p className="weekCardsWrapper-title">Weeks</p>&nbsp;<Link className="weekCardsWrapper-new" to={`/@${this.props.currentUser.username}/weeks/new`}>New</Link>
+        <p className="weekCardsWrapper-title">Weeks</p>
         <ul className="weekCardsWrapper-ul">
           {weekCards}
         </ul>

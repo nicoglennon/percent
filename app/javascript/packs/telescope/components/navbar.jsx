@@ -14,7 +14,13 @@ class Navbar extends React.Component {
                   </div>
 
     } else if (username != undefined) {
-      topRight = <div className="navbar-float-box"><a href="/logout" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><p className="navbar-wrap-box">@{this.props.currentUser.username}</p></a></div>
+      topRight = <div className="navbar-float-box">
+                    <Link className="navbar-newWeek-link"
+                      to={`/@${this.props.currentUser.username}/weeks/new`}>＋ New Week</Link>
+                    <a href="/logout" data-confirm="Are you sure?" data-method="delete" rel="nofollow">
+                      <p className="navbar-wrap-box">@{this.props.currentUser.username}</p>
+                    </a>
+                  </div>
     }
     return(
       <div className='navbar-wrapper'>
