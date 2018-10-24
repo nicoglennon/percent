@@ -65,7 +65,7 @@ class BoardPageContent extends React.Component {
       } else {
         goalsToDisplay = this.props.board.goals.map( function(goal){
           return(
-            <GoalLine goal={goal} key={goal.id} showCheckbox={false} updateGoal={self.props.updateGoal} deleteGoal={self.props.deleteGoal} />
+            <GoalLine goal={goal} key={goal.id} showCheckbox={false} showDeleteButton={true} updateGoal={self.props.updateGoal} deleteGoal={self.props.deleteGoal} />
           )
         })
       }

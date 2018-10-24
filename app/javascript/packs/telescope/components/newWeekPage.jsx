@@ -81,10 +81,7 @@ class NewWeekPage extends React.Component {
   }
 
   handleSubmitNewWeek(e){
-    // console.log(this.state);
     e.preventDefault();
-    // cleanse the state data before sending the week object!
-    // 1. clean the goals
     var dirtyGoals = this.state.newWeek.goals_attributes;
     var cleanGoals = [];
     dirtyGoals.forEach(function(dirtyGoal){
@@ -93,8 +90,6 @@ class NewWeekPage extends React.Component {
       delete temp.shortid;
       cleanGoals.push(temp);
     })
-    // 2. Make sure a week can take multiple attached goals in the backend (allowe_nested thing)
-
     var weekToSubmit = this.state.newWeek;
     weekToSubmit.goals_attributes = cleanGoals;
     this.props.submitNewWeek(weekToSubmit);
@@ -218,7 +213,6 @@ class NewWeekPage extends React.Component {
  };
 
  handleWeekClick = (weekNumber, days, e) => {
-   console.log(days);
    this.setState({
      selectedDays: days,
    });
@@ -256,7 +250,7 @@ class NewWeekPage extends React.Component {
       } else {
         goalsToDisplay = this.state.newWeek.goals_attributes.map( function(goal){
           return(
-            <GoalLine goal={goal} key={goal.shortid} showCheckbox={true} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} updateCheckbox={self.updateCheckbox} />
+            <GoalLine goal={goal} key={goal.shortid} showCheckbox={true} showDeleteButton={true} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} updateCheckbox={self.updateCheckbox} />
           )
         })
       }

@@ -66,7 +66,7 @@ class GoalLine extends React.Component {
     var goalLineWrapperStyling = '';
     var checkbox;
     var deleteGoalButton;
-    if (this.state.isHovered === true) {
+    if (this.props.showDeleteButton && this.state.isHovered === true) {
       deleteGoalButton = <span className="goalLine-deletebuttonspan" onClick={this.handleDeleteGoal}>✕</span>
     }
 

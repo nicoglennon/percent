@@ -3,6 +3,7 @@ import Main from './main';
 import Navbar from './navbar';
 import axios from 'axios';
 import ReactNotification from 'react-notifications-component';
+import ReactModal from 'react-modal';
 
 let token = document.getElementsByName('csrf-token')[0].getAttribute('content')
 axios.defaults.headers.common['X-CSRF-Token'] = token
@@ -31,6 +32,10 @@ class Root extends React.Component {
     this.notificationDOMRef = React.createRef();
   }
 
+  componentDidMount(){
+    ReactModal.setAppElement('body');
+  }
+
   fetchCurrentUserSnapshot(username) {
     axios.get( `/api/v1/users/${username}` )
         .then(response => {
@@ -50,13 +55,9 @@ class Root extends React.Component {
     var currentUserId = this.state.currentUserSnapshot.id;
     var currentUserUsername = this.state.currentUserSnapshot.username;
     week['user_id'] = currentUserId;
-    console.log('week sent to server:')
-    console.log(week);
     var self = this;
     axios.post(`/api/v1/users/${currentUserId}/weeks`, {week: week})
     .then(function (response) {
-      console.log('server response:');
-      console.log(response);
       var errorString = '';
       if (response.status === 200 && response.data.status ==='error'){
         if (response.data.error_messages && response.data.error_messages.length > 0) {
@@ -80,12 +81,8 @@ class Root extends React.Component {
   submitNewBoardGoal(newBoardGoal){
     var currentUserId = this.state.currentUserSnapshot.id;
     var self = this;
-    console.log('sent to server:');
-    console.log(newBoardGoal);
     axios.post(`/api/v1/users/${currentUserId}/boards/${newBoardGoal.goalable_id}/goals`, newBoardGoal)
     .then(function (response) {
-      console.log('response from server:');
-      console.log(response);
       var currentUsername = self.state.currentUserSnapshot.username;
       self.fetchCurrentUserSnapshot(currentUsername);
     })
@@ -101,7 +98,6 @@ class Root extends React.Component {
     var cleanGoalType = goalType.toLowerCase() + 's';
     axios.put(`/api/v1/users/${currentUserId}/${cleanGoalType}/${goal.goalable_id}/goals/${goal.id}`, {title: newHtml})
     .then(function (response) {
-      console.log(response);
       var currentUsername = self.state.currentUserSnapshot.username;
       self.fetchCurrentUserSnapshot(currentUsername);
     })
@@ -115,10 +111,8 @@ class Root extends React.Component {
     var self = this;
     var goalType = goal.goalable_type;
     var cleanGoalType = goalType.toLowerCase() + 's';
-    console.log(cleanGoalType);
     axios.delete(`/api/v1/users/${currentUserId}/${cleanGoalType}/${goal.goalable_id}/goals/${goal.id}`)
     .then(function (response) {
-      console.log(response);
       var currentUsername = self.state.currentUserSnapshot.username;
       self.fetchCurrentUserSnapshot(currentUsername);
     })
