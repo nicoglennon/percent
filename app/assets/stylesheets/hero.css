@@ -40,12 +40,12 @@ h1.heropage-title {
 p.heropage-subheader {
   margin-top: 20px;
   font-size: 1.6em;
-  color: hsl(0, 0%, 55%);
+  color: hsl(0, 0%, 61%);
   line-height: 1.4em;
 }
 
 span.heropage-subheader-telescope-span {
-  color: hsl(0, 0%, 20%);
+  color: hsl(0, 0%, 30%);
 }
 
 input.heropage-form-input-email {

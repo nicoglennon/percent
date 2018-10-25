@@ -46,7 +46,7 @@ class NewWeekPage extends React.Component {
       },
       hoverRange: undefined,
       selectedDays: [],
-      lineColor: 'rgba(0,0,0, 0.7)'
+      lineColor: 'rgba(70,70,70, 0.85)'
     };
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleNewGoalInputChange = this.handleNewGoalInputChange.bind(this);
@@ -164,7 +164,7 @@ class NewWeekPage extends React.Component {
     if(currentGoals.length > 0){
       percent = Math.round(checkedGoals.length/currentGoals.length*100);
       var hue=Math.round(((345 - (percent/100)*200)).toString(10));
-      color = ["hsla(",hue,",100%,40%, 0.8)"].join("");
+      color = ["hsla(",hue,",80%,65%, 0.85)"].join("");
     }
     this.setState( (prevState) => ({
       newWeek: {
@@ -295,6 +295,7 @@ class NewWeekPage extends React.Component {
                   trailWidth="2"
                   strokeLinecap="round"
                   strokeColor={this.state.lineColor}
+                  trailColor="#f3f3f3"
                 />
               </div>
             </div>

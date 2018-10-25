@@ -142,19 +142,19 @@ p.weekCard-date {
 }
 
 p.weekCard-percentage {
-  margin-top: 35px;
-  font-size: 24px;
-  font-weight: 400;
+  margin-top: 32px;
+  font-size: 38px;
+  font-weight: 300;
   text-align: center;
   opacity: 0;
-  /* transform: translateY(4px); */
+  transform: translateY(2px);
   transition: opacity 200ms ease-out, transform 200ms ease-out;
 }
 
 p.weekCard-percentage.showPercentage {
   transform: translateY(0px);
   opacity: 1;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
   transition: all 200ms ease-out;
 }
 
@@ -191,7 +191,7 @@ div.newWeekPage-background {
 }
 
 div.weekPage-background.boardPage-background {
-  background-color: rgba(0,0,0, 0.7);
+  background-color: rgba(70,70,70, 0.85);
 }
 
 div.weekPage-container {
@@ -320,6 +320,7 @@ h2.weekPageContent-date {
 }
 
 p.weekPageContent-percentageText {
+  font-weight: 300;
   font-size: 40px;
   margin: 0px;
   margin-bottom: -10px;
@@ -345,12 +346,35 @@ button.weekPage-closeModal {
   color: black;
   opacity: 0.1;
   position: absolute;
-  top: 28px;
+  top: 23px;
   left: 20px;
   border: none;
   background-color: inherit;
   cursor: pointer;
   transition: opacity 200ms ease-out;
+}
+
+button.weekPage-closeModal:hover {
+  opacity: 0.6;
+  transition: all 150ms ease-out;
+}
+
+button.weekPage-moreInfoModal {
+  font-size: 24px;
+  color: black;
+  opacity: 0.1;
+  position: absolute;
+  top: 23px;
+  left: 55px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  transition: opacity 200ms ease-out;
+}
+
+button.weekPage-moreInfoModal:hover {
+  opacity: 0.6;
+  transition: all 150ms ease-out;
 }
 
 button.weekPage-addNewGoalButton {
@@ -370,11 +394,6 @@ button.weekPage-addNewGoalButton {
 button.weekPage-addNewGoalButton:hover {
   background-color: hsl(0, 0%, 35%);
   transition: background-color 150ms ease-out;
-}
-
-button.weekPage-closeModal:hover {
-  opacity: 0.6;
-  transition: all 150ms ease-out;
 }
 
 div.goalLineWrapper {

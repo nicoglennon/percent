@@ -118,6 +118,7 @@ class WeekPageContent extends React.Component {
                 trailWidth="2"
                 strokeLinecap="round"
                 strokeColor={this.state.lineColor}
+                trailColor="#f3f3f3"
               />
             </div>
           </div>

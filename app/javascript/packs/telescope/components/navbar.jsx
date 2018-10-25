@@ -26,7 +26,7 @@ class Navbar extends React.Component {
       <div className='navbar-wrapper'>
         <Link to={iconLink} className="navbar-telescope-logo-link">
           {/* <img src={Telescope} className="navbar-telescope-logo" /> */}
-          <p className="navbar-telescope-logotitle">Telescope</p>
+          <p className="navbar-telescope-logotitle">Datascope</p>
 
         </Link>
         &nbsp;
