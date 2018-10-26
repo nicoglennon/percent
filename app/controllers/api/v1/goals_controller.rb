@@ -1,5 +1,7 @@
 class Api::V1::GoalsController < ApplicationController
 
+  before_action :require_login
+
   def create
     @goal = Goal.new(goal_params)
     p goal_params

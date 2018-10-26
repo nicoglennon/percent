@@ -1,5 +1,7 @@
 class Api::V1::WeeksController < ApplicationController
 
+  before_action :require_login
+
   def create
     @week = Week.new(week_params)
     p 'params arriving to server'

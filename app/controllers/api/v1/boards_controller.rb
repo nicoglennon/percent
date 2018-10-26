@@ -1,5 +1,7 @@
 class Api::V1::BoardsController < ApplicationController
 
+  before_action :require_login
+  
   def create
     @board = Board.new(board_params)
     if @board.save
