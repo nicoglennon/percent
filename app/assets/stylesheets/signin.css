@@ -106,9 +106,9 @@ a.signin.not-member-yet-link:visited {
 }
 
 ul.signin.errors {
-  color: white;
+  color: #efefef;
   margin: 10px auto 0px auto;
   padding: 10px 10px 10px 30px;
-  background-color: #e13f3f;
+  background-color: #ff4e76;
   border-radius: 5px;
 }
