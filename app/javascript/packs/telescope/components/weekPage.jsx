@@ -1,20 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import ReactModal from 'react-modal';
 import WeekPageContent from './weekPageContent'
 
 class WeekPage extends React.Component {
   constructor(){
     super();
+    this.state = ({
+      goBack: false
+    })
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   handleCloseModal(){
-    this.props.history.goBack();
+    this.setState({
+      goBack: true
+    });
   }
 
   render(){
     var week = this.props.week;
+    var goBack = this.state.goBack ? <Redirect to={'/@' + this.props.username} /> : undefined;
     var content;
     var overlayColor = 'hsla(0,80%,65%, 0.85)';
     if (week === undefined || week === null){
@@ -38,6 +44,7 @@ class WeekPage extends React.Component {
         <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
         <button className="weekPage-moreInfoModal" onClick={this.handleCloseModal}>⋯</button>
         {content}
+        {goBack}
       </ReactModal>
     )
   }

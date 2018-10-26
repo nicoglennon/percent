@@ -1,20 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import ReactModal from 'react-modal';
 import BoardPageContent from './boardPageContent'
 
 class BoardPage extends React.Component {
   constructor(){
     super();
+    this.state = ({
+      goBack: false
+    })
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   handleCloseModal(){
-    this.props.history.goBack();
+    this.setState({
+      goBack: true
+    });
   }
 
   render(){
     var board = this.props.board;
+    var goBack = this.state.goBack ? <Redirect to={'/@' + this.props.username} /> : undefined;
     var content;
     if (board === undefined || board === null){
       content = <p>Loading...</p>;
@@ -31,10 +37,9 @@ class BoardPage extends React.Component {
         className="weekPage-container boardPage-container"
         style={{content: {overflow: 'scroll'}}}
         >
-        <div>
-          <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
-          {content}
-        </div>
+        <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
+        {content}
+        {goBack}
       </ReactModal>
     )
   }

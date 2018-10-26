@@ -11,6 +11,9 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+a {
+  color: inherit;
+}
 a:visited {
   color: inherit;
 }

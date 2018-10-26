@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import ReactModal from 'react-modal';
 import GoalLine from './goalLine';
 import shortid from 'shortid';
@@ -46,7 +46,8 @@ class NewWeekPage extends React.Component {
       },
       hoverRange: undefined,
       selectedDays: [],
-      lineColor: 'rgba(70,70,70, 0.85)'
+      lineColor: 'rgba(70,70,70, 0.85)',
+      goBack: false
     };
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleNewGoalInputChange = this.handleNewGoalInputChange.bind(this);
@@ -57,6 +58,7 @@ class NewWeekPage extends React.Component {
     this.submitNewWeekGoal = this.submitNewWeekGoal.bind(this);
     this.updateCheckbox = this.updateCheckbox.bind(this);
     this.updateState = this.updateState.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this);
   }
 
   componentDidMount(){
@@ -77,7 +79,9 @@ class NewWeekPage extends React.Component {
   }
 
   handleCloseModal(){
-    this.props.history.goBack();
+    this.setState({
+      goBack: true
+    });
   }
 
   handleSubmitNewWeek(e){
@@ -107,6 +111,10 @@ class NewWeekPage extends React.Component {
     }));
   }
 
+  scrollToBottom() {
+    this.bottomOfMessages.scrollIntoView({ behavior: 'smooth' });
+  }
+
   submitNewWeekGoal(newGoalForm){
     var goals_attributes = this.state.newWeek.goals_attributes;
     newGoalForm.id = goals_attributes.length;
@@ -119,6 +127,7 @@ class NewWeekPage extends React.Component {
         goalable_type: 'Week'
       }
     }));
+    this.scrollToBottom();
   }
 
   handleSubmitNewWeekGoal(e) {
@@ -235,7 +244,7 @@ class NewWeekPage extends React.Component {
       selectedRangeStart: daysAreSelected && selectedDays[0],
       selectedRangeEnd: daysAreSelected && selectedDays[6],
     };
-
+    var goBack = this.state.goBack ? <Redirect to={'/@' + this.props.currentUser.username} /> : undefined;
     var numberOfGoals = 0;
     var goalsToDisplay;
     if (this.state.newWeek && this.state.newWeek.goals_attributes){
@@ -310,9 +319,11 @@ class NewWeekPage extends React.Component {
               </form>
             </div>
             {goalsToDisplay}
-            <p className="weekPageContent-numberofgoals"><strong>{numberOfGoals}</strong> goals</p>
+            <div ref={el => { this.bottomOfMessages = el; }} />
+            <p className="weekPageContent-numberofgoals"> goals <strong>{numberOfGoals}</strong></p>
           </div>
         </div>
+        {goBack}
       </ReactModal>
     )
   }

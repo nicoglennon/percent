@@ -16,6 +16,7 @@ class BoardPageContent extends React.Component {
     this.handleNewGoalInputChange = this.handleNewGoalInputChange.bind(this);
     this.handleSubmitNewBoardGoal = this.handleSubmitNewBoardGoal.bind(this);
     this.clearNewBoardForm = this.clearNewBoardForm.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this);
   }
 
   handleNewGoalInputChange(e){
@@ -31,10 +32,15 @@ class BoardPageContent extends React.Component {
     }));
   }
 
+  scrollToBottom() {
+    this.bottomOfMessages.scrollIntoView({ behavior: 'smooth' });
+  }
+
   handleSubmitNewBoardGoal(e) {
     e.preventDefault();
     if (this.state.newGoalForm.title !== '' ) {
       this.props.submitNewBoardGoal(this.state.newGoalForm);
+      this.scrollToBottom();
       this.clearNewBoardForm();
     }
   }
@@ -81,6 +87,7 @@ class BoardPageContent extends React.Component {
             </form>
           </div>
           {goalsToDisplay}
+          <div ref={el => { this.bottomOfMessages = el; }} />
           <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>
         </div>
         <div className="weekPageContent-goalsdata">

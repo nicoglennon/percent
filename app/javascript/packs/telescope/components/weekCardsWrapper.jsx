@@ -1,6 +1,7 @@
 import React from 'react';
 import WeekCard from './weekCard'
 import { Link } from 'react-router-dom';
+import PeopleSketch from '../assets/images/peopleoscar.png';
 
 
 class WeekCardsWrapper extends React.Component {
@@ -11,7 +12,10 @@ class WeekCardsWrapper extends React.Component {
     if (weeks === null) {
       weekCards = <p>Loading...</p>;
     } else if (weeks && weeks.length < 1) {
-      weekCards = <p>No cards yet!</p>;
+      weekCards = <div className="weekCardsWrapper-noWeeksDiv">
+                    <img className="weekCardsWrapper-noWeeksImage" src={PeopleSketch} />
+                    <p>No weeks yet! Add a new one above.</p>
+                  </div>;
     } else if(weeks != undefined){
       var username = this.props.currentUser.username;
       weekCards = weeks.map(function(week){
