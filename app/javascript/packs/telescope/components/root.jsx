@@ -27,6 +27,7 @@ class Root extends React.Component {
     this.submitNewBoardGoal = this.submitNewBoardGoal.bind(this);
     this.deleteGoal = this.deleteGoal.bind(this);
     this.updateGoal = this.updateGoal.bind(this);
+    this.deleteWeek = this.deleteWeek.bind(this);
 
 
     this.notificationDOMRef = React.createRef();
@@ -121,16 +122,30 @@ class Root extends React.Component {
     });
   }
 
+  deleteWeek(week) {
+    var currentUserId = this.state.currentUserSnapshot.id;
+    var self = this;
+    axios.delete(`/api/v1/users/${currentUserId}/weeks/${week.id}`)
+    .then(function (response) {
+      var currentUsername = self.state.currentUserSnapshot.username;
+      self.fetchCurrentUserSnapshot(currentUsername);
+      self.addNotification('default', 'Deletion','Week was deleted.');
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   addNotification(type, title, message) {
     this.notificationDOMRef.current.addNotification({
       title: title,
       message: message,
       type: type,
       insert: "top",
-      container: "top-right",
-      animationIn: ["animated", "fadeInRight"],
-      animationOut: ["animated", "fadeOutRight"],
-      dismiss: { duration: 5000 },
+      container: "bottom-right",
+      animationIn: ["animated", "fadeInBottom"],
+      animationOut: ["animated", "fadeOutBottom"],
+      dismiss: { duration: 4000 },
       dismissable: { click: true }
     });
   }
@@ -146,6 +161,7 @@ class Root extends React.Component {
             submitNewBoardGoal={this.submitNewBoardGoal}
             deleteGoal={this.deleteGoal}
             updateGoal ={this.updateGoal}
+            deleteWeek={this.deleteWeek}
           />
         </div>
         <ReactNotification ref={this.notificationDOMRef} />

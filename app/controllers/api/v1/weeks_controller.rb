@@ -4,13 +4,26 @@ class Api::V1::WeeksController < ApplicationController
 
   def create
     @week = Week.new(week_params)
-    p 'params arriving to server'
-    p week_params
-    p @week.goals
     if @week.save
-      p 'week saved to server:'
-      p @week
       render :json => @week.goals
+    else
+      @errors = []
+      if @week.errors
+        if @week.errors.full_messages
+          @week.errors.full_messages.each do |error_message|
+            @errors << error_message
+          end
+        end
+      end
+      render :json => {status: "error", code: 4000, error_messages: @errors}
+    end
+  end
+
+  def destroy
+    p params
+    @week = Week.find(params[:id])
+    if @week.destroy!
+      render :json => @week
     else
       @errors = []
       if @week.errors

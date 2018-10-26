@@ -44,9 +44,16 @@ class Api::V1::GoalsController < ApplicationController
     if @goal.destroy!
       render :json => @goal
     else
+      @errors = []
+      if @goal.errors
+        if @goal.errors.full_messages
+          @goal.errors.full_messages.each do |error_message|
+            @errors << error_message
+          end
+        end
+      end
       render :json => {status: "error", code: 4000, error_messages: @errors}
     end
-
   end
 
   private

@@ -49,7 +49,8 @@ class UserSnapshot extends React.Component {
                                 username={currentUserSnapshot.username}
                                 week={weeks.filter(week => String(week.id) === props.match.params.weekId)[0]}
                                 deleteGoal={this.props.deleteGoal}
-                                updateGoal ={this.props.updateGoal}
+                                updateGoal={this.props.updateGoal}
+                                deleteWeek={this.props.deleteWeek}
                               />}
                             />
 

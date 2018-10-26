@@ -10,12 +10,18 @@ class WeekPage extends React.Component {
       goBack: false
     })
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleDeleteWeek = this.handleDeleteWeek.bind(this);
   }
 
   handleCloseModal(){
     this.setState({
       goBack: true
     });
+  }
+
+  handleDeleteWeek(){
+    this.handleCloseModal();
+    this.props.deleteWeek(this.props.week);
   }
 
   render(){
@@ -42,7 +48,7 @@ class WeekPage extends React.Component {
            style={{content: {overflow: 'scroll'}, overlay: {backgroundColor: overlayColor, transition: 'background-color 500ms ease-out'}}}
         >
         <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
-        <button className="weekPage-moreInfoModal" onClick={this.handleCloseModal}>⋯</button>
+        <button className="weekPage-moreInfoModal" onClick={this.handleDeleteWeek}>⋯</button>
         {content}
         {goBack}
       </ReactModal>

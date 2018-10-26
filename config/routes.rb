@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :sessions, only: [:new, :create, :destroy]
       resources :users, only: [ :new, :create, :show ] do
-        resources :weeks, only: [ :create ] do
+        resources :weeks, only: [ :create, :destroy ] do
           resources :goals, only: [ :create, :update, :destroy ]
         end
         resources :boards, only: [ :create ] do
