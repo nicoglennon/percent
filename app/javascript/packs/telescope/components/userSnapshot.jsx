@@ -4,6 +4,7 @@ import BoardWrapper from './boardWrapper';
 import { Route, Switch } from 'react-router-dom';
 import WeekPage from './weekPage';
 import BoardPage from './boardPage';
+import Spinner from '../assets/images/spinner.gif';
 
 import NewWeekPage from './newWeekPage';
 
@@ -23,10 +24,14 @@ class UserSnapshot extends React.Component {
   render(){
     var displayUserInfo;
     var currentUserSnapshot = this.props.currentUserSnapshot;
-    if (currentUserSnapshot === undefined){
-     displayUserInfo = <p>This page could not be found.</p>
+    if (currentUserSnapshot === undefined){ // this means you're in the wrong username and server call failed
+     displayUserInfo = <div className="userSnapshot-noAccessMessage">
+                        <p>This page is not accesible to you.</p>
+                        <a href="/">Back to Profile</a>
+
+                      </div>
    } else if (currentUserSnapshot.username === null) {
-     displayUserInfo = <p>Loading...</p>
+     displayUserInfo = <img className="userSnapshot-spinner" src={Spinner} />
    } else {
       var weeks = this.props.currentUserSnapshot.weeks;
       var boards = this.props.currentUserSnapshot.boards;

@@ -1,6 +1,7 @@
 import React from 'react';
 import Telescope from '../assets/images/telescope-emoji.png';
 import { Link } from 'react-router-dom';
+import ProfileMenu from './profileMenu';
 
 class Navbar extends React.Component {
   render() {
@@ -10,25 +11,25 @@ class Navbar extends React.Component {
     var topRight;
     if(username === null){
       topRight =  <div className="navbar-float-box">
-                    <p>Loading...</p>
+                    <p className="navbar-wrap-box">...</p>
                   </div>
 
     } else if (username != undefined) {
       topRight = <div className="navbar-float-box">
                     <Link className="navbar-newWeek-link"
                       to={`/@${this.props.currentUser.username}/weeks/new`}>＋ New Week</Link>
-                    <a href="/logout" data-confirm="Are you sure?" data-method="delete" rel="nofollow">
+                    <ProfileMenu username={this.props.currentUser.username} />
+                    {/* <a href="/logout" data-confirm="Are you sure?" data-method="delete" rel="nofollow">
                       <p className="navbar-wrap-box">@{this.props.currentUser.username}</p>
-                    </a>
+                    </a> */}
                   </div>
     }
     return(
       <div className='navbar-wrapper'>
-        <Link to={iconLink} className="navbar-telescope-logo-link">
+        <a href={iconLink} className="navbar-telescope-logo-link">
           {/* <img src={Telescope} className="navbar-telescope-logo" /> */}
           <p className="navbar-telescope-logotitle">Datascope</p>
-
-        </Link>
+        </a>
         &nbsp;
         {topRight}
       </div>

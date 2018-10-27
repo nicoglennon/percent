@@ -67,9 +67,9 @@ class Root extends React.Component {
             errorString += errorMessage + ', ';
           })
         }
-        self.addNotification('danger', 'Oops!','We found the following errors before saving: ' + errorString.slice(0,-2) + '.');
+        self.addNotification('danger', 'Oops! Error while saving.', errorString.slice(0,-2) + '.');
       } else if (response.status === 200){
-        self.addNotification('success', 'Success!','Your new week was saved.');
+        self.addNotification('success', 'New week recorded!','Your new week was saved sucessfully.');
         self.props.history.goBack();
         self.fetchCurrentUserSnapshot(currentUserUsername);
       }
@@ -129,7 +129,7 @@ class Root extends React.Component {
     .then(function (response) {
       var currentUsername = self.state.currentUserSnapshot.username;
       self.fetchCurrentUserSnapshot(currentUsername);
-      self.addNotification('default', 'Deletion','Week was deleted.');
+      self.addNotification('default', 'Deletion complete!','Your week has been deleted successfully.');
     })
     .catch(function (error) {
       console.log(error);
@@ -141,11 +141,11 @@ class Root extends React.Component {
       title: title,
       message: message,
       type: type,
-      insert: "top",
+      insert: "bottom",
       container: "bottom-right",
-      animationIn: ["animated", "fadeInBottom"],
-      animationOut: ["animated", "fadeOutBottom"],
-      dismiss: { duration: 4000 },
+      animationIn: ["animated", "slow", "jackInTheBox"],
+      animationOut: ["animated", "zoomOut"],
+      dismiss: { duration: 6000 },
       dismissable: { click: true }
     });
   }

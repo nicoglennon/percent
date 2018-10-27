@@ -85,6 +85,7 @@
 .notification-close {
     font-size: 18px;
     position: absolute;
+    display: none;
     right: 10px;
     top: 0
 }

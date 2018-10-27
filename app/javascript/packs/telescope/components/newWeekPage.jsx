@@ -86,15 +86,16 @@ class NewWeekPage extends React.Component {
 
   handleSubmitNewWeek(e){
     e.preventDefault();
-    var dirtyGoals = this.state.newWeek.goals_attributes;
+    var newWeek = this.state.newWeek;
+    var dirtyGoals = newWeek.goals_attributes;
     var cleanGoals = [];
     dirtyGoals.forEach(function(dirtyGoal){
-      var temp = dirtyGoal;
+      var temp = JSON.parse(JSON.stringify(dirtyGoal));
       delete temp.id;
       delete temp.shortid;
       cleanGoals.push(temp);
     })
-    var weekToSubmit = this.state.newWeek;
+    var weekToSubmit = JSON.parse(JSON.stringify(newWeek));
     weekToSubmit.goals_attributes = cleanGoals;
     this.props.submitNewWeek(weekToSubmit);
   }
