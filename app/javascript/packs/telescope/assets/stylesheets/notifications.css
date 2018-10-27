@@ -2,14 +2,14 @@
     left: 20px;
     position: fixed;
     top: 20px;
-    z-index: 8000
+    z-index: 8000;
 }
 
 .notification-container-top-right {
     position: fixed;
     right: 20px;
     top: 20px;
-    z-index: 8000
+    z-index: 8000;
 }
 
 .notification-container-bottom-left {
@@ -17,7 +17,7 @@
     left: 20px;
     margin-bottom: -20px;
     position: fixed;
-    z-index: 8000
+    z-index: 8000;
 }
 
 .notification-container-bottom-right {
@@ -25,7 +25,7 @@
     margin-bottom: -20px;
     position: fixed;
     right: 20px;
-    z-index: 8000
+    z-index: 8000;
 }
 
 .notification-container-mobile-top {
@@ -33,7 +33,7 @@
     position: fixed;
     right: 20px;
     top: 20px;
-    z-index: 8000
+    z-index: 8000;
 }
 
 .notification-container-mobile-bottom {
@@ -41,7 +41,7 @@
     left: 20px;
     position: fixed;
     right: 20px;
-    z-index: 8000
+    z-index: 8000;
 }
 
 .notification-default {

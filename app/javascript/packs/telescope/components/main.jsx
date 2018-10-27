@@ -5,8 +5,13 @@ import HeroPage from './heroPage';
 import LoginPage from './loginPage';
 import RegisterPage from './registerPage';
 import NoMatch from './noMatch';
+import ReactModal from 'react-modal';
 
 class Main extends React.Component {
+
+  componentDidMount(){
+    ReactModal.setAppElement('body');
+  }
 
   render() {
     return(

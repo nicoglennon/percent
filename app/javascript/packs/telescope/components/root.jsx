@@ -3,7 +3,6 @@ import Main from './main';
 import Navbar from './navbar';
 import axios from 'axios';
 import ReactNotification from 'react-notifications-component';
-import ReactModal from 'react-modal';
 
 let token = document.getElementsByName('csrf-token')[0].getAttribute('content')
 axios.defaults.headers.common['X-CSRF-Token'] = token
@@ -31,10 +30,6 @@ class Root extends React.Component {
 
 
     this.notificationDOMRef = React.createRef();
-  }
-
-  componentDidMount(){
-    ReactModal.setAppElement('body');
   }
 
   fetchCurrentUserSnapshot(username) {
