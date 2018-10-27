@@ -274,7 +274,7 @@ class NewWeekPage extends React.Component {
         shouldCloseOnOverlayClick={true}
         overlayClassName="newWeekPage-background"
         className="newWeekPage-container"
-        style={{content: {overflow: 'scroll'}, overlay: {backgroundColor: this.state.lineColor, transition: 'background-color 500ms ease-out'}}}
+        style={{content: {overflow: 'scroll', zIndex: '300'}, overlay: {backgroundColor: this.state.lineColor, transition: 'background-color 500ms ease-out', zIndex: '200'}}}
         >
         <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
         <div className="weekPageContent-wrapper">
