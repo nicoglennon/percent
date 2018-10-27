@@ -320,8 +320,8 @@ class NewWeekPage extends React.Component {
               </form>
             </div>
             {goalsToDisplay}
-            <div ref={el => { this.bottomOfMessages = el; }} />
             <p className="weekPageContent-numberofgoals"> goals <strong>{numberOfGoals}</strong></p>
+            <div ref={el => { this.bottomOfMessages = el; }} />
           </div>
         </div>
         {goBack}

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import ReactModal from 'react-modal';
-import WeekPageContent from './weekPageContent'
+import WeekPageContent from './weekPageContent';
+import WeekPageDropdownMenu from './weekPageDropdownMenu';
+
 
 class WeekPage extends React.Component {
   constructor(){
@@ -47,8 +49,8 @@ class WeekPage extends React.Component {
            className="weekPage-container"
            style={{content: {overflow: 'scroll'}, overlay: {backgroundColor: overlayColor, transition: 'background-color 500ms ease-out'}}}
         >
+        <WeekPageDropdownMenu deleteWeek={this.handleDeleteWeek} />
         <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
-        <button className="weekPage-moreInfoModal" onClick={this.handleDeleteWeek}>⋯</button>
         {content}
         {goBack}
       </ReactModal>

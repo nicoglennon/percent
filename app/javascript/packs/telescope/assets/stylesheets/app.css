@@ -9,6 +9,7 @@ html {
   font-weight: normal;
   text-rendering: optimizeLegibility;
   color: hsl(0, 0%, 20%);
+  font-size: 16px;
 }
 
 a {
@@ -28,8 +29,15 @@ img.userSnapshot-spinner {
 
 div.userSnapshot-noAccessMessage {
   margin: 20px;
+}
+div.userSnapshot-noAccessMessage p {
   opacity: 0.8;
 }
+
+div.userSnapshot-noAccessMessage a {
+  opacity: 1;
+}
+
 
 div:focus {outline:0;}
 
@@ -70,6 +78,7 @@ p.navbar-telescope-logotitle {
 }
 
 div.navbar-float-box {
+  margin-top: 5px;
   display: inline-block;
   float: right;
 }
@@ -77,30 +86,43 @@ div.navbar-float-box {
 a.navbar-newWeek-link {
   color: hsl(0, 0%, 5%);
   text-decoration: none;
-  padding: 10px 12px;
+  padding: 8px 9px;
   background-color: hsl(0, 0%, 95%);
-  margin-right: 15px;
+  margin-right: 20px;
   border-radius: 6px;
+  transition: background-color 150ms ease-out;
 }
 
 a.navbar-newWeek-link:hover {
-  background-color: hsl(0, 0%, 92%);
+  background-color: hsl(0, 0%, 90%);
   color: hsl(0, 0%, 1%);
+  transition: background-color 150ms ease-out;
+}
+
+a.navbar-newWeek-link:active {
+  background-color: hsl(0, 0%, 86%);
 }
 
 p.navbar-wrap-box {
+  user-select: none;
   color: hsl(0, 0%, 5%);
   display: inline-block;
   text-decoration: none;
   margin: 0;
-  padding: 10px 12px;
+  padding: 8px 9px;
   border-radius: 6px;
-  background-color: hsl(0, 0%, 95%);
+  /* background-color: hsl(0, 0%, 95%); */
+  transition: background-color 150ms ease-out;
 }
 
 p.navbar-wrap-box:hover {
-  background-color: hsl(0, 0%, 92%);
+  background-color: hsl(0, 0%, 90%);
   color: hsl(0, 0%, 1%);
+  transition: background-color 150ms ease-out;
+}
+
+p.navbar-wrap-box:active {
+  background-color: hsl(0, 0%, 86%);
 }
 
 p.navbar-get-started {
@@ -117,20 +139,43 @@ div.nabvar-profileMenu {
 }
 
 div.navbar-profileMenuContents {
-  border-radius: 8px 0px 8px 8px;
-  padding: 10px 15px;
+  border-radius: 8px;
+  padding: 8px 0px;
   background-color: hsl(0, 0%, 95%);
   position: absolute;
-  min-width: 150px;
-  top: 55px;
+  min-width: 120px;
+  top: 45px;
   right: 0px;
+  cursor: default;
+  box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2);
+}
+
+div.weekPageDropdownMenu-menuContents {
+  border-radius: 8px;
+  padding: 8px 0px;
+  background-color: hsl(0, 0%, 95%);
+  position: absolute;
+  min-width: 90px;
+  top: 35px;
+  left: 10px;
+  cursor: default;
+  box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2);
 }
 
 p.navbar-profileMenuOptions {
   display: block;
-  padding: 8px 0px;
+  width: 100%;
+  padding: 8px 18px;
   margin: 0px 0px;
   float: right;
+  text-align: right;
+  transition: background-color 150ms ease-out;
+  cursor: pointer;
+}
+
+p.navbar-profileMenuOptions:hover {
+  background-color: hsl(0, 0%, 90%);
+  transition: background-color 150ms ease-out;
 }
 
 a.weekCard-alink{
@@ -179,7 +224,7 @@ div.weekCardsWrapper-noWeeksDiv {
   margin: auto;
   opacity: 0.6;
   transition: opacity 300ms ease-out;
-  font-size: 19px;
+  font-size: 18px;
   text-align: center;
 }
 
@@ -336,7 +381,7 @@ img.boardPageContent-noGoalsImg {
 
 p.boardPageContent-noGoalsText {
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   margin: 0px;
   color: hsl(0, 0%, 45%);
 }
@@ -357,7 +402,6 @@ input.boardPageContent-newGoalForm-title {
   width: 88%;
   border: 1px solid  hsl(0, 0%, 20%);
   background-color: white;
-  font-size: 17px;
   padding: 12px;
   border-radius: 4px;
 }
@@ -427,6 +471,10 @@ button.weekPage-closeModal {
   transition: opacity 200ms ease-out;
 }
 
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
+
 button.weekPage-closeModal:hover {
   opacity: 0.6;
   transition: all 150ms ease-out;
@@ -437,12 +485,21 @@ button.weekPage-moreInfoModal {
   color: black;
   opacity: 0.1;
   position: absolute;
+  /* top: 23px;
+  left: 55px; */
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  transition: opacity 200ms ease-out;
+}
+
+div.weekPageDropdownMenu-wrapper {
+  position: absolute;
   top: 23px;
   left: 55px;
   border: none;
   background-color: inherit;
   cursor: pointer;
-  transition: opacity 200ms ease-out;
 }
 
 button.weekPage-moreInfoModal:hover {
@@ -471,7 +528,6 @@ button.weekPage-addNewGoalButton:hover {
 
 div.goalLineWrapper {
   background-color: rgba(0, 0, 0, 0.03);
-  font-size: 17px;
   border-radius: 9px;
   padding: 14px 14px;
   margin: 10px 0px;
@@ -523,6 +579,7 @@ input.goalLineCheck {
   float: left;
   margin: 2px 13px 2px 0px;
   vertical-align: middle;
+  font-size: 18px;
 }
 
 span.goalLine-deletebuttonspan {

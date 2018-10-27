@@ -87,8 +87,8 @@ class BoardPageContent extends React.Component {
             </form>
           </div>
           {goalsToDisplay}
-          <div ref={el => { this.bottomOfMessages = el; }} />
           <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>
+          <div ref={el => { this.bottomOfMessages = el; }} />
         </div>
         <div className="weekPageContent-goalsdata">
           <h2 className="weekPageContent-date">{this.props.board.title}</h2>

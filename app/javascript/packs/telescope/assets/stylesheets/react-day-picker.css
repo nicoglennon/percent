@@ -2,7 +2,7 @@
 
 .DayPicker {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .DayPicker-wrapper {
@@ -36,7 +36,7 @@
 .DayPicker-NavButton {
   position: absolute;
   top: 1em;
-  right: 0.5em;
+  right: 0em;
   left: auto;
 
   display: inline-block;

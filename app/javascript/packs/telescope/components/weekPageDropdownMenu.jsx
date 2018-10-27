@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ProfileMenu extends React.Component {
+class WeekPageDropdownMenu extends React.Component {
   constructor() {
     super();
 
@@ -33,31 +33,18 @@ class ProfileMenu extends React.Component {
 
   render() {
     return (
-      <div className="nabvar-profileMenu">
-        <div onClick={this.showMenu}>
-            <p className="navbar-wrap-box">@{this.props.username}</p>
-        </div>
-
-        {/* <a href="/logout" data-confirm="Are you sure?" data-method="delete" rel="nofollow">
-          <p className="navbar-wrap-box">@{this.props.username}</p>
-        </a> */}
-
+      <div className="weekPageDropdownMenu-wrapper">
+        <button className="weekPage-moreInfoModal" onClick={this.showMenu}>⋯</button>
         {
           this.state.showMenu
             ? (
               <div
-                className="navbar-profileMenuContents"
+                className="weekPageDropdownMenu-menuContents"
                 ref={(element) => {
                   this.dropdownMenu = element;
                 }}
               >
-                <p className="navbar-profileMenuOptions">Settings</p><br />
-                <p className="navbar-profileMenuOptions">Help</p><br />
-                <a href="/logout" data-confirm="Are you sure?" data-method="delete" rel="nofollow">
-                  <p className="navbar-profileMenuOptions">
-                    Logout
-                </p>
-              </a>
+                <p className="navbar-profileMenuOptions" onClick={this.props.deleteWeek}>Delete</p>
               </div>
             )
             : (
@@ -69,4 +56,4 @@ class ProfileMenu extends React.Component {
   }
 }
 
-export default ProfileMenu
+export default WeekPageDropdownMenu
