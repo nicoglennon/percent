@@ -33,7 +33,14 @@ div.signin.center {
   margin: auto;
   position: relative;
   top: 50%;
+  transform: translateY(-48%);
+  opacity: 0;
+}
+
+div.signin.center.fadeInSigninPage {
+  opacity: 1;
   transform: translateY(-50%);
+  transition: all 600ms ease;
 }
 
 h1.signin.signin-title {

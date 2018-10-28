@@ -1,5 +1,5 @@
 <div class="signup wrapper">
-  <div class="signup center">
+  <div class="signup center" id="signupFadeIn">
     <div class="signup telescope-div">
       <a href="/" class="signup telescope-name">Datascope</a>
     </div>
@@ -41,3 +41,8 @@
     <p class="signup already-member">Already on Datascope? <a href="/login" class="signup already-member-link">Sign in</a>.</p>
   </div>
 </div>
+<script>
+  $(document).ready(() => {
+    $('#signupFadeIn').addClass('fadeInSignupPage');
+  })
+</script>

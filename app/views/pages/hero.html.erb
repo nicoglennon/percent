@@ -1,6 +1,6 @@
 <div class="heropage-wrapper">
    <%= render 'layouts/navbar' %>
-  <div class="heropage-main">
+  <div class="heropage-main" id="heroPageMain">
     <div class="heropage-firstdiv">
       <div class="heropage-firstdiv-left">
         <h1 class="heropage-title">Break your simulation</h1>
@@ -14,8 +14,17 @@
         <p class="heropage-alreadymember">Already on Datascope? <a href="/login" class="heropage-alreadymember-login">Sign in</a>.</p>
       </div>
       <div class="heropage-firstdiv-right">
-        <%= image_tag("oscar.png", class: "heroPage-mainImage", :alt => "telescope") %>
+        <%= image_tag("oscar.png", class: "heroPage-mainImage", :alt => "telescope", id: 'heroPageImage') %>
       </div>
     </div>
   </div>
 </div>
+<script>
+  $(document).ready(() => {
+    $('#heroPageMain').addClass('fadeInHeroPageMain');
+    setTimeout(function(){
+      $('#heroPageImage').addClass('fadeInHeroPageImage');
+    }, 400);
+
+  })
+</script>

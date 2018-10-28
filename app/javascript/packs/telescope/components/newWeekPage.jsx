@@ -88,16 +88,18 @@ class NewWeekPage extends React.Component {
     e.preventDefault();
     var newWeek = this.state.newWeek;
     var dirtyGoals = newWeek.goals_attributes;
-    var cleanGoals = [];
-    dirtyGoals.forEach(function(dirtyGoal){
-      var temp = JSON.parse(JSON.stringify(dirtyGoal));
-      delete temp.id;
-      delete temp.shortid;
-      cleanGoals.push(temp);
-    })
-    var weekToSubmit = JSON.parse(JSON.stringify(newWeek));
-    weekToSubmit.goals_attributes = cleanGoals;
-    this.props.submitNewWeek(weekToSubmit);
+    if (dirtyGoals.length > 0) {
+      var cleanGoals = [];
+      dirtyGoals.forEach(function(dirtyGoal){
+        var temp = JSON.parse(JSON.stringify(dirtyGoal));
+        delete temp.id;
+        delete temp.shortid;
+        cleanGoals.push(temp);
+      })
+      var weekToSubmit = JSON.parse(JSON.stringify(newWeek));
+      weekToSubmit.goals_attributes = cleanGoals;
+      this.props.submitNewWeek(weekToSubmit);
+    }
   }
 
   handleNewGoalInputChange(e){
@@ -309,7 +311,7 @@ class NewWeekPage extends React.Component {
                 />
               </div>
             </div>
-            <button className="newWeekPage-submitNewWeekButton" onClick={this.handleSubmitNewWeek}>Save Week</button>
+            <button className="newWeekPage-submitNewWeekButton" onClick={this.handleSubmitNewWeek} disabled={this.state.newWeek.goals_attributes.length === 0}>Save Week</button>
           </div>
 
           <div className="goalsWrapper">

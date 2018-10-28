@@ -25,7 +25,14 @@ div.signup.center {
   margin: auto;
   position: relative;
   top: 50%;
+  transform: translateY(-49%);
+  opacity: 0;
+}
+
+div.signup.center.fadeInSignupPage {
+  opacity: 1;
   transform: translateY(-50%);
+  transition: all 600ms ease;
 }
 
 h1.signup.signup-title {

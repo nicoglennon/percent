@@ -6,10 +6,24 @@ div.heropage-wrapper {
 div.heropage-main {
   margin: auto;
   padding: 40px 0px;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+div.fadeInHeroPageMain {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 800ms ease;
 }
 
 img.heroPage-mainImage {
   width: 100%;
+  opacity: 0;
+}
+
+img.fadeInHeroPageImage {
+  opacity: 1;
+  transition: opacity 800ms ease;
 }
 
 div.heropage-firstdiv {

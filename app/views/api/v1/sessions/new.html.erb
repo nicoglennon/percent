@@ -1,5 +1,5 @@
 <div class="signin wrapper">
-  <div class="signin center">
+  <div class="signin center" id="signinFadeIn">
     <div class="signin telescope-div">
       <a href="/" class="signin telescope-name">Datascope</a>
     </div>
@@ -28,3 +28,8 @@
     <p class="signin not-member-yet">Not on Datascope yet? <a href="/signup" class="signin not-member-yet-link">Sign up</a>.</p>
   </div>
 </div>
+<script>
+  $(document).ready(() => {
+    $('#signinFadeIn').addClass('fadeInSigninPage');
+  })
+</script>
