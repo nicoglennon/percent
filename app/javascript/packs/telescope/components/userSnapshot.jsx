@@ -31,7 +31,14 @@ class UserSnapshot extends React.Component {
 
                       </div>
    } else if (currentUserSnapshot.username === null) {
-     displayUserInfo = <img className="userSnapshot-spinner" src={Spinner} />
+     displayUserInfo =  <Transition
+                          items={true}
+                          from={{ opacity: 0, transform: 'translateY(10px)' }}
+                          enter={{ opacity: 1, transform: 'translateY(0px)' }}>
+                          {
+                            show => props => <img className="userSnapshot-spinner" src={Spinner} style={props} />
+                          }
+                        </Transition>
    } else {
       var weeks = this.props.currentUserSnapshot.weeks;
       var boards = this.props.currentUserSnapshot.boards;
