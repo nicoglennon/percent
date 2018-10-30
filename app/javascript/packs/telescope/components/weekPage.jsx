@@ -47,7 +47,7 @@ class WeekPage extends React.Component {
            shouldCloseOnOverlayClick={true}
            overlayClassName="weekPage-background"
            className="weekPage-container"
-           style={{content: {overflow: 'scroll'}, overlay: {backgroundColor: overlayColor, transition: 'background-color 500ms ease-out'}}}
+           style={{content: {overflow: 'scroll'}, overlay: {backgroundColor: overlayColor}}}
         >
         <WeekPageDropdownMenu deleteWeek={this.handleDeleteWeek} />
         <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>

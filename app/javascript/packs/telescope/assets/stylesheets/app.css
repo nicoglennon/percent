@@ -323,7 +323,7 @@ div.weekPage-container {
   border-radius: 9px;
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  /* transform: translateY(-50%); */
   z-index:11;
 }
 
@@ -344,7 +344,7 @@ div.newWeekPage-container {
   border-radius: 9px;
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  /* transform: translateY(-50%); */
   z-index:11;
 }
 
@@ -469,10 +469,6 @@ button.weekPage-closeModal {
   background-color: inherit;
   cursor: pointer;
   transition: opacity 200ms ease-out;
-}
-
-.ReactModal__Body--open {
-  overflow-y: hidden;
 }
 
 button.weekPage-closeModal:hover {
