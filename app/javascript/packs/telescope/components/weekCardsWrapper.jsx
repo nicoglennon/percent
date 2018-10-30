@@ -2,6 +2,7 @@ import React from 'react';
 import WeekCard from './weekCard'
 import { Link } from 'react-router-dom';
 import PeopleSketch from '../assets/images/peopleoscar.png';
+import {Trail} from 'react-spring';
 
 
 class WeekCardsWrapper extends React.Component {
@@ -18,9 +19,19 @@ class WeekCardsWrapper extends React.Component {
                   </div>;
     } else if(weeks != undefined){
       var username = this.props.currentUser.username;
-      weekCards = weeks.map(function(week){
-                        return <WeekCard weekObj={week} key={week.id} username={username}/>;
-                      });
+      // weekCards = weeks.map(function(week){
+      //                   return <WeekCard weekObj={week} key={week.id} username={username}/>;
+      //                 });
+
+      weekCards = <Trail
+                    items={weeks} keys={week => week.id}
+                    from={{ transform: 'translate3d(0,-40px,0)', display: 'inline-block' }}
+                    to={{ transform: 'translate3d(0,0px,0)', display: 'inline-block' }}>
+                    {week => props =>
+                      <div style={props}><WeekCard weekObj={week} key={week.id} username={username}/></div>
+                    }
+                  </Trail>
+
     } else {
       weekCards = <p>Error!</p>;
     }

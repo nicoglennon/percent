@@ -1,5 +1,5 @@
 class Week < ApplicationRecord
-  default_scope { order ("created_at DESC") }
+  default_scope { order ("date DESC") }
 
   belongs_to :user
   has_many :goals, inverse_of: :goalable, as: :goalable

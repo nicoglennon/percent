@@ -138,6 +138,7 @@ div.nabvar-profileMenu {
 }
 
 div.navbar-profileMenuContents {
+  z-index: 5;
   border-radius: 8px;
   padding: 8px 0px;
   background-color: hsl(0, 0%, 95%);

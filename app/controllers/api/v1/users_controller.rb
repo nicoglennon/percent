@@ -9,7 +9,7 @@ class Api::V1::UsersController < ApplicationController
       @user = User.new
       if params[:email]
         @user.email = params[:email]
-        @user.username = params[:email].split(/(?=\@\b)/)[0];
+        @user.username = params[:email].split(/(?=\@\b)/)[0].split('.').join('');
       end
       @user
     end

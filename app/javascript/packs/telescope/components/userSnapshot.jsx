@@ -5,8 +5,8 @@ import { Route, Switch } from 'react-router-dom';
 import WeekPage from './weekPage';
 import BoardPage from './boardPage';
 import Spinner from '../assets/images/spinner.gif';
-
 import NewWeekPage from './newWeekPage';
+import { Transition } from 'react-spring';
 
 
 class UserSnapshot extends React.Component {
@@ -35,41 +35,50 @@ class UserSnapshot extends React.Component {
    } else {
       var weeks = this.props.currentUserSnapshot.weeks;
       var boards = this.props.currentUserSnapshot.boards;
-      displayUserInfo = <div>
-                          <BoardWrapper currentUser={currentUserSnapshot} boards={boards} />
-                          <WeekCardsWrapper currentUser={currentUserSnapshot} weekCards={weeks} />
+      displayUserInfo =
+                        <Transition
+                          items={true}
+                          from={{ opacity: 0, transform: 'translateY(20px)' }}
+                          enter={{ opacity: 1, transform: 'translateY(0px)' }}>
+                            {
+                              show => show && (props => (
+                                <div style={props}>
+                                  <BoardWrapper currentUser={currentUserSnapshot} boards={boards} />
+                                  <WeekCardsWrapper currentUser={currentUserSnapshot} weekCards={weeks} />
+                                  <Switch>
+                                    <Route exact path="/@:username/weeks/new"
+                                      render={(props) => <NewWeekPage {...props}
+                                                          currentUser={currentUserSnapshot}
+                                                          board={currentUserSnapshot.boards[0]}
+                                                          template={'template'}
+                                                          submitNewWeek={this.props.submitNewWeek}
+                                                          />}
+                                    />
 
-                          <Switch>
-                            <Route exact path="/@:username/weeks/new"
-                              render={(props) => <NewWeekPage {...props}
-                                currentUser={currentUserSnapshot}
-                                board={currentUserSnapshot.boards[0]}
-                                template={'template'}
-                                submitNewWeek={this.props.submitNewWeek}
-                              />}
-                            />
-
-                            <Route exact path="/@:username/weeks/:weekId"
-                              render={(props) => <WeekPage {...props}
-                                username={currentUserSnapshot.username}
-                                week={weeks.filter(week => String(week.id) === props.match.params.weekId)[0]}
-                                deleteGoal={this.props.deleteGoal}
-                                updateGoal={this.props.updateGoal}
-                                deleteWeek={this.props.deleteWeek}
-                              />}
-                            />
-
-                            <Route exact path="/@:username/board"
-                              render={(props) => <BoardPage {...props}
-                                username={currentUserSnapshot.username}
-                                board={currentUserSnapshot.boards[0]}
-                                submitNewBoardGoal={this.props.submitNewBoardGoal}
-                                deleteGoal={this.props.deleteGoal}
-                                updateGoal ={this.props.updateGoal}
-                              />}
-                            />
-                          </Switch>
-                        </div>
+                                    <Route exact path="/@:username/weeks/:weekId"
+                                      render={(props) => <WeekPage {...props}
+                                                          username={currentUserSnapshot.username}
+                                                          week={weeks.filter(week => String(week.id) === props.match.params.weekId)[0]}
+                                                          deleteGoal={this.props.deleteGoal}
+                                                          updateGoal={this.props.updateGoal}
+                                                          deleteWeek={this.props.deleteWeek}
+                                                        />}
+                                    />
+                                    <Route exact path="/@:username/board"
+                                      render={(props) => <BoardPage {...props}
+                                        username={currentUserSnapshot.username}
+                                        board={currentUserSnapshot.boards[0]}
+                                        submitNewBoardGoal={this.props.submitNewBoardGoal}
+                                        deleteGoal={this.props.deleteGoal}
+                                        updateGoal ={this.props.updateGoal}
+                                      />}
+                                    />
+                                  </Switch>
+                                </div>
+                              )
+                            )
+                            }
+                          </Transition>
     }
     return(
       <div>{displayUserInfo}</div>
