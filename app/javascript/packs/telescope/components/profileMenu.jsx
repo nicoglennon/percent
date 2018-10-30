@@ -1,4 +1,5 @@
 import React from 'react';
+import { Transition } from 'react-spring';
 
 class ProfileMenu extends React.Component {
   constructor() {
@@ -45,20 +46,28 @@ class ProfileMenu extends React.Component {
         {
           this.state.showMenu
             ? (
-              <div
-                className="navbar-profileMenuContents"
-                ref={(element) => {
-                  this.dropdownMenu = element;
-                }}
-              >
-                <p className="navbar-profileMenuOptions">Settings</p><br />
-                <p className="navbar-profileMenuOptions">Help</p><br />
-                <a href="/logout" data-method="delete" rel="nofollow">
-                  <p className="navbar-profileMenuOptions">
-                    Logout
-                </p>
-              </a>
-              </div>
+              <Transition
+                items={this.state.showMenu}
+                from={{ opacity: 0, transform: 'translateY(-10px)' }}
+                enter={{ opacity: 1, transform: 'translateY(0px)' }}>
+                { show => props =>
+                  <div
+                    style={props}
+                    className="navbar-profileMenuContents"
+                    ref={(element) => {
+                      this.dropdownMenu = element;
+                    }}
+                  >
+                    <p className="navbar-profileMenuOptions">Settings</p><br />
+                    <p className="navbar-profileMenuOptions">Help</p><br />
+                    <a href="/logout" data-method="delete" rel="nofollow">
+                      <p className="navbar-profileMenuOptions">
+                        Logout
+                      </p>
+                    </a>
+                  </div>
+                }
+              </Transition>
             )
             : (
               null

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Transition } from 'react-spring';
 
 class WeekPageDropdownMenu extends React.Component {
   constructor() {
@@ -38,14 +39,22 @@ class WeekPageDropdownMenu extends React.Component {
         {
           this.state.showMenu
             ? (
-              <div
-                className="weekPageDropdownMenu-menuContents"
-                ref={(element) => {
-                  this.dropdownMenu = element;
-                }}
-              >
-                <p className="navbar-profileMenuOptions" onClick={this.props.deleteWeek}>Delete</p>
-              </div>
+              <Transition
+                items={this.state.showMenu}
+                from={{ opacity: 0, transform: 'translateY(-10px)' }}
+                enter={{ opacity: 1, transform: 'translateY(0px)' }}>
+                { show => props =>
+                  <div
+                    style={props}
+                    className="weekPageDropdownMenu-menuContents"
+                    ref={(element) => {
+                      this.dropdownMenu = element;
+                    }}
+                  >
+                    <p className="navbar-profileMenuOptions" onClick={this.props.deleteWeek}>Delete</p>
+                  </div>
+                }
+              </Transition>
             )
             : (
               null
