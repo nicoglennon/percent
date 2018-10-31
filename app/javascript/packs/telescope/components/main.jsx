@@ -27,8 +27,8 @@ class Main extends React.Component {
               deleteGoal={this.props.deleteGoal}
               updateGoal={this.props.updateGoal}
               deleteWeek={this.props.deleteWeek}
+              editBoardTitle={this.props.editBoardTitle}
               currentUserSnapshot={this.props.currentUserSnapshot} />} />
-
           <Route component={NoMatch} />
         </Switch>
       </div>

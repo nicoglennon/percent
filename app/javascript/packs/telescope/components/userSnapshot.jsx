@@ -78,6 +78,7 @@ class UserSnapshot extends React.Component {
                                         submitNewBoardGoal={this.props.submitNewBoardGoal}
                                         deleteGoal={this.props.deleteGoal}
                                         updateGoal ={this.props.updateGoal}
+                                        editBoardTitle={this.props.editBoardTitle}
                                       />}
                                     />
                                   </Switch>

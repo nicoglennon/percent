@@ -1,6 +1,7 @@
 import React from 'react';
 import GoalLine from './goalLine';
 import NoGoals from '../assets/images/nogoals.gif';
+import BoardPageTitle from './boardPageTitle';
 
 class BoardPageContent extends React.Component {
   constructor(){
@@ -91,8 +92,7 @@ class BoardPageContent extends React.Component {
           <div ref={el => { this.bottomOfMessages = el; }} />
         </div>
         <div className="weekPageContent-goalsdata">
-          <p className="weekPageContent-weekOfSubtitle">Board</p>
-          <h2 className="weekPageContent-date">{this.props.board.title}</h2>
+          <BoardPageTitle title={this.props.board.title} editTitle={this.props.editBoardTitle}/>
         </div>
       </div>
     )

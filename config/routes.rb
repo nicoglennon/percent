@@ -23,7 +23,7 @@ Rails.application.routes.draw do
         resources :weeks, only: [ :create, :destroy ] do
           resources :goals, only: [ :create, :update, :destroy ]
         end
-        resources :boards, only: [ :create ] do
+        resources :boards, only: [ :create, :update ] do
           resources :goals, only: [ :create, :update, :destroy ]
         end
       end

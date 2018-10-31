@@ -436,6 +436,20 @@ h2.weekPageContent-date {
   display: block;
 }
 
+div.boardPageTitle-editable {
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+div.boardPageTitle-editable:focus {
+  background-color: hsl(0, 0%, 95%);
+}
+
 p.weekPageContent-percentageText {
   font-weight: 300;
   font-size: 40px;

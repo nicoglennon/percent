@@ -25,7 +25,7 @@ class BoardPage extends React.Component {
     if (board === undefined || board === null){
       content = <p>Loading...</p>;
     } else {
-      content = <BoardPageContent board={board} submitNewBoardGoal={this.props.submitNewBoardGoal} deleteGoal={this.props.deleteGoal} updateGoal ={this.props.updateGoal} />
+      content = <BoardPageContent board={board} submitNewBoardGoal={this.props.submitNewBoardGoal} deleteGoal={this.props.deleteGoal} updateGoal ={this.props.updateGoal} editBoardTitle={this.props.editBoardTitle} />
     }
     return(
       <ReactModal
