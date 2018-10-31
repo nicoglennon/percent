@@ -323,7 +323,7 @@ div.weekPage-container {
   border-radius: 9px;
   position: relative;
   top: 50%;
-  /* transform: translateY(-50%); */
+  transform: translateY(-50%);
   z-index:11;
 }
 
@@ -344,7 +344,7 @@ div.newWeekPage-container {
   border-radius: 9px;
   position: relative;
   top: 50%;
-  /* transform: translateY(-50%); */
+  transform: translateY(-50%);
   z-index:11;
 }
 

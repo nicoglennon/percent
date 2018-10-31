@@ -34,7 +34,7 @@ class BoardPage extends React.Component {
         onRequestClose={this.handleCloseModal}
         shouldCloseOnOverlayClick={true}
         overlayClassName="weekPage-background boardPage-background"
-        className="weekPage-container boardPage-container"
+        className="weekPage-container"
         style={{content: {overflow: 'scroll'}}}
         >
         <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
