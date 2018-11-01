@@ -105,11 +105,10 @@ class NewWeekPage extends React.Component {
 
   handleNewGoalInputChange(e){
     e.preventDefault();
-    var target = e.target;
-    const value = target.value;
+    var inputValue = e.target.value;
     this.setState((prevState) => ({
       newGoalForm: {
-        title: value,
+        title: inputValue,
         goalable_type: prevState.newGoalForm.goalable_type
       }
     }));

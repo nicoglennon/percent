@@ -60,7 +60,7 @@ class GoalLine extends React.Component {
   }
 
   handleKeyPress(e){
-    // blur on pressing enter on the title
+    // blur on pressing enter on the boardTitle
     if(e.charCode == 13) {
       e.preventDefault();
       e.target.blur();
