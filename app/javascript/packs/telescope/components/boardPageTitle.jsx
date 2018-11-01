@@ -1,5 +1,6 @@
 import React from 'react';
 import ContentEditable from 'react-contenteditable';
+import sanitizeHtml from 'sanitize-html-react';
 
 class BoardPageTitle extends React.Component {
   constructor(){
@@ -9,6 +10,8 @@ class BoardPageTitle extends React.Component {
     }
     this.handleBoardTitleChange = this.handleBoardTitleChange.bind(this);
     this.handleUpdateBoardTitle = this.handleUpdateBoardTitle.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.sanitizeHtmlTwice = this.sanitizeHtmlTwice.bind(this);
   }
 
   componentDidMount(){
@@ -19,17 +22,43 @@ class BoardPageTitle extends React.Component {
 
   handleBoardTitleChange(e){
     this.setState({
-      title: e.target.value
+      title: e.target.value,
     })
   }
 
+  sanitizeHtmlTwice(html){
+    var once = sanitizeHtml(html, {
+      allowedTags: [],
+      allowedAttributes: []
+    });
+
+    return sanitizeHtml(once, {
+      allowedTags: [],
+      allowedAttributes: []
+    }).trim();
+  }
+
   handleUpdateBoardTitle(){
-    if (this.state.title === ''){
+    var sanitizedTitle = this.sanitizeHtmlTwice(this.state.title);
+    if (sanitizedTitle === ''){
       this.setState({
         title: this.props.title,
       })
     } else {
-      this.props.editTitle(this.state.title);
+      if (sanitizedTitle !== this.props.title){
+        this.props.editTitle(sanitizedTitle);
+      }
+      this.setState({
+        title: sanitizedTitle,
+      })
+    }
+  }
+
+  handleKeyPress(e){
+    // blur on pressing enter on the title
+    if(e.charCode == 13) {
+      e.preventDefault();
+      e.target.blur();
     }
   }
 
@@ -41,6 +70,7 @@ class BoardPageTitle extends React.Component {
           className="boardPageTitle-editable"
           onChange={this.handleBoardTitleChange}
           onBlur={this.handleUpdateBoardTitle}
+          onKeyPress={this.handleKeyPress}
           html={this.state.title}
         />
       </div>

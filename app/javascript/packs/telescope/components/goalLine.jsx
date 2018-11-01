@@ -1,5 +1,6 @@
 import React from 'react';
 import ContentEditable from 'react-contenteditable';
+import sanitizeHtml from 'sanitize-html-react';
 
 class GoalLine extends React.Component {
   constructor(){
@@ -31,8 +32,29 @@ class GoalLine extends React.Component {
   }
 
   handleGoalInputBlur(){
-    if (this.state.goalInput !== this.props.goal.title){
-      this.props.updateGoal(this.props.goal, this.state.goalInput)
+    var sanitizedGoal = sanitizeHtml(this.state.goalInput, {
+      allowedTags: [],
+      allowedAttributes: []
+    }).trim();
+    if(sanitizedGoal === ''){
+      this.setState({
+        goalInput: this.props.goal.title
+      })
+    } else {
+      if (sanitizedGoal !== this.props.goal.title){
+        this.props.updateGoal(this.props.goal, sanitizedGoal)
+      }
+      this.setState({
+        goalInput: sanitizedGoal,
+      })
+    }
+  }
+
+  handleKeyPress(e){
+    // blur on pressing enter on the title
+    if(e.charCode == 13) {
+      e.preventDefault();
+      e.target.blur();
     }
   }
 
@@ -83,6 +105,7 @@ class GoalLine extends React.Component {
           className="goalLineInput"
           onChange={this.handleGoalInputChange}
           onBlur={this.handleGoalInputBlur}
+          onKeyPress={this.handleKeyPress}
           html={this.state.goalInput}
         />
         {deleteGoalButton}
