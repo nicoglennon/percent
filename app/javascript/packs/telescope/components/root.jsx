@@ -3,6 +3,7 @@ import Main from './main';
 import Navbar from './navbar';
 import axios from 'axios';
 import ReactNotification from 'react-notifications-component';
+import sanitizeHtml from 'sanitize-html-react';
 
 let token = document.getElementsByName('csrf-token')[0].getAttribute('content')
 axios.defaults.headers.common['X-CSRF-Token'] = token
@@ -78,6 +79,7 @@ class Root extends React.Component {
   submitNewBoardGoal(newBoardGoal){
     var currentUserId = this.state.currentUserSnapshot.id;
     var self = this;
+    newBoardGoal.title = this.sanitizeHtmlTwice(newBoardGoal.title);
     axios.post(`/api/v1/users/${currentUserId}/boards/${newBoardGoal.goalable_id}/goals`, newBoardGoal)
     .then(function (response) {
       var currentUsername = self.state.currentUserSnapshot.username;
@@ -144,6 +146,18 @@ class Root extends React.Component {
       dismiss: { duration: 6000 },
       dismissable: { click: true }
     });
+  }
+
+  sanitizeHtmlTwice(html){
+    var once = sanitizeHtml(html, {
+      allowedTags: [],
+      allowedAttributes: []
+    });
+
+    return sanitizeHtml(once, {
+      allowedTags: [],
+      allowedAttributes: []
+    }).trim();
   }
 
   editBoardTitle(newTitle) {

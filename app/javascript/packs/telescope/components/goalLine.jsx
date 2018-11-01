@@ -31,11 +31,20 @@ class GoalLine extends React.Component {
     })
   }
 
-  handleGoalInputBlur(){
-    var sanitizedGoal = sanitizeHtml(this.state.goalInput, {
+  sanitizeHtmlTwice(html){
+    var once = sanitizeHtml(html, {
+      allowedTags: [],
+      allowedAttributes: []
+    });
+
+    return sanitizeHtml(once, {
       allowedTags: [],
       allowedAttributes: []
     }).trim();
+  }
+
+  handleGoalInputBlur(){
+    var sanitizedGoal = this.sanitizeHtmlTwice(this.state.goalInput);
     if(sanitizedGoal === ''){
       this.setState({
         goalInput: this.props.goal.title

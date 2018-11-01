@@ -7,6 +7,7 @@ import DayPicker from 'react-day-picker';
 import moment from 'moment';
 import { Line } from 'rc-progress';
 import NoGoals from '../assets/images/nogoals.gif';
+import sanitizeHtml from 'sanitize-html-react';
 
 function getWeekDays(weekStart) {
   const days = [weekStart];
@@ -118,25 +119,40 @@ class NewWeekPage extends React.Component {
     this.bottomOfMessages.scrollIntoView({ behavior: 'smooth' });
   }
 
-  submitNewWeekGoal(newGoalForm){
+  sanitizeHtmlTwice(html){
+    var once = sanitizeHtml(html, {
+      allowedTags: [],
+      allowedAttributes: []
+    });
+
+    return sanitizeHtml(once, {
+      allowedTags: [],
+      allowedAttributes: []
+    }).trim();
+  }
+
+  submitNewWeekGoal(newWeekGoal){
     var goals_attributes = this.state.newWeek.goals_attributes;
-    newGoalForm.id = goals_attributes.length;
-    newGoalForm.shortid = shortid.generate();
-    goals_attributes.push(newGoalForm);
+    newWeekGoal.id = goals_attributes.length;
+    newWeekGoal.shortid = shortid.generate();
+    goals_attributes.push(newWeekGoal);
     this.updateState(goals_attributes);
-    this.setState((prevState) =>({
+    this.setState({
       newGoalForm: {
         title: '',
         goalable_type: 'Week'
       }
-    }));
+    });
     this.scrollToBottom();
   }
 
   handleSubmitNewWeekGoal(e) {
     e.preventDefault();
-    if (this.state.newGoalForm.title !== '' ) {
-      this.submitNewWeekGoal(this.state.newGoalForm);
+    var newWeekGoal = this.state.newGoalForm;
+    var sanitizedGoalTitle = this.sanitizeHtmlTwice(newWeekGoal.title);
+    newWeekGoal.title = sanitizedGoalTitle;
+    if (sanitizedGoalTitle !== '' ) {
+      this.submitNewWeekGoal(newWeekGoal);
     }
   }
 

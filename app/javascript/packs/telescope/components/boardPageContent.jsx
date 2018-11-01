@@ -7,11 +7,9 @@ class BoardPageContent extends React.Component {
   constructor(){
     super();
     this.state = {
-      newGoalForm: {
-        title: '',
-        goalable_id: undefined,
-        goalable_type: 'Board'
-      }
+      title: '',
+      goalable_id: undefined,
+      goalable_type: 'Board'
     }
 
     this.handleNewGoalInputChange = this.handleNewGoalInputChange.bind(this);
@@ -20,17 +18,17 @@ class BoardPageContent extends React.Component {
     this.scrollToBottom = this.scrollToBottom.bind(this);
   }
 
+  componentDidMount(){
+    this.setState({
+      goalable_id: this.props.board.id,
+    })
+  }
+
   handleNewGoalInputChange(e){
     e.preventDefault();
-    var target = e.target;
-    const value = target.value;
-    this.setState((prevState, props) => ({
-      newGoalForm: {
-        title: value,
-        goalable_id: props.board.id,
-        goalable_type: prevState.newGoalForm.goalable_type,
-      }
-    }));
+    this.setState({
+      title: e.target.value,
+    });
   }
 
   scrollToBottom() {
@@ -39,21 +37,17 @@ class BoardPageContent extends React.Component {
 
   handleSubmitNewBoardGoal(e) {
     e.preventDefault();
-    if (this.state.newGoalForm.title !== '' ) {
-      this.props.submitNewBoardGoal(this.state.newGoalForm);
+    if (this.state.title !== '' ) {
+      this.props.submitNewBoardGoal(this.state);
       this.scrollToBottom();
       this.clearNewBoardForm();
     }
   }
 
   clearNewBoardForm(){
-    this.setState((prevState) => ({
-      newGoalForm: {
+    this.setState({
         title: '',
-        goalable_id: prevState.newGoalForm.goalable_id,
-        goalable_type: prevState.newGoalForm.goalable_type
-      }
-    }));
+      });
   }
 
   render(){
@@ -83,7 +77,7 @@ class BoardPageContent extends React.Component {
         <div className="goalsWrapper">
           <div className="weekPageContent-newGoalFormWrapper">
             <form onSubmit={this.handleSubmitNewBoardGoal} className="boardPageContent-newGoalForm">
-              <input type="text" name="newGoal" value={this.state.newGoalForm.title} placeholder="Add new goal" onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
+              <input type="text" name="newGoal" value={this.state.title} placeholder="Add new goal" onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
               <button className="weekPage-addNewGoalButton" onClick={this.handleSubmitNewBoardGoal}>Add</button>
             </form>
           </div>
