@@ -140,7 +140,7 @@ p.navbar-get-started {
 div.nabvar-profileMenu {
   display: inline-block;
   position: relative;
-  padding: 8px 3px;
+  padding: 8px 4px;
 }
 
 div.navbar-profileMenuContents {
@@ -339,7 +339,7 @@ div.weekPage-container {
   background-color: white;
   padding: 0px 30px;
   /* color: white; */
-  max-width: 900px;
+  max-width: 950px;
   border-radius: 9px;
   position: relative;
   top: 50%;
@@ -360,7 +360,7 @@ div.newWeekPage-container {
   vertical-align: center;
   background-color: white;
   padding: 0px 30px;
-  max-width: 900px;
+  max-width: 950px;
   border-radius: 9px;
   position: relative;
   top: 50%;
@@ -588,7 +588,7 @@ div.goalLineInput{
 
 div.goalsWrapper {
   padding: 0px 0px 90px 0px;
-  width: 65%;
+  width: 63%;
   display: inline-block;
 }
 
@@ -600,8 +600,8 @@ div.weekPageContent-goalsdata {
   float: left;
   position: sticky;
   top: 30px;
-  width: 35%;
-  margin: 100px 0px 0px 0px;
+  width: 37%;
+  margin: 80px 0px 0px 0px;
   padding: 0px 20px 10px 0px;
 }
 

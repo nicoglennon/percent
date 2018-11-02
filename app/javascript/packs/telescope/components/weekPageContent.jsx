@@ -107,6 +107,7 @@ class WeekPageContent extends React.Component {
             />
           </div>
           <div className="weekPageContent-percentagesWrapper">
+            <p className="weekPageContent-weekOfSubtitle">Completion</p>
             <p className="weekPageContent-percentageText">
               <strong>{this.props.week.percentage}</strong>
               {'%'}
