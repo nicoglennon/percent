@@ -3,6 +3,7 @@ class CreateGoals < ActiveRecord::Migration[5.1]
     create_table :goals do |t|
       t.string :title
       t.boolean :completed
+      t.string :shortid
       t.belongs_to :goalable, polymorphic: true
 
       t.timestamps

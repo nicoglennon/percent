@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20181012041243) do
   create_table "goals", force: :cascade do |t|
     t.string "title"
     t.boolean "completed"
+    t.string "shortid"
     t.string "goalable_type"
     t.bigint "goalable_id"
     t.datetime "created_at", null: false

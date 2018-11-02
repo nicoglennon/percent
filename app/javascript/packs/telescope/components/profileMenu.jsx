@@ -61,7 +61,7 @@ class ProfileMenu extends React.Component {
                   >
                     <p className="navbar-profileMenuOptions">Settings</p>
                     <p className="navbar-profileMenuOptions">Help</p>
-                    <a href="/logout" data-method="delete" rel="nofollow" class="navbar-profileMenuOptionLink">
+                    <a href="/logout" data-method="delete" rel="nofollow" className="navbar-profileMenuOptionLink">
                       <p className="navbar-profileMenuOptions">
                         Logout
                       </p>

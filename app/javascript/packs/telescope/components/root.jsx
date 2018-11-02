@@ -106,6 +106,7 @@ class Root extends React.Component {
   }
 
   deleteGoal(goal) {
+    console.log(goal);
     var currentUserId = this.state.currentUserSnapshot.id;
     var self = this;
     var goalType = goal.goalable_type;
