@@ -42,7 +42,7 @@ div.userSnapshot-noAccessMessage a {
 div:focus {outline:0;}
 
 div.rootInnerWrapper {
-  max-width: 1000px;
+  max-width: 950px;
   margin: 20px auto 150px auto;
 }
 
@@ -78,17 +78,23 @@ p.navbar-telescope-logotitle {
 }
 
 div.navbar-float-box {
-  margin-top: 2px;
   display: inline-block;
   float: right;
+}
+
+div.navbar-weekLinkWrapper {
+  padding: 10px;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 a.navbar-newWeek-link {
   color: hsl(0, 0%, 5%);
   text-decoration: none;
+  vertical-align: middle;
   padding: 9px 9px;
   background-color: hsl(0, 0%, 95%);
-  margin-right: 20px;
   border-radius: 6px;
   transition: background-color 150ms ease-out;
 }
@@ -102,26 +108,27 @@ a.navbar-newWeek-link:hover {
 a.navbar-newWeek-link:active {
   background-color: hsl(0, 0%, 86%);
 }
-
-p.navbar-wrap-box {
+/*
+img.navbar-wrap-box {
   user-select: none;
   color: hsl(0, 0%, 5%);
   display: inline-block;
-  text-decoration: none;
   margin: 0;
   padding: 9px 9px;
-  border-radius: 6px;
   transition: background-color 150ms ease-out;
+} */
+
+img.navbar-usersvg {
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  transition: background-color 150ms ease-out;
+  opacity: 0.8;
+  cursor: pointer;
 }
 
-p.navbar-wrap-box:hover {
-  background-color: hsl(0, 0%, 95%);
-  color: hsl(0, 0%, 1%);
-  transition: background-color 150ms ease-out;
-}
-
-p.navbar-wrap-box:active {
-  background-color: hsl(0, 0%, 86%);
+img.navbar-usersvg:hover {
+  opacity: 0.6;
 }
 
 p.navbar-get-started {
@@ -133,8 +140,7 @@ p.navbar-get-started {
 div.nabvar-profileMenu {
   display: inline-block;
   position: relative;
-  margin: 0px;
-  cursor: pointer;
+  padding: 8px 3px;
 }
 
 div.navbar-profileMenuContents {
@@ -145,7 +151,7 @@ div.navbar-profileMenuContents {
   position: absolute;
   min-width: 120px;
   top: 45px;
-  right: 0px;
+  right: 4px;
   cursor: default;
   box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2);
 }
@@ -162,15 +168,30 @@ div.weekPageDropdownMenu-menuContents {
   box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2);
 }
 
+p.navbar-profileMenuUsername {
+  display: block;
+  width: 100%;
+  padding: 8px 18px;
+  margin: 0px 0px;
+  text-align: right;
+  transition: background-color 150ms ease-out;
+  cursor: default;
+  color: hsl(0, 0%, 20%);
+}
+
 p.navbar-profileMenuOptions {
   display: block;
   width: 100%;
   padding: 8px 18px;
   margin: 0px 0px;
-  float: right;
   text-align: right;
   transition: background-color 150ms ease-out;
   cursor: pointer;
+  text-decoration: none;
+}
+
+a.navbar-profileMenuOptionLink {
+  text-decoration: none;
 }
 
 p.navbar-profileMenuOptions:hover {
@@ -179,12 +200,11 @@ p.navbar-profileMenuOptions:hover {
 }
 
 a.weekCard-alink{
-  width: 224px;
+  width: 211px;
   padding: 15px;
-  margin-right: 16px;
-  margin-bottom: 16px;
+  margin: 8px;
   border-radius: 9px;
-  height: 230px;
+  height: 220px;
   display: inline-block;
   text-decoration: none;
   box-shadow: 3 3px 5px 0 rgba(0, 0, 0, .3);
@@ -288,7 +308,7 @@ li.weekCard-li {
 ul.weekCardsWrapper-ul {
   padding: 0px;
   margin-bottom: 0px;
-  margin-top: 12px;
+  margin-top: 5px;
   max-width: 1200px;
 }
 
@@ -638,4 +658,5 @@ button.newWeekPage-submitNewWeekButton:hover {
 button.newWeekPage-submitNewWeekButton:disabled {
   background-color: hsl(0, 0%, 85%);
   transition: background-color 150ms ease-out;
+  cursor: default;
 }

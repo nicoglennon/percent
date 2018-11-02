@@ -1,5 +1,5 @@
 div.heropage-wrapper {
-  max-width: 1000px;
+  max-width: 950px;
   margin: auto;
   margin-top: 20px;
 }
@@ -27,7 +27,7 @@ img.fadeInHeroPageImage {
 }
 
 div.heropage-firstdiv {
-  padding: 0px 30px;
+  padding: 0px 15px;
 }
 
 div.heropage-firstdiv-left {

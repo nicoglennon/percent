@@ -16,12 +16,13 @@ class Navbar extends React.Component {
 
     } else if (username != undefined) {
       topRight = <div className="navbar-float-box">
-                    <Link className="navbar-newWeek-link"
-                      to={`/@${this.props.currentUser.username}/weeks/new`}>＋ New Week</Link>
+                    <div className="navbar-weekLinkWrapper">
+                      <Link className="navbar-newWeek-link"
+                        to={`/@${this.props.currentUser.username}/weeks/new`}>
+                        ＋ New Week
+                      </Link>
+                    </div>
                     <ProfileMenu username={this.props.currentUser.username} />
-                    {/* <a href="/logout" data-confirm="Are you sure?" data-method="delete" rel="nofollow">
-                      <p className="navbar-wrap-box">@{this.props.currentUser.username}</p>
-                    </a> */}
                   </div>
     }
     return(

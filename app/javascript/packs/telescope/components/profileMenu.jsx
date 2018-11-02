@@ -1,5 +1,6 @@
 import React from 'react';
 import { Transition } from 'react-spring';
+import UserSVG from '../assets/images/user.svg';
 
 class ProfileMenu extends React.Component {
   constructor() {
@@ -36,7 +37,7 @@ class ProfileMenu extends React.Component {
     return (
       <div className="nabvar-profileMenu">
         <div onClick={this.showMenu}>
-            <p className="navbar-wrap-box">@{this.props.username}</p>
+          <img src={UserSVG} className="navbar-wrap-box navbar-usersvg" />
         </div>
 
         {/* <a href="/logout" data-confirm="Are you sure?" data-method="delete" rel="nofollow">
@@ -58,9 +59,9 @@ class ProfileMenu extends React.Component {
                       this.dropdownMenu = element;
                     }}
                   >
-                    <p className="navbar-profileMenuOptions">Settings</p><br />
-                    <p className="navbar-profileMenuOptions">Help</p><br />
-                    <a href="/logout" data-method="delete" rel="nofollow">
+                    <p className="navbar-profileMenuOptions">Settings</p>
+                    <p className="navbar-profileMenuOptions">Help</p>
+                    <a href="/logout" data-method="delete" rel="nofollow" class="navbar-profileMenuOptionLink">
                       <p className="navbar-profileMenuOptions">
                         Logout
                       </p>
