@@ -76,7 +76,7 @@ class WeekPageContent extends React.Component {
       } else {
         goalsToDisplay = this.props.week.goals.map( function(goal){
           return(
-            <GoalLine goal={goal} key={goal.id} showCheckbox={true} showDeleteButton={false} updateGoal={self.props.updateGoal} deleteGoal={self.props.deleteGoal} />
+            <GoalLine goal={goal} key={goal.id} showCheckbox={true} showDeleteButton={false} updateGoal={self.props.updateGoal} deleteGoal={self.props.deleteGoal} disabled={true}/>
           )
         })
       }

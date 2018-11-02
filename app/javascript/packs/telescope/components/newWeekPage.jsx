@@ -134,6 +134,7 @@ class NewWeekPage extends React.Component {
     var goals_attributes = this.state.newWeek.goals_attributes;
     newWeekGoal.id = goals_attributes.length;
     newWeekGoal.shortid = shortid.generate();
+    newWeekGoal.completed = false;
     goals_attributes.push(newWeekGoal);
     this.updateState(goals_attributes);
     this.setState({
@@ -150,7 +151,7 @@ class NewWeekPage extends React.Component {
     var newWeekGoal = this.state.newGoalForm;
     var sanitizedGoalTitle = this.sanitizeHtmlTwice(newWeekGoal.title);
     newWeekGoal.title = sanitizedGoalTitle;
-    if (sanitizedGoalTitle !== '' ) {
+    if (sanitizedGoalTitle !== '') {
       this.submitNewWeekGoal(newWeekGoal);
     }
   }
@@ -277,7 +278,7 @@ class NewWeekPage extends React.Component {
       } else {
         goalsToDisplay = this.state.newWeek.goals_attributes.map( function(goal){
           return(
-            <GoalLine goal={goal} key={goal.shortid} showCheckbox={true} showDeleteButton={true} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} updateCheckbox={self.updateCheckbox} />
+            <GoalLine goal={goal} key={goal.shortid} showCheckbox={true} showDeleteButton={true} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} updateCheckbox={self.updateCheckbox} disabled={false} />
           )
         })
       }

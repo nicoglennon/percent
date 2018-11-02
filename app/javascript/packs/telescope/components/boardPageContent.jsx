@@ -9,7 +9,8 @@ class BoardPageContent extends React.Component {
     this.state = {
       title: '',
       goalable_id: undefined,
-      goalable_type: 'Board'
+      goalable_type: 'Board',
+      completed: false,
     }
 
     this.handleNewGoalInputChange = this.handleNewGoalInputChange.bind(this);
@@ -66,7 +67,7 @@ class BoardPageContent extends React.Component {
       } else {
         goalsToDisplay = this.props.board.goals.map( function(goal){
           return(
-            <GoalLine goal={goal} key={goal.id} showCheckbox={false} showDeleteButton={true} updateGoal={self.props.updateGoal} deleteGoal={self.props.deleteGoal} />
+            <GoalLine goal={goal} key={goal.id} showCheckbox={false} showDeleteButton={true} updateGoal={self.props.updateGoal} deleteGoal={self.props.deleteGoal} disabled={false} />
           )
         })
       }

@@ -116,6 +116,8 @@ class GoalLine extends React.Component {
           onBlur={this.handleGoalInputBlur}
           onKeyPress={this.handleKeyPress}
           html={this.state.goalInput}
+          disabled={this.props.disabled}
+
         />
         {deleteGoalButton}
       </div>
