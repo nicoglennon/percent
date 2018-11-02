@@ -560,7 +560,7 @@ button.weekPage-addNewGoalButton:hover {
 div.goalLineWrapper {
   background-color: rgba(0, 0, 0, 0.03);
   border-radius: 9px;
-  padding: 14px 14px;
+  padding: 14px 16px;
   margin: 10px 0px;
   transition: border 200ms ease-out;
 }
