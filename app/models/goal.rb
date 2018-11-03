@@ -3,4 +3,8 @@ class Goal < ApplicationRecord
 
   belongs_to :goalable, polymorphic: true
 
+  def to_param
+    shortid
+  end
+
 end

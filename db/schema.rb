@@ -36,17 +36,17 @@ ActiveRecord::Schema.define(version: 20181012041243) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "username", null: false
     t.string "email", null: false
-    t.string "crypted_password"
+    t.string "crypted_password", null: false
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "weeks", force: :cascade do |t|
-    t.string "date"
-    t.string "percentage"
+    t.string "date", null: false
+    t.string "percentage", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

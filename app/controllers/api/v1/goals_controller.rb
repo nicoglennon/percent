@@ -21,7 +21,7 @@ class Api::V1::GoalsController < ApplicationController
   end
 
   def update
-    @goal = Goal.find(params[:id])
+    @goal = Goal.find_by(shortid: params[:id])
     if @goal.update!(goal_params)
       render :json => @goal
     else
@@ -40,7 +40,7 @@ class Api::V1::GoalsController < ApplicationController
 
   def destroy
     p params
-    @goal = Goal.find(params[:id])
+    @goal = Goal.find_by(shortid: params[:id])
     if @goal.destroy!
       render :json => @goal
     else
