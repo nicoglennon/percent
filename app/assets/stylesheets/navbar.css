@@ -64,14 +64,6 @@ p.navbar-sign-in:hover {
   transition: all 200ms ease-out;
 }
 
-div.navbar-separator-div {
-  margin-bottom: -5px;
-  display: inline-block;
-  width: 1px;
-  height: 22px;
-  border-left: 1px solid #00000020;
-}
-
 p.navbar-sign-up {
   margin: 0px;
   border-radius: 5px;
