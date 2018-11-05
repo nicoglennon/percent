@@ -25,7 +25,6 @@ class BoardPageContent extends React.Component {
   }
 
   componentDidMount(){
-    console.log(this.state);
     this.setState((prevState) => ({
       newGoal: {
         goalable_id: this.props.board.id,

@@ -4,7 +4,6 @@ class Api::V1::GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
-    p goal_params
     if @goal.save
       render :json => @goal
     else
@@ -39,7 +38,6 @@ class Api::V1::GoalsController < ApplicationController
   end
 
   def destroy
-    p params
     @goal = Goal.find_by(shortid: params[:id])
     if @goal.destroy!
       render :json => @goal

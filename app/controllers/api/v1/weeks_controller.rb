@@ -20,7 +20,6 @@ class Api::V1::WeeksController < ApplicationController
   end
 
   def destroy
-    p params
     @week = Week.find(params[:id])
     if @week.destroy!
       render :json => @week
