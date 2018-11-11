@@ -101,6 +101,7 @@ class WeekPageContent extends React.Component {
             <DayPicker
               selectedDays={selectedDays}
               showOutsideDays
+              fixedWeeks
               modifiers={modifiers}
               firstDayOfWeek={1}
               month={selectedDays[0]}

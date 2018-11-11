@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to: "pages#hero"
   get '/@:username', :to => 'pages#app'
+  get '/@:username/welcome', :to => 'pages#app'
   get '/@:username/weeks/:week_id', :to => 'pages#app'
   get '/@:username/board', :to => 'pages#app'
 

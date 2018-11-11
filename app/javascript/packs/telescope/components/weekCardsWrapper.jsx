@@ -1,7 +1,8 @@
 import React from 'react';
 import WeekCard from './weekCard'
 import { Link } from 'react-router-dom';
-import PeopleSketch from '../assets/images/peopleoscar.png';
+import BandSketch from '../assets/images/band.png';
+
 import { Trail } from 'react-spring';
 
 
@@ -14,7 +15,7 @@ class WeekCardsWrapper extends React.Component {
       weekCards = <p>Loading...</p>;
     } else if (weeks && weeks.length < 1) {
       weekCards = <div className="weekCardsWrapper-noWeeksDiv">
-                    <img className="weekCardsWrapper-noWeeksImage" src={PeopleSketch} />
+                    <img className="weekCardsWrapper-noWeeksImage" src={BandSketch} />
                     <p>No weeks yet! Add a new one above.</p>
                   </div>;
     } else if(weeks != undefined){

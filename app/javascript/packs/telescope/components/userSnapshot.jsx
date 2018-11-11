@@ -6,6 +6,7 @@ import WeekPage from './weekPage';
 import BoardPage from './boardPage';
 import Spinner from '../assets/images/spinner.gif';
 import NewWeekPage from './newWeekPage';
+import WelcomePage from './welcomePage';
 import { Transition } from 'react-spring';
 
 
@@ -79,6 +80,11 @@ class UserSnapshot extends React.Component {
                                         deleteGoal={this.props.deleteGoal}
                                         updateGoal ={this.props.updateGoal}
                                         editBoardTitle={this.props.editBoardTitle}
+                                      />}
+                                    />
+                                    <Route exact path="/@:username/welcome"
+                                      render={(props) => <WelcomePage {...props}
+                                        username={currentUserSnapshot.username}
                                       />}
                                     />
                                   </Switch>

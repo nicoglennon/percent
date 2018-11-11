@@ -5,39 +5,30 @@ div.heropage-wrapper {
 }
 div.heropage-main {
   margin: auto;
-  padding: 40px 0px;
-  opacity: 0;
-  transform: translateY(15px);
-}
-
-div.fadeInHeroPageMain {
-  opacity: 1;
-  transform: translateY(0px);
-  transition: all 800ms ease;
+  padding: 70px 0px 40px 0px;
 }
 
 img.heroPage-mainImage {
   width: 100%;
-  opacity: 0;
+
 }
 
 img.fadeInHeroPageImage {
-  opacity: 1;
-  transition: opacity 800ms ease;
 }
 
 div.heropage-firstdiv {
   padding: 0px 15px;
+  overflow: scroll;
 }
 
 div.heropage-firstdiv-left {
   width: 50%;
   display: inline-block;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 div.heropage-firstdiv-right {
-  margin-top: 40px;
+  margin-top: 20px;
   float: right;
   width: 43%;
 }
@@ -79,7 +70,7 @@ input.heropage-form-input-email:focus {
 
 input.heropage-form-input-submit {
   border: none;
-  background-color: #4e74f0;
+  background-color: #252525;
   color: white;
   padding: 15px;
   border-radius: 5px;
@@ -89,12 +80,12 @@ input.heropage-form-input-submit {
 
 input.heropage-form-input-submit:hover {
   cursor: pointer;
-  background-color: #135ac4;
+  background-color: #343434;
   transition: background-color 150ms ease-out;
 }
 
 input.heropage-form-input-submit:focus {
-  background-color: #135ac4;
+  background-color: #343434;
 }
 
 p.heropage-alreadymember {

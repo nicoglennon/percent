@@ -7,7 +7,7 @@ class Api::V1::UsersController < ApplicationController
       return redirect_to '/@' + current_user.username
     else
       @user = User.new
-      if params[:email]
+      if params[:email] && params[:email] != ''
         @user.email = params[:email]
         @user.username = params[:email].split(/(?=\@\b)/)[0].split('.').join('');
       end
@@ -20,7 +20,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       login(params[:user][:email], params[:user][:password])
       @user.boards.create!(title: 'My Board')
-      return redirect_to '/@' + @user.username
+      return redirect_to '/@' + @user.username + '/welcome'
     else
       @errors = @user.errors.full_messages
       render 'new'

@@ -14,6 +14,7 @@ html {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 a:visited {
@@ -71,7 +72,7 @@ p.navbar-telescope-logotitle {
   text-decoration: none;
   display: inline-block;
   font-size: 30px;
-  margin: 0px 0px 0px 5px;
+  margin: 0px 0px 0px 0px;
   letter-spacing: -0.5px;
   font-weight: 500;
   color: hsl(0, 0%, 20%);
@@ -243,19 +244,19 @@ p.weekCardsWrapper-title {
 div.weekCardsWrapper-noWeeksDiv {
   display:block;
   margin: auto;
-  opacity: 0.6;
+  opacity: 0.87;
   transition: opacity 300ms ease-out;
   font-size: 18px;
   text-align: center;
 }
 
 div.weekCardsWrapper-noWeeksDiv:hover {
-  opacity: 0.75;
+  opacity: 1;
   transition: opacity 200ms ease-out;
 }
 
 img.weekCardsWrapper-noWeeksImage {
-  width: 90%;
+  width: 70%;
   display: block;
   margin: auto;
 }
@@ -341,6 +342,7 @@ div.weekPage-container {
   padding: 0px 30px;
   /* color: white; */
   max-width: 950px;
+  max-height: 650px;
   border-radius: 9px;
   position: relative;
   top: 50%;
@@ -362,6 +364,22 @@ div.newWeekPage-container {
   background-color: white;
   padding: 0px 30px;
   max-width: 950px;
+  max-height: 650px;
+  border-radius: 9px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index:11;
+}
+
+div.welcomePage-container {
+  height: 85%;
+  margin: auto;
+  vertical-align: center;
+  background-color: white;
+  padding: 0px 30px;
+  max-width: 500px;
+  max-height: 500px;
   border-radius: 9px;
   position: relative;
   top: 50%;
@@ -387,17 +405,16 @@ input.newWeekPage-form-percentage {
 }
 
 div.boardPageContent-noGoalsDiv {
-  margin-left: 30%;
-  margin-top: 60px;
-  width: 40%;
+  margin-left: 28%;
+  margin-top: 110px;
   text-align: center;
   display: inline-block;
 }
 
 img.boardPageContent-noGoalsImg {
-  height: 300px;
+  height: 250px;
   text-align: center;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 p.boardPageContent-noGoalsText {
@@ -491,6 +508,13 @@ div.weekPageContent-wrapper {
   padding: 0px;
 }
 
+div.welcomePageContent-wrapper {
+  position: relative;
+  padding: 40px 20px;
+  font-size: 18px;
+  height: 100%;
+}
+
 button,input:focus {outline:0;}
 
 button.weekPage-closeModal {
@@ -540,10 +564,10 @@ button.weekPage-moreInfoModal:hover {
 
 button.weekPage-addNewGoalButton {
   cursor: pointer;
-  padding: 12px;
+  padding: 13px;
   float: right;
   background-color: hsl(0, 0%, 25%);
-  border: 1px hsl(0, 0%, 25%) solid;
+  border: 0px;
   color: white;
   border-radius: 9px;
   display: inline-block;
@@ -660,4 +684,52 @@ button.newWeekPage-submitNewWeekButton:disabled {
   background-color: hsl(0, 0%, 85%);
   transition: background-color 150ms ease-out;
   cursor: default;
+}
+
+div.welcomePageContent-content {
+  height: 350px;
+}
+
+p.welcomePageContent-index {
+  margin: 0;
+  opacity: 0.5;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+}
+
+p.welcomePageContent-threefeatures {
+  padding-left: 20px;
+}
+
+p.welcomePageContent-nextButton {
+  cursor: pointer;
+  margin-top: 0px;
+  width: 48%;
+  float: right;
+  padding: 10px 14px;
+  border: 1px #ebebeb solid;
+  border-radius: 6px;
+  text-align: center;
+  transition: border 200ms ease, transform 200ms ease;
+}
+
+h2.welcomePageContent-TourPageTitle {
+  margin: 18px 0px;
+}
+
+p.welcomePageContent-backButton {
+  float: left;
+}
+
+p.welcomePageContent-nextButton:hover {
+  border: 1px hsl(0, 0%, 20%) solid;
+}
+
+p.welcomePageContent-nextButton:active {
+  transform: scale(0.96);
+}
+
+span.welcomePageContent-emoji {
+  font-size: 1.2em;
 }

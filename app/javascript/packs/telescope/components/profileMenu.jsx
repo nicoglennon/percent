@@ -1,6 +1,7 @@
 import React from 'react';
 import { Transition } from 'react-spring';
 import UserSVG from '../assets/images/user.svg';
+import { Link } from 'react-router-dom';
 
 class ProfileMenu extends React.Component {
   constructor() {
@@ -60,7 +61,10 @@ class ProfileMenu extends React.Component {
                     }}
                   >
                     <p className="navbar-profileMenuOptions">Settings</p>
-                    <p className="navbar-profileMenuOptions">Help</p>
+                    <Link to={`/@${this.props.username}/welcome`}>
+                      <p className="navbar-profileMenuOptions">Help</p>
+                    </Link>
+
                     <a href="/logout" data-method="delete" rel="nofollow" className="navbar-profileMenuOptionLink">
                       <p className="navbar-profileMenuOptions">
                         Logout

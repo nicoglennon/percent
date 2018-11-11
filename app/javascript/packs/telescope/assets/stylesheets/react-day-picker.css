@@ -26,7 +26,7 @@
   margin-top: 1em;
   border-spacing: 0;
   border-collapse: collapse;
-
+  width: 265px !important;
   user-select: none;
 }
 
@@ -76,6 +76,7 @@
   margin-bottom: 0.5em;
   padding: 0 0.5em;
   text-align: left;
+  width: 265px !important;
 }
 
 .DayPicker-Caption > div {
@@ -86,6 +87,7 @@
 .DayPicker-Weekdays {
   display: table-header-group;
   margin-top: 1em;
+  width: 265px !important;
 }
 
 .DayPicker-WeekdaysRow {

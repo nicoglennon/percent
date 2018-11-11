@@ -74,7 +74,7 @@ input.signup.btn {
   margin-top: 15px;
   width: 100%;
   border: none;
-  background-color: #2d7ff9;
+  background-color: #252525;
   color: white;
   padding: 15px;
   border-radius: 5px;
@@ -83,11 +83,11 @@ input.signup.btn {
 
 input.signup.btn:hover {
   cursor: pointer;
-  background-color: #135ac4;
+  background-color: #343434;
 }
 
 input.signup.btn:focus {
-  background-color: #135ac4;
+  background-color: #343434;
 }
 
 p.signup.already-member {
@@ -107,6 +107,6 @@ ul.signup.errors {
   color: #efefef;
   margin: 10px auto 0px auto;
   padding: 10px 10px 10px 30px;
-  background-color: #ff4e76;
+  background-color: #f8184aad;
   border-radius: 5px;
 }

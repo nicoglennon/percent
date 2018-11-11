@@ -1,6 +1,6 @@
 import React from 'react';
 import GoalLine from './goalLine';
-import NoGoals from '../assets/images/nogoals.gif';
+import NoGoalsBike from '../assets/images/bike.png';
 import BoardPageTitle from './boardPageTitle';
 import shortid from 'shortid';
 
@@ -106,7 +106,7 @@ class BoardPageContent extends React.Component {
 
       if (numberOfGoals === 0) {
         goalsToDisplay = <div className="boardPageContent-noGoalsDiv">
-        <img className="boardPageContent-noGoalsImg" src={NoGoals} />
+        <img className="boardPageContent-noGoalsImg" src={NoGoalsBike} />
         <p className="boardPageContent-noGoalsText">No goals yet!<br />Add a new one above.</p>
         </div>
 

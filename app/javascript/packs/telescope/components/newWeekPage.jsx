@@ -6,7 +6,7 @@ import shortid from 'shortid';
 import DayPicker from 'react-day-picker';
 import moment from 'moment';
 import { Line } from 'rc-progress';
-import NoGoals from '../assets/images/nogoals.gif';
+import NoGoalsBike from '../assets/images/bike.png';
 import sanitizeHtml from 'sanitize-html-react';
 
 function getWeekDays(weekStart) {
@@ -272,7 +272,7 @@ class NewWeekPage extends React.Component {
 
       if (numberOfGoals === 0) {
         goalsToDisplay = <div className="boardPageContent-noGoalsDiv">
-        <img className="boardPageContent-noGoalsImg" src={NoGoals} />
+        <img className="boardPageContent-noGoalsImg" src={NoGoalsBike} />
         <p className="boardPageContent-noGoalsText">No goals yet! <br />Add a new one above.</p>
         </div>
       } else {
@@ -302,6 +302,7 @@ class NewWeekPage extends React.Component {
               <DayPicker
                 selectedDays={selectedDays}
                 showOutsideDays
+                fixedWeeks
                 todayButton="Go to Today"
                 modifiers={modifiers}
                 onDayClick={this.handleDayChange}

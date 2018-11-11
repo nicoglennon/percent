@@ -33,7 +33,7 @@ p.navbar-telescope-logotitle {
   text-decoration: none;
   display: inline-block;
   font-size: 30px;
-  margin: 0px 0px 0px 5px;
+  margin: 0px 0px 0px 0px;
   letter-spacing: -0.5px;
   font-weight: 500;
   /* color: hsl(0, 0%, 25%); */
@@ -60,7 +60,7 @@ p.navbar-sign-in {
 }
 
 p.navbar-sign-in:hover {
-  background-color: hsl(250, 35%, 92%);
+  background-color: hsl(0, 0%, 92%);
   transition: all 200ms ease-out;
 }
 
@@ -72,7 +72,7 @@ p.navbar-sign-up {
 }
 
 p.navbar-sign-up:hover {
-  background-color: hsl(120, 35%, 92%);
+  background-color: hsl(0, 0%, 92%);
   transition: all 150ms ease-out;
 }
 

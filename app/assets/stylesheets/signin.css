@@ -33,7 +33,7 @@ div.signin.center {
   margin: auto;
   position: relative;
   top: 50%;
-  transform: translateY(-48%);
+  transform: translateY(-47%);
   opacity: 0;
 }
 
@@ -83,7 +83,7 @@ input.signin.btn {
   margin-top: 15px;
   width: 100%;
   border: none;
-  background-color: #2d7ff9;
+  background-color: #252525;
   color: white;
   padding: 15px;
   border-radius: 5px;
@@ -92,11 +92,11 @@ input.signin.btn {
 
 input.signin.btn:hover {
   cursor: pointer;
-  background-color: #135ac4;
+  background-color: #343434;
 }
 
 input.signin.btn:focus {
-  background-color: #135ac4;
+  background-color: #343434;
 }
 
 p.signin.not-member-yet {
@@ -116,6 +116,6 @@ ul.signin.errors {
   color: #efefef;
   margin: 10px auto 0px auto;
   padding: 10px 10px 10px 30px;
-  background-color: #ff4e76;
+  background-color: #f8184aad;
   border-radius: 5px;
 }
