@@ -32,8 +32,8 @@ img.navbar-telescope-logo:hover {
 p.navbar-telescope-logotitle {
   text-decoration: none;
   display: inline-block;
-  font-size: 30px;
-  margin: 0px 0px 0px 0px;
+  font-size: 28px;
+  margin: 3px 0px 5px 0px;
   letter-spacing: -0.5px;
   font-weight: 500;
   /* color: hsl(0, 0%, 25%); */
