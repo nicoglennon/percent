@@ -66,7 +66,7 @@ class NewWeekPage extends React.Component {
     var goals = this.props.board.goals;
     var newGoals = goals.map((goal, index) => {
       goal.id = index;
-      goal.shortid = shortid.generate();
+      goal.shortid = goal.shortid;
       goal.completed = false;
       return goal;
     })
@@ -273,12 +273,12 @@ class NewWeekPage extends React.Component {
       if (numberOfGoals === 0) {
         goalsToDisplay = <div className="boardPageContent-noGoalsDiv">
         <img className="boardPageContent-noGoalsImg" src={NoGoalsBike} />
-        <p className="boardPageContent-noGoalsText">No goals yet! <br />Add a new one above.</p>
+        <p className="boardPageContent-noGoalsText">No goals yet! <br />Add some to your <Link className="newWeekPage-noGoalsText-LinkToBoard" to={`/@${this.props.currentUser.username}/board`}>Board</Link>.</p>
         </div>
       } else {
         goalsToDisplay = this.state.newWeek.goals_attributes.map( function(goal){
           return(
-            <GoalLine goal={goal} key={goal.shortid} showCheckbox={true} showDeleteButton={true} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} updateCheckbox={self.updateCheckbox} disabled={false} />
+            <GoalLine goal={goal} key={goal.shortid} showCheckbox={true} showDeleteButton={false} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} updateCheckbox={self.updateCheckbox} disabled={true} />
           )
         })
       }
@@ -294,16 +294,17 @@ class NewWeekPage extends React.Component {
         className="newWeekPage-container"
         style={{content: {overflow: 'scroll', zIndex: '300'}, overlay: {backgroundColor: this.state.lineColor, zIndex: '200'}}}
         >
-        <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
         <div className="weekPageContent-wrapper">
           <div className="weekPageContent-goalsdata">
+            <div className="weekPage-buttonsWrapper">
+              <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
+            </div>
             <h2 className="weekPageContent-date">New Week</h2>
             <div className="weekPageContent-datepicker-wrapper SelectedWeekExample">
               <DayPicker
                 selectedDays={selectedDays}
                 showOutsideDays
                 fixedWeeks
-                todayButton="Go to Today"
                 modifiers={modifiers}
                 onDayClick={this.handleDayChange}
                 onDayMouseEnter={this.handleDayEnter}
@@ -332,12 +333,13 @@ class NewWeekPage extends React.Component {
             <button className="newWeekPage-submitNewWeekButton" onClick={this.handleSubmitNewWeek} disabled={this.state.newWeek.goals_attributes.length === 0}>Save Week</button>
           </div>
 
-          <div className="goalsWrapper">
+          <div className="goalsWrapper weekPageGoalsWrapper">
             <div className="weekPageContent-newGoalFormWrapper">
-              <form onSubmit={this.handleSubmitNewWeekGoal} className="boardPageContent-newGoalForm">
+              <h2 className="newWeekPageContent-GoalsTitle">Goals</h2>
+              {/* <form onSubmit={this.handleSubmitNewWeekGoal} className="boardPageContent-newGoalForm">
                 <input type="text" name="newGoal" placeholder="Add a goal" value={this.state.newGoalForm.title} onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
                 <button className="weekPage-addNewGoalButton" onClick={this.handleSubmitNewWeekGoal}>Add</button>
-              </form>
+              </form> */}
             </div>
             {goalsToDisplay}
             <p className="weekPageContent-numberofgoals"> goals <strong>{numberOfGoals}</strong></p>

@@ -2,8 +2,6 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import ReactModal from 'react-modal';
 import WeekPageContent from './weekPageContent';
-import WeekPageDropdownMenu from './weekPageDropdownMenu';
-
 
 class WeekPage extends React.Component {
   constructor(){
@@ -34,7 +32,7 @@ class WeekPage extends React.Component {
     if (week === undefined || week === null){
       content = <p>Loading...</p>;
     } else {
-      content = <WeekPageContent week={week} deleteGoal={this.props.deleteGoal} updateGoal={this.props.updateGoal} />
+      content = <WeekPageContent week={week} deleteGoal={this.props.deleteGoal} updateGoal={this.props.updateGoal} closeModal={this.handleCloseModal} deleteWeek={this.handleDeleteWeek}/>
       var hue = Math.round(((345 - (week.percentage/100)*200)).toString(10));
       overlayColor = ["hsla(",hue,",80%,70%, 0.85)"].join("");
     }
@@ -49,8 +47,6 @@ class WeekPage extends React.Component {
            className="weekPage-container"
            style={{content: {overflow: 'scroll'}, overlay: {backgroundColor: overlayColor}}}
         >
-        <WeekPageDropdownMenu deleteWeek={this.handleDeleteWeek} />
-        <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
         {content}
         {goBack}
       </ReactModal>

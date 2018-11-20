@@ -2,7 +2,10 @@ import React from 'react';
 import WelcomePageContentFirstPage from './welcomePageContentFirstPage';
 import WelcomePageContentSecondPage from './welcomePageContentSecondPage';
 import WelcomePageContentThirdPage from './welcomePageContentThirdPage';
-
+import WelcomePageContentFourthPage from './welcomePageContentFourthPage';
+import WelcomePageContentFifthPage from './welcomePageContentFifthPage';
+import WelcomePageContentSixthPage from './welcomePageContentSixthPage';
+import { Transition } from 'react-spring';
 
 class WelcomePageContent extends React.Component {
 
@@ -33,8 +36,9 @@ class WelcomePageContent extends React.Component {
   render(){
     var content;
     var buttonName;
+    var buttonFunct = this.handleIncreaseIndex;
     var index = this.state.index;
-    console.log(index);
+    var style;
     switch (index) {
       case 0:
         content = <WelcomePageContentFirstPage username={this.props.username} />
@@ -48,6 +52,20 @@ class WelcomePageContent extends React.Component {
         content = <WelcomePageContentThirdPage />
         buttonName = 'Next';
         break;
+      case 3:
+        content = <WelcomePageContentFourthPage />
+        buttonName = 'Next';
+        break;
+      case 4:
+        content = <WelcomePageContentFifthPage />
+        buttonName = 'Next';
+        break;
+      case 5:
+        content = <WelcomePageContentSixthPage />
+        buttonName = 'Get Started';
+        buttonFunct = this.props.closeModal;
+        style = {backgroundColor: "hsl(0, 0%, 20%)", color: "white"};
+        break;
       default:
         content = <WelcomePageContentFirstPage username={this.props.username} />
         buttonName = 'Next';
@@ -60,8 +78,8 @@ class WelcomePageContent extends React.Component {
           {content}
         </div>
         {index === 0 ? null : <p className="welcomePageContent-nextButton welcomePageContent-backButton" onClick={this.handleDecreaseIndex}>Back</p> }
-        <p className="welcomePageContent-nextButton" onClick={this.handleIncreaseIndex}>{buttonName}</p>
-        <p className="welcomePageContent-index">{this.state.index + 1}/8</p>
+        <p className="welcomePageContent-nextButton" onClick={buttonFunct} style={style}>{buttonName}</p>
+        <p className="welcomePageContent-index">{this.state.index + 1}/6</p>
       </div>
     )
   }

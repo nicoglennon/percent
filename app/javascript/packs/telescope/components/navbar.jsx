@@ -1,5 +1,6 @@
 import React from 'react';
 import Telescope from '../assets/images/telescope-emoji.png';
+import LogoSVG from '../assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import ProfileMenu from './profileMenu';
 
@@ -30,6 +31,8 @@ class Navbar extends React.Component {
         <a href={iconLink} className="navbar-telescope-logo-link">
           {/* <img src={Telescope} className="navbar-telescope-logo" /> */}
           <p className="navbar-telescope-logotitle">Datascope</p>
+
+          {/*<img src={LogoSVG} className="navbar-wrap-box navbar-logosvg" />*/}
         </a>
         &nbsp;
         {topRight}

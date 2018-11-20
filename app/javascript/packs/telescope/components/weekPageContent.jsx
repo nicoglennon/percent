@@ -4,6 +4,7 @@ import DayPicker from 'react-day-picker';
 import moment from 'moment';
 import { Line } from 'rc-progress';
 import NoGoals from '../assets/images/nogoals.gif';
+import WeekPageDropdownMenu from './weekPageDropdownMenu';
 
 function getWeekDays(weekStart) {
   const days = [weekStart];
@@ -85,16 +86,21 @@ class WeekPageContent extends React.Component {
     return(
       <div className="weekPageContent-wrapper">
         <div className="goalsWrapper weekPageGoalsWrapper">
-          {/* <div className="weekPageContent-newGoalFormWrapper">
-            <form onSubmit={this.handleSubmitNewBoardGoal} className="boardPageContent-newGoalForm">
+          <div className="weekPageContent-newGoalFormWrapper">
+            <h2 className="newWeekPageContent-GoalsTitle">Goals</h2>
+          {/* <form onSubmit={this.handleSubmitNewBoardGoal} className="boardPageContent-newGoalForm">
               <input type="text" name="newGoal" value={this.state.newGoalForm.title} placeholder="Add new goal" onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
               <button className="weekPage-addNewGoalButton" onClick={this.handleSubmitNewBoardGoal}>Add</button>
-            </form>
-          </div> */}
+            </form>*/}
+          </div>
           {goalsToDisplay}
           <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>
         </div>
         <div className="weekPageContent-goalsdata">
+          <div className="weekPage-buttonsWrapper">
+            <button className="weekPage-closeModal" onClick={this.props.closeModal}>✕</button>
+            <WeekPageDropdownMenu deleteWeek={this.props.deleteWeek} />
+          </div>
           <p className="weekPageContent-weekOfSubtitle">Week of</p>
           <h2 className="weekPageContent-date">{moment(this.props.week.date).format('ll')}</h2>
           <div className="weekPageContent-datepicker-wrapper SelectedWeekExample">

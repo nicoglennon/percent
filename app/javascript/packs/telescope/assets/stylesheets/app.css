@@ -72,7 +72,7 @@ p.navbar-telescope-logotitle {
   text-decoration: none;
   display: inline-block;
   font-size: 28px;
-  margin: 3px 0px 5px 0px;
+  margin: 3px 5px 5px 5px;
   letter-spacing: -0.5px;
   font-weight: 500;
   color: hsl(0, 0%, 20%);
@@ -85,7 +85,7 @@ div.navbar-float-box {
 
 div.navbar-weekLinkWrapper {
   padding: 10px;
-  margin-right: 8px;
+  margin-right: 2px;
   display: inline-block;
   vertical-align: top;
 }
@@ -109,6 +109,7 @@ a.navbar-newWeek-link:hover {
 a.navbar-newWeek-link:active {
   background-color: hsl(0, 0%, 86%);
 }
+
 /*
 img.navbar-wrap-box {
   user-select: none;
@@ -120,12 +121,25 @@ img.navbar-wrap-box {
 } */
 
 img.navbar-usersvg {
-  width: 26px;
-  height: 26px;
+  width: 29px;
+  height: 29px;
   display: inline-block;
-  transition: background-color 150ms ease-out;
+  transition: opacity 200ms ease-out;
   opacity: 0.8;
   cursor: pointer;
+}
+
+img.navbar-logosvg {
+  opacity: 0.85;
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  transition: opacity 150ms ease-out, transform 150ms ease-out;
+}
+
+img.navbar-logosvg:hover {
+  /* opacity: 0.95; */
+  transform: scale(1.15);
 }
 
 img.navbar-usersvg:hover {
@@ -141,7 +155,7 @@ p.navbar-get-started {
 div.nabvar-profileMenu {
   display: inline-block;
   position: relative;
-  padding: 8px 4px;
+  padding: 4px;
 }
 
 div.navbar-profileMenuContents {
@@ -165,9 +179,24 @@ div.weekPageDropdownMenu-menuContents {
   position: absolute;
   min-width: 90px;
   top: 35px;
-  left: 10px;
+  left: 35px;
   cursor: default;
   box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2);
+}
+
+div.navbar-username-box {
+  padding: 3px 4px;
+  border-radius: 6px;
+  transition: background-color 200ms ease;
+}
+
+div.navbar-username-box:hover {
+  cursor: pointer;
+  background-color: hsl(0, 0%, 95%);
+}
+
+p.navbar-username {
+  margin: 5px;
 }
 
 p.navbar-profileMenuUsername {
@@ -206,7 +235,7 @@ a.weekCard-alink{
   padding: 15px;
   margin: 8px;
   border-radius: 9px;
-  height: 220px;
+  height: 210px;
   display: inline-block;
   text-decoration: none;
   box-shadow: 3 3px 5px 0 rgba(0, 0, 0, .3);
@@ -283,7 +312,7 @@ p.weekCard-date {
 
 p.weekCard-percentage {
   margin-top: 32px;
-  font-size: 38px;
+  font-size: 42px;
   font-weight: 300;
   text-align: center;
   opacity: 0;
@@ -335,14 +364,14 @@ div.weekPage-background.boardPage-background {
 }
 
 div.weekPage-container {
-  height: 85%;
   margin: auto;
   vertical-align: center;
   background-color: white;
-  padding: 0px 30px;
+  padding: 0px;
   /* color: white; */
-  max-width: 950px;
-  max-height: 650px;
+  max-width: 880px;
+  height: 85%;
+  max-height: 605px;
   border-radius: 9px;
   position: relative;
   top: 50%;
@@ -358,13 +387,13 @@ div.weekPage-container-closemodal.boardPage-container-closemodal {
 }
 
 div.newWeekPage-container {
+  max-height: 605px;
   height: 85%;
   margin: auto;
   vertical-align: center;
   background-color: white;
-  padding: 0px 30px;
-  max-width: 950px;
-  max-height: 650px;
+  padding: 0px;
+  max-width: 880px;
   border-radius: 9px;
   position: relative;
   top: 50%;
@@ -425,6 +454,7 @@ p.boardPageContent-noGoalsText {
 }
 
 form.boardPageContent-newGoalForm {
+  margin-bottom: 5px;
 }
 
 div.weekPageContent-newGoalFormWrapper {
@@ -437,7 +467,7 @@ div.weekPageContent-newGoalFormWrapper {
 input.boardPageContent-newGoalForm-title {
   border: 0px;
   color: inherit;
-  width: 88%;
+  width: 86%;
   border: 1px solid  hsl(0, 0%, 20%);
   background-color: white;
   padding: 12px;
@@ -518,12 +548,13 @@ div.welcomePageContent-wrapper {
 button,input:focus {outline:0;}
 
 button.weekPage-closeModal {
+  padding-left: 0px;
   font-size: 24px;
   color: black;
   opacity: 0.3;
-  position: absolute;
-  top: 23px;
-  left: 20px;
+  /* position: absolute; */
+  /* top: 0px;
+  left: 0px; */
   border: none;
   background-color: inherit;
   cursor: pointer;
@@ -539,9 +570,10 @@ button.weekPage-moreInfoModal {
   font-size: 24px;
   color: black;
   opacity: 0.3;
-  position: absolute;
-  /* top: 23px;
-  left: 55px; */
+  /* position: absolute; */
+  display: inline-block;
+  margin: 0px;
+  margin-left: 3px;
   border: none;
   background-color: inherit;
   cursor: pointer;
@@ -549,9 +581,7 @@ button.weekPage-moreInfoModal {
 }
 
 div.weekPageDropdownMenu-wrapper {
-  position: absolute;
-  top: 23px;
-  left: 55px;
+  display: inline-block;
   border: none;
   background-color: inherit;
   cursor: pointer;
@@ -560,6 +590,10 @@ div.weekPageDropdownMenu-wrapper {
 button.weekPage-moreInfoModal:hover {
   opacity: 0.8;
   transition: all 150ms ease-out;
+}
+
+div.weekPage-buttonsWrapper {
+  margin-bottom: 20px;
 }
 
 button.weekPage-addNewGoalButton {
@@ -585,7 +619,7 @@ div.goalLineWrapper {
   background-color: rgba(0, 0, 0, 0.03);
   border-radius: 9px;
   padding: 14px 16px;
-  margin: 10px 0px;
+  margin: 0px 0px 10px 0px;
   transition: border 200ms ease-out;
 }
 
@@ -612,22 +646,22 @@ div.goalLineInput{
 }
 
 div.goalsWrapper {
-  padding: 0px 0px 90px 0px;
-  width: 63%;
+  padding: 0px 30px 90px 30px;
+  width: 60%;
   display: inline-block;
 }
 
 div.goalsWrapper.weekPageGoalsWrapper {
-  padding-top: 20px;
+  padding-top: 0px;
 }
 
 div.weekPageContent-goalsdata {
   float: left;
   position: sticky;
-  top: 30px;
-  width: 37%;
-  margin: 80px 0px 0px 0px;
-  padding: 0px 20px 10px 0px;
+  top: 25px;
+  width: 40%;
+  margin: 25px 0px 0px 0px;
+  padding: 0px 30px 10px 30px;
 }
 
 input.goalLineCheck {
@@ -656,6 +690,7 @@ div.weekPageContent-datepicker-wrapper {
 }
 
 div.weekPage-progressLineContainer {
+  margin-bottom: 8px;
 }
 
 div.weekPageContent-percentagesWrapper {
@@ -664,7 +699,7 @@ div.weekPageContent-percentagesWrapper {
 
 button.newWeekPage-submitNewWeekButton {
   cursor: pointer;
-  margin: 20px 0px;
+  margin: 12px 0px 20px 0px;
   padding: 12px;
   background-color: hsl(0, 0%, 25%);
   border: 0;
@@ -686,6 +721,10 @@ button.newWeekPage-submitNewWeekButton:disabled {
   cursor: default;
 }
 
+a.newWeekPage-noGoalsText-LinkToBoard {
+  text-decoration: underline;
+}
+
 div.welcomePageContent-content {
   height: 350px;
 }
@@ -699,10 +738,11 @@ p.welcomePageContent-index {
 }
 
 p.welcomePageContent-threefeatures {
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 p.welcomePageContent-nextButton {
+  user-select: none;
   cursor: pointer;
   margin-top: 0px;
   width: 48%;
@@ -716,6 +756,11 @@ p.welcomePageContent-nextButton {
 
 h2.welcomePageContent-TourPageTitle {
   margin: 18px 0px;
+}
+
+span.welcomePageContent-TourPageTitle-Lighter {
+  font-weight: 500;
+  color: hsl(0, 0%, 35%);
 }
 
 p.welcomePageContent-backButton {
@@ -732,4 +777,8 @@ p.welcomePageContent-nextButton:active {
 
 span.welcomePageContent-emoji {
   font-size: 1.2em;
+}
+
+h2.newWeekPageContent-GoalsTitle {
+  margin: 0;
 }

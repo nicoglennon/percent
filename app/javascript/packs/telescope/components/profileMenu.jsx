@@ -37,8 +37,8 @@ class ProfileMenu extends React.Component {
   render() {
     return (
       <div className="nabvar-profileMenu">
-        <div onClick={this.showMenu}>
-          <img src={UserSVG} className="navbar-wrap-box navbar-usersvg" />
+        <div className="navbar-username-box" onClick={this.showMenu}>
+          <p className="navbar-username">@{this.props.username}</p>
         </div>
 
         {/* <a href="/logout" data-confirm="Are you sure?" data-method="delete" rel="nofollow">

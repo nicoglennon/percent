@@ -133,6 +133,9 @@ class BoardPageContent extends React.Component {
           <div ref={el => { this.bottomOfMessages = el; }} />
         </div>
         <div className="weekPageContent-goalsdata">
+          <div className="weekPage-buttonsWrapper">
+            <button className="weekPage-closeModal" onClick={this.props.closeModal}>✕</button>
+          </div>
           <BoardPageTitle title={this.props.board.title} editTitle={this.props.editBoardTitle}/>
         </div>
       </div>

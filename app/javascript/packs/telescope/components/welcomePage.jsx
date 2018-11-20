@@ -30,7 +30,7 @@ class WelcomePage extends React.Component {
         className="welcomePage-container"
         style={{content: {overflow: 'scroll'}}}
         >
-        <WelcomePageContent username={this.props.username} />
+        <WelcomePageContent username={this.props.username} closeModal={this.handleCloseModal}/>
         {goBack}
       </ReactModal>
     )

@@ -25,7 +25,7 @@ class BoardPage extends React.Component {
     if (board === undefined || board === null){
       content = <p>Loading...</p>;
     } else {
-      content = <BoardPageContent board={board} submitNewBoardGoal={this.props.submitNewBoardGoal} deleteGoal={this.props.deleteGoal} updateGoal ={this.props.updateGoal} editBoardTitle={this.props.editBoardTitle} />
+      content = <BoardPageContent board={board} submitNewBoardGoal={this.props.submitNewBoardGoal} deleteGoal={this.props.deleteGoal} updateGoal ={this.props.updateGoal} editBoardTitle={this.props.editBoardTitle} closeModal={this.handleCloseModal}/>
     }
     return(
       <ReactModal
@@ -37,7 +37,7 @@ class BoardPage extends React.Component {
         className="weekPage-container"
         style={{content: {overflow: 'scroll'}}}
         >
-        <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
+        {/*<button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>*/}
         {content}
         {goBack}
       </ReactModal>
