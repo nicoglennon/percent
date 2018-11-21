@@ -34,7 +34,6 @@ class Navbar extends React.Component {
 
           {/*<img src={LogoSVG} className="navbar-wrap-box navbar-logosvg" />*/}
         </a>
-        &nbsp;
         {topRight}
       </div>
     )

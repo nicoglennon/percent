@@ -55,6 +55,7 @@ div.navbar-wrapper {
 a.navbar-telescope-logo-link {
   text-decoration: none;
   vertical-align: middle;
+  user-select: none;
 }
 
 img.navbar-eye-logo {
@@ -88,6 +89,7 @@ div.navbar-weekLinkWrapper {
   margin-right: 2px;
   display: inline-block;
   vertical-align: top;
+  user-select: none;
 }
 
 a.navbar-newWeek-link {
@@ -179,7 +181,7 @@ div.weekPageDropdownMenu-menuContents {
   position: absolute;
   min-width: 90px;
   top: 35px;
-  left: 35px;
+  left: 60px;
   cursor: default;
   box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2);
 }
@@ -188,6 +190,7 @@ div.navbar-username-box {
   padding: 3px 4px;
   border-radius: 6px;
   transition: background-color 200ms ease;
+  user-select: none;
 }
 
 div.navbar-username-box:hover {
@@ -434,7 +437,7 @@ input.newWeekPage-form-percentage {
 }
 
 div.boardPageContent-noGoalsDiv {
-  margin-left: 28%;
+  margin-left: 22%;
   margin-top: 110px;
   text-align: center;
   display: inline-block;
