@@ -45,7 +45,7 @@ class WeekPage extends React.Component {
            shouldCloseOnOverlayClick={true}
            overlayClassName="weekPage-background"
            className="weekPage-container"
-           style={{content: {overflow: 'scroll'}, overlay: {backgroundColor: overlayColor}}}
+           style={{overlay: {backgroundColor: overlayColor}}}
         >
         {content}
         {goBack}

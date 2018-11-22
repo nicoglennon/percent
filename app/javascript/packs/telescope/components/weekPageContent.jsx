@@ -110,6 +110,7 @@ class WeekPageContent extends React.Component {
               fixedWeeks
               modifiers={modifiers}
               firstDayOfWeek={1}
+              canChangeMonth={false}
               month={selectedDays[0]}
             />
           </div>
@@ -126,7 +127,7 @@ class WeekPageContent extends React.Component {
                 trailWidth="2"
                 strokeLinecap="round"
                 strokeColor={this.state.lineColor}
-                trailColor="#f3f3f3"
+                trailColor="#white"
               />
             </div>
           </div>

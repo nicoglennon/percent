@@ -3,7 +3,7 @@
 .DayPicker {
   display: inline-block;
   font-size: 1rem;
-  background-color: rgb(250, 250, 250);
+  background-color: rgba(247, 247,247, 1);
   border-radius: 6px;
 }
 
@@ -22,7 +22,7 @@
 
 .DayPicker-Month {
   display: table;
-  margin: 0 1em;
+  margin: 0 0em;
   margin-top: 1em;
   border-spacing: 0;
   border-collapse: collapse;
@@ -234,23 +234,23 @@
 }
 
 .SelectedWeekExample .DayPicker-Day--selectedRange {
-  background-color: #1a88fb !important;
-  border-top-color: #1a88fb;
-  border-bottom-color: #1a88fb;
-  border-left-color: #1a88fb;
-  border-right-color: #1a88fb;
+  background-color: hsl(0, 0%, 25%) !important;
+  border-top-color: hsl(0, 0%, 25%);
+  border-bottom-color: hsl(0, 0%, 25%);
+  border-left-color: hsl(0, 0%, 25%);
+  border-right-color: hsl(0, 0%, 25%);
   color: white !important;
 }
 
 .SelectedWeekExample .DayPicker-Day--selectedRangeStart {
-  background-color: #1a88fb !important;
-  border-left: 1px solid #1a88fb;
+  background-color: hsl(0, 0%, 25%) !important;
+  border-left: 1px solid hsl(0, 0%, 25%);
   border-radius: 8px 0px 0px 8px;
 }
 
 .SelectedWeekExample .DayPicker-Day--selectedRangeEnd {
-  background-color: #1a88fb !important;
-  border-right: 1px solid #1a88fb;
+  background-color: hsl(0, 0%, 25%) !important;
+  border-right: 1px solid hsl(0, 0%, 25%);
   border-radius: 0px 8px 8px 0px;
 }
 

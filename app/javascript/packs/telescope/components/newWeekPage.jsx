@@ -292,7 +292,7 @@ class NewWeekPage extends React.Component {
         shouldCloseOnOverlayClick={true}
         overlayClassName="newWeekPage-background"
         className="newWeekPage-container"
-        style={{content: {overflow: 'scroll', zIndex: '300'}, overlay: {backgroundColor: this.state.lineColor, zIndex: '200'}}}
+        style={{content: {zIndex: '300'}, overlay: {backgroundColor: this.state.lineColor, zIndex: '200'}}}
         >
         <div className="weekPageContent-wrapper">
           <div className="weekPageContent-goalsdata">
@@ -326,7 +326,7 @@ class NewWeekPage extends React.Component {
                   trailWidth="2"
                   strokeLinecap="round"
                   strokeColor={this.state.lineColor}
-                  trailColor="#f3f3f3"
+                  trailColor="white"
                 />
               </div>
             </div>
@@ -342,7 +342,7 @@ class NewWeekPage extends React.Component {
               </form> */}
             </div>
             {goalsToDisplay}
-            <p className="weekPageContent-numberofgoals"> goals <strong>{numberOfGoals}</strong></p>
+            { (numberOfGoals > 0) && <p className="weekPageContent-numberofgoals"> goals <strong>{numberOfGoals}</strong></p> }
             <div ref={el => { this.bottomOfMessages = el; }} />
           </div>
         </div>

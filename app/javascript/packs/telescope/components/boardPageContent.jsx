@@ -129,7 +129,7 @@ class BoardPageContent extends React.Component {
             </form>
           </div>
           {goalsToDisplay}
-          <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>
+          { (numberOfGoals > 0) && <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>}
           <div ref={el => { this.bottomOfMessages = el; }} />
         </div>
         <div className="weekPageContent-goalsdata">
