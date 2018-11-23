@@ -5,7 +5,7 @@ div.heropage-wrapper {
 }
 div.heropage-main {
   margin: auto;
-  padding: 70px 0px 40px 0px;
+  padding: 90px 0px 40px 0px;
 }
 
 img.heroPage-mainImage {
@@ -51,6 +51,7 @@ p.heropage-subheader {
 
 span.heropage-subheader-telescope-span {
   color: hsl(0, 0%, 30%);
+  font-weight: bold;
 }
 
 input.heropage-form-input-email {

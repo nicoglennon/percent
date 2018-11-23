@@ -8,12 +8,18 @@ div.navbar-wrapper {
 a.navbar-telescope-logo-link {
   text-decoration: none;
   vertical-align: middle;
+  float: left;
 }
 
 img.navbar-telescope-logo {
-  width: 30px;
-  height: 30px;
-  transition: transform 150ms ease-out;
+  width: 32px;
+  height: 32px;
+  transform: rotate(90deg);
+  transition: transform 250ms ease;
+  opacity: 0.75;
+  position: relative;
+  left: 0px;
+  top: 7px;
 }
 
 img.navbar-logo {
@@ -25,18 +31,17 @@ img.navbar-logo {
 }
 
 img.navbar-telescope-logo:hover {
-  transform: scale(1.2);
-  transition: all 150ms ease-out;
+  transform: rotate(0deg);
 }
 
 p.navbar-telescope-logotitle {
   text-decoration: none;
   display: inline-block;
-  font-size: 28px;
-  margin: 3px 0px 5px 0px;
+  font-size: 26px;
+  margin: 5px 0px 5px 0px;
   letter-spacing: -0.5px;
   font-weight: 500;
-  /* color: hsl(0, 0%, 25%); */
+  color: hsl(0, 0%, 25%);
   /* transform: translateY(-2px); */
 }
 
@@ -44,6 +49,7 @@ div.navbar-float-box {
   display: inline-block;
   float: right;
   padding: 2px;
+  margin-top: 4px;
 }
 
 p.navbar-wrap-box {

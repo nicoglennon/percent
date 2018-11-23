@@ -26,8 +26,8 @@ class WeekCardsWrapper extends React.Component {
 
       weekCards = <Trail
                     items={weeks} keys={week => week.id}
-                    from={{ transform: 'translate3d(0,-30px,0)', display: 'inline-block' }}
-                    to={{ transform: 'translate3d(0,0px,0)', display: 'inline-block' }}
+                    from={{ transform: 'translate3d(0,-30px,0)', display: 'block' }}
+                    to={{ transform: 'translate3d(0,0px,0)', display: 'block' }}
                     >
                     {week => props =>
                       <div style={props}><WeekCard weekObj={week} key={week.id} username={username}/></div>
@@ -39,7 +39,7 @@ class WeekCardsWrapper extends React.Component {
     }
     return (
       <div className="weekCardsWrapper-div">
-        <p className="weekCardsWrapper-title">Weeks</p>
+        <p className="weekCardsWrapper-title">Past Weeks</p>
         <ul className="weekCardsWrapper-ul">
           {weekCards}
         </ul>

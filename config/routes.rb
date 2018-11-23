@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/@:username', :to => 'pages#app'
   get '/@:username/welcome', :to => 'pages#app'
   get '/@:username/weeks/:week_id', :to => 'pages#app'
-  get '/@:username/board', :to => 'pages#app'
+  get '/@:username/goals', :to => 'pages#app'
 
   post '/welcome', to: 'api/v1/users#new'
   get '/welcome', to: 'api/v1/users#new'

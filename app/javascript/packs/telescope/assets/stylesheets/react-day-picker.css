@@ -3,7 +3,8 @@
 .DayPicker {
   display: inline-block;
   font-size: 1rem;
-  background-color: rgba(247, 247,247, 1);
+  /* background-color: rgba(247, 247,247, 1); */
+  background-color: transparent;
   border-radius: 6px;
 }
 
@@ -230,7 +231,7 @@
   border: 1px solid transparent;
 }
 .SelectedWeekExample .DayPicker-Day--hoverRange {
-  background-color: #EFEFEF !important;
+  background-color: hsla(0, 0%, 0%, 7%) !important;
 }
 
 .SelectedWeekExample .DayPicker-Day--selectedRange {

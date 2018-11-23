@@ -63,7 +63,7 @@ class BoardPageContent extends React.Component {
 
   handleSubmitNewBoardGoal(e) {
     e.preventDefault();
-    if (this.state.title !== '' ) {
+    if (this.state.newGoal.title !== '') {
       var newGoal = this.state.newGoal;
       newGoal.shortid = shortid.generate();
       var newGoalsAttributes = this.state.goals_attributes;
@@ -132,7 +132,7 @@ class BoardPageContent extends React.Component {
           { (numberOfGoals > 0) && <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>}
           <div ref={el => { this.bottomOfMessages = el; }} />
         </div>
-        <div className="weekPageContent-goalsdata">
+        <div className="weekPageContent-goalsdata boardPageData">
           <div className="weekPage-buttonsWrapper">
             <button className="weekPage-closeModal" onClick={this.props.closeModal}>✕</button>
           </div>

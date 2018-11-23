@@ -1,12 +1,15 @@
 import React from 'react';
+import Spinner from '../assets/images/spinner.gif';
 import WeekCardsWrapper from './weekCardsWrapper';
-import BoardWrapper from './boardWrapper';
+import MainCardsWrapper from './mainCardsWrapper';
 import { Route, Switch } from 'react-router-dom';
 import WeekPage from './weekPage';
 import BoardPage from './boardPage';
-import Spinner from '../assets/images/spinner.gif';
 import NewWeekPage from './newWeekPage';
 import WelcomePage from './welcomePage';
+
+
+
 import { Transition } from 'react-spring';
 
 
@@ -51,8 +54,12 @@ class UserSnapshot extends React.Component {
                             {
                               show => show && (props => (
                                 <div style={props}>
-                                  <BoardWrapper currentUser={currentUserSnapshot} boards={boards} />
+                                  <div className="userSnapshot-headlineWrapper">
+                                  Stop reliving the same week over and over again.
+                                  </div>
+                                  <MainCardsWrapper board={boards[0]} username={currentUserSnapshot.username} weeks={weeks}/>
                                   <WeekCardsWrapper currentUser={currentUserSnapshot} weekCards={weeks} />
+
                                   <Switch>
                                     <Route exact path="/@:username/weeks/new"
                                       render={(props) => <NewWeekPage {...props}
@@ -72,7 +79,7 @@ class UserSnapshot extends React.Component {
                                                           deleteWeek={this.props.deleteWeek}
                                                         />}
                                     />
-                                    <Route exact path="/@:username/board"
+                                    <Route exact path="/@:username/goals"
                                       render={(props) => <BoardPage {...props}
                                         username={currentUserSnapshot.username}
                                         board={currentUserSnapshot.boards[0]}

@@ -273,7 +273,7 @@ class NewWeekPage extends React.Component {
       if (numberOfGoals === 0) {
         goalsToDisplay = <div className="boardPageContent-noGoalsDiv">
         <img className="boardPageContent-noGoalsImg" src={NoGoalsBike} />
-        <p className="boardPageContent-noGoalsText">No goals yet! <br />Add some to your <Link className="newWeekPage-noGoalsText-LinkToBoard" to={`/@${this.props.currentUser.username}/board`}>Board</Link>.</p>
+        <p className="boardPageContent-noGoalsText">No goals yet! <br />Add some <Link className="newWeekPage-noGoalsText-LinkToBoard" to={`/@${this.props.currentUser.username}/goals`}>here</Link>.</p>
         </div>
       } else {
         goalsToDisplay = this.state.newWeek.goals_attributes.map( function(goal){
@@ -295,7 +295,7 @@ class NewWeekPage extends React.Component {
         style={{content: {zIndex: '300'}, overlay: {backgroundColor: this.state.lineColor, zIndex: '200'}}}
         >
         <div className="weekPageContent-wrapper">
-          <div className="weekPageContent-goalsdata">
+          <div className="weekPageContent-goalsdata weekPageData">
             <div className="weekPage-buttonsWrapper">
               <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
             </div>

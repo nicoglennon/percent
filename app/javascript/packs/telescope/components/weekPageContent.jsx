@@ -71,7 +71,7 @@ class WeekPageContent extends React.Component {
       if (numberOfGoals === 0) {
         goalsToDisplay = <div className="boardPageContent-noGoalsDiv">
         <img className="boardPageContent-noGoalsImg" src={NoGoals} />
-        <p className="boardPageContent-noGoalsText">No goals yet! <br />Add a new one above.</p>
+        <p className="boardPageContent-noGoalsText">No goals here!</p>
         </div>
 
       } else {
@@ -96,7 +96,7 @@ class WeekPageContent extends React.Component {
           {goalsToDisplay}
           <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>
         </div>
-        <div className="weekPageContent-goalsdata">
+        <div className="weekPageContent-goalsdata weekPageData">
           <div className="weekPage-buttonsWrapper">
             <button className="weekPage-closeModal" onClick={this.props.closeModal}>✕</button>
             <WeekPageDropdownMenu deleteWeek={this.props.deleteWeek} />

@@ -127,7 +127,7 @@ class Root extends React.Component {
     .then(function (response) {
       var currentUsername = self.state.currentUserSnapshot.username;
       self.fetchCurrentUserSnapshot(currentUsername);
-      self.addNotification('default', 'Deletion complete!','Your week has been deleted successfully.');
+      self.addNotification('success', 'Deletion complete!','Your week has been deleted successfully.');
     })
     .catch(function (error) {
       console.log(error);

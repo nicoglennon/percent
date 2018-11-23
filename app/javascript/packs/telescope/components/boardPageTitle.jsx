@@ -65,14 +65,15 @@ class BoardPageTitle extends React.Component {
   render(){
     return(
       <div>
-        <p className="weekPageContent-weekOfSubtitle">Board</p>
-        <ContentEditable
+        <p className="weekPageContent-weekOfSubtitle">Goals</p>
+        {/* <ContentEditable
           className="boardPageTitle-editable"
           onChange={this.handleBoardTitleChange}
           onBlur={this.handleUpdateBoardTitle}
           onKeyPress={this.handleKeyPress}
           html={this.state.title}
-        />
+        />*/}
+        <h2 className="weekPageContent-date">Set your Goals</h2>
       </div>
     )
   }

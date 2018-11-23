@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import EditSVG from '../assets/images/edit.svg';
+
 
 class BoardCard extends React.Component {
   constructor(){
@@ -29,14 +31,15 @@ class BoardCard extends React.Component {
     var goalsClass = this.state.isHovered ? 'showPercentage' : '';
     var goalNumber = this.props.board.goals.length;
     return(
-      <li className="weekCard-li" >
-        <Link className="weekCard-alink boardCard" to={`/@${this.props.username}/board`} onMouseOver={this.handleOnMouseHover} onMouseLeave={this.handleOnMouseLeave}>
-          <div className="weekCard-div">
-            <p className="weekCard-date">{this.props.board.title}</p>
-            <p className={'weekCard-percentage ' + goalsClass }>{goalNumber}</p>
+        <Link className="cardWrapper-div goals-card" to={`/@${this.props.username}/goals`} >
+          <div className="mainCard-div">
+            <p className="mainCardsWrapper-title">GOALS</p>
+            {/*<p className="mainCard-date">{this.props.board.title}</p>*/}
+            <p className="mainCard-date">Set your Goals</p>
+            <p>You have <strong>{goalNumber}</strong> goals to achieve every week.</p>
+            <p className="card-button-text goals-button"><strong>EDIT</strong> <img src={EditSVG} className="GoalsCard-button-icon" /></p>
           </div>
         </Link>
-      </li>
     )
   }
 }

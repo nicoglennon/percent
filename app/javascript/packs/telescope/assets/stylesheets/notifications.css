@@ -45,18 +45,18 @@
 }
 
 .notification-default {
-    background-color: #007bff;
-    border-left: 8px solid #0056b3
+    background-color: hsl(0, 0%, 20%);
+    border-left: 8px solid #007bff;
 }
 
 .notification-success {
-    background-color: #3CB371;
-    border-left: 8px solid #19692c
+    background-color: hsl(0, 0%, 20%);
+    border-left: 8px solid #3CB371
 }
 
 .notification-danger {
-    background-color: #dc3545;
-    border-left: 8px solid #a71d2a
+    background-color: hsl(0, 0%, 20%);
+    border-left: 8px solid #dc3545
 }
 
 .notification-info {

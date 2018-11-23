@@ -21,6 +21,84 @@ a:visited {
   color: inherit;
 }
 
+div.userSnapshot-headlineWrapper {
+  margin: auto;
+  padding: 20px;
+  margin-top: 90px;
+  max-width: 550px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+div.userSnapshot-gridWrapper {
+  padding: 40px 20px 0px 20px;
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-gap: 4%;
+}
+
+div.BoardCard-wrapper {
+}
+
+a.cardWrapper-div {
+  width: 100%;
+  height: 100%;
+  padding: 25px 30px;
+  border-radius: 20px;
+  transition: transform 300ms ease, background-size 1000ms ease;
+  color: inherit;
+}
+
+a.cardWrapper-div:hover {
+  transform: scale(1.05);
+  /* opacity: 0.9; */
+  /* box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, .2);  */
+}
+
+a.cardWrapper-div.goals-card{
+  background-color: transparent;
+  background-image: url('../images/snowymint.jpg');
+  background-size:110%;
+}
+
+a.cardWrapper-div.goals-card:hover {
+  background-size:180%;
+}
+
+a.cardWrapper-div.analytics-card {
+  /* background-color: #F08080; */
+  background-color: transparent;
+  background-image: url('../images/watusi.jpg');
+  background-size:110%;
+}
+
+a.cardWrapper-div.analytics-card:hover {
+  background-size:180%;
+}
+
+p.card-button-text {
+  /* font-weight: 600; */
+  margin-top: 25px;
+  text-align: right;
+  margin-bottom: 8px;
+  color: inherit;
+}
+
+/* p.card-button-text.goals-button {
+ color: #6969e8;
+}
+
+p.card-button-text.analytics-button {
+ color: #db2a2a;
+} */
+
+img.GoalsCard-button-icon {
+  width: 22px;
+  height: 22px;
+  vertical-align: bottom;
+  margin-left: 3px;
+}
+
 img.userSnapshot-spinner {
   width: 45px;
   height: 45px;
@@ -72,8 +150,8 @@ img.navbar-telescope-logo:hover {
 p.navbar-telescope-logotitle {
   text-decoration: none;
   display: inline-block;
-  font-size: 28px;
-  margin: 3px 5px 5px 5px;
+  font-size: 26px;
+  margin: 6px 5px 5px 5px;
   letter-spacing: -0.5px;
   font-weight: 500;
   color: hsl(0, 0%, 20%);
@@ -133,15 +211,16 @@ img.navbar-usersvg {
 
 img.navbar-logosvg {
   opacity: 0.85;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   margin: 4px;
-  transition: opacity 150ms ease-out, transform 150ms ease-out;
+  transform: rotate(90deg);
+  transition: opacity 250ms ease, transform 250ms ease;
 }
 
 img.navbar-logosvg:hover {
   /* opacity: 0.95; */
-  transform: scale(1.15);
+  transform: rotate(0deg);
 }
 
 img.navbar-usersvg:hover {
@@ -234,22 +313,22 @@ p.navbar-profileMenuOptions:hover {
 }
 
 a.weekCard-alink{
-  width: 211px;
-  padding: 15px;
-  margin: 8px;
+  padding: 8px 15px 14px 15px;
+  margin: 0px;
   border-radius: 9px;
-  height: 210px;
-  display: inline-block;
+  /* border-top: 1px solid rgba(0, 0, 0, .05); */
+  /* height: 210px; */
+  display: block;
   text-decoration: none;
-  box-shadow: 3 3px 5px 0 rgba(0, 0, 0, .3);
-  transition: transform 250ms ease-out, box-shadow 250ms ease-out, background-color 250ms ease-out;
+  /* box-shadow: 3 3px 5px 0 rgba(0, 0, 0, .3); */
+  transition: transform 250ms ease, box-shadow 250ms ease, background-color 250ms ease;
 }
 
 a.weekCard-alink:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, .2);
+  transform: scale(1.01);
+  /* border-top: 1px solid rgba(0, 0, 0, 0); */
+  /* box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, .2); */
   /* background-color: rgba(0, 0, 0, .04); */
-  transition: all 200ms ease-out;
   /* transform: scale(1.025); */
 }
 
@@ -265,12 +344,29 @@ a.weekCard-alink.boardCard:hover {
 
 div.weekCardsWrapper-div {
   padding: 40px 20px 20px 20px;
+  display: block;
+  max-width: 550px;
+  margin: auto;
+}
+
+div.BoardWrapper-div {
+  padding: 40px 20px 20px 20px;
+  display: inline-block;
+}
+
+p.mainCardsWrapper-title {
+  color: inherit;
+  display: inline-block;
+  margin-bottom: 2px;
+  font-size: 0.8em;
 }
 
 p.weekCardsWrapper-title {
-  color: #62676d;
-  display: inline-block;
-  margin-bottom: 0px;
+  /* display: inline-block; */
+  margin-bottom: 10px;
+  margin-left: 10px;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 div.weekCardsWrapper-noWeeksDiv {
@@ -288,7 +384,7 @@ div.weekCardsWrapper-noWeeksDiv:hover {
 }
 
 img.weekCardsWrapper-noWeeksImage {
-  width: 70%;
+  width: 100%;
   display: block;
   margin: auto;
 }
@@ -310,17 +406,23 @@ p.weekCard-weekOf {
 
 p.weekCard-date {
   margin: 0px;
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+p.mainCard-date {
+  margin: 0px;
+  font-size: 28px;
+  font-weight: 600;
 }
 
 p.weekCard-percentage {
-  margin-top: 32px;
-  font-size: 42px;
-  font-weight: 300;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(2px);
-  transition: opacity 200ms ease-out, transform 200ms ease-out;
+  /* margin-top: px; */
+  font-size: 30px;
+  font-weight: 400;
+  float: right;
+  margin:0px;
+  margin-top: 10px;
 }
 
 p.weekCard-percentage.showPercentage {
@@ -331,6 +433,9 @@ p.weekCard-percentage.showPercentage {
 }
 
 div.weekCard-div {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 0%;
 }
 
 li.weekCard-li {
@@ -339,11 +444,18 @@ li.weekCard-li {
   display: inline-block;
 }
 
+div.weekCard-li {
+  text-decoration: none;
+  list-style: none;
+  display: block;
+  width: 100%;
+}
+
 ul.weekCardsWrapper-ul {
   padding: 0px;
   margin-bottom: 0px;
   margin-top: 5px;
-  max-width: 1200px;
+  width: 100%;
 }
 
 div.weekPage-background {
@@ -669,11 +781,24 @@ div.weekPageContent-goalsdata {
   position: sticky;
   top: 25px;
   width: 37%;
-  background-color: rgba(245, 245,245, 1);
+  /* background-color: rgba(245, 245,245, 1); */
+  background-color: transparent;
   /* margin: 25px 0px 0px 0px; */
   padding: 25px 30px 10px 30px;
   height: 100%;
   border-radius: 9px 0px 0px 9px;
+}
+
+div.weekPageContent-goalsdata.boardPageData {
+  background-image: url('../images/snowymint.jpg');
+  background-size: 300%;
+  background-position: center top;
+}
+
+div.weekPageContent-goalsdata.weekPageData {
+  background-image: url('../images/sunset.jpg');
+  background-size: 300%;
+  background-position: left top;
 }
 
 input.goalLineCheck {
