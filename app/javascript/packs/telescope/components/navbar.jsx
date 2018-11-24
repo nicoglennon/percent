@@ -1,5 +1,4 @@
 import React from 'react';
-import Telescope from '../assets/images/telescope-emoji.png';
 import LogoSVG from '../assets/images/percent.svg';
 import { Link } from 'react-router-dom';
 import ProfileMenu from './profileMenu';

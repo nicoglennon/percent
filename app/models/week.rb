@@ -4,7 +4,7 @@ class Week < ApplicationRecord
   belongs_to :user
   has_many :goals, inverse_of: :goalable, as: :goalable
 
-  validates :date, presence: true, uniqueness: { scope: :user_id,
+  validates :date, presence: {message: "range must be selected in the calendar" }, uniqueness: { scope: :user_id,
     message: "has already been used for an existing week" }
 
   validates :percentage, presence: true

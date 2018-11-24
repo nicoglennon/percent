@@ -1,10 +1,11 @@
 import React from 'react';
 import { Line } from 'rc-progress';
+import WeekSVG from '../assets/images/calendar.svg';
 
 const WelcomePageContentFourthPage = ({}) => (
   <div>
-    <h2 className="welcomePageContent-TourPageTitle"><span className="welcomePageContent-TourPageTitle-Lighter">2. Track your</span> Weeks <span className="welcomePageContent-emoji">🗓</span></h2>
-    <p>Your Completion will increase as you check off your goals.</p>
+    <h2 className="welcomePageContent-TourPageTitle"><span className="welcomePageContent-TourPageTitle-Lighter">2. Track your</span> Weeks <img src={WeekSVG} className="welcomePageContent-bigiconsvg"/></h2>
+    <p>Watch your completion rate will increase as you check off your goals:</p>
     <div className="weekPageContent-percentagesWrapper">
       <p className="weekPageContent-weekOfSubtitle">Completion</p>
       <p className="weekPageContent-percentageText">
@@ -22,9 +23,8 @@ const WelcomePageContentFourthPage = ({}) => (
         />
       </div>
     </div>
-    <p>Save your Week once you're done – do this once a week (ideally on Sunday evenings)!</p>
-    <p>Once you have some Weeks on record, go ahead and check your Analytics.</p>
-
+      <p>Don't forget to select the date range using the calendar!</p>
+    <p>Save your Week once you're done – do this once a week (ideally on Sunday evenings).</p>
   </div>
 );
 

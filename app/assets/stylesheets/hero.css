@@ -51,7 +51,7 @@ p.heropage-subheader {
 
 span.heropage-subheader-telescope-span {
   color: hsl(0, 0%, 30%);
-  font-weight: bold;
+  font-weight: 500;
 }
 
 input.heropage-form-input-email {

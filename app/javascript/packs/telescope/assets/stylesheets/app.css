@@ -43,7 +43,7 @@ div.BoardCard-wrapper {
 a.cardWrapper-div {
   width: 100%;
   height: 100%;
-  padding: 25px 30px;
+  padding: 25px 35px;
   border-radius: 20px;
   transition: transform 300ms ease, background-size 1000ms ease;
   color: inherit;
@@ -531,6 +531,14 @@ div.welcomePage-container {
   z-index:11;
 }
 
+img.welcomePageContent-bigiconsvg {
+  width: 30px;
+  height: 30px;
+  vertical-align: top;
+  margin-left: 2px;
+  opacity: 0.78;
+}
+
 input.newWeekPage-form-date {
   background-color: inherit;
   color: inherit;
@@ -581,11 +589,11 @@ div.weekPageContent-newGoalFormWrapper {
 input.boardPageContent-newGoalForm-title {
   border: 0px;
   color: inherit;
-  width: 86%;
+  width: 84%;
   border: 1px solid  hsl(0, 0%, 20%);
   background-color: white;
   padding: 12px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 input.boardPageContent-newGoalForm-title:hover {
@@ -608,7 +616,7 @@ p.weekPageContent-newgoallabel {
 
 p.weekPageContent-weekOfSubtitle {
   margin-bottom: 0px;
-  color: hsl(0, 0%, 50%);
+  color: hsl(0, 0%, 35%);
 }
 
 h2.weekPageContent-date {
@@ -713,12 +721,12 @@ div.weekPage-buttonsWrapper {
 
 button.weekPage-addNewGoalButton {
   cursor: pointer;
-  padding: 13px;
+  padding: 13px 20px;
   float: right;
   background-color: hsl(0, 0%, 25%);
   border: 0px;
   color: white;
-  border-radius: 9px;
+  border-radius: 6px;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -733,7 +741,7 @@ button.weekPage-addNewGoalButton:hover {
 div.goalLineWrapper {
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 9px;
-  padding: 14px 16px;
+  padding: 14px 10px 14px 16px;
   margin: 0px 0px 10px 0px;
   border: 1px solid rgba(0, 0, 0, 0);
   transition: background-color 200ms ease;
@@ -809,15 +817,19 @@ input.goalLineCheck {
 }
 
 span.goalLine-deletebuttonspan {
-  padding: 1px;
+  padding: 5px;
+  margin-top: -7px;
  float: right;
  display: inline-block;
  cursor: pointer;
  opacity: 0.25;
+ font-size: 1.2em;
+ transition: transform 250ms ease, opacity 250ms ease;
 }
 
 span.goalLine-deletebuttonspan:hover {
- opacity: 0.8;
+  /* transform: rotate(90deg); */
+   opacity: 0.9;
 }
 
 div.weekPageContent-datepicker-wrapper {
