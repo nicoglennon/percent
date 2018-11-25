@@ -8,8 +8,8 @@ class Api::V1::UsersController < ApplicationController
     else
       @user = User.new
       if params[:email] && params[:email] != ''
-        @user.email = params[:email]
-        @user.username = params[:email].split(/(?=\@\b)/)[0].split('.').join('');
+        @user.email = params[:email].downcase!
+        @user.username = params[:email].downcase.split(/(?=\@\b)/)[0].split('.').join('');
       end
       @user
     end
@@ -18,7 +18,7 @@ class Api::V1::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      login(params[:user][:email], params[:user][:password])
+      login(@user.username, params[:user][:password])
       @user.boards.create!(title: 'My Board')
       return redirect_to '/@' + @user.username + '/welcome'
     else

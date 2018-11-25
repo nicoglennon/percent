@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+
+  before_save :downcase_username_and_email
+
   has_many :weeks, dependent: :destroy
   has_many :boards, dependent: :destroy
 
@@ -9,8 +12,16 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, email_format: { message: 'has invalid format' }
   validate :username_has_no_special_characters
 
+
+  private
+
   def to_param
     username
+  end
+
+  def downcase_username_and_email
+    self.username.downcase!
+    self.email.downcase!
   end
 
   def username_has_no_special_characters

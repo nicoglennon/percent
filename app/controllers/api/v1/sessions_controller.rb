@@ -7,7 +7,7 @@ class Api::V1::SessionsController < ApplicationController
   end
 
   def create
-    if login(params[:email_or_username], params[:password])
+    if login(params[:email_or_username].downcase, params[:password])
       flash[:success] = 'Welcome back!'
       redirect_to '/@' + current_user.username
     else
