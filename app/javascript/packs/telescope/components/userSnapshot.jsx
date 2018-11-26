@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import WeekPage from './weekPage';
 import BoardPage from './boardPage';
 import NewWeekPage from './newWeekPage';
+import AnalyticsPage from './analyticsPage';
 import WelcomePage from './welcomePage';
 
 
@@ -87,6 +88,12 @@ class UserSnapshot extends React.Component {
                                         deleteGoal={this.props.deleteGoal}
                                         updateGoal ={this.props.updateGoal}
                                         editBoardTitle={this.props.editBoardTitle}
+                                      />}
+                                    />
+                                    <Route exact path="/@:username/analytics"
+                                      render={(props) => <AnalyticsPage {...props}
+                                        username={currentUserSnapshot.username}
+                                        weeks={weeks}
                                       />}
                                     />
                                     <Route exact path="/@:username/welcome"

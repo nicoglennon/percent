@@ -59,6 +59,7 @@ a.cardWrapper-div.goals-card{
   background-color: transparent;
   background-image: url('../images/snowymint.jpg');
   background-size:110%;
+  /* box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2); */
 }
 
 a.cardWrapper-div.goals-card:hover {
@@ -70,6 +71,7 @@ a.cardWrapper-div.analytics-card {
   background-color: transparent;
   background-image: url('../images/watusi.jpg');
   background-size:110%;
+  /* box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2); */
 }
 
 a.cardWrapper-div.analytics-card:hover {
