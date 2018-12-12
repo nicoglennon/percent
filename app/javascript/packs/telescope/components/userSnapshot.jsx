@@ -55,9 +55,6 @@ class UserSnapshot extends React.Component {
                             {
                               show => show && (props => (
                                 <div style={props}>
-                                  <div className="userSnapshot-headlineWrapper">
-                                  Stop reliving the same week over and over again.
-                                  </div>
                                   <MainCardsWrapper board={boards[0]} username={currentUserSnapshot.username} weeks={weeks}/>
                                   <WeekCardsWrapper currentUser={currentUserSnapshot} weekCards={weeks} />
 

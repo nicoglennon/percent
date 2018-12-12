@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import ReactModal from 'react-modal';
+import AnalyticsPageContent from './analyticsPageContent';
 
 class BoardPage extends React.Component {
   constructor(){
@@ -19,6 +20,7 @@ class BoardPage extends React.Component {
 
   render(){
     var goBack = this.state.goBack ? <Redirect to={'/@' + this.props.username} /> : undefined;
+    var content = <AnalyticsPageContent weeks={this.props.weeks} />
     return(
       <ReactModal
         isOpen={true}
@@ -26,9 +28,9 @@ class BoardPage extends React.Component {
         onRequestClose={this.handleCloseModal}
         shouldCloseOnOverlayClick={true}
         overlayClassName="weekPage-background boardPage-background"
-        className="weekPage-container"
+        className="weekPage-container analyticsPage-container"
         >
-        Analytics or something
+        {content}
         {goBack}
       </ReactModal>
     )

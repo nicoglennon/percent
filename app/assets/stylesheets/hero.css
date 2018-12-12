@@ -2,6 +2,7 @@ div.heropage-wrapper {
   max-width: 950px;
   margin: auto;
   margin-top: 20px;
+  padding: 0px 15px;
 }
 div.heropage-main {
   margin: auto;
@@ -22,15 +23,15 @@ div.heropage-firstdiv {
 }
 
 div.heropage-firstdiv-left {
-  width: 50%;
+  width: 52%;
   display: inline-block;
-  margin-top: 50px;
+  margin-top: 65px;
 }
 
 div.heropage-firstdiv-right {
-  margin-top: 20px;
+  margin-top: 24px;
   float: right;
-  width: 43%;
+  width: 44%;
 }
 
 
@@ -63,6 +64,7 @@ input.heropage-form-input-email {
   border-radius: 5px;
   margin-right: 10px;
   font-size: 18px;
+  transition: border 200ms ease;
 }
 
 input.heropage-form-input-email:focus {

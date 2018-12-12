@@ -8,7 +8,7 @@ class Api::V1::UsersController < ApplicationController
     else
       @user = User.new
       if params[:email] && params[:email] != ''
-        @user.email = params[:email].downcase!
+        @user.email = params[:email].downcase
         @user.username = params[:email].downcase.split(/(?=\@\b)/)[0].split('.').join('');
       end
       @user

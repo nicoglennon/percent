@@ -31,7 +31,7 @@ div.userSnapshot-headlineWrapper {
 }
 
 div.userSnapshot-gridWrapper {
-  padding: 40px 20px 0px 20px;
+  padding: 80px 20px 0px 20px;
   display: grid;
   grid-template-columns: 48% 48%;
   grid-gap: 4%;
@@ -45,37 +45,37 @@ a.cardWrapper-div {
   height: 100%;
   padding: 25px 35px;
   border-radius: 20px;
-  transition: transform 300ms ease, background-size 1000ms ease;
+  transition: transform 300ms ease, background-size 300ms ease, box-shadow 100ms ease;
   color: inherit;
 }
 
 a.cardWrapper-div:hover {
   transform: scale(1.05);
+  /* transform: translateY(-8px); */
   /* opacity: 0.9; */
-  /* box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, .2);  */
+  /* box-shadow: 3px 3px 20px rgba(79,109,141,.2); */
 }
 
 a.cardWrapper-div.goals-card{
   background-color: transparent;
-  background-image: url('../images/snowymint.jpg');
-  background-size:110%;
-  /* box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2); */
+  background: rgb(198,227,255);
+  background: -webkit-linear-gradient(bottom left, rgba(198,227,255,1) 0%, rgba(218,245,214,1) 100%);
+  background: -o-linear-gradient(bottom left, rgba(198,227,255,1) 0%, rgba(218,245,214,1) 100%);
+  background: linear-gradient(to top right, rgba(198,227,255,1) 0%, rgba(218,245,214,1) 100%);
 }
 
 a.cardWrapper-div.goals-card:hover {
-  background-size:180%;
 }
 
 a.cardWrapper-div.analytics-card {
-  /* background-color: #F08080; */
   background-color: transparent;
-  background-image: url('../images/watusi.jpg');
-  background-size:110%;
-  /* box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2); */
+  background: rgb(255,233,231);
+  background: -webkit-linear-gradient(bottom left, rgb(255, 224, 221) 0%, rgb(255, 220, 255) 100%);
+  background: -o-linear-gradient(bottom left, rgb(255, 224, 221) 0%, rgb(255, 220, 255) 100%);
+  background: linear-gradient(to top right, rgb(255, 224, 221) 0%, rgb(255, 220, 255) 100%);
 }
 
 a.cardWrapper-div.analytics-card:hover {
-  background-size:180%;
 }
 
 p.card-button-text {
@@ -189,7 +189,7 @@ a.navbar-newWeek-link:hover {
 }
 
 a.navbar-newWeek-link:active {
-  background-color: hsl(0, 0%, 86%);
+  background-color: hsl(0, 0%, 85%);
 }
 
 /*
@@ -277,6 +277,10 @@ div.navbar-username-box {
 div.navbar-username-box:hover {
   cursor: pointer;
   background-color: hsl(0, 0%, 95%);
+}
+
+div.navbar-username-box:active {
+  background-color: hsl(0, 0%, 90%);
 }
 
 p.navbar-username {
@@ -494,6 +498,10 @@ div.weekPage-container {
   top: 50%;
   transform: translateY(-50%);
   z-index:11;
+}
+
+div.weekPage-container.analyticsPage-container {
+  max-height: 380px;
 }
 
 div.weekPage-container-closemodal.boardPage-container-closemodal {
@@ -800,13 +808,19 @@ div.weekPageContent-goalsdata {
 }
 
 div.weekPageContent-goalsdata.boardPageData {
-  background-image: url('../images/snowymint.jpg');
-  background-size: 300%;
-  background-position: center top;
+  /* background-image: url('../images/snowymint.jpg'); */
+  background-color: transparent;
+  background: rgb(198,227,255);
+  background: -webkit-linear-gradient(bottom left, rgba(198,227,255,1) 0%, rgba(218,245,214,1) 100%);
+  background: -o-linear-gradient(bottom left, rgba(198,227,255,1) 0%, rgba(218,245,214,1) 100%);
+  background: linear-gradient(to top right, rgba(198,227,255,1) 0%, rgba(218,245,214,1) 100%);
+  /* background-size: 300%; */
+  /* background-position: center top; */
 }
 
 div.weekPageContent-goalsdata.weekPageData {
-  background-image: url('../images/sunset.jpg');
+  /* background-image: url('../images/sunset.jpg'); */
+  background-color: #f6f6f6;
   background-size: 300%;
   background-position: left top;
 }
@@ -932,4 +946,27 @@ span.welcomePageContent-emoji {
 
 h2.newWeekPageContent-GoalsTitle {
   margin: 0;
+}
+
+div.AnalyticsPageWrapper {
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  overflow: hidden;
+}
+
+div.AnalyticsPageWrapper h2 {
+  /* display: inline-block; */
+}
+
+div.AnalyticsPageContent-Chart {
+  overflow: scroll;
+  margin-top: 15px;
+  height: 100%;
+  width: 100%;
+}
+
+img.WelcomePageContent-GetStarted-Image {
+  width: 100%;
+  margin: auto;
 }
