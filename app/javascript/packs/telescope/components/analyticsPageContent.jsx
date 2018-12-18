@@ -1,12 +1,12 @@
 import React from 'react';
 import { AreaChart, Area, Tooltip, XAxis, YAxis, ReferenceLine } from 'recharts';
+import NoGoalsGif from '../assets/images/man-shirt.gif';
 import moment from 'moment';
 
 function cleanWeeksDataForChart(weeks){
   var weeksToClean = [...weeks];
   var cleanWeeks = weeksToClean.map(function(week){
     var newWeek = {...week};
-    var weekMoment = moment(newWeek.date);
     newWeek.date = moment(newWeek.date).format('MMM D');
     return newWeek;
   })
@@ -60,21 +60,25 @@ class AnalyticsPageContent extends React.Component {
     var midColor = getMidColor(percentagesArray);
     var midZeroColor = getMidZeroColor(percentagesArray);
     var zeroColor = getColor(0);
-    return(
-      <div className="AnalyticsPageWrapper">
-        {/* <h2>Analytics</h2> */}
+
+    var content = weeks.length == 0 ?
+        <div className="analyticsPageContent-noWeeksDiv">
+          <img className="analyticsPageContent-noWeeksImg" src={NoGoalsGif} />
+          <p><strong>You have no weeks to analyze yet!</strong><br />Come back after recording a few weeks.</p>
+        </div>
+        :
         <div className="AnalyticsPageContent-Chart">
           <AreaChart width={weeks.length < 10 ? 790 : weeks.length*80} height={300} data={cleanDat} >
             <defs>
               <linearGradient id="colorLine" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor={maxColor} />
-              <stop offset="50%" stopColor={midColor} />
-            <stop offset="100%" stopColor={minColor} />
+                <stop offset="50%" stopColor={midColor} />
+                <stop offset="100%" stopColor={minColor} />
               </linearGradient>
               <linearGradient id="colorUv" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor={maxColor} stopOpacity={0.6} />
-              <stop offset="50%" stopColor={midZeroColor} stopOpacity={0.4}/>
-            <stop offset="100%" stopColor={zeroColor} stopOpacity={0.2} />
+                <stop offset="50%" stopColor={midZeroColor} stopOpacity={0.4}/>
+                <stop offset="100%" stopColor={zeroColor} stopOpacity={0.2} />
               </linearGradient>
             </defs>
             <XAxis dataKey="date" padding={{left: 30, right: 30}} />
@@ -83,6 +87,10 @@ class AnalyticsPageContent extends React.Component {
           <Tooltip contentStyle={{color: 'white', backgroundColor: 'black', border: 'none', borderRadius: '6px', opacity: '0.8'}} separator={': '} />
           </AreaChart>
         </div>
+        ;
+    return(
+      <div className="AnalyticsPageWrapper">
+        {content}
       </div>
     )
   }

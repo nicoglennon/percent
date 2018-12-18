@@ -45,7 +45,7 @@ a.cardWrapper-div {
   height: 100%;
   padding: 25px 35px;
   border-radius: 20px;
-  transition: transform 300ms ease, background-size 300ms ease, box-shadow 100ms ease;
+  transition: transform 300ms ease, background-size 300ms ease, box-shadow 300ms ease;
   color: inherit;
 }
 
@@ -53,7 +53,7 @@ a.cardWrapper-div:hover {
   transform: scale(1.05);
   /* transform: translateY(-8px); */
   /* opacity: 0.9; */
-  /* box-shadow: 3px 3px 20px rgba(79,109,141,.2); */
+  /* box-shadow: 0px 4px 20px rgba(0,0,0,.2); */
 }
 
 a.cardWrapper-div.goals-card{
@@ -124,7 +124,7 @@ div:focus {outline:0;}
 
 div.rootInnerWrapper {
   max-width: 950px;
-  margin: 20px auto 150px auto;
+  margin: 20px auto 100px auto;
 }
 
 div.navbar-wrapper {
@@ -160,7 +160,6 @@ p.navbar-telescope-logotitle {
 }
 
 div.navbar-float-box {
-  display: inline-block;
   float: right;
 }
 
@@ -737,7 +736,7 @@ button.weekPage-addNewGoalButton {
   border: 0px;
   color: white;
   border-radius: 6px;
-  display: inline-block;
+  /* display: inline-block; */
   text-align: center;
   vertical-align: middle;
   transition: background-color 200ms ease-out;
@@ -836,7 +835,7 @@ span.goalLine-deletebuttonspan {
   padding: 5px;
   margin-top: -7px;
  float: right;
- display: inline-block;
+ /* display: inline-block; */
  cursor: pointer;
  opacity: 0.25;
  font-size: 1.2em;
@@ -964,6 +963,16 @@ div.AnalyticsPageContent-Chart {
   margin-top: 15px;
   height: 100%;
   width: 100%;
+}
+
+div.analyticsPageContent-noWeeksDiv {
+  text-align: center;
+  /* margin-top: 45px; */
+}
+
+img.analyticsPageContent-noWeeksImg {
+  height: 250px;
+  text-align: center;
 }
 
 img.WelcomePageContent-GetStarted-Image {
