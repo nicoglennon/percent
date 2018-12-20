@@ -119,7 +119,7 @@ ul.signup.errors {
     margin-top: 70px;
     display: block;
     top: 0;
-    transform: translateY(10%);
+    transform: translateY(2%);
   }
 
   div.signup.center.fadeInSignupPage {

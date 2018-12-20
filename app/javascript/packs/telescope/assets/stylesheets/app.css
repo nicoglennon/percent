@@ -1050,5 +1050,12 @@ img.WelcomePageContent-GetStarted-Image {
     margin-top: 10px;
   }
 
+  div.welcomePage-container {
+    height: 98%;
+    margin: 0px 7px;
+    max-height: unset;
+    z-index:11;
+  }
+
 
 }
