@@ -60,7 +60,7 @@ p.navbar-wrap-box {
 
 p.navbar-sign-in {
   margin: 0px;
-  padding: 8px 10px;
+  padding: 7px 12px;
   border-radius: 5px;
   transition: background-color 150ms ease-out;
 }
@@ -73,7 +73,7 @@ p.navbar-sign-in:hover {
 p.navbar-sign-up {
   margin: 0px;
   border-radius: 5px;
-  padding: 8px 10px;
+  padding: 7px 12px;
   color: white;
   background-color: hsl(0, 0%, 20%);
   transition: background-color 150ms ease-out;
