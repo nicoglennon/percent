@@ -1024,7 +1024,7 @@ img.WelcomePageContent-GetStarted-Image {
     top: -440px;
     border-radius: 9px;
     z-index: 201;
-    box-shadow: 0px 4px 10px rgba(0,0,0,.1);
+    box-shadow: 0px 4px 10px rgba(0,0,0,.15);
   }
 
   div.weekPageContent-goalsdata.newWeekPageData {
