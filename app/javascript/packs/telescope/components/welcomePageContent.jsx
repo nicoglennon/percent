@@ -77,8 +77,10 @@ class WelcomePageContent extends React.Component {
         <div className="welcomePageContent-content">
           {content}
         </div>
-        {index === 0 ? null : <p className="welcomePageContent-nextButton welcomePageContent-backButton" onClick={this.handleDecreaseIndex}>Back</p> }
-        <p className="welcomePageContent-nextButton" onClick={buttonFunct} style={style}>{buttonName}</p>
+        <div className="welcomePageContent-buttons"> 
+          {index === 0 ? <div /> : <p className="welcomePageContent-nextButton welcomePageContent-backButton" onClick={this.handleDecreaseIndex}>Back</p> }
+          <p className="welcomePageContent-nextButton" onClick={buttonFunct} style={style}>{buttonName}</p>
+        </div>
         <p className="welcomePageContent-index">{this.state.index + 1}/6</p>
       </div>
     )

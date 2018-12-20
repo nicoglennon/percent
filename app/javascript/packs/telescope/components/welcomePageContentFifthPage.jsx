@@ -13,7 +13,7 @@ const WelcomePageContentFifthPage = ({}) => (
     <h2 className="welcomePageContent-TourPageTitle"><span className="welcomePageContent-TourPageTitle-Lighter">3. View your</span> Analytics <img src={ChartSVG} className="welcomePageContent-bigiconsvg"/></h2>
     <p>Aggregate data from all your recorded Weeks will be available in your Analytics.</p>
     <div className="AnalyticsPageContent-Chart">
-      <AreaChart width={375} height={175} data={weeksData} >
+      <AreaChart width={375} height={180} data={weeksData} >
         <defs>
           <linearGradient id="colorLine" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor={'black'} />

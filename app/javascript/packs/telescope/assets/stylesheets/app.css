@@ -31,7 +31,7 @@ div.userSnapshot-headlineWrapper {
 }
 
 div.userSnapshot-gridWrapper {
-  padding: 80px 20px 0px 20px;
+  padding: 60px 20px 0px 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 35px;
@@ -971,8 +971,10 @@ div.analyticsPageContent-noWeeksDiv {
 }
 
 img.analyticsPageContent-noWeeksImg {
-  height: 250px;
+  max-height: 250px;
   text-align: center;
+  max-width: 100%;
+
 }
 
 img.WelcomePageContent-GetStarted-Image {
@@ -1025,6 +1027,7 @@ img.WelcomePageContent-GetStarted-Image {
     border-radius: 9px;
     z-index: 201;
     box-shadow: 0px 4px 10px rgba(0,0,0,.15);
+    padding: 20px 20px 10px 20px;
   }
 
   div.weekPageContent-goalsdata.newWeekPageData {
@@ -1057,5 +1060,33 @@ img.WelcomePageContent-GetStarted-Image {
     z-index:11;
   }
 
+  div.welcomePageContent-buttons {
+    bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    font-size: 0.9em;
+  }
+
+  p.welcomePageContent-nextButton {
+    width: 100%;
+  }
+
+  h2.welcomePageContent-TourPageTitle {
+    font-size: 1.2em;
+  }
+
+  div.welcomePageContent-wrapper {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  img.welcomePageContent-bigiconsvg {
+    width: 24px;
+    height: 24px;
+  }
 
 }
