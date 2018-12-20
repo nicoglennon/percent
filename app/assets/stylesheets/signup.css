@@ -1,5 +1,6 @@
 div.signup.wrapper {
   width: 100%;
+  padding: 0px 20px;
   height: 100vh;
 }
 
@@ -21,7 +22,7 @@ a.signup.telescope-name {
 }
 
 div.signup.center {
-  width: 350px;
+  max-width: 350px;
   margin: auto;
   position: relative;
   top: 50%;
