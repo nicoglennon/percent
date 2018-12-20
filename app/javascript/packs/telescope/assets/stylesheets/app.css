@@ -988,16 +988,16 @@ img.WelcomePageContent-GetStarted-Image {
 
   div.newWeekPage-container {
     box-sizing:border-box;
-    height: 99%;
-    margin: 0px 4px;
+    height: 98%;
+    margin: 0px 7px;
     max-height: unset;
     overflow: hidden;
   }
 
   div.weekPage-container {
     box-sizing:border-box;
-    height: 99%;
-    margin: 0px 4px;
+    height: 98%;
+    margin: 0px 7px;
     max-height: unset;
     overflow: hidden;
   }
@@ -1005,6 +1005,7 @@ img.WelcomePageContent-GetStarted-Image {
   div.weekPageContent-wrapper {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: min-content;
     overflow-y: scroll;
   }
 
@@ -1023,6 +1024,7 @@ img.WelcomePageContent-GetStarted-Image {
     top: -440px;
     border-radius: 9px;
     z-index: 201;
+    box-shadow: 0px 4px 10px rgba(0,0,0,.1);
   }
 
   div.weekPageContent-goalsdata.newWeekPageData {
