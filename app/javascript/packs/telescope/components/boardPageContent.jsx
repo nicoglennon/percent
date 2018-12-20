@@ -121,6 +121,12 @@ class BoardPageContent extends React.Component {
 
     return(
       <div className="weekPageContent-wrapper">
+        <div className="weekPageContent-goalsdata boardPageData">
+          <div className="weekPage-buttonsWrapper">
+            <button className="weekPage-closeModal" onClick={this.props.closeModal}>✕</button>
+          </div>
+          <BoardPageTitle title={this.props.board.title} editTitle={this.props.editBoardTitle}/>
+        </div>
         <div className="goalsWrapper">
           <div className="weekPageContent-newGoalFormWrapper">
             <form onSubmit={this.handleSubmitNewBoardGoal} className="boardPageContent-newGoalForm">
@@ -131,12 +137,6 @@ class BoardPageContent extends React.Component {
           {goalsToDisplay}
           { (numberOfGoals > 0) && <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>}
           <div ref={el => { this.bottomOfMessages = el; }} />
-        </div>
-        <div className="weekPageContent-goalsdata boardPageData">
-          <div className="weekPage-buttonsWrapper">
-            <button className="weekPage-closeModal" onClick={this.props.closeModal}>✕</button>
-          </div>
-          <BoardPageTitle title={this.props.board.title} editTitle={this.props.editBoardTitle}/>
         </div>
       </div>
     )

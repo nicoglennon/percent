@@ -85,17 +85,6 @@ class WeekPageContent extends React.Component {
 
     return(
       <div className="weekPageContent-wrapper">
-        <div className="goalsWrapper weekPageGoalsWrapper">
-          <div className="weekPageContent-newGoalFormWrapper">
-            <h2 className="newWeekPageContent-GoalsTitle">Goals</h2>
-          {/* <form onSubmit={this.handleSubmitNewBoardGoal} className="boardPageContent-newGoalForm">
-              <input type="text" name="newGoal" value={this.state.newGoalForm.title} placeholder="Add new goal" onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
-              <button className="weekPage-addNewGoalButton" onClick={this.handleSubmitNewBoardGoal}>Add</button>
-            </form>*/}
-          </div>
-          {goalsToDisplay}
-          <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>
-        </div>
         <div className="weekPageContent-goalsdata weekPageData">
           <div className="weekPage-buttonsWrapper">
             <button className="weekPage-closeModal" onClick={this.props.closeModal}>✕</button>
@@ -131,6 +120,17 @@ class WeekPageContent extends React.Component {
               />
             </div>
           </div>
+        </div>
+        <div className="goalsWrapper weekPageGoalsWrapper">
+          <div className="weekPageContent-newGoalFormWrapper">
+            <h2 className="newWeekPageContent-GoalsTitle">Goals</h2>
+          {/* <form onSubmit={this.handleSubmitNewBoardGoal} className="boardPageContent-newGoalForm">
+              <input type="text" name="newGoal" value={this.state.newGoalForm.title} placeholder="Add new goal" onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
+              <button className="weekPage-addNewGoalButton" onClick={this.handleSubmitNewBoardGoal}>Add</button>
+            </form>*/}
+          </div>
+          {goalsToDisplay}
+          <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>
         </div>
       </div>
     )

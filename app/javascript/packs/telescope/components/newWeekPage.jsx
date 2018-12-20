@@ -295,7 +295,7 @@ class NewWeekPage extends React.Component {
         style={{content: {zIndex: '300'}, overlay: {backgroundColor: this.state.lineColor, zIndex: '200'}}}
         >
         <div className="weekPageContent-wrapper">
-          <div className="weekPageContent-goalsdata weekPageData">
+          <div className="weekPageContent-goalsdata weekPageData newWeekPageData">
             <div className="weekPage-buttonsWrapper">
               <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
             </div>
@@ -313,24 +313,26 @@ class NewWeekPage extends React.Component {
                 firstDayOfWeek={1}
               />
             </div>
-            <div className="weekPageContent-percentagesWrapper">
-              <p className="weekPageContent-weekOfSubtitle">Completion</p>
-              <p className="weekPageContent-percentageText">
-                <strong>{this.state.newWeek.percentage}</strong>
-                {'%'}
-              </p>
-              <div className="weekPage-progressLineContainer">
-                <Line
-                  percent={this.state.newWeek.percentage}
-                  strokeWidth="2"
-                  trailWidth="2"
-                  strokeLinecap="round"
-                  strokeColor={this.state.lineColor}
-                  trailColor="white"
-                />
+            <div className="weekPageContent-progressAndPercentageContainer">
+              <div className="weekPageContent-percentagesWrapper">
+                <p className="weekPageContent-weekOfSubtitle">Completion</p>
+                <p className="weekPageContent-percentageText">
+                  <strong>{this.state.newWeek.percentage}</strong>
+                  {'%'}
+                </p>
+                <div className="weekPage-progressLineContainer">
+                  <Line
+                    percent={this.state.newWeek.percentage}
+                    strokeWidth="2"
+                    trailWidth="2"
+                    strokeLinecap="round"
+                    strokeColor={this.state.lineColor}
+                    trailColor="white"
+                  />
+                </div>
               </div>
+              <button className="newWeekPage-submitNewWeekButton" onClick={this.handleSubmitNewWeek} disabled={this.state.newWeek.goals_attributes.length === 0}>Save Week</button>
             </div>
-            <button className="newWeekPage-submitNewWeekButton" onClick={this.handleSubmitNewWeek} disabled={this.state.newWeek.goals_attributes.length === 0}>Save Week</button>
           </div>
 
           <div className="goalsWrapper weekPageGoalsWrapper">

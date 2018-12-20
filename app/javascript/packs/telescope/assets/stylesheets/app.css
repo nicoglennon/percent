@@ -986,4 +986,63 @@ img.WelcomePageContent-GetStarted-Image {
     grid-template-columns: 1fr;
   }
 
+  div.newWeekPage-container {
+    box-sizing:border-box;
+    height: 99%;
+    margin: 0px 4px;
+    max-height: unset;
+    overflow: hidden;
+  }
+
+  div.weekPage-container {
+    box-sizing:border-box;
+    height: 99%;
+    margin: 0px 4px;
+    max-height: unset;
+    overflow: hidden;
+  }
+
+  div.weekPageContent-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow-y: scroll;
+  }
+
+  div.goalsWrapper {
+    width: 100%;
+    padding: 0px 20px;
+    padding-bottom: 40px;
+  }
+
+  div.weekPageContent-goalsdata {
+    float: none;
+    display: block;
+    top: 0px;
+    width: 100%;
+    position: sticky;
+    top: -440px;
+    border-radius: 9px;
+    z-index: 201;
+  }
+
+  div.weekPageContent-goalsdata.newWeekPageData {
+    top: -410px;
+  }
+
+  div.weekPageContent-datepicker-wrapper {
+    text-align: center;
+  }
+
+  div.weekPageContent-progressAndPercentageContainer {
+  }
+
+  button.newWeekPage-submitNewWeekButton {
+    margin-bottom: 10px;
+  }
+
+  input.boardPageContent-newGoalForm-title {
+    width: 72%;
+  }
+
+
 }
