@@ -1044,5 +1044,9 @@ img.WelcomePageContent-GetStarted-Image {
     width: 72%;
   }
 
+  div.boardPageContent-noGoalsDiv {
+    margin-top: 10px;
+  }
+
 
 }
