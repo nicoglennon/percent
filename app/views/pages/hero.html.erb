@@ -4,8 +4,9 @@
     <div class="heropage-firstdiv">
       <div class="heropage-firstdiv-left">
         <h1 class="heropage-title">Break your simulation</h1>
-        <p class="heropage-subheader">Stop reliving the same day over and over. <br /> Join <span class="heropage-subheader-telescope-span">Percent</span> today to start tracking and improving your life each week.</p>
-        <div>
+        <p class="heropage-subheader">Stop reliving the same day over and over. </p>
+        <p class="heropage-subheader">Join <span class="heropage-subheader-telescope-span">Percent</span> today to start tracking and improving your life each week.</p>
+        <div class="heropage-formcontainer">
           <form action="/signup" method="GET" class="heropage-form">
             <input type="email" name="email" placeholder="Enter your email address" class="heropage-form-input-email"></input>
             <input type="submit" value="Get Started" class="heropage-form-input-submit"/>
@@ -14,7 +15,33 @@
         <p class="heropage-alreadymember">Already on Percent? <a href="/login" class="heropage-alreadymember-login">Sign in</a>.</p>
       </div>
       <div class="heropage-firstdiv-right">
-        <%= image_tag("vogue.jpg", class: "heroPage-mainImage", :alt => "telescope", id: 'heroPageImage') %>
+        <%= image_tag("falling.jpg", class: "heroPage-mainImage", :alt => "telescope", id: 'heroPageImage') %>
+      </div>
+    </div>
+  </div>
+  <div class="heropage-footer">
+    <div class="heropage-footer-leftcontainer">
+      <div class="heropage-footer-sub">
+        <a href="#">Contact</a>
+      </div>
+      ·
+      <div class="heropage-footer-sub">
+        <a href="#">About</a>
+      </div>
+      ·
+      <div class="heropage-footer-sub">
+        <a href="#">Terms</a>
+      </div>
+    </div>
+
+  
+    <div class="heropage-footer-rightcontainer">
+    <div class="heropage-footer-sub">
+        <a id="builtby" href="https://nico.gl?ref=percent">Built in <strong>Chicago</strong></a>        
+      </div>
+      ·
+      <div class="heropage-footer-sub">
+        <a>2018</a>        
       </div>
     </div>
   </div>
@@ -23,6 +50,6 @@
   $(document).ready(() => {
     setTimeout(function(){
       $('#heroPageImage').addClass('fadeInHeroPageImage');
-    }, 150);
+    }, 200);
   })
 </script>

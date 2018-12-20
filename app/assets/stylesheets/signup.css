@@ -111,3 +111,18 @@ ul.signup.errors {
   background-color: #f8184aad;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 700px) {
+
+  div.signup.center {
+    margin-top: 70px;
+    display: block;
+    top: 0;
+    transform: translateY(10%);
+  }
+
+  div.signup.center.fadeInSignupPage {
+    transform: translateY(0%);
+  }
+
+}

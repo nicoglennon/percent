@@ -1,50 +1,51 @@
 div.heropage-wrapper {
-  max-width: 950px;
+  max-width: 1000px;
   margin: auto;
   margin-top: 20px;
   padding: 0px 15px;
 }
+
 div.heropage-main {
   margin: auto;
-  padding: 90px 0px 40px 0px;
+  padding: 80px 0px 50px 0px;
 }
 
 img.heroPage-mainImage {
   width: 100%;
-
+  transform: translateY(-30px);
+  opacity: 0;
+  transition: all 1200ms cubic-bezier(0,1,.5,1); 
 }
 
 img.fadeInHeroPageImage {
+  transform: translateY(0px);
+  opacity: 1;
 }
 
 div.heropage-firstdiv {
   padding: 0px 15px;
-  overflow: scroll;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 }
 
 div.heropage-firstdiv-left {
-  width: 52%;
-  display: inline-block;
-  margin-top: 65px;
+  margin-top: 160px;
 }
 
 div.heropage-firstdiv-right {
-  margin-top: 24px;
-  float: right;
-  width: 44%;
+  margin-top: 20px;
 }
-
 
 h1.heropage-title {
   font-weight: bold;
   font-size: 4.5em;
-  margin-top: 30px;
+  margin: 25px 0px;
   line-height: 1em;
-  margin-bottom: 0px;
 }
 
 p.heropage-subheader {
-  margin-top: 20px;
+  margin: 0px;
   font-size: 1.6em;
   color: hsl(0, 0%, 61%);
   line-height: 1.4em;
@@ -55,9 +56,13 @@ span.heropage-subheader-telescope-span {
   font-weight: 500;
 }
 
+div.heropage-formcontainer {
+  margin-top: 30px;
+}
+
 input.heropage-form-input-email {
   border: none;
-  width: 60%;
+  width: 62%;
   background-color: hsla(0,0%,0%,0.05);
   border: 2px solid hsla(0,0%,0%,0.00);
   padding: 15px;
@@ -103,4 +108,100 @@ a.heropage-alreadymember-login {
 
 a.heropage-alreadymember-login:visited {
   color: hsl(0, 0%, 20%);
+}
+
+div.heropage-footer {
+  padding: 40px 0px;
+  float: right;
+  width: 100%;
+  color: hsl(0, 0%, 40%);
+}
+
+div.heropage-footer-leftcontainer {
+  display: inline-block;
+}
+
+div.heropage-footer-rightcontainer {
+  float:right;
+  text-align: right;
+}
+
+div.heropage-footer-sub {
+  display: inline-block;
+  margin: 0px 1px;
+  transition: color 300ms ease;
+}
+
+div.heropage-footer-sub a {
+  text-decoration: none;
+  padding: 7px;
+  border-radius: 5px;
+  transition: background-color 300ms ease;
+}
+
+a#builtby:hover {
+  background-color: hsl(0, 0%, 92%);
+}
+
+div.heropage-footer-sub:hover {
+  color: hsl(0, 0%, 5%);
+}
+
+@media screen and (max-width: 700px) {
+
+  div.heropage-main {
+    padding-top: 50px;
+  }
+
+  div.heropage-firstdiv {
+    /* padding: 0px 15px; */
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+
+
+  div.heropage-firstdiv-left {
+    margin-top: 20px;
+    order: 2;
+  }
+
+  div.heropage-firstdiv-right {
+    order: 1;
+    margin-top: 0px;
+  }
+
+  h1.heropage-title {
+    font-size: 3.5em;
+    margin-top: 0px;
+    text-align: center;
+  }
+
+
+  p.heropage-subheader {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.6em;
+    line-height: 1.2em;
+  }
+
+  form.heropage-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+
+  input.heropage-form-input-email {
+    width: 100%;
+  }
+
+  div.heropage-footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+
+  div.heropage-footer div {
+    text-align: center;
+  }
+
 }

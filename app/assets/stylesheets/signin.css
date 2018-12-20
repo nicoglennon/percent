@@ -1,5 +1,6 @@
 div.signin.wrapper {
   width: 100%;
+  padding: 0px 20px;
   height: 100vh;
 }
 
@@ -29,7 +30,7 @@ a.signin.telescope-name:visited {
 }
 
 div.signin.center {
-  width: 350px;
+  max-width: 350px;
   margin: auto;
   position: relative;
   top: 50%;
@@ -119,4 +120,19 @@ ul.signin.errors {
   padding: 10px 20px 10px 30px;
   background-color: #f8184aad;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 700px) {
+
+  div.signin.center {
+    margin-top: 70px;
+    display: block;
+    top: 0;
+    transform: translateY(10%);
+  }
+
+  div.signin.center.fadeInSigninPage {
+    transform: translateY(0%);
+  }
+
 }
