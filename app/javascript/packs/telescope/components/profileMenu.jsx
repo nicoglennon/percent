@@ -60,7 +60,9 @@ class ProfileMenu extends React.Component {
                       this.dropdownMenu = element;
                     }}
                   >
-                    <p className="navbar-profileMenuOptions">Settings</p>
+                    <a href="/settings" className="navbar-profileMenuOptionLink">
+                      <p className="navbar-profileMenuOptions">Settings</p>                      
+                    </a>
                     <Link to={`/@${this.props.username}/welcome`}>
                       <p className="navbar-profileMenuOptions">Help</p>
                     </Link>

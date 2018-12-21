@@ -8,6 +8,7 @@
     <%= favicon_link_tag asset_path('percent.ico'), :rel => 'icon', :type =>  'image/png' %>
 
     <% if logged_in? %>
+      <%= stylesheet_link_tag 'settings' %>
       <%= javascript_pack_tag 'telescope/index' %>
       <%= stylesheet_pack_tag 'telescope/assets/stylesheets/normalize-app' %>
       <%= stylesheet_pack_tag 'telescope/assets/stylesheets/app' %>
@@ -15,11 +16,11 @@
       <%= stylesheet_pack_tag 'telescope/assets/stylesheets/notifications' %>
       <%= stylesheet_pack_tag 'telescope/assets/stylesheets/react-day-picker' %>
     <% else %>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-      crossorigin="anonymous">
-    </script>
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous">
+      </script>
       <%= stylesheet_link_tag 'application', media: 'all' %>
     <% end %>
   </head>
