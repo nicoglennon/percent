@@ -20,7 +20,7 @@ class BoardPage extends React.Component {
 
   render(){
     var goBack = this.state.goBack ? <Redirect to={'/@' + this.props.username} /> : undefined;
-    var content = <AnalyticsPageContent weeks={this.props.weeks} />
+    var content = <AnalyticsPageContent weeks={this.props.weeks} closeModal={this.handleCloseModal}/>
     return(
       <ReactModal
         isOpen={true}

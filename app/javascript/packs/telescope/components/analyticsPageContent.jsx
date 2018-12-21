@@ -1,5 +1,5 @@
 import React from 'react';
-import { AreaChart, Area, Tooltip, XAxis, YAxis, ReferenceLine } from 'recharts';
+import { AreaChart, Area, Tooltip, XAxis, YAxis, ResponsiveContainer, Label, LabelList } from 'recharts';
 import NoGoalsGif from '../assets/images/man-shirt.gif';
 import moment from 'moment';
 
@@ -8,6 +8,7 @@ function cleanWeeksDataForChart(weeks){
   var cleanWeeks = weeksToClean.map(function(week){
     var newWeek = {...week};
     newWeek.date = moment(newWeek.date).format('MMM D');
+    newWeek.percentage = Number(week.percentage);
     return newWeek;
   })
   return cleanWeeks.reverse();
@@ -67,26 +68,33 @@ class AnalyticsPageContent extends React.Component {
           <p><strong>You have no weeks to analyze yet!</strong><br />Come back after recording a few weeks.</p>
         </div>
         :
-        <div className="AnalyticsPageContent-Chart">
-          <AreaChart width={weeks.length < 10 ? 790 : weeks.length*80} height={300} data={cleanDat} >
-            <defs>
-              <linearGradient id="colorLine" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor={maxColor} />
-                <stop offset="50%" stopColor={midColor} />
-                <stop offset="100%" stopColor={minColor} />
-              </linearGradient>
-              <linearGradient id="colorUv" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor={maxColor} stopOpacity={0.6} />
-                <stop offset="50%" stopColor={midZeroColor} stopOpacity={0.4}/>
-                <stop offset="100%" stopColor={zeroColor} stopOpacity={0.2} />
-              </linearGradient>
-            </defs>
-            <XAxis dataKey="date" padding={{left: 30, right: 30}} />
-            <YAxis domain={[0, 100]} />
-            <Area type="monotone" dataKey="percentage" stroke="url(#colorLine)" strokeWidth={3} fill="url(#colorUv)"/>
-          <Tooltip contentStyle={{color: 'white', backgroundColor: 'black', border: 'none', borderRadius: '6px', opacity: '0.8'}} separator={': '} />
-          </AreaChart>
-        </div>
+          <div className="AnalyticsPageContent-Chart">
+            <button className="weekPage-closeModal" onClick={this.props.closeModal}>✕</button>
+
+            <h2 className="analyticsPageContent-title">Analytics</h2>
+            <ResponsiveContainer width="98%" height={weeks.length > 4 ? weeks.length * 120 : '80%'} >
+              <AreaChart data={cleanDat} layout="vertical" >
+                <defs>
+                  <linearGradient id="colorLine" x1="100%" y1="0%" x2="0%" y2="0%">
+                    <stop offset="0%" stopColor={maxColor} />
+                    <stop offset="50%" stopColor={midColor} />
+                    <stop offset="100%" stopColor={minColor} />
+                  </linearGradient>
+                  <linearGradient id="colorUv" x1="100%" y1="0%" x2="0%" y2="0%">
+                    <stop offset="0%" stopColor={maxColor} stopOpacity={0.6} />
+                    <stop offset="50%" stopColor={midZeroColor} stopOpacity={0.4}/>
+                    <stop offset="100%" stopColor={zeroColor} stopOpacity={0.2} />
+                  </linearGradient>
+                </defs>
+                <XAxis domain={[0, 100]} tickCount={5} orientation="top" type="number" dataKey="percentage" />
+                <YAxis hide={true} dataKey="date" type="category" padding={{top: 30, bottom: 5}} reversed={true} interval={0}/>
+                <Area type="monotone" dataKey="percentage" stroke="url(#colorLine)" strokeWidth={3} fill="url(#colorUv)" >
+                  <LabelList dataKey="date" position="right" />
+                </Area>
+              <Tooltip contentStyle={{color: 'white', backgroundColor: 'black', border: 'none', borderRadius: '6px', opacity: '0.8'}} separator={': '} formatter={function(value){ return value.toString() + '%' }} />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
         ;
     return(
       <div className="AnalyticsPageWrapper">

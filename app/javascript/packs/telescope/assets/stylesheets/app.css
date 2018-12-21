@@ -500,7 +500,7 @@ div.weekPage-container {
 }
 
 div.weekPage-container.analyticsPage-container {
-  max-height: 380px;
+  max-width: 600px;
 }
 
 div.weekPage-container-closemodal.boardPage-container-closemodal {
@@ -630,6 +630,13 @@ p.weekPageContent-weekOfSubtitle {
 
 h2.weekPageContent-date {
   margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  display: block;
+}
+
+h2.analyticsPageContent-title {
+  margin-top: 15px;
   margin-bottom: 10px;
   font-size: 24px;
   display: block;
@@ -960,7 +967,6 @@ div.AnalyticsPageWrapper {
 
 div.AnalyticsPageContent-Chart {
   overflow: scroll;
-  margin-top: 15px;
   height: 100%;
   width: 100%;
 }
@@ -1038,8 +1044,8 @@ img.WelcomePageContent-GetStarted-Image {
     text-align: center;
   }
 
-  div.weekPageContent-progressAndPercentageContainer {
-  }
+  /* div.weekPageContent-progressAndPercentageContainer {
+  } */
 
   button.newWeekPage-submitNewWeekButton {
     margin-bottom: 10px;
@@ -1087,6 +1093,10 @@ img.WelcomePageContent-GetStarted-Image {
   img.welcomePageContent-bigiconsvg {
     width: 24px;
     height: 24px;
+  }
+
+  div.AnalyticsPageWrapper {
+    padding: 20px;
   }
 
 }
