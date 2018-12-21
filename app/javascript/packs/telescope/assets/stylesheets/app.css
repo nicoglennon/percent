@@ -973,14 +973,15 @@ div.AnalyticsPageContent-Chart {
 
 div.analyticsPageContent-noWeeksDiv {
   text-align: center;
-  /* margin-top: 45px; */
+  top: 40%;
+  transform: translateY(-45%);
+  position: relative;
 }
 
 img.analyticsPageContent-noWeeksImg {
-  max-height: 250px;
+  max-height: 275px;
   text-align: center;
   max-width: 100%;
-
 }
 
 img.WelcomePageContent-GetStarted-Image {

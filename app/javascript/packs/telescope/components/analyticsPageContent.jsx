@@ -63,9 +63,12 @@ class AnalyticsPageContent extends React.Component {
     var zeroColor = getColor(0);
 
     var content = weeks.length == 0 ?
-        <div className="analyticsPageContent-noWeeksDiv">
-          <img className="analyticsPageContent-noWeeksImg" src={NoGoalsGif} />
-          <p><strong>You have no weeks to analyze yet!</strong><br />Come back after recording a few weeks.</p>
+        <div className="AnalyticsPageContent-Chart">
+          <button className="weekPage-closeModal" onClick={this.props.closeModal}>✕</button>
+          <div className="analyticsPageContent-noWeeksDiv">
+            <img className="analyticsPageContent-noWeeksImg" src={NoGoalsGif} />
+            <p><strong>You have no weeks to analyze yet!</strong><br />Come back after recording a few weeks.</p>
+          </div>
         </div>
         :
           <div className="AnalyticsPageContent-Chart">
