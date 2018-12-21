@@ -31,7 +31,7 @@ class BoardCard extends React.Component {
     var goalsClass = this.state.isHovered ? 'showPercentage' : '';
     var goalNumber = this.props.board.goals.length;
     return(
-        <Link className="cardWrapper-div goals-card" to={`/@${this.props.username}/goals`} >
+        <Link style={this.props.style} className="cardWrapper-div goals-card" to={`/@${this.props.username}/goals`} >
           <div className="mainCard-div">
             <p className="mainCardsWrapper-title">GOALS</p>
             {/*<p className="mainCard-date">{this.props.board.title}</p>*/}

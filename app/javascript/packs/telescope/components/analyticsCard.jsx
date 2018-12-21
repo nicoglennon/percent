@@ -30,7 +30,7 @@ class AnalyticsCard extends React.Component {
   render(){
     var numberOfWeeks = this.props.weeks.length;
     return(
-        <Link className="cardWrapper-div analytics-card" to={`/@${this.props.username}/analytics`} onMouseOver={this.handleOnMouseHover} onMouseLeave={this.handleOnMouseLeave}>
+        <Link style={this.props.style} className="cardWrapper-div analytics-card" to={`/@${this.props.username}/analytics`} onMouseOver={this.handleOnMouseHover} onMouseLeave={this.handleOnMouseLeave}>
           <div className="mainCard-div">
             <p className="mainCardsWrapper-title">ANALYTICS</p>
             <p className="mainCard-date">View your Analytics</p>

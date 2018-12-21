@@ -50,7 +50,7 @@ class UserSnapshot extends React.Component {
       displayUserInfo =
                         <Transition
                           items={true}
-                          from={{ opacity: 0, transform: 'translateY(20px)' }}
+                          from={{ opacity: 0, transform: 'translateY(10px)' }}
                           enter={{ opacity: 1, transform: 'translateY(0px)' }}>
                             {
                               show => show && (props => (
