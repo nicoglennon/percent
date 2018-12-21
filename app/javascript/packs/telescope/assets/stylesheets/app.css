@@ -1100,4 +1100,8 @@ img.WelcomePageContent-GetStarted-Image {
     padding: 20px;
   }
 
+  img.boardPageContent-noGoalsImg {
+    height: 160px;
+  }
+
 }
