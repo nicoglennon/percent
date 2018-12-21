@@ -72,7 +72,7 @@ class AnalyticsPageContent extends React.Component {
             <button className="weekPage-closeModal" onClick={this.props.closeModal}>✕</button>
 
             <h2 className="analyticsPageContent-title">Analytics</h2>
-            <ResponsiveContainer width="98%" height={weeks.length > 4 ? weeks.length * 120 : '80%'} >
+            <ResponsiveContainer width="100%" height={weeks.length > 4 ? weeks.length * 120 : '80%'} >
               <AreaChart data={cleanDat} layout="vertical" >
                 <defs>
                   <linearGradient id="colorLine" x1="100%" y1="0%" x2="0%" y2="0%">
