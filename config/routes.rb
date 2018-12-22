@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   post '/welcome', to: 'api/v1/users#new'
   get '/welcome', to: 'api/v1/users#new'
 
-  get '/settings', to: 'pages#settings'
+  get '/settings', to: 'api/v1/users#edit'
+  post '/settings', to: 'api/v1/users#update'
+
 
   get '/signup', to: 'api/v1/users#new'
   post '/signup', to: 'api/v1/users#create', as: :register

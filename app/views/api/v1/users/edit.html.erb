@@ -1,0 +1,23 @@
+<div class="settingsPage-wrapper">
+    <div class="settingsPage-header">
+        <a href="/" class="navbar-telescope-logo-link">
+            <%= image_tag("percent.svg", class: "navbar-logosvg", :alt => "logo") %>
+        </a>
+        <div class="navbar-float-box">
+            <div class="nabvar-profileMenu">
+                <div class="navbar-username-box">
+                    <a href="/" class="navbar-username">@<%= @current_user.username %></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="settingsPage-body">
+        <div class="settingsPage-body-title">
+            <h1>Account Settings</h1>
+        </div>
+        <div class="settingsPage-body-personal">
+            <p><%= @current_user.username %></p>
+        </div>
+    </div>
+</div>

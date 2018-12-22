@@ -27,6 +27,14 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def edit
+    if !logged_in?
+      redirect_to login_path
+    end
+    @current_user = current_user
+    p @current_user
+  end
+
   def show
     if current_user.username == params[:id]
       @user = User.find_by_username(params[:id])
