@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/welcome', to: 'api/v1/users#new'
 
   get '/settings', to: 'api/v1/users#edit'
-  post '/settings', to: 'api/v1/users#update'
+  patch '/settings', to: 'api/v1/users#update'
 
 
   get '/signup', to: 'api/v1/users#new'
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :sessions, only: [:new, :create, :destroy]
-      resources :users, only: [ :new, :create, :show ] do
+      resources :users, only: [ :new, :create, :show, :edit, :update ] do
         resources :weeks, only: [ :create, :destroy ] do
           resources :goals, only: [ :create, :update, :destroy ]
         end

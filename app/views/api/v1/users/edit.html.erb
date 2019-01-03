@@ -12,12 +12,38 @@
         </div>
     </div>
 
-    <div class="settingsPage-body">
+    <div class="settingsPage-body" id="settingsFadeIn">
         <div class="settingsPage-body-title">
-            <h1>Account Settings</h1>
+            <h1 class="settingsPage-h1-title">Settings</h1>
         </div>
-        <div class="settingsPage-body-personal">
-            <p><%= @current_user.username %></p>
-        </div>
+        <%= form_for(@user, url: '/settings', method: 'patch') do |f| %>
+            <% if @errors %>
+                <ul class="settings errors">
+                <% @errors.each do |error| %>
+                    <li><%= error %></li>
+                <% end %>
+                </ul>
+            <% end %>
+
+            <div class="settings-form-group">
+                <%= f.label 'Username', class: 'settings form-label' %>
+                <%= f.text_field :username, class: 'settings form-control un', required: true %>
+            </div>
+
+            <div class="settings-form-group">
+                <%= f.label 'Email', class: 'settings form-label' %>
+                <%= f.email_field :email, class: 'settings form-control em', required: true %>
+            </div>
+
+            <%= f.hidden_field :id %>
+
+            <%= f.submit 'Update Profile', class: 'settings btn' %>
+        <% end %>
+
     </div>
 </div>
+<script>
+  $(document).ready(() => {
+    $('#settingsFadeIn').addClass('fadeInSettingsPage');
+  })
+</script>

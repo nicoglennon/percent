@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :skip_password
+  
   authenticates_with_sorcery!
 
   before_save :downcase_username_and_email
@@ -7,8 +9,7 @@ class User < ApplicationRecord
   has_many :boards, dependent: :destroy
 
   validates :username, presence: true, uniqueness: :true, length: { minimum: 2, maximum: 35 }
-  validates :password, length: { minimum: 3 }
-  validates :password, confirmation: true
+  validates :password, length: { minimum: 3 }, confirmation: true, unless: :skip_password
   validates :email, presence: true, uniqueness: true, email_format: { message: 'has invalid format' }
   validate :username_has_no_special_characters
 

@@ -31,8 +31,20 @@ class Api::V1::UsersController < ApplicationController
     if !logged_in?
       redirect_to login_path
     end
+    @user = current_user
     @current_user = current_user
-    p @current_user
+  end
+
+  def update
+    @user = current_user
+    @user.skip_password = true
+    if @user.update_attributes(user_update_params)
+      redirect_to '/'
+    else
+      @current_user = User.find(params['user'][:id])
+      @errors = @user.errors.full_messages
+      render 'edit'
+    end
   end
 
   def show
@@ -77,4 +89,9 @@ class Api::V1::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
+  
+  def user_update_params
+    params.require(:user).permit(:username, :email)
+  end
+
 end

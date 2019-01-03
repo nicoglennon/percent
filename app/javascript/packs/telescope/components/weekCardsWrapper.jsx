@@ -1,8 +1,6 @@
 import React from 'react';
 import WeekCard from './weekCard'
-import { Link } from 'react-router-dom';
 import BandSketch from '../assets/images/band.png';
-
 import { Trail } from 'react-spring';
 
 
@@ -26,8 +24,8 @@ class WeekCardsWrapper extends React.Component {
 
       weekCards = <Trail
                     items={weeks} keys={week => week.id}
-                    from={{ transform: 'translate3d(0,-30px,0)', display: 'block' }}
-                    to={{ transform: 'translate3d(0,0px,0)', display: 'block' }}
+                    from={{ transform: 'translate3d(-30px,0,0)', display: 'block' }}
+                    to={{ transform: 'translate3d(0px,0,0)', display: 'block' }}
                     >
                     {week => props =>
                       <div style={props}><WeekCard weekObj={week} key={week.id} username={username}/></div>
