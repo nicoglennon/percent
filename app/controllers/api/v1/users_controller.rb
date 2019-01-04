@@ -19,6 +19,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user.username, params[:user][:password])
+      UserMailer.welcome_email(@user).deliver_now
       @user.boards.create!(title: 'My Board')
       return redirect_to '/@' + @user.username + '/welcome'
     else

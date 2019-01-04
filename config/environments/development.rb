@@ -30,7 +30,12 @@ config.webpacker.check_yarn_integrity = true
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  
+  # START - trying to turn on the mailers
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true # changed it to true to see errors
+  # END
 
   config.action_mailer.perform_caching = false
 
