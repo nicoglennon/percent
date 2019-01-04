@@ -11,7 +11,7 @@ class Navbar extends React.Component {
     var topRight;
     if(username === null){
       topRight =  <div className="navbar-float-box">
-                    <p className="navbar-wrap-box">...</p>
+                    <p className="navbar-wrap-box"></p>
                   </div>
 
     } else if (username != undefined) {
