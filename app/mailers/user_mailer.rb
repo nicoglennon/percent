@@ -5,6 +5,6 @@ class UserMailer < ApplicationMailer
     def welcome_email(user)
         @user = user
         @url  = 'https://percent.me/login'
-        mail(to: @user.email, subject: 'Welcome to Percent, @' + @user.username + '!')
+        mail(to: @user.email, subject: '✨ Welcome to Percent! ✨')
     end
 end
