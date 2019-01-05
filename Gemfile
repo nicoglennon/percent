@@ -24,6 +24,9 @@ gem 'webpacker'
 # sorcery for user authentication
 gem 'sorcery'
 
+# gibbon for mailchimp integration
+gem 'gibbon'
+
 # validate email on login
 gem 'validates_email_format_of'
 

@@ -19,6 +19,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user.username, params[:user][:password])
+      upsert_contact_in_email_service(@user)
       UserMailer.welcome_email(@user).deliver_now
       @user.boards.create!(title: 'My Board')
       return redirect_to '/@' + @user.username + '/welcome'
@@ -40,6 +41,7 @@ class Api::V1::UsersController < ApplicationController
     @user = current_user
     @user.skip_password = true
     if @user.update_attributes(user_update_params)
+      upsert_contact_in_email_service(@user)
       redirect_to '/'
     else
       @current_user = User.find(params['user'][:id])
@@ -95,4 +97,7 @@ class Api::V1::UsersController < ApplicationController
     params.require(:user).permit(:username, :email)
   end
 
+  def upsert_contact_in_email_service(user)
+    ::ContactCreationService.new.call(user)
+  end
 end

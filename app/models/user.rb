@@ -1,3 +1,5 @@
+require 'digest'
+
 class User < ApplicationRecord
   attr_accessor :skip_password
   
@@ -13,6 +15,9 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, email_format: { message: 'has invalid format' }
   validate :username_has_no_special_characters
 
+  def lower_case_md5_hashed_email
+    Digest::MD5.hexdigest(self.email.downcase)
+  end 
 
   private
 
@@ -31,4 +36,5 @@ class User < ApplicationRecord
       errors.add(:username, "can't have special characters - please use letters and numbers only")
     end
   end
+
 end
