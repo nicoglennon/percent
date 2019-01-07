@@ -1,6 +1,6 @@
 import React from 'react';
 import WeekCard from './weekCard'
-import BandSketch from '../assets/images/band.png';
+import ShapesSketch from '../assets/images/shapes.jpg';
 import { Trail } from 'react-spring';
 
 
@@ -13,7 +13,7 @@ class WeekCardsWrapper extends React.Component {
       weekCards = <p>Loading...</p>;
     } else if (weeks && weeks.length < 1) {
       weekCards = <div className="weekCardsWrapper-noWeeksDiv">
-                    <img className="weekCardsWrapper-noWeeksImage" src={BandSketch} />
+                    <img className="weekCardsWrapper-noWeeksImage" src={ShapesSketch} />
                     <p>No weeks yet! Add a new one above.</p>
                   </div>;
     } else if(weeks != undefined){

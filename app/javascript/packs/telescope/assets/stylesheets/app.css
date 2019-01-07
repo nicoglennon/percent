@@ -572,7 +572,7 @@ div.boardPageContent-noGoalsDiv {
 }
 
 img.boardPageContent-noGoalsImg {
-  height: 250px;
+  height: 290px;
   text-align: center;
   opacity: 0.9;
 }
@@ -1101,7 +1101,7 @@ img.WelcomePageContent-GetStarted-Image {
   }
 
   img.boardPageContent-noGoalsImg {
-    height: 160px;
+    height: 220px;
   }
 
 }
