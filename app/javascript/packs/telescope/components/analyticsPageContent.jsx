@@ -1,6 +1,6 @@
 import React from 'react';
 import { AreaChart, Area, Tooltip, XAxis, YAxis, ResponsiveContainer, Label, LabelList } from 'recharts';
-import NoGoalsGif from '../assets/images/balloonsketch.jpg';
+import NoGoalsGif from '../assets/images/boy.jpg';
 import moment from 'moment';
 
 function cleanWeeksDataForChart(weeks){

@@ -6,7 +6,7 @@ import shortid from 'shortid';
 import DayPicker from 'react-day-picker';
 import moment from 'moment';
 import { Line } from 'rc-progress';
-import NoGoalsBike from '../assets/images/balloonsketch.jpg';
+import NoGoalsBike from '../assets/images/cat.jpg';
 import sanitizeHtml from 'sanitize-html-react';
 
 function getWeekDays(weekStart) {

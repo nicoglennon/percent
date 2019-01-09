@@ -567,12 +567,13 @@ input.newWeekPage-form-percentage {
 
 div.boardPageContent-noGoalsDiv {
   margin: auto;
-  margin-top: 35px;
+  margin-top: 85px;
   text-align: center;
 }
 
 img.boardPageContent-noGoalsImg {
-  height: 290px;
+  max-height: 290px;
+  max-width: 350px;
   text-align: center;
   opacity: 0.9;
 }
@@ -979,7 +980,7 @@ div.analyticsPageContent-noWeeksDiv {
 }
 
 img.analyticsPageContent-noWeeksImg {
-  max-height: 275px;
+  max-height: 310px;
   text-align: center;
   max-width: 100%;
 }
@@ -1057,7 +1058,7 @@ img.WelcomePageContent-GetStarted-Image {
   }
 
   div.boardPageContent-noGoalsDiv {
-    margin-top: 0px;
+    margin-top: 30px;
   }
 
   div.welcomePage-container {
@@ -1101,7 +1102,8 @@ img.WelcomePageContent-GetStarted-Image {
   }
 
   img.boardPageContent-noGoalsImg {
-    height: 220px;
+    max-height: 220px;
+    max-width: 260px;
   }
 
 }

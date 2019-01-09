@@ -1,6 +1,6 @@
 import React from 'react';
 import GoalLine from './goalLine';
-import NoGoalsBike from '../assets/images/balloonsketch.jpg';
+import NoGoalsBike from '../assets/images/dog.jpg';
 import BoardPageTitle from './boardPageTitle';
 import shortid from 'shortid';
 
