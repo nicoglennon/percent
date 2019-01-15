@@ -758,10 +758,12 @@ button.weekPage-addNewGoalButton:hover {
 div.goalLineWrapper {
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 9px;
-  padding: 14px 10px 14px 16px;
+  padding: 14px 10px 14px 12px;
   margin: 0px 0px 10px 0px;
   border: 1px solid rgba(0, 0, 0, 0);
   transition: background-color 200ms ease;
+  display: flex;
+  align-items: flex-start;
 }
 
 div.goalLineWrapper:hover {
@@ -783,10 +785,12 @@ div.goalLineWrapper.goalLineWrapper-completed:hover {
 div.goalLineInput{
   background-color: none;
   border: none;
-  width: 89%;
+  /* width: 89%; */
   display: inline-block;
   text-decoration: inherit;
   color: inherit;
+  flex-grow: 1;
+  margin: 0px 6px;
 }
 
 div.goalsWrapper {
@@ -834,19 +838,18 @@ div.weekPageContent-goalsdata.weekPageData {
 
 input.goalLineCheck {
   float: left;
-  margin: 2px 13px 2px 0px;
+  margin: 1px 6px 2px 0px;
   vertical-align: middle;
   font-size: 18px;
 }
 
 span.goalLine-deletebuttonspan {
-  padding: 5px;
-  margin-top: -7px;
- float: right;
+  padding: 0px 5px;
+  /* margin-top: -7px; */
+  /* float: right; */
  /* display: inline-block; */
  cursor: pointer;
  opacity: 0.25;
- font-size: 1.2em;
  transition: transform 250ms ease, opacity 250ms ease;
 }
 
@@ -988,6 +991,63 @@ img.analyticsPageContent-noWeeksImg {
 img.WelcomePageContent-GetStarted-Image {
   width: 100%;
   margin: auto;
+}
+
+span.categoryPill-outerSpan {
+  border-radius: 50%;
+  background-color: rgb(150, 236, 153);
+  display: inline-block;
+  /* max-width: max-content; */
+  font-size: 0.9em;
+  min-width: 14px;
+  min-height: 14px;
+  margin-right: 5px;
+  margin-left: 0px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+div.categoryPill-menu {
+  font-size: 0.85em;
+  z-index: 20;
+  border-radius: 8px;
+  padding: 5px 6px;
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  cursor: default;
+  box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2);
+  width: max-content;
+  user-select: none;
+}
+
+div.categoryPill-menu.noEdit {
+  left: unset;
+  right: 0px;
+}
+
+span.categoryPill-closeMenu {
+  margin-left: 10px;
+  opacity: 0.3;
+  cursor: pointer;
+
+}
+
+span.categoryPill-closeMenu:hover {
+  opacity: 1;
+}
+
+div.categoryPill-selectPill {
+  border-radius: 8px;
+  padding: 5px 6px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 2px;
+  transition: filter 200ms ease;
+}
+
+div.categoryPill-selectPill:hover {
+  filter: brightness(96%);
 }
 
 @media screen and (max-width: 700px) {

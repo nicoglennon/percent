@@ -48,7 +48,8 @@ class NewWeekPage extends React.Component {
       hoverRange: undefined,
       selectedDays: [],
       lineColor: 'rgba(70,70,70, 0.85)',
-      goBack: false
+      goBack: false,
+      categories: ['Personal', 'Work']
     };
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleNewGoalInputChange = this.handleNewGoalInputChange.bind(this);
@@ -278,7 +279,7 @@ class NewWeekPage extends React.Component {
       } else {
         goalsToDisplay = this.state.newWeek.goals_attributes.map( function(goal){
           return(
-            <GoalLine goal={goal} key={goal.shortid} showCheckbox={true} showDeleteButton={false} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} updateCheckbox={self.updateCheckbox} disabled={true} />
+            <GoalLine categories={self.state.categories} goal={goal} key={goal.shortid} showCheckbox={true} showDeleteButton={false} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} updateCheckbox={self.updateCheckbox} disabled={true} />
           )
         })
       }

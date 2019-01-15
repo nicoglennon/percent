@@ -5,7 +5,7 @@ import WeekSVG from '../assets/images/calendar.svg';
 const WelcomePageContentFourthPage = ({}) => (
   <div>
     <h2 className="welcomePageContent-TourPageTitle"><span className="welcomePageContent-TourPageTitle-Lighter">2. Track your</span> Weeks <img src={WeekSVG} className="welcomePageContent-bigiconsvg"/></h2>
-    <p>Watch your completion rate will increase as you check off your goals:</p>
+    <p>Watch your completion rate gradually increase as you check off your goals:</p>
     <div className="weekPageContent-percentagesWrapper">
       <p className="weekPageContent-weekOfSubtitle">Completion</p>
       <p className="weekPageContent-percentageText">
@@ -23,7 +23,7 @@ const WelcomePageContentFourthPage = ({}) => (
         />
       </div>
     </div>
-      <p>Don't forget to select the date range using the calendar!</p>
+      <p>Before you save, don't forget to select a date range in the calendar!</p>
     <p>Save your Week once you're done – do this once a week (ideally on Sunday evenings).</p>
   </div>
 );

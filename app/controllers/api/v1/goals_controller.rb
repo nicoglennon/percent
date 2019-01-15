@@ -56,6 +56,6 @@ class Api::V1::GoalsController < ApplicationController
 
   private
   def goal_params
-    params.require(:goal).permit(:title, :goalable_id, :goalable_type, :shortid)
+    params.require(:goal).permit(:title, :goalable_id, :goalable_type, :shortid, :category)
   end
 end

@@ -14,7 +14,8 @@ class BoardPageContent extends React.Component {
         goalable_type: 'Board',
         completed: false,
       },
-      goals_attributes: []
+      goals_attributes: [],
+      categories: ['Personal', 'Work']
     }
 
     this.handleNewGoalInputChange = this.handleNewGoalInputChange.bind(this);
@@ -99,6 +100,7 @@ class BoardPageContent extends React.Component {
   render(){
     var numberOfGoals = 0;
     var goalsToDisplay;
+    var categoriesArray = this.state.categories;
     var goalsInState = this.state.goals_attributes;
     if (goalsInState){
       numberOfGoals = goalsInState.length;
@@ -113,7 +115,16 @@ class BoardPageContent extends React.Component {
       } else {
         goalsToDisplay = goalsInState.map( function(goal){
           return(
-            <GoalLine goal={goal} key={goal.shortid} showCheckbox={false} showDeleteButton={true} updateGoal={self.props.updateGoal} deleteGoal={self.handleDeleteGoal} disabled={false} />
+            <GoalLine goal={goal} 
+              key={goal.shortid} 
+              showCheckbox={false} 
+              showDeleteButton={true} 
+              updateGoal={self.props.updateGoal} 
+              deleteGoal={self.handleDeleteGoal} 
+              disabled={false} 
+              category="Personal"
+              categories={categoriesArray}
+            />
           )
         })
       }

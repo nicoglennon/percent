@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20181012041243) do
     t.string "title"
     t.boolean "completed"
     t.string "shortid"
+    t.string "category"
     t.string "goalable_type"
     t.bigint "goalable_id"
     t.datetime "created_at", null: false

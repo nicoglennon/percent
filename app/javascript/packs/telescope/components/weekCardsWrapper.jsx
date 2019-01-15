@@ -1,6 +1,6 @@
 import React from 'react';
 import WeekCard from './weekCard'
-import ShapesSketch from '../assets/images/shapes.jpg';
+import ShapesSketch from '../assets/images/band.png';
 import { Trail } from 'react-spring';
 
 

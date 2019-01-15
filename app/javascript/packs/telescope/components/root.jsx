@@ -90,13 +90,14 @@ class Root extends React.Component {
     });
   }
 
-  updateGoal(goal, newHtml){
+  updateGoal(goal, newHtml, goalCategory){
     var currentUserId = this.state.currentUserSnapshot.id;
     var self = this;
     var goalType = goal.goalable_type;
     var cleanGoalType = goalType.toLowerCase() + 's';
-    axios.put(`/api/v1/users/${currentUserId}/${cleanGoalType}/${goal.goalable_id}/goals/${goal.shortid}`, {title: newHtml})
+    axios.put(`/api/v1/users/${currentUserId}/${cleanGoalType}/${goal.goalable_id}/goals/${goal.shortid}`, {title: newHtml, category: goalCategory})
     .then(function (response) {
+      console.log(response);
       var currentUsername = self.state.currentUserSnapshot.username;
       self.fetchCurrentUserSnapshot(currentUsername);
     })

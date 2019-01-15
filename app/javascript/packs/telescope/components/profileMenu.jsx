@@ -24,8 +24,11 @@ class ProfileMenu extends React.Component {
   }
 
   closeMenu(event) {
+    if(this.dropdownMenu === null){
+      document.removeEventListener('click', this.closeMenu);
+    }
 
-    if (!this.dropdownMenu.contains(event.target)) {
+    else if (!this.dropdownMenu.contains(event.target)) {
 
       this.setState({ showMenu: false }, () => {
         document.removeEventListener('click', this.closeMenu);

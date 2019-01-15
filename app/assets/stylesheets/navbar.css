@@ -9,17 +9,22 @@ a.navbar-telescope-logo-link {
   text-decoration: none;
   vertical-align: middle;
   float: left;
+  transition: opacity 300ms ease;
+}
+
+a.navbar-telescope-logo-link:hover {
+  opacity: 0.8;
 }
 
 img.navbar-telescope-logo {
-  width: 32px;
-  height: 32px;
+  width: 27px;
+  height: 27px;
   transform: rotate(90deg);
   transition: transform 250ms ease;
   opacity: 0.75;
   position: relative;
   left: 0px;
-  top: 7px;
+  top: 5px;
 }
 
 img.navbar-logo {

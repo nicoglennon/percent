@@ -1,6 +1,6 @@
 import React from 'react';
 import ChartSVG from '../assets/images/bar-chart.svg';
-import { AreaChart, Area, Tooltip, XAxis, YAxis, ReferenceLine } from 'recharts';
+import { AreaChart, Area, Tooltip, XAxis, YAxis } from 'recharts';
 
 var weeksData = [
   {date: "Jan 1", percentage: "10"},

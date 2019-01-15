@@ -1,6 +1,7 @@
 import React from 'react';
 import ContentEditable from 'react-contenteditable';
 import sanitizeHtml from 'sanitize-html-react';
+import CategoryPill from './categoryPill.jsx';
 
 class GoalLine extends React.Component {
   constructor(){
@@ -8,7 +9,8 @@ class GoalLine extends React.Component {
     this.state = {
       isHovered: false,
       goalInput: '',
-      isChecked: false
+      isChecked: false,
+      goalCategory: null
     }
 
     this.handleDeleteGoal = this.handleDeleteGoal.bind(this);
@@ -17,11 +19,14 @@ class GoalLine extends React.Component {
     this.handleGoalInputChange = this.handleGoalInputChange.bind(this);
     this.handleGoalInputBlur = this.handleGoalInputBlur.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+    this.clearCategory = this.clearCategory.bind(this);
+    this.handleSelectCategory = this.handleSelectCategory.bind(this);
   }
 
   componentDidMount(){
     this.setState({
-      goalInput: this.props.goal.title
+      goalInput: this.props.goal.title,
+      goalCategory: this.props.goal.category
     })
   }
 
@@ -29,6 +34,13 @@ class GoalLine extends React.Component {
     this.setState({
       goalInput: e.target.value
     })
+  }
+
+  clearCategory(){
+    this.setState({
+      goalCategory: null
+    })
+    this.props.updateGoal(this.props.goal, this.state.goalInput, null);
   }
 
   sanitizeHtmlTwice(html){
@@ -44,6 +56,7 @@ class GoalLine extends React.Component {
   }
 
   handleGoalInputBlur(){
+
     var sanitizedGoal = this.sanitizeHtmlTwice(this.state.goalInput);
     if(sanitizedGoal === ''){
       this.setState({
@@ -51,7 +64,7 @@ class GoalLine extends React.Component {
       })
     } else {
       if (sanitizedGoal !== this.props.goal.title){
-        this.props.updateGoal(this.props.goal, sanitizedGoal)
+        this.props.updateGoal(this.props.goal, sanitizedGoal, this.state.goalCategory)
       }
       this.setState({
         goalInput: sanitizedGoal,
@@ -83,6 +96,13 @@ class GoalLine extends React.Component {
     })
   }
 
+  handleSelectCategory(e){
+    this.setState({
+      goalCategory: e.target.innerText
+    })
+    this.props.updateGoal(this.props.goal, this.state.goalInput, e.target.innerText);
+  }
+
   handleCheckboxChange(e){
     this.setState({
       isChecked: e.target.checked
@@ -97,6 +117,9 @@ class GoalLine extends React.Component {
     var goalLineWrapperStyling = '';
     var checkbox;
     var deleteGoalButton;
+    var categoryPillEditable = <CategoryPill edit={true} category={this.state.goalCategory} categories={this.props.categories} handleClearCategory={this.clearCategory} handleSelectCategory={this.handleSelectCategory} />;
+    var categoryPillNotEditable = <CategoryPill edit={false} category={this.state.goalCategory} />;
+
     if (this.props.showDeleteButton && this.state.isHovered === true) {
       deleteGoalButton = <span className="goalLine-deletebuttonspan" onClick={this.handleDeleteGoal}>✕</span>
     }
@@ -110,6 +133,7 @@ class GoalLine extends React.Component {
     return(
       <div className={'goalLineWrapper' + goalLineWrapperStyling} onMouseOver={this.handleHoverGoal} onMouseLeave={this.handleUnhoverGoal}>
         {checkbox}
+        {!checkbox && categoryPillEditable}
         <ContentEditable
           className="goalLineInput"
           onChange={this.handleGoalInputChange}
@@ -117,8 +141,8 @@ class GoalLine extends React.Component {
           onKeyPress={this.handleKeyPress}
           html={this.state.goalInput}
           disabled={this.props.disabled}
-
         />
+        {checkbox && categoryPillNotEditable}
         {deleteGoalButton}
       </div>
     )

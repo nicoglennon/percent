@@ -4,6 +4,7 @@ class CreateGoals < ActiveRecord::Migration[5.1]
       t.string :title
       t.boolean :completed
       t.string :shortid
+      t.string :category, default: nil
       t.belongs_to :goalable, polymorphic: true
 
       t.timestamps
