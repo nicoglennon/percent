@@ -41,10 +41,14 @@ class CategoryPill extends React.Component {
         var selectCategoryFunct = this.props.handleSelectCategory;
 
         var firstStyle = {
-            backgroundColor: 'rgb(166, 239, 169)'
+            backgroundColor: 'rgb(255, 118, 167)',
+            color: 'white'
         }
         var secondStyle = {
-            backgroundColor: 'rgb(171, 180, 251)'
+            backgroundColor: 'rgb(132, 116, 255)',
+            color: 'white'
+            
+
         }
         var categoriesHTML;
         if(categories){
@@ -55,7 +59,7 @@ class CategoryPill extends React.Component {
         var categoryString = this.props.category;
         var emptyCategory = this.props.category === undefined || this.props.category === null;
         var emptyStyle = {
-            backgroundColor: 'lightgray',
+            backgroundColor: 'rgb(232, 230, 230)',
         }
         var categories = this.props.categories;
         return(

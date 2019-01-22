@@ -1,6 +1,6 @@
 import React from 'react';
 import GoalLine from './goalLine';
-import DayPicker from 'react-day-picker';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
 import moment from 'moment';
 import { Line } from 'rc-progress';
 import NoGoals from '../assets/images/nogoals.gif';
@@ -65,6 +65,10 @@ class WeekPageContent extends React.Component {
 
     var numberOfGoals = 0;
     var goalsToDisplay;
+    var personalGoals = [];
+    var checkedPersonalGoals = [];
+    var workGoals = [];
+    var checkedWorkGoals = [];
     if (this.props && this.props.week.goals){
       numberOfGoals = this.props.week.goals.length;
       var self = this;
@@ -75,6 +79,18 @@ class WeekPageContent extends React.Component {
         </div>
 
       } else {
+        personalGoals = this.props.week.goals.filter( goal => goal.category === "Personal");
+        checkedPersonalGoals = personalGoals.filter( goal => goal.completed);
+        if(personalGoals.length > 0){
+          var personalPercentage = Math.round(checkedPersonalGoals.length/personalGoals.length*100);
+        }
+        
+        workGoals = this.props.week.goals.filter( goal => goal.category === "Work");
+        checkedWorkGoals = workGoals.filter( goal => goal.completed);
+        if(workGoals.length > 0){
+          var workPercentage = Math.round(checkedWorkGoals.length/workGoals.length*100);
+        }
+
         goalsToDisplay = this.props.week.goals.map( function(goal){
           return(
             <GoalLine goal={goal} key={goal.id} showCheckbox={true} showDeleteButton={false} updateGoal={self.props.updateGoal} deleteGoal={self.props.deleteGoal} disabled={true}/>
@@ -93,7 +109,7 @@ class WeekPageContent extends React.Component {
           <p className="weekPageContent-weekOfSubtitle">Week of</p>
           <h2 className="weekPageContent-date">{moment(this.props.week.date).format('ll')}</h2>
           <div className="weekPageContent-datepicker-wrapper SelectedWeekExample">
-            <DayPicker
+            {/* <DayPicker
               selectedDays={selectedDays}
               showOutsideDays
               fixedWeeks
@@ -101,9 +117,9 @@ class WeekPageContent extends React.Component {
               firstDayOfWeek={1}
               canChangeMonth={false}
               month={selectedDays[0]}
-            />
+            /> */}
           </div>
-          <div className="weekPageContent-percentagesWrapper">
+          {/* <div className="weekPageContent-percentagesWrapper">
             <p className="weekPageContent-weekOfSubtitle">Completion</p>
             <p className="weekPageContent-percentageText">
               <strong>{this.props.week.percentage}</strong>
@@ -119,6 +135,82 @@ class WeekPageContent extends React.Component {
                 trailColor="white"
               />
             </div>
+          </div> */}
+          <div className="weekPageContent-progressAndPercentageContainer">
+            <div className="weekPageContent-percentagesContainer">
+              
+              <div>
+                <div className="weekPageContent-percentagesText-flex">
+                  <p className="weekPageContent-weekOfSubtitle flexGrow-one">Work</p>
+                  <p className="weekPageContent-percentageText smallPercentage flexGrow-zero">
+                    { workGoals.length > 0 ? 
+                      <span><strong>{workPercentage}</strong>{'%'}</span>
+                      :
+                      <span className="weekPageContent-percentageText-NA flexGrow-zero">N/A</span>                      
+                    }
+                  </p>
+
+                </div>
+
+                <div className="weekPage-progressLineContainer">
+                  <Line
+                    percent={workPercentage}
+                    strokeWidth="2"
+                    trailWidth="2"
+                    strokeLinecap="round"
+                    strokeColor="rgb(132, 116, 255)"
+                    trailColor="#fbfbfb"
+                  />
+                </div>
+              </div>
+              
+
+              
+              <div>
+                <div className="weekPageContent-percentagesText-flex">
+                  <p className="weekPageContent-weekOfSubtitle flexGrow-one">Personal</p>
+                  <p className="weekPageContent-percentageText smallPercentage flexGrow-zero">
+                  { personalGoals.length > 0 ? 
+                      <span><strong>{personalPercentage}</strong>{'%'}</span>
+                      :
+                      <span className="weekPageContent-percentageText-NA flexGrow-zero">N/A</span>                      
+                    }
+                  </p>
+                </div>
+                <div className="weekPage-progressLineContainer">
+                  <Line
+                    percent={personalPercentage}
+                    strokeWidth="2"
+                    trailWidth="2"
+                    strokeLinecap="round"
+                    strokeColor="rgb(255, 118, 167)"
+                    trailColor="#fbfbfb"
+                  />
+                </div>
+              </div>
+              
+          
+              <div className="weekPageContent-percentagesWrapper">
+                  <div className="weekPageContent-percentagesText-flex">
+                    <p className="weekPageContent-weekOfSubtitle flexGrow-one">Total</p>
+                    <p className="weekPageContent-percentageText flexGrow-zero">
+                      <strong>{this.props.week.percentage}</strong>
+                      {'%'}
+                    </p>
+                  </div>
+                <div className="weekPage-progressLineContainer">
+                  <Line
+                    percent={this.props.week.percentage}
+                    strokeWidth="2"
+                    trailWidth="2"
+                    strokeLinecap="round"
+                    strokeColor={this.state.lineColor}
+                    trailColor="#fbfbfb"
+                  />
+                </div>
+            
+              </div>
+            </div>                
           </div>
         </div>
         <div className="goalsWrapper weekPageGoalsWrapper">

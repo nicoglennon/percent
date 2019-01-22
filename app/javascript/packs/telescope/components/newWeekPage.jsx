@@ -3,11 +3,13 @@ import { Link, Redirect } from 'react-router-dom';
 import ReactModal from 'react-modal';
 import GoalLine from './goalLine';
 import shortid from 'shortid';
-import DayPicker from 'react-day-picker';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 import moment from 'moment';
 import { Line } from 'rc-progress';
 import NoGoalsBike from '../assets/images/cat.jpg';
 import sanitizeHtml from 'sanitize-html-react';
+import {formatDate, parseDate} from 'react-day-picker/moment';
 
 function getWeekDays(weekStart) {
   const days = [weekStart];
@@ -48,6 +50,8 @@ class NewWeekPage extends React.Component {
       hoverRange: undefined,
       selectedDays: [],
       lineColor: 'rgba(70,70,70, 0.85)',
+      personalPercentage: 0,
+      workPercentage: 0,
       goBack: false,
       categories: ['Personal', 'Work']
     };
@@ -189,6 +193,22 @@ class NewWeekPage extends React.Component {
   updateState(currentGoals){
     var checkedGoals = currentGoals.filter((goal) => goal.completed);
     var percent = 0;
+    var personalGoals = currentGoals.filter((goal) => goal.category == 'Personal');
+    var checkedPersonalGoals = personalGoals.filter((goal) => goal.completed);
+    var personalPercent = 0;
+
+    var workGoals = currentGoals.filter((goal) => goal.category == 'Work');
+    var checkedWorkGoals = workGoals.filter((goal) => goal.completed);
+    var workPercent = 0;
+
+    if(personalGoals.length > 0){
+      personalPercent = Math.round(checkedPersonalGoals.length/personalGoals.length*100);
+    }
+
+    if(workGoals.length > 0){
+      workPercent = Math.round(checkedWorkGoals.length/workGoals.length*100);
+    }
+
     var color;
     if(currentGoals.length > 0){
       percent = Math.round(checkedGoals.length/currentGoals.length*100);
@@ -201,7 +221,9 @@ class NewWeekPage extends React.Component {
         goals_attributes: currentGoals,
         percentage: percent
       },
-      lineColor: color
+      lineColor: color,
+      personalPercentage: personalPercent,
+      workPercentage: workPercent
     }));
   }
 
@@ -227,6 +249,7 @@ class NewWeekPage extends React.Component {
      },
      selectedDays: selectedDays,
    }));
+   console.log(selectedDays);
  };
 
  handleDayEnter = date => {
@@ -241,18 +264,12 @@ class NewWeekPage extends React.Component {
    });
  };
 
- handleWeekClick = (weekNumber, days, e) => {
-   this.setState({
-     selectedDays: days,
-   });
- };
-
  // END Daypicker functions
 
   render(){
     const { hoverRange, selectedDays } = this.state;
     const daysAreSelected = selectedDays.length > 0;
-
+    
     const modifiers = {
       hoverRange,
       selectedRange: daysAreSelected && {
@@ -267,26 +284,33 @@ class NewWeekPage extends React.Component {
     var goBack = this.state.goBack ? <Redirect to={'/@' + this.props.currentUser.username} /> : undefined;
     var numberOfGoals = 0;
     var goalsToDisplay;
+    var personalGoals = [];
+    var workGoals = [];
     if (this.state.newWeek && this.state.newWeek.goals_attributes){
       numberOfGoals = this.state.newWeek.goals_attributes.length;
       var self = this;
-
+      
       if (numberOfGoals === 0) {
         goalsToDisplay = <div className="boardPageContent-noGoalsDiv">
         <img className="boardPageContent-noGoalsImg" src={NoGoalsBike} />
         <p className="boardPageContent-noGoalsText">No goals yet! <br />Add some <Link className="newWeekPage-noGoalsText-LinkToBoard" to={`/@${this.props.currentUser.username}/goals`}>here</Link>.</p>
         </div>
       } else {
+        personalGoals = this.state.newWeek.goals_attributes.filter( goal => goal.category === "Personal");
+        workGoals = this.state.newWeek.goals_attributes.filter( goal => goal.category === "Work");
+
         goalsToDisplay = this.state.newWeek.goals_attributes.map( function(goal){
           return(
             <GoalLine categories={self.state.categories} goal={goal} key={goal.shortid} showCheckbox={true} showDeleteButton={false} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} updateCheckbox={self.updateCheckbox} disabled={true} />
-          )
-        })
+            )
+          })
+        }
       }
-    }
 
-    return(
-      <ReactModal
+      var weekInputValue = selectedDays.length > 0 ? '🗓 Week of ' + moment(selectedDays[0]).format('MMM Do, YYYY') : undefined;
+      
+      return(
+        <ReactModal
         isOpen={true}
         contentLabel="onRequestClose Example"
         onRequestClose={this.handleCloseModal}
@@ -302,36 +326,101 @@ class NewWeekPage extends React.Component {
             </div>
             <h2 className="weekPageContent-date">New Week</h2>
             <div className="weekPageContent-datepicker-wrapper SelectedWeekExample">
-              <DayPicker
-                selectedDays={selectedDays}
-                showOutsideDays
-                fixedWeeks
-                modifiers={modifiers}
-                onDayClick={this.handleDayChange}
-                onDayMouseEnter={this.handleDayEnter}
-                onDayMouseLeave={this.handleDayLeave}
-                onWeekClick={this.handleWeekClick}
-                firstDayOfWeek={1}
+              <DayPickerInput
+                inputProps={{
+                  readOnly: true
+                }}
+                onDayChange={this.handleDayChange}
+                value={weekInputValue}
+                placeholder='🗓 Select week date'
+                dayPickerProps={{
+                  disabledDays: selectedDays,
+                  selectedDays: selectedDays,
+                  showOutsideDays: true,
+                  fixedWeeks: true,
+                  modifiers: modifiers,
+                  onDayMouseEnter: this.handleDayEnter,
+                  onDayMouseLeave: this.handleDayLeave,
+                  firstDayOfWeek: 1
+                }}
               />
             </div>
             <div className="weekPageContent-progressAndPercentageContainer">
-              <div className="weekPageContent-percentagesWrapper">
-                <p className="weekPageContent-weekOfSubtitle">Completion</p>
-                <p className="weekPageContent-percentageText">
-                  <strong>{this.state.newWeek.percentage}</strong>
-                  {'%'}
-                </p>
-                <div className="weekPage-progressLineContainer">
-                  <Line
-                    percent={this.state.newWeek.percentage}
-                    strokeWidth="2"
-                    trailWidth="2"
-                    strokeLinecap="round"
-                    strokeColor={this.state.lineColor}
-                    trailColor="white"
-                  />
+              <div className="weekPageContent-percentagesContainer">
+                
+                <div>
+                  <div className="weekPageContent-percentagesText-flex">
+                    <p className="weekPageContent-weekOfSubtitle flexGrow-one">Work</p>
+                    <p className="weekPageContent-percentageText smallPercentage flexGrow-zero">
+                      { workGoals.length > 0 ? 
+                        <span><strong>{this.state.workPercentage}</strong>{'%'}</span>
+                        :
+                        <span className="weekPageContent-percentageText-NA flexGrow-zero">N/A</span>                      
+                      }
+                    </p>
+
+                  </div>
+
+                  <div className="weekPage-progressLineContainer">
+                    <Line
+                      percent={this.state.workPercentage}
+                      strokeWidth="2"
+                      trailWidth="2"
+                      strokeLinecap="round"
+                      strokeColor="rgb(132, 116, 255)"
+                      trailColor="#fbfbfb"
+                    />
+                  </div>
                 </div>
-              </div>
+                
+
+                
+                <div>
+                  <div className="weekPageContent-percentagesText-flex">
+                    <p className="weekPageContent-weekOfSubtitle flexGrow-one">Personal</p>
+                    <p className="weekPageContent-percentageText smallPercentage flexGrow-zero">
+                    { personalGoals.length > 0 ? 
+                        <span><strong>{this.state.personalPercentage}</strong>{'%'}</span>
+                        :
+                        <span className="weekPageContent-percentageText-NA flexGrow-zero">N/A</span>                      
+                      }
+                    </p>
+                  </div>
+                  <div className="weekPage-progressLineContainer">
+                    <Line
+                      percent={this.state.personalPercentage}
+                      strokeWidth="2"
+                      trailWidth="2"
+                      strokeLinecap="round"
+                      strokeColor="rgb(255, 118, 167)"
+                      trailColor="#fbfbfb"
+                    />
+                  </div>
+                </div>
+                
+            
+                <div className="weekPageContent-percentagesWrapper">
+                    <div className="weekPageContent-percentagesText-flex">
+                      <p className="weekPageContent-weekOfSubtitle flexGrow-one">Total</p>
+                      <p className="weekPageContent-percentageText flexGrow-zero">
+                        <strong>{this.state.newWeek.percentage}</strong>
+                        {'%'}
+                      </p>
+                    </div>
+                  <div className="weekPage-progressLineContainer">
+                    <Line
+                      percent={this.state.newWeek.percentage}
+                      strokeWidth="2"
+                      trailWidth="2"
+                      strokeLinecap="round"
+                      strokeColor={this.state.lineColor}
+                      trailColor="#fbfbfb"
+                    />
+                  </div>
+              
+                </div>
+              </div>               
+              
               <button className="newWeekPage-submitNewWeekButton" onClick={this.handleSubmitNewWeek} disabled={this.state.newWeek.goals_attributes.length === 0}>Save Week</button>
             </div>
           </div>

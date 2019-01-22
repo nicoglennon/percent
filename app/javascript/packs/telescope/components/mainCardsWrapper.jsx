@@ -12,7 +12,7 @@ class MainCardsWrapper extends React.Component {
         <Trail
           items={indexArray} keys={index => index}
           from={{ transform: 'translate3d(0,25px,0)'}}
-          to={{ transform: 'translate3d(0,0px,0)', transition: 'transform 150ms ease-out'}}
+          to={{ transform: 'translate3d(0,0px,0)', transition: '.6s cubic-bezier(.2,.8,.2,1)'}}
           >
           {index => props => 
             index == -1

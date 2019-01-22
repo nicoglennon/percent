@@ -38,6 +38,6 @@ class Api::V1::WeeksController < ApplicationController
 
   private
   def week_params
-    params.require(:week).permit(:date, :percentage, :user_id, { :goals_attributes => [ :title, :completed, :goalable_type, :goalable_id ]})
+    params.require(:week).permit(:date, :percentage, :user_id, { :goals_attributes => [ :title, :completed, :goalable_type, :goalable_id, :category ]})
   end
 end

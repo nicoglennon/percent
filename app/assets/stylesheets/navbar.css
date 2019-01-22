@@ -13,18 +13,18 @@ a.navbar-telescope-logo-link {
 }
 
 a.navbar-telescope-logo-link:hover {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 img.navbar-telescope-logo {
-  width: 27px;
-  height: 27px;
+  width: 34px;
+  height: 34px;
   transform: rotate(90deg);
   transition: transform 250ms ease;
   opacity: 0.75;
   position: relative;
   left: 0px;
-  top: 5px;
+  top: 8px;
 }
 
 img.navbar-logo {
@@ -33,10 +33,6 @@ img.navbar-logo {
   left: 168px;
   height: 50px;
   z-index: -90;
-}
-
-img.navbar-telescope-logo:hover {
-  transform: rotate(0deg);
 }
 
 p.navbar-telescope-logotitle {

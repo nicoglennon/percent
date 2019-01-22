@@ -50,13 +50,13 @@ a.cardWrapper-div {
 }
 
 a.cardWrapper-div:hover {
-  transform: scale(1.04) !important;
+  transform: scale(1.085) !important;
   /* transform: translateY(-8px); */
   /* opacity: 0.9; */
   /* box-shadow: 0px 4px 20px rgba(0,0,0,.2); */
 }
 
-a.cardWrapper-div.goals-card{
+a.cardWrapper-div.analytics-card{
   background-color: transparent;
   background: rgb(198,227,255);
   background: -webkit-linear-gradient(bottom left, rgba(198,227,255,1) 0%, rgba(218,245,214,1) 100%);
@@ -67,12 +67,12 @@ a.cardWrapper-div.goals-card{
 /* a.cardWrapper-div.goals-card:hover {
 } */
 
-a.cardWrapper-div.analytics-card {
+a.cardWrapper-div.goals-card {
   background-color: transparent;
   background: rgb(255,233,231);
-  background: -webkit-linear-gradient(bottom left, rgb(255, 224, 221) 0%, rgb(255, 220, 255) 100%);
-  background: -o-linear-gradient(bottom left, rgb(255, 224, 221) 0%, rgb(255, 220, 255) 100%);
-  background: linear-gradient(to top right, rgb(255, 224, 221) 0%, rgb(255, 220, 255) 100%);
+  background: -webkit-linear-gradient(bottom left, rgb(255, 231, 210) 0%, rgb(255, 220, 255) 100%);
+  background: -o-linear-gradient(bottom left, rgb(255, 231, 210) 0%, rgb(255, 220, 255) 100%);
+  background: linear-gradient(to top right, rgb(255, 231, 210) 0%, rgb(255, 220, 255) 100%);
 }
 
 /* a.cardWrapper-div.analytics-card:hover {
@@ -212,8 +212,8 @@ img.navbar-usersvg {
 
 img.navbar-logosvg {
   opacity: 0.85;
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   margin: 4px;
   transform: rotate(90deg);
   transition: opacity 250ms ease, transform 250ms ease;
@@ -326,11 +326,11 @@ a.weekCard-alink{
   display: block;
   text-decoration: none;
   /* box-shadow: 3 3px 5px 0 rgba(0, 0, 0, .3); */
-  transition: transform 250ms ease, box-shadow 250ms ease, background-color 250ms ease;
+  transition: background-color 600ms ease, transform 600ms cubic-bezier(.2,.8,.2,1);
 }
 
 a.weekCard-alink:hover {
-  transform: scale(1.01);
+  transform: scale(1.07);
   /* border-top: 1px solid rgba(0, 0, 0, 0); */
   /* box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, .2); */
   /* background-color: rgba(0, 0, 0, .04); */
@@ -625,6 +625,7 @@ p.weekPageContent-newgoallabel {
 }
 
 p.weekPageContent-weekOfSubtitle {
+  margin-top: 30px;
   margin-bottom: 0px;
   color: hsl(0, 0%, 35%);
 }
@@ -633,6 +634,13 @@ h2.weekPageContent-date {
   margin-top: 5px;
   margin-bottom: 10px;
   font-size: 24px;
+  display: block;
+}
+
+h3.weekPageContent-completiontitle {
+  margin-top: 25px;
+  margin-bottom: 0px;
+  font-size: 20px;
   display: block;
 }
 
@@ -659,10 +667,29 @@ div.boardPageTitle-editable:focus {
 
 p.weekPageContent-percentageText {
   font-weight: 300;
-  font-size: 40px;
+  font-size: 26px;
   margin: 0px;
   margin-bottom: -10px;
   display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+div.weekPageContent-percentagesText-flex {
+  display: flex;
+  align-items: baseline;
+}
+
+p.flexGrow-one {
+  flex-grow: 1;
+  margin-top: 23px;
+}
+
+p.flexGrow-zero {
+  flex-grow: 0;
+}
+
+span.weekPageContent-percentageText-NA {
+  opacity: 0.15;
 }
 
 p.weekPageContent-numberofgoals {
@@ -676,6 +703,16 @@ p.weekPageContent-numberofgoals {
 div.weekPageContent-wrapper {
   padding: 0px;
   height: 100%;
+}
+
+
+div.weekPageContent-percentagesContainer {
+  background-color: white;
+  padding: 5px 25px 10px 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, .1);
 }
 
 div.welcomePageContent-wrapper {
@@ -737,6 +774,7 @@ div.weekPage-buttonsWrapper {
 }
 
 button.weekPage-addNewGoalButton {
+  box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, .3);
   cursor: pointer;
   padding: 13px 20px;
   float: right;
@@ -767,7 +805,7 @@ div.goalLineWrapper {
 }
 
 div.goalLineWrapper:hover {
-  background-color: rgba(0, 0, 0, 0.085);
+  background-color: rgba(0, 0, 0, 0.025);
 }
 
 div.goalLineWrapper.goalLineWrapper-completed {
@@ -795,7 +833,7 @@ div.goalLineInput{
 
 div.goalsWrapper {
   padding: 0px 30px 90px 30px;
-  width: 63%;
+  width: 61%;
   display: inline-block;
   height: 100%;
   overflow: scroll;
@@ -809,7 +847,7 @@ div.weekPageContent-goalsdata {
   float: left;
   position: sticky;
   top: 25px;
-  width: 37%;
+  width: 39%;
   /* background-color: rgba(245, 245,245, 1); */
   background-color: transparent;
   /* margin: 25px 0px 0px 0px; */
@@ -821,10 +859,10 @@ div.weekPageContent-goalsdata {
 div.weekPageContent-goalsdata.boardPageData {
   /* background-image: url('../images/snowymint.jpg'); */
   background-color: transparent;
-  background: rgb(198,227,255);
-  background: -webkit-linear-gradient(bottom left, rgba(198,227,255,1) 0%, rgba(218,245,214,1) 100%);
-  background: -o-linear-gradient(bottom left, rgba(198,227,255,1) 0%, rgba(218,245,214,1) 100%);
-  background: linear-gradient(to top right, rgba(198,227,255,1) 0%, rgba(218,245,214,1) 100%);
+  background: rgb(255,233,231);
+  background: -webkit-linear-gradient(bottom left, rgb(255, 231, 210) 0%, rgb(255, 220, 255) 100%);
+  background: -o-linear-gradient(bottom left, rgb(255, 231, 210) 0%, rgb(255, 220, 255) 100%);
+  background: linear-gradient(to top right, rgb(255, 231, 210) 0%, rgb(255, 220, 255) 100%);
   /* background-size: 300%; */
   /* background-position: center top; */
 }
@@ -838,7 +876,7 @@ div.weekPageContent-goalsdata.weekPageData {
 
 input.goalLineCheck {
   float: left;
-  margin: 1px 6px 2px 0px;
+  margin: 2px 6px 2px 0px;
   vertical-align: middle;
   font-size: 18px;
 }
@@ -865,16 +903,19 @@ div.weekPageContent-datepicker-wrapper {
 }
 
 div.weekPage-progressLineContainer {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  margin-top: -7px;
 }
 
 div.weekPageContent-percentagesWrapper {
-  padding: 0px 15px 0px 5px
+  padding: 0px;
 }
 
 button.newWeekPage-submitNewWeekButton {
   cursor: pointer;
-  margin: 12px 0px 20px 0px;
+  width: 100%;
+  box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, .3);
+  margin: 10px 0px 20px 0px;
   padding: 12px;
   background-color: hsl(0, 0%, 25%);
   border: 0;
@@ -995,7 +1036,6 @@ img.WelcomePageContent-GetStarted-Image {
 
 span.categoryPill-outerSpan {
   border-radius: 50%;
-  background-color: rgb(150, 236, 153);
   display: inline-block;
   /* max-width: max-content; */
   font-size: 0.9em;
@@ -1003,8 +1043,14 @@ span.categoryPill-outerSpan {
   min-height: 14px;
   margin-right: 5px;
   margin-left: 0px;
-  margin-top: 2px;
+  margin-top: 3px;
   cursor: pointer;
+  box-shadow: 0px 0px 5px 0 rgb(255, 255, 255);
+  transition: transform 200ms ease, background-color 300ms ease;
+}
+
+span.categoryPill-outerSpan:hover {
+  transform: scale(1.25);
 }
 
 div.categoryPill-menu {
@@ -1019,6 +1065,8 @@ div.categoryPill-menu {
   box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .2);
   width: max-content;
   user-select: none;
+  color: hsl(0, 0%, 20%);
+  box-sizing: content-box;
 }
 
 div.categoryPill-menu.noEdit {
@@ -1030,7 +1078,6 @@ span.categoryPill-closeMenu {
   margin-left: 10px;
   opacity: 0.3;
   cursor: pointer;
-
 }
 
 span.categoryPill-closeMenu:hover {
@@ -1042,12 +1089,12 @@ div.categoryPill-selectPill {
   padding: 5px 6px;
   cursor: pointer;
   display: inline-block;
-  margin: 2px;
+  margin: 2px 3px;
   transition: filter 200ms ease;
 }
 
 div.categoryPill-selectPill:hover {
-  filter: brightness(96%);
+  filter: brightness(95%);
 }
 
 @media screen and (max-width: 700px) {
@@ -1098,19 +1145,29 @@ div.categoryPill-selectPill:hover {
     padding: 20px 20px 10px 20px;
   }
 
-  div.weekPageContent-goalsdata.newWeekPageData {
-    top: -410px;
+  div.weekPageContent-goalsdata.weekPageData {
+    top: -268px;
+  }
+
+  div.weekPageContent-goalsdata.newWeekPageData.weekPageData {
+    top: -340px;
   }
 
   div.weekPageContent-datepicker-wrapper {
     text-align: center;
+  }
+  
+  
+  p.weekPageContent-percentageText {
+    font-size: 22px;
   }
 
   /* div.weekPageContent-progressAndPercentageContainer {
   } */
 
   button.newWeekPage-submitNewWeekButton {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    margin-top: 15px;
   }
 
   input.boardPageContent-newGoalForm-title {

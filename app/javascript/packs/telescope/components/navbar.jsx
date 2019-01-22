@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoSVG from '../assets/images/percent.svg';
+import LogoSVG from '../assets/images/percent-circle.svg';
 import { Link } from 'react-router-dom';
 import ProfileMenu from './profileMenu';
 
