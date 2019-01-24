@@ -1,5 +1,5 @@
 div.navbar-wrapper {
-  padding: 5px 15px;
+  padding: 1px 10px;
   margin-bottom: 30px;
   color: inherit;
   /* color: hsl(0, 0%, 25%); */
@@ -7,7 +7,8 @@ div.navbar-wrapper {
 
 a.navbar-telescope-logo-link {
   text-decoration: none;
-  vertical-align: middle;
+  display:flex;
+  align-items: center;
   float: left;
   transition: opacity 300ms ease;
 }
@@ -17,14 +18,14 @@ a.navbar-telescope-logo-link:hover {
 }
 
 img.navbar-telescope-logo {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   transform: rotate(90deg);
   transition: transform 250ms ease;
-  opacity: 0.75;
+  opacity: 0.8;
   position: relative;
   left: 0px;
-  top: 8px;
+  top: 0px;
 }
 
 img.navbar-logo {
@@ -38,18 +39,19 @@ img.navbar-logo {
 p.navbar-telescope-logotitle {
   text-decoration: none;
   display: inline-block;
-  font-size: 26px;
-  margin: 6px 0px 5px 0px;
-  letter-spacing: -0.5px;
+  font-size: 25px;
+  margin: 0px 0px 0px 3px;
+  /* letter-spacing: -0.5px; */
   font-weight: 500;
-  color: hsl(0, 0%, 25%);
+  color: hsl(0, 0%, 20%);
   /* transform: translateY(-2px); */
 }
 
 div.navbar-float-box {
   float: right;
   padding: 2px;
-  margin-top: 4px;
+  font-weight: 500;
+  font-size: 0.95em;
 }
 
 p.navbar-wrap-box {
@@ -60,7 +62,7 @@ p.navbar-wrap-box {
 
 p.navbar-sign-in {
   margin: 0px;
-  padding: 8px 10px;
+  padding: 7px 10px;
   border-radius: 5px;
   transition: background-color 150ms ease-out;
 }
@@ -73,7 +75,7 @@ p.navbar-sign-in:hover {
 p.navbar-sign-up {
   margin: 0px;
   border-radius: 5px;
-  padding: 8px 10px;
+  padding: 7px 10px;
   color: white;
   background-color: hsl(0, 0%, 20%);
   transition: background-color 150ms ease-out;
@@ -85,13 +87,13 @@ p.navbar-sign-up:hover {
 }
 
 a.navbar-signup-link {
-  margin-left: 6px;
+  margin-left: 5px;
   text-decoration: none;
   color: inherit;
 }
 
 a.navbar-signin-link {
-  margin-right: 12px;
+  margin-right: 5px;
   text-decoration: none;
   color: inherit;
 }
@@ -99,4 +101,18 @@ a.navbar-signin-link {
 a.navbar-signup-link:visited {
   text-decoration: none;
   color: inherit;
+}
+
+@media screen and (max-width: 700px) {
+  a.navbar-signup-link {
+    display: none;
+  }
+
+  a.navbar-signin-link {
+    margin-right: 0px;
+  }
+
+  p.navbar-sign-in {
+    background-color: hsl(0, 0%, 92%);
+  }
 }

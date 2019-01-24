@@ -7,13 +7,12 @@ div.heropage-wrapper {
 
 div.heropage-main {
   margin: auto;
-  padding: 50px 0px 85px 0px;
+  padding: 60px 0px 0px 0px;
 }
 
 img.heroPage-mainImage {
   width: 100%;
   /* transform: translateY(-15px); */
-  opacity: 0.88;
 }
 
 img.fadeInHeroPageImage {
@@ -25,12 +24,12 @@ img.fadeInHeroPageImage {
 div.heropage-firstdiv {
   padding: 0px 15px;
   display: grid;
-  grid-template-columns: 0.92fr 1fr;
+  grid-template-columns: 0.85fr 1fr;
   grid-gap: 20px;
 }
 
 div.heropage-firstdiv-left {
-  margin-top: 210px;
+  margin-top: 255px;
 }
 
 div.heropage-firstdiv-right {
@@ -39,14 +38,14 @@ div.heropage-firstdiv-right {
 
 h1.heropage-title {
   font-weight: bold;
-  font-size: 4.4em;
+  font-size: 4em;
   margin: 15px 0px;
   line-height: 1em;
 }
 
 p.heropage-subheader {
   margin: 0px;
-  font-size: 1.8em;
+  font-size: 1.6em;
   color: hsl(0, 0%, 61%);
   line-height: 1.25em;
 }
@@ -111,7 +110,8 @@ a.heropage-alreadymember-login:visited {
 }
 
 div.heropage-footer {
-  padding: 40px 0px;
+  font-weight: 500;
+  padding: 60px 50px 30px 50px;
   float: right;
   width: 100%;
   color: hsl(0, 0%, 35%);
@@ -149,7 +149,7 @@ div.heropage-footer-sub:hover {
 @media screen and (max-width: 700px) {
 
   div.heropage-main {
-    padding-top: 30px;
+    padding-top: 50px;
   }
 
   div.heropage-firstdiv {
@@ -197,6 +197,8 @@ div.heropage-footer-sub:hover {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 20px;
+    padding: 30px;
+    padding-top: 60px;
   }
 
   div.heropage-footer div {

@@ -31,8 +31,8 @@
   user-select: none;
 }
 
-.DayPicker-NavBar {
-}
+/* .DayPicker-NavBar {
+} */
 
 .DayPicker-NavButton {
   position: absolute;
@@ -241,8 +241,8 @@
 .SelectedWeekExample .DayPicker-Day--hoverRange:not(.DayPicker-Day--outside).DayPicker-Day--selected {
   color: white !important;
 }
-.SelectedWeekExample .DayPicker-Day--hoverRange:hover {
-}
+/* .SelectedWeekExample .DayPicker-Day--hoverRange:hover {
+} */
 
 /* DayPickerInput */
 
