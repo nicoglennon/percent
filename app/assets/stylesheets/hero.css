@@ -114,7 +114,7 @@ div.heropage-footer {
   padding: 60px 50px 30px 50px;
   float: right;
   width: 100%;
-  color: hsl(0, 0%, 35%);
+  color: #252525;
 }
 
 div.heropage-footer-leftcontainer {
@@ -142,8 +142,8 @@ a#builtby:hover {
   background-color: hsl(0, 0%, 92%);
 }
 
-div.heropage-footer-sub:hover {
-  color: hsl(0, 0%, 5%);
+div.heropage-footer-leftcontainer div:hover {
+  color: hsl(0, 0%, 55%);
 }
 
 @media screen and (max-width: 700px) {

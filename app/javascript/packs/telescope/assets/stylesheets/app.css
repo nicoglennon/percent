@@ -21,6 +21,10 @@ a:visited {
   color: inherit;
 }
 
+
+input {
+  appearance: none;
+}
 div.userSnapshot-headlineWrapper {
   margin: auto;
   padding: 20px;
@@ -1221,6 +1225,18 @@ div.categoryPill-selectPill:hover {
   img.boardPageContent-noGoalsImg {
     max-height: 220px;
     max-width: 260px;
+  }
+
+  span.categoryPill-outerSpan {
+    transform: scale(1.25);
+  }
+
+  span.categoryPill-outerSpan:hover {
+    transform: scale(1.35);
+  }
+
+  span.goalLine-deletebuttonspan {
+    transform: scale(1.2);
   }
 
 }

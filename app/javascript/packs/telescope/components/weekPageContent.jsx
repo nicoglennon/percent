@@ -3,7 +3,7 @@ import GoalLine from './goalLine';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import moment from 'moment';
 import { Line } from 'rc-progress';
-import NoGoals from '../assets/images/nogoals.gif';
+import NoGoals from '../assets/images/cat.jpg';
 import WeekPageDropdownMenu from './weekPageDropdownMenu';
 
 function getWeekDays(weekStart) {
