@@ -1150,11 +1150,11 @@ div.categoryPill-selectPill:hover {
   }
 
   div.weekPageContent-goalsdata.weekPageData {
-    top: -268px;
+    top: -275px;
   }
 
   div.weekPageContent-goalsdata.newWeekPageData.weekPageData {
-    top: -340px;
+    top: -300px;
   }
 
   div.weekPageContent-datepicker-wrapper {
@@ -1225,6 +1225,10 @@ div.categoryPill-selectPill:hover {
   img.boardPageContent-noGoalsImg {
     max-height: 220px;
     max-width: 260px;
+  }
+
+  div.categoryPill-menu {
+    font-size: 1em;
   }
 
   span.categoryPill-outerSpan {
