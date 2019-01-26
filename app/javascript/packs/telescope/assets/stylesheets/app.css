@@ -22,9 +22,6 @@ a:visited {
 }
 
 
-input {
-  appearance: none;
-}
 div.userSnapshot-headlineWrapper {
   margin: auto;
   padding: 20px;
@@ -598,6 +595,7 @@ div.weekPageContent-newGoalFormWrapper {
   top: 0px;
   padding: 30px 0px 10px 0px;
   background-color: white;
+  z-index: 10;
 }
 
 input.boardPageContent-newGoalForm-title {
@@ -608,6 +606,7 @@ input.boardPageContent-newGoalForm-title {
   background-color: white;
   padding: 12px;
   border-radius: 6px;
+  appearance: none;
 }
 
 input.boardPageContent-newGoalForm-title:hover {
