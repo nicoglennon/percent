@@ -1,5 +1,5 @@
 import React from 'react';
-import { AreaChart, Area, Tooltip, XAxis, YAxis, ResponsiveContainer, Label, LabelList } from 'recharts';
+import { ComposedChart, Area, Line, Tooltip, XAxis, YAxis, ResponsiveContainer, Legend } from 'recharts';
 import NoGoalsGif from '../assets/images/boy.jpg';
 import moment from 'moment';
 
@@ -8,10 +8,24 @@ function cleanWeeksDataForChart(weeks){
   var cleanWeeks = weeksToClean.map(function(week){
     var newWeek = {...week};
     newWeek.date = moment(newWeek.date).format('MMM D');
-    newWeek.percentage = Number(week.percentage);
+    newWeek.Overall = Number(week.percentage);
+    newWeek.Personal = getCategoryPercentage(week, "Personal");
+    newWeek.Work = getCategoryPercentage(week, "Work");
     return newWeek;
   })
   return cleanWeeks.reverse();
+}
+
+function getCategoryPercentage(week, category){
+  var categoryGoals = week.goals.filter(goal => goal.category === category);
+  var completedCategoryGoals = categoryGoals.filter(categoryGoal => categoryGoal.completed);
+  if (categoryGoals.length === 0){
+    return null;
+  }
+  else {
+    return (Math.round(completedCategoryGoals.length / categoryGoals.length * 100));
+
+  }
 }
 
 function getColor(percent){
@@ -75,8 +89,17 @@ class AnalyticsPageContent extends React.Component {
             <button className="weekPage-closeModal" onClick={this.props.closeModal}>✕</button>
 
             <h2 className="analyticsPageContent-title">Analytics</h2>
+            <div className="analyticsPageContent-legend">
+              <span className="analyticsPageContent-lineDiv overall">Overall</span>
+              <span className="analyticsPageContent-lineDiv work">Work</span>
+              <span className="analyticsPageContent-lineDiv personal">Personal</span>
+            </div>
             <ResponsiveContainer width="100%" height={weeks.length > 4 ? weeks.length * 120 : '80%'} >
-              <AreaChart data={cleanDat} layout="vertical" >
+              <ComposedChart 
+                data={cleanDat} 
+                layout="vertical"
+                margin={{bottom: 15, right: 10}}
+              >
                 <defs>
                   <linearGradient id="colorLine" x1="100%" y1="0%" x2="0%" y2="0%">
                     <stop offset="0%" stopColor={maxColor} />
@@ -90,12 +113,12 @@ class AnalyticsPageContent extends React.Component {
                   </linearGradient>
                 </defs>
                 <XAxis domain={[0, 100]} tickCount={5} orientation="top" type="number" dataKey="percentage" />
-                <YAxis hide={true} dataKey="date" type="category" padding={{top: 30, bottom: 5}} reversed={true} interval={0}/>
-                <Area type="monotone" dataKey="percentage" stroke="url(#colorLine)" strokeWidth={3} fill="url(#colorUv)" >
-                  <LabelList dataKey="date" position="right" />
-                </Area>
-              <Tooltip contentStyle={{color: 'white', backgroundColor: 'black', border: 'none', borderRadius: '6px', opacity: '0.8'}} separator={': '} formatter={function(value){ return value.toString() + '%' }} />
-              </AreaChart>
+                <YAxis dataKey="date" type="category" reversed={true} interval={0} scale="point" padding={{ top: 50 }} />
+                <Area type="monotone" dataKey="Overall" stroke="url(#colorUv)" strokeWidth={3} fill="url(#colorUv)" />
+                <Line type="monotone" dataKey="Work" stroke="rgb(132, 116, 255)" strokeWidth={3} dot={false} />
+                <Line type="monotone" dataKey="Personal" stroke="rgb(255, 105, 168)" strokeWidth={3} dot={false}  />
+                <Tooltip contentStyle={{color: 'white', backgroundColor: 'black', border: 'none', borderRadius: '6px', opacity: '0.8'}} separator={': '} formatter={function(value){ return value.toString() + '%' }} />
+              </ComposedChart>
             </ResponsiveContainer>
           </div>
         ;

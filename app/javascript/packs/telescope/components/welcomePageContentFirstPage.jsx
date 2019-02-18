@@ -1,5 +1,4 @@
 import React from 'react';
-import { Transition } from 'react-spring';
 import HomeSVG from '../assets/images/book-open.svg';
 
 const WelcomePageContentFirstPage = ({username}) => (

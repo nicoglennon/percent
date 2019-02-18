@@ -428,6 +428,7 @@ class NewWeekPage extends React.Component {
           <div className="goalsWrapper weekPageGoalsWrapper">
             <div className="weekPageContent-newGoalFormWrapper">
               <h2 className="newWeekPageContent-GoalsTitle">Goals</h2>
+              <p className="newWeekPageContent-GoalsSubtitle">Check what you've completed this week.</p>
               {/* <form onSubmit={this.handleSubmitNewWeekGoal} className="boardPageContent-newGoalForm">
                 <input type="text" name="newGoal" placeholder="Add a goal" value={this.state.newGoalForm.title} onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
                 <button className="weekPage-addNewGoalButton" onClick={this.handleSubmitNewWeekGoal}>Add</button>

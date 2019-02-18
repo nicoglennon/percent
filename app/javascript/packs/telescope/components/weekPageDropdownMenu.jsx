@@ -54,7 +54,7 @@ class WeekPageDropdownMenu extends React.Component {
                       this.dropdownMenu = element;
                     }}
                   >
-                    <p className="navbar-profileMenuOptions" onClick={this.props.deleteWeek}>Delete</p>
+                    <p className="navbar-profileMenuOptions" onClick={this.props.deleteWeek}>Delete Week</p>
                   </div>
                 }
               </Transition>

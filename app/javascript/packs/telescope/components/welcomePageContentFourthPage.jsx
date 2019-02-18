@@ -5,26 +5,46 @@ import WeekSVG from '../assets/images/calendar.svg';
 const WelcomePageContentFourthPage = ({}) => (
   <div>
     <h2 className="welcomePageContent-TourPageTitle"><span className="welcomePageContent-TourPageTitle-Lighter">2. Track your</span> Weeks <img src={WeekSVG} className="welcomePageContent-bigiconsvg"/></h2>
-    <p>Watch your completion rate gradually increase as you check off your goals:</p>
-    <div className="weekPageContent-percentagesWrapper">
-      <p className="weekPageContent-weekOfSubtitle">Completion</p>
-      <p className="weekPageContent-percentageText">
-        <strong>{"85"}</strong>
-        {'%'}
-      </p>
-      <div className="weekPage-progressLineContainer">
-        <Line
-          percent={85}
-          strokeWidth="2"
-          trailWidth="2"
-          strokeLinecap="round"
-          strokeColor="hsla(160,100%,40%, 0.8)"
-          trailColor="#f3f3f3"
-        />
+    <p>Completion percentages for each category will increase as you check off your goals:</p>
+    <div className="welcomePageContent-percentagesBox">
+      <div>
+        <div className="weekPageContent-percentagesText-flex">
+          <p className="weekPageContent-weekOfSubtitle flexGrow-one">Personal</p>
+          <p className="weekPageContent-percentageText smallPercentage flexGrow-zero">
+            <span><strong>{50}</strong>{'%'}</span>
+          </p>
+        </div>
+        <div className="weekPage-progressLineContainer">
+          <Line
+            percent={50}
+            strokeWidth="1"
+            trailWidth="1"
+            strokeLinecap="round"
+            strokeColor="rgb(255, 118, 167)"
+            trailColor="#fbfbfb"
+          />
+        </div>
+      </div>
+      <div>
+        <div className="weekPageContent-percentagesText-flex">
+          <p className="weekPageContent-weekOfSubtitle flexGrow-one">Work</p>
+          <p className="weekPageContent-percentageText smallPercentage flexGrow-zero">
+            <span><strong>{100}</strong>{'%'}</span>
+          </p>
+        </div>
+        <div className="weekPage-progressLineContainer">
+          <Line
+            percent={100}
+            strokeWidth="1"
+            trailWidth="1"
+            strokeLinecap="round"
+            strokeColor="rgb(132, 116, 255)"
+            trailColor="#fbfbfb"
+          />
+        </div>
       </div>
     </div>
-      <p>Before you save, don't forget to select a date range in the calendar!</p>
-    <p>Save your Week once you're done – do this once a week (ideally on Sunday evenings).</p>
+    <p>Save your Week once you're done checking all your completed goals.</p>
   </div>
 );
 
