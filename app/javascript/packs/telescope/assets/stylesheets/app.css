@@ -977,6 +977,14 @@ h2.welcomePageContent-TourPageTitle {
   margin: 18px 0px;
 }
 
+strong.welcomePageContent-boldWordWork {
+  color: rgb(132, 116, 255);
+}
+
+strong.welcomePageContent-boldWordPersonal {
+  color: rgb(255, 118, 167);
+}
+
 span.welcomePageContent-TourPageTitle-Lighter {
   font-weight: 500;
   color: hsl(0, 0%, 35%);

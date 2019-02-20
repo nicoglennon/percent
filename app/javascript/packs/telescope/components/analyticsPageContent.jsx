@@ -94,7 +94,7 @@ class AnalyticsPageContent extends React.Component {
               <span className="analyticsPageContent-lineDiv work">Work</span>
               <span className="analyticsPageContent-lineDiv personal">Personal</span>
             </div>
-            <ResponsiveContainer width="100%" height={weeks.length > 4 ? weeks.length * 120 : '80%'} >
+            <ResponsiveContainer width="100%" height={weeks.length > 4 ? weeks.length * 120 : '75%'} >
               <ComposedChart 
                 data={cleanDat} 
                 layout="vertical"
@@ -114,7 +114,7 @@ class AnalyticsPageContent extends React.Component {
                 </defs>
                 <XAxis domain={[0, 100]} tickCount={5} orientation="top" type="number" dataKey="percentage" />
                 <YAxis dataKey="date" type="category" reversed={true} interval={0} scale="point" padding={{ top: 50 }} />
-                <Area type="monotone" dataKey="Overall" stroke="url(#colorUv)" strokeWidth={3} fill="url(#colorUv)" />
+                <Area type="monotone" dataKey="Overall" stroke="url(#colorUv)" strokeWidth={0} fill="url(#colorUv)" />
                 <Line type="monotone" dataKey="Work" stroke="rgb(132, 116, 255)" strokeWidth={3} dot={false} />
                 <Line type="monotone" dataKey="Personal" stroke="rgb(255, 105, 168)" strokeWidth={3} dot={false}  />
                 <Tooltip contentStyle={{color: 'white', backgroundColor: 'black', border: 'none', borderRadius: '6px', opacity: '0.8'}} separator={': '} formatter={function(value){ return value.toString() + '%' }} />
