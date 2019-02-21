@@ -12,7 +12,7 @@ div.heropage-main {
 
 img.heroPage-mainImage {
   width: 100%;
-  transform: translateY(30px);
+  transform: translateY(20px);
   opacity: 0;
 }
 
