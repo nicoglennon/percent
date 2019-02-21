@@ -12,12 +12,13 @@ div.heropage-main {
 
 img.heroPage-mainImage {
   width: 100%;
-  /* transform: translateY(-15px); */
+  transform: translateY(30px);
+  opacity: 0;
 }
 
 img.fadeInHeroPageImage {
   transform: translateY(0px);
-  opacity: 0.85;
+  opacity: 1;
   transition: all 1200ms cubic-bezier(0,1,.5,1);
 }
 

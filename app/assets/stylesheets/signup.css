@@ -34,14 +34,13 @@ div.signup.center {
   margin: auto;
   position: relative;
   top: 50%;
-  transform: translateY(-48%);
+  transform: translateY(-50%);
   opacity: 0;
 }
 
 div.signup.center.fadeInSignupPage {
   opacity: 1;
-  transform: translateY(-50%);
-  transition: all 600ms ease;
+  transition: all 800ms ease;
 }
 
 h1.signup.signup-title {
@@ -128,10 +127,6 @@ ul.signup.errors {
     display: block;
     top: 0;
     transform: translateY(3%);
-  }
-
-  div.signup.center.fadeInSignupPage {
-    transform: translateY(0%);
   }
 
 }
