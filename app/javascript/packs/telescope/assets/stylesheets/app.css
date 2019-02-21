@@ -393,6 +393,7 @@ img.weekCardsWrapper-noWeeksImage {
   width: 100%;
   display: block;
   margin: auto;
+  padding: 0px 15px;
 }
 
 input {
@@ -1204,8 +1205,7 @@ div.categoryPill-selectPill:hover {
   div.weekPageContent-datepicker-wrapper {
     text-align: center;
   }
-  
-  
+
   p.weekPageContent-percentageText {
     font-size: 22px;
   }

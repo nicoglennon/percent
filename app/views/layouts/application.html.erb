@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Percent</title>
+    <title>Percent – Break your simulation</title>
+    <meta name="title" content="Percent – Break your simulation">
+    <meta name="description" content="Stop reliving the same day over and over. Start tracking and improving your life each week.">
+
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= javascript_include_tag 'application' %>
@@ -22,6 +25,8 @@
       <%= stylesheet_pack_tag 'telescope/assets/stylesheets/react-day-picker' %>
     <% else %>
       <%= stylesheet_link_tag 'application', media: 'all' %>
+
+      <!-- Start of Async Drift Code -->
       <script>
       "use strict";
 
@@ -29,7 +34,7 @@
         var t = window.driftt = window.drift = window.driftt || [];
         if (!t.init) {
           if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-          t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+          t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
           t.factory = function(e) {
             return function() {
               var n = Array.prototype.slice.call(arguments);
@@ -49,11 +54,23 @@
       drift.load('6km74mkc4ckp');
       </script>
       <!-- End of Async Drift Code -->
-        
+
     <% end %>
 
-    <!-- Start of Async Drift Code -->
-        
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://percent.me/">
+    <meta property="og:title" content="Percent – Break your simulation">
+    <meta property="og:description" content="Stop reliving the same day over and over. Start tracking and improving your life each week.">
+    <meta property="og:image" content='<%= image_tag("flowerpick.jpg") %>'>
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://percent.me/">
+    <meta property="twitter:title" content="Percent – Break your simulation">
+    <meta property="twitter:description" content="Stop reliving the same day over and over. Start tracking and improving your life each week.">
+    <meta property="twitter:image" content='<%= image_tag("flowerpick.jpg") %>'>
+
   </head>
 
   <body>

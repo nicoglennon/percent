@@ -7,7 +7,7 @@ div.heropage-wrapper {
 
 div.heropage-main {
   margin: auto;
-  padding: 60px 0px 0px 0px;
+  padding: 5px 0px 0px 0px;
 }
 
 img.heroPage-mainImage {
@@ -18,7 +18,7 @@ img.heroPage-mainImage {
 img.fadeInHeroPageImage {
   transform: translateY(0px);
   opacity: 0.85;
-  transition: all 1200ms cubic-bezier(0,1,.5,1); 
+  transition: all 1200ms cubic-bezier(0,1,.5,1);
 }
 
 div.heropage-firstdiv {
@@ -111,7 +111,7 @@ a.heropage-alreadymember-login:visited {
 
 div.heropage-footer {
   font-weight: 500;
-  padding: 60px 50px 30px 50px;
+  padding: 120px 50px 40px 50px;
   float: right;
   width: 100%;
   color: #252525;
@@ -148,10 +148,6 @@ div.heropage-footer-leftcontainer div:hover {
 }
 
 @media screen and (max-width: 700px) {
-
-  div.heropage-main {
-    padding-top: 50px;
-  }
 
   div.heropage-firstdiv {
     /* padding: 0px 15px; */
@@ -198,8 +194,7 @@ div.heropage-footer-leftcontainer div:hover {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 20px;
-    padding: 30px;
-    padding-top: 60px;
+    padding: 60px 20px;
   }
 
   div.heropage-footer div {
