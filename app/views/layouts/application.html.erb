@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122666787-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-122666787-4');
+    </script>
+    
     <title>Percent – Break your simulation</title>
     <meta name="title" content="Percent – Break your simulation">
     <meta name="description" content="Stop reliving the same day over and over. Start tracking and improving your life each week.">
@@ -25,9 +35,10 @@
       <%= stylesheet_pack_tag 'telescope/assets/stylesheets/react-day-picker' %>
     <% else %>
       <%= stylesheet_link_tag 'application', media: 'all' %>
+    <% end %>
 
-      <!-- Start of Async Drift Code -->
-      <script>
+    <!-- Start of Async Drift Code -->
+    <script>
       "use strict";
 
       !function() {
@@ -52,10 +63,9 @@
       }();
       drift.SNIPPET_VERSION = '0.3.1';
       drift.load('6km74mkc4ckp');
-      </script>
-      <!-- End of Async Drift Code -->
+    </script>
+    <!-- End of Async Drift Code -->
 
-    <% end %>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
