@@ -141,7 +141,7 @@ class Root extends React.Component {
       message: message,
       type: type,
       insert: "bottom",
-      container: "bottom-right",
+      container: "top-right",
       animationIn: ["animated", "slow", "jackInTheBox"],
       animationOut: ["animated", "zoomOut"],
       dismiss: { duration: 6000 },

@@ -44,7 +44,7 @@ const WelcomePageContentFourthPage = ({}) => (
         </div>
       </div>
     </div>
-    <p>Save your Week once you're done checking all your completed goals.</p>
+    <p>Save your Week once you're done. <strong>Do this every week</strong> (we'll remind you by email on Sundays!)</p>
   </div>
 );
 

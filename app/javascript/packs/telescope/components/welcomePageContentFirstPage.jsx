@@ -5,7 +5,7 @@ const WelcomePageContentFirstPage = ({username}) => (
   <div>
     <h2 className="welcomePageContent-TourPageTitle">Welcome <img src={HomeSVG} className="welcomePageContent-bigiconsvg"/></h2>
     <p>Hey, <strong>@{username}</strong>!</p>
-    <p>Welcome to <strong>Percent</strong>, a place where hundreds of people come to self-optimize every week.</p>
+    <p>Welcome to <strong>Percent</strong>, a place for people to create goals and self-assess every week.</p>
     <p>Here's how to get started:</p>
     <p className="welcomePageContent-threefeatures">1. Set your  <strong>Goals</strong> </p>
     <p className="welcomePageContent-threefeatures">2. Track your <strong>Weeks</strong> </p>
