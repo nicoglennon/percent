@@ -3,7 +3,7 @@ import HomeSVG from '../assets/images/book-open.svg';
 
 const WelcomePageContentFirstPage = ({username}) => (
   <div>
-    <h2 className="welcomePageContent-TourPageTitle">Welcome <img src={HomeSVG} className="welcomePageContent-bigiconsvg"/></h2>
+    <h2 className="welcomePageContent-TourPageTitle">Welcome 👋</h2>
     <p>Hey, <strong>@{username}</strong>!</p>
     <p>Welcome to <strong>Percent</strong>, a place for people to create goals and self-assess every week.</p>
     <p>Here's how to get started:</p>

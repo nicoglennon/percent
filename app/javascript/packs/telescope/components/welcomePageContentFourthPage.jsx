@@ -4,7 +4,7 @@ import WeekSVG from '../assets/images/calendar.svg';
 
 const WelcomePageContentFourthPage = ({}) => (
   <div>
-    <h2 className="welcomePageContent-TourPageTitle"><span className="welcomePageContent-TourPageTitle-Lighter">2. Track your</span> Weeks <img src={WeekSVG} className="welcomePageContent-bigiconsvg"/></h2>
+    <h2 className="welcomePageContent-TourPageTitle"><span className="welcomePageContent-TourPageTitle-Lighter">2. Track your</span> Weeks 🗓</h2>
     <p>Completion percentages for each category will increase as you check off your goals:</p>
     <div className="welcomePageContent-percentagesBox">
       <div>

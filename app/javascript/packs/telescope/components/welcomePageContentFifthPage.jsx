@@ -10,7 +10,7 @@ var weeksData = [
 
 const WelcomePageContentFifthPage = ({}) => (
   <div>
-    <h2 className="welcomePageContent-TourPageTitle"><span className="welcomePageContent-TourPageTitle-Lighter">3. View your</span> Analytics <img src={ChartSVG} className="welcomePageContent-bigiconsvg"/></h2>
+    <h2 className="welcomePageContent-TourPageTitle"><span className="welcomePageContent-TourPageTitle-Lighter">3. View your</span> Analytics 📈‍</h2>
     <p>Aggregate data from all your recorded Weeks will be available in your Analytics.</p>
     <div className="AnalyticsPageContent-Chart">
       <ResponsiveContainer width="100%" height={150}>
