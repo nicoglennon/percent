@@ -30,7 +30,7 @@ div.heropage-firstdiv {
 }
 
 div.heropage-firstdiv-left {
-  margin-top: 255px;
+  margin-top: 200px;
 }
 
 div.heropage-firstdiv-right {
@@ -148,12 +148,21 @@ div.heropage-footer-leftcontainer div:hover {
   color: hsl(0, 0%, 55%);
 }
 
+div.heropage-producthuntbadge {
+  filter: saturate(500%) grayscale(1);
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 700px) {
 
   div.heropage-firstdiv {
     /* padding: 0px 15px; */
     grid-template-columns: 1fr;
     grid-gap: 10px;
+  }
+
+  div.heropage-producthuntbadge {
+    text-align: center;
   }
 
 
