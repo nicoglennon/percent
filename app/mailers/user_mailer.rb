@@ -7,4 +7,9 @@ class UserMailer < ApplicationMailer
         @url  = 'https://percent.me/login'
         mail(to: @user.email, subject: '✨ Welcome to Percent! ✨')
     end
+
+    def goodbye_email(user)
+        @user = user
+        mail(to: @user.email, subject: 'Thanks for trying out Percent! 😸')
+    end
 end

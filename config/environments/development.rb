@@ -30,7 +30,7 @@ config.webpacker.check_yarn_integrity = true
   end
 
   # Don't care if the mailer can't send.
-  
+
   # START - turn on the mailers (but don't deliver)
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = false # don't actually deliver the email. it will be printed out to console by default

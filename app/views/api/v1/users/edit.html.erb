@@ -37,9 +37,21 @@
 
             <%= f.hidden_field :id %>
 
+            <div class="settings-form-group">
+              <div class="sensitive-settings">
+                <%= link_to 'Reset Password',
+                     '#',class: 'settings reset account-btn' %>
+                <%= link_to 'Delete Account',
+                     api_v1_user_path(@user.id),
+                                 method: :delete,
+                                 data: { confirm: "Deleting your account will permanently delete all of your saved weeks and goals, as well as remove you from future email correspondence. Are you cool with that?" }, 
+                                 class: 'settings delete account-btn' %>
+              </div>
+            </div>
+
+
             <%= f.submit 'Save', class: 'settings btn' %>
         <% end %>
-
     </div>
 </div>
 <script>

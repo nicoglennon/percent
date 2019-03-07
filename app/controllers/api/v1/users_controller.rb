@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
 
-  before_action :require_login, only: [ :show ]
+  before_action :require_login, only: [ :show, :edit, :update, :destroy ]
 
   def new
     if logged_in?
@@ -87,17 +87,35 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    if @user.destroy!
+      UserMailer.goodbye_email(@user).deliver_now
+      unsubscribe_contact_in_email_service(@user)
+      redirect_to '/'
+    else
+      @errors = @user.errors.full_messages
+      render 'edit'
+    end
+
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
-  
+
   def user_update_params
     params.require(:user).permit(:username, :email)
   end
 
   def upsert_contact_in_email_service(user)
-    ::ContactCreationService.new.call(user)
+    ::ContactCreationService.new.upsert(user)
   end
+
+  def unsubscribe_contact_in_email_service(user)
+    ::ContactCreationService.new.unsubscribe(user)
+  end
+
 end

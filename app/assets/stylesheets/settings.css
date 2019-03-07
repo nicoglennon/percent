@@ -22,7 +22,7 @@ h1.settingsPage-h1-title {
 
 div.settingsPage-body {
     margin: auto;
-    padding: 60px 20px 0px 20px;
+    padding: 60px 20px 40px 20px;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 5px;
@@ -51,12 +51,49 @@ input.settings.form-control {
     border-radius: 5px;
     transition: border 200ms ease;
   }
-  
-  
+
+  div.sensitive-settings {
+    margin-top: 10px;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  a.reset {
+    border: 1px solid #252525;
+    color: #252525;
+  }
+
+  a.reset:hover {
+    color: white;
+    background-color: #252525;
+  }
+
+  a.delete {
+    border: 1px solid #e7285b;
+    color: #e7285b;
+  }
+
+  a.delete:hover {
+    color: white;
+    background-color: #e7285b;
+  }
+
+  a.account-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 300ms ease;
+  }
+
   input.settings.form-control:focus {
     border: 2px solid hsla(0,0%,0%,0.2);
   }
-  
+
   input.settings.btn {
     margin-top: 25px;
     width: 100%;
@@ -68,12 +105,12 @@ input.settings.form-control {
     font-size: 18px;
     transition: background-color 300ms ease;
   }
-  
+
   input.settings.btn:hover {
     cursor: pointer;
     background-color: #343434;
   }
-  
+
   input.settings.btn:focus {
     background-color: #343434;
   }

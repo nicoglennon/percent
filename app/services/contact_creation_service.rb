@@ -9,12 +9,20 @@ class ContactCreationService
         end
     end
 
-    def call(user)
+    def upsert(user)
+      call(user, 'subscribed')
+    end
+
+    def unsubscribe(user)
+      call(user, 'unsubscribed')
+    end
+
+    def call(user, status)
         begin
             list(user).upsert(
             body: {
                 email_address: user.email,
-                status: 'subscribed',
+                status: status,
                 merge_fields: {
                 UNAME:  user.username,
                 }
