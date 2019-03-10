@@ -8,6 +8,7 @@ import BoardPage from './boardPage';
 import NewWeekPage from './newWeekPage';
 import AnalyticsPage from './analyticsPage';
 import WelcomePage from './welcomePage';
+import SundayCard from './sundayCard';
 
 
 
@@ -47,6 +48,8 @@ class UserSnapshot extends React.Component {
    } else {
       var weeks = this.props.currentUserSnapshot.weeks;
       var boards = this.props.currentUserSnapshot.boards;
+      var today = new Date();
+      console.log(today.getDay());
       displayUserInfo =
                         <div>
                         <Transition
@@ -56,7 +59,7 @@ class UserSnapshot extends React.Component {
                             {
                               show => show && (props => (
                                 <div style={props}>
-                                  <div></div>
+                                  { today.getDay() === 0 && <SundayCard username={currentUserSnapshot.username}/>}
                                   <MainCardsWrapper board={boards[0]} username={currentUserSnapshot.username} weeks={weeks}/>
                                   <WeekCardsWrapper currentUser={currentUserSnapshot} weekCards={weeks} />
                                 </div>

@@ -32,7 +32,7 @@ div.userSnapshot-headlineWrapper {
 }
 
 div.userSnapshot-gridWrapper {
-  padding: 60px 20px 0px 20px;
+  padding: 40px 20px 0px 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 35px;
@@ -55,6 +55,32 @@ a.cardWrapper-div:hover {
   /* transform: translateY(-8px); */
   /* opacity: 0.9; */
   /* box-shadow: 0px 4px 20px rgba(0,0,0,.2); */
+}
+
+a.sunday-card-link{
+  display: block;
+  border-radius: 20px;
+  padding: 20px 40px;
+  display: block;
+  max-width: 550px;
+  margin: auto;
+  transition: transform .6s cubic-bezier(.2,.8,.2,1);
+  background-color: whitesmoke;
+}
+
+a.sunday-card-link:hover{
+  transform: scale(1.085) !important;
+}
+
+p.sunday-card-message {
+  text-align: center;
+  font-size: 21px;
+  margin: 0px;
+}
+
+div.sunday-card-wrapper{
+  margin: auto;
+  padding: 0px 20px;
 }
 
 a.cardWrapper-div.analytics-card{
