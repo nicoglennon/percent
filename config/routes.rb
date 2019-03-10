@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get '/settings', to: 'api/v1/users#edit'
   patch '/settings', to: 'api/v1/users#update'
 
-
   get '/signup', to: 'api/v1/users#new'
   post '/signup', to: 'api/v1/users#create', as: :register
 
@@ -21,9 +20,13 @@ Rails.application.routes.draw do
   post '/login', to: 'api/v1/sessions#create'
   delete '/logout', to: 'api/v1/sessions#destroy', as: :logout
 
+  get '/password', to: 'api/v1/password_resets#new', as: :reset_password
+  post '/password', to: 'api/v1/password_resets#create'
+
   namespace :api do
     namespace :v1 do
       resources :sessions, only: [:new, :create, :destroy]
+      resources :password_resets, only: [:new, :create, :edit, :update]
       resources :users, only: [ :new, :create, :show, :edit, :update, :destroy ] do
         resources :weeks, only: [ :create, :destroy ] do
           resources :goals, only: [ :create, :update, :destroy ]

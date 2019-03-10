@@ -1,0 +1,42 @@
+<div class="signin wrapper">
+  <div class="signin center" id="signinFadeIn">
+    <div class="signin telescope-div">
+      <a href="/" class="signin telescope-name">
+        <%= image_tag("percent-circle.svg", class: "navbar-telescope-logo", :alt => "logo") %>
+        <span class="signin telescope-letters">Percent</span>
+      </a>
+    </div>
+    <div class="signin form-div">
+      <% if @message %>
+        <div>
+          <p><%= @message[0] %></p>
+          <p style="text-align: center;"><strong><%= @recovery_email %></strong></p>
+          <p><%= @message[1] %></p>
+        </div>
+      <% else %>
+        <h1 class="signin signin-title"><%= @act.capitalize %> Password</h1>
+        <%= form_with url: reset_password_path, local: true, method: :post do |form| %>
+          <div class="signin-form-group">
+            <%= form.label :email, class: 'signin form-label' %>
+            <%= form.text_field :email, value: @email, class: 'signin form-control em', required: true %>
+            <%= form.submit "Send Reset Link", class: 'signin btn' %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+    <% if @message %>
+      <p class="signin not-member-yet"><a href="/" class="signin not-member-yet-link password-reset-link">Back</a></p>
+    <% elsif @act == 'reset' %>
+      <p class="signin not-member-yet">Back to <a href="/settings" class="signin not-member-yet-link password-reset-link">Settings</a>.</p>
+    <% elsif @act == 'forgot'%>
+      <p class="signin not-member-yet">Back to <a href="/login" class="signin not-member-yet-link password-reset-link">Sign in</a>.</p>
+    <% end %>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(() => {
+    $('#signinFadeIn').addClass('fadeInSigninPage');
+  })
+</script>

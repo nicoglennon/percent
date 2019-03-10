@@ -32,8 +32,10 @@ config.webpacker.check_yarn_integrity = true
   # Don't care if the mailer can't send.
 
   # START - turn on the mailers (but don't deliver)
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_url_options = { :host => "percent.me" }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = false # don't actually deliver the email. it will be printed out to console by default
+  config.action_mailer.perform_deliveries = true # don't actually deliver the email. it will be printed out to console by default
   config.action_mailer.raise_delivery_errors = true # changed it to true to see errors
   ActionMailer::Base.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],

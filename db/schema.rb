@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012041243) do
+ActiveRecord::Schema.define(version: 20190307164526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,11 @@ ActiveRecord::Schema.define(version: 20181012041243) do
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.integer "access_count_to_reset_password_page", default: 0
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
   create_table "weeks", force: :cascade do |t|

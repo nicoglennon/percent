@@ -145,10 +145,6 @@ img.navbar-eye-logo {
   transition: transform 150ms ease-out;
 }
 
-img.navbar-telescope-logo:hover {
-  transform: scale(1.2);
-  transition: all 150ms ease-out;
-}
 
 p.navbar-telescope-logotitle {
   text-decoration: none;
@@ -1144,6 +1140,10 @@ div.categoryPill-selectPill {
 
 div.categoryPill-selectPill:hover {
   filter: brightness(95%);
+}
+
+a.password-reset-link {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 700px) {

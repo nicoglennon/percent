@@ -128,6 +128,32 @@ ul.signin.errors {
   border-radius: 5px;
 }
 
+a.signin.forgot-password {
+  /* display: block; */
+  margin-top: 4px;
+  float:right;
+  text-decoration: none;
+  color: hsl(0, 0%, 60%);
+  font-size: 0.8em;
+  transition: color 200ms ease;
+}
+
+a.signin.forgot-password:hover {
+  color: hsl(0, 0%, 40%);
+  text-decoration: underline;
+}
+
+img.navbar-telescope-logo {
+    width: 32px;
+    height: 32px;
+    transform: rotate(90deg);
+    transition: transform 250ms ease;
+    opacity: 0.8;
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
 @media screen and (max-width: 700px) {
 
   div.signin.center {
