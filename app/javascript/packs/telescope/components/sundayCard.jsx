@@ -31,7 +31,7 @@ class BoardCard extends React.Component {
         <Link className="sunday-card-link" to={`/@${this.props.username}/weeks/new`} >
           <div className="sundayCard-div">
             {/*<p className="mainCard-date">{this.props.board.title}</p>*/}
-            <p className="sunday-card-message">⏰ <strong>It's Sunday!</strong> Time to record this week.</p>
+            <p className="sunday-card-message">⏰ <strong>It's Sunday!</strong> Time to record this week →</p>
           </div>
         </Link>
         </div>
