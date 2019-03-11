@@ -64,12 +64,12 @@ a.sunday-card-link{
   display: block;
   max-width: 550px;
   margin: auto;
-  transition: transform .6s cubic-bezier(.2,.8,.2,1);
-  background-color: whitesmoke;
+  transition: background-color 300ms ease;
+  background-color: #fff2d2;
 }
 
 a.sunday-card-link:hover{
-  transform: scale(1.085) !important;
+  background-color: #fff8d1;
 }
 
 p.sunday-card-message {
