@@ -63,13 +63,15 @@ class ProfileMenu extends React.Component {
                       this.dropdownMenu = element;
                     }}
                   >
-                    <a href="/settings" className="navbar-profileMenuOptionLink">
-                      <p className="navbar-profileMenuOptions">Settings</p>                      
-                    </a>
                     <Link to={`/@${this.props.username}/welcome`}>
                       <p className="navbar-profileMenuOptions">Help</p>
                     </Link>
-
+                    <a href="/settings" className="navbar-profileMenuOptionLink">
+                      <p className="navbar-profileMenuOptions">Settings</p>
+                    </a>
+                    <a href="https://www.notion.so/nicoglennon/404ab2f97bf54e728cdbe8f552ca9ffc?v=3e5fe998eebd4524bc1babd185c71e86" className="navbar-profileMenuOptionLink" target="_blank">
+                      <p className="navbar-profileMenuOptions">Roadmap</p>
+                    </a>
                     <a href="/logout" data-method="delete" rel="nofollow" className="navbar-profileMenuOptionLink">
                       <p className="navbar-profileMenuOptions">
                         Logout
