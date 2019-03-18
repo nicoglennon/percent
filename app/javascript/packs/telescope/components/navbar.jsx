@@ -19,7 +19,7 @@ class Navbar extends React.Component {
                     <div className="navbar-weekLinkWrapper">
                       <Link className="navbar-newWeek-link"
                         to={`/@${this.props.currentUser.username}/weeks/new`}>
-                        ＋ New Week
+                        ＋ Record Week
                       </Link>
                     </div>
                     <ProfileMenu username={this.props.currentUser.username} />

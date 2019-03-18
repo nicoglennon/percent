@@ -324,7 +324,7 @@ class NewWeekPage extends React.Component {
             <div className="weekPage-buttonsWrapper">
               <button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>
             </div>
-            <h2 className="weekPageContent-date">New Week</h2>
+            <h2 className="weekPageContent-date">Record Week</h2>
             <div className="weekPageContent-datepicker-wrapper SelectedWeekExample">
               <DayPickerInput
                 inputProps={{
@@ -428,7 +428,7 @@ class NewWeekPage extends React.Component {
           <div className="goalsWrapper weekPageGoalsWrapper">
             <div className="weekPageContent-newGoalFormWrapper">
               <h2 className="newWeekPageContent-GoalsTitle">Goals</h2>
-              <p className="newWeekPageContent-GoalsSubtitle">Check what you've completed this week.</p>
+              <p className="newWeekPageContent-GoalsSubtitle">Check off what you completed this past week.</p>
               {/* <form onSubmit={this.handleSubmitNewWeekGoal} className="boardPageContent-newGoalForm">
                 <input type="text" name="newGoal" placeholder="Add a goal" value={this.state.newGoalForm.title} onChange={this.handleNewGoalInputChange} className="boardPageContent-newGoalForm-title"/>
                 <button className="weekPage-addNewGoalButton" onClick={this.handleSubmitNewWeekGoal}>Add</button>

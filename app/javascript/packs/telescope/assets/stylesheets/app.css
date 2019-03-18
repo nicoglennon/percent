@@ -225,10 +225,9 @@ img.navbar-wrap-box {
 } */
 
 img.navbar-usersvg {
-  width: 29px;
-  height: 29px;
+  width: 30px;
+  height: 30px;
   display: inline-block;
-  transition: opacity 200ms ease-out;
   opacity: 0.8;
   cursor: pointer;
 }
@@ -245,10 +244,6 @@ img.navbar-logosvg {
 img.navbar-logosvg:hover {
   /* opacity: 0.95; */
   transform: rotate(0deg);
-}
-
-img.navbar-usersvg:hover {
-  opacity: 0.6;
 }
 
 p.navbar-get-started {
@@ -290,10 +285,11 @@ div.weekPageDropdownMenu-menuContents {
 }
 
 div.navbar-username-box {
-  padding: 3px 4px;
   border-radius: 6px;
   transition: background-color 200ms ease;
   user-select: none;
+  padding: 3px 3px 0px 3px;
+  margin: 0px;
 }
 
 div.navbar-username-box:hover {
@@ -332,6 +328,18 @@ p.navbar-profileMenuOptions {
 }
 
 a.navbar-profileMenuOptionLink {
+  text-decoration: none;
+}
+
+p.navbar-profileMenuUsername {
+  font-size: 0.8em;
+  cursor: default;
+  opacity: 0.4;
+  display: block;
+  width: 100%;
+  padding: 8px 18px;
+  margin: 0px 0px;
+  text-align: right;
   text-decoration: none;
 }
 

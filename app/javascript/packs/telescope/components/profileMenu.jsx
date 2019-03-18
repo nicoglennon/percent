@@ -41,7 +41,8 @@ class ProfileMenu extends React.Component {
     return (
       <div className="nabvar-profileMenu">
         <div className="navbar-username-box" onClick={this.showMenu}>
-          <p className="navbar-username">@{this.props.username}</p>
+          {/* <p className="navbar-username">@{this.props.username}</p> */}
+          <img src={UserSVG} className="navbar-usersvg" />
         </div>
 
         {/* <a href="/logout" data-confirm="Are you sure?" data-method="delete" rel="nofollow">
@@ -63,6 +64,7 @@ class ProfileMenu extends React.Component {
                       this.dropdownMenu = element;
                     }}
                   >
+                    <p className="navbar-profileMenuUsername">@{this.props.username}</p>
                     <Link to={`/@${this.props.username}/welcome`}>
                       <p className="navbar-profileMenuOptions">Help</p>
                     </Link>

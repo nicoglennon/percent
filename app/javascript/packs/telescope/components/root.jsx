@@ -66,7 +66,7 @@ class Root extends React.Component {
         }
         self.addNotification('danger', 'Oops! Error while saving.', errorString.slice(0,-2) + '.');
       } else if (response.status === 200){
-        self.addNotification('success', 'New week recorded!','Your new week was saved sucessfully.');
+        self.addNotification('success', 'Week recorded!','Your week was recorded sucessfully.');
         self.props.history.goBack();
         self.fetchCurrentUserSnapshot(currentUserUsername);
       }
