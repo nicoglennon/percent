@@ -1,5 +1,4 @@
 import React from 'react';
-import ChartSVG from '../assets/images/bar-chart.svg';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis } from 'recharts';
 
 var weeksData = [
@@ -11,7 +10,7 @@ var weeksData = [
 const WelcomePageContentFifthPage = ({}) => (
   <div>
     <h2 className="welcomePageContent-TourPageTitle"><span className="welcomePageContent-TourPageTitle-Lighter">3. View your</span> Analytics 📈‍</h2>
-    <p>Aggregate data from all your recorded Weeks will be available in your Analytics.</p>
+    <p>Visualization data from all your recorded weeks will be available in your <strong>Analytics</strong>.</p>
     <div className="AnalyticsPageContent-Chart">
       <ResponsiveContainer width="100%" height={150}>
         <AreaChart data={weeksData} layout="vertical" margin={{bottom: 15, right: 20}}>
@@ -28,7 +27,7 @@ const WelcomePageContentFifthPage = ({}) => (
       </ResponsiveContainer>
     </div>
 
-    <p>See how you measure up to your expectations and which category you need to focus on!</p>
+    <p>See how you measure up to your expectations and pinpoint what you need to focus on!</p>
   </div>
 );
 

@@ -14,7 +14,7 @@ class WeekCardsWrapper extends React.Component {
     } else if (weeks && weeks.length < 1) {
       weekCards = <div className="weekCardsWrapper-noWeeksDiv">
                     <img className="weekCardsWrapper-noWeeksImage" src={Flower} />
-                    <p>No weeks yet! Add a new one above.</p>
+                    <p>No weeks yet! Record a new one above.</p>
                   </div>;
     } else if(weeks != undefined){
       var username = this.props.currentUser.username;

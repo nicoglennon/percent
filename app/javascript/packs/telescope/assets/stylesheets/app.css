@@ -228,7 +228,7 @@ img.navbar-usersvg {
   width: 30px;
   height: 30px;
   display: inline-block;
-  opacity: 0.8;
+  opacity: 0.85;
   cursor: pointer;
 }
 
@@ -1043,6 +1043,11 @@ div.welcomePageContent-percentagesBox {
   border-radius: 6px;
 }
 
+div.welcomePageContent-LastPageImageWrapper {
+  margin: auto;
+  text-align: center;
+}
+
 h2.newWeekPageContent-GoalsTitle {
   margin: 0;
 }
@@ -1109,8 +1114,9 @@ span.analyticsPageContent-lineDiv.overall {
 }
 
 img.WelcomePageContent-GetStarted-Image {
-  width: 100%;
+  width: 85%;
   margin: auto;
+  margin-top: 10px;
 }
 
 span.categoryPill-outerSpan {
@@ -1291,6 +1297,11 @@ a.password-reset-link {
   div.welcomePageContent-wrapper {
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  img.WelcomePageContent-GetStarted-Image {
+    width: 95%;
+    margin-top: 45px;
   }
 
   div.AnalyticsPageWrapper {

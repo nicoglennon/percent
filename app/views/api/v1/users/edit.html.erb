@@ -6,7 +6,9 @@
         <div class="navbar-float-box">
             <div class="nabvar-profileMenu">
                 <div class="navbar-username-box">
-                    <a href="/" class="navbar-username">@<%= @current_user.username %></a>
+                    <a href="/" class="navbar-telescope-logo-link">
+                        <%= image_tag("usericon.svg", class: "navbar-usersvg", :alt => "logo") %>
+                    </a>
                 </div>
             </div>
         </div>

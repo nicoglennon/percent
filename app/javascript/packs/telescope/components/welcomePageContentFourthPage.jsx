@@ -1,11 +1,10 @@
 import React from 'react';
 import { Line } from 'rc-progress';
-import WeekSVG from '../assets/images/calendar.svg';
 
 const WelcomePageContentFourthPage = ({}) => (
   <div>
     <h2 className="welcomePageContent-TourPageTitle"><span className="welcomePageContent-TourPageTitle-Lighter">2. Track your</span> Weeks 🗓</h2>
-    <p>Completion percentages for each category will increase as you check off your goals:</p>
+    <p>Completion <strong>percentages</strong> for each category will increase as you check off your goals:</p>
     <div className="welcomePageContent-percentagesBox">
       <div>
         <div className="weekPageContent-percentagesText-flex">
@@ -44,7 +43,7 @@ const WelcomePageContentFourthPage = ({}) => (
         </div>
       </div>
     </div>
-    <p>Save your Week once you're done. <strong>Do this every week</strong> (we'll remind you by email on Sundays!)</p>
+    <p>Save your week once you're done. <strong>Do this every Sunday</strong> (we'll remind you via email!)</p>
   </div>
 );
 
