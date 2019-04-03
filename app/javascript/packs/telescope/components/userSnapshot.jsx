@@ -49,7 +49,6 @@ class UserSnapshot extends React.Component {
       var weeks = this.props.currentUserSnapshot.weeks;
       var boards = this.props.currentUserSnapshot.boards;
       var today = new Date();
-      console.log(today.getDay());
       displayUserInfo =
                         <div>
                         <Transition

@@ -249,7 +249,6 @@ class NewWeekPage extends React.Component {
      },
      selectedDays: selectedDays,
    }));
-   console.log(selectedDays);
  };
 
  handleDayEnter = date => {
