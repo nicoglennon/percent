@@ -22,6 +22,107 @@
       </div>
     </div>
   </div>
+  <div class="heropage-hr"></div> 
+  <br />
+  <div class="heropage-featuresdiv">
+    <h2 class="heropage-features-header">Engineer the life you want to live</h2>
+    <div class="heropage-explanation-div">
+      <div class="heropage-explanation-subheader-div">
+        <p class="heropage-explanation-subheader"><strong>Percent</strong> is a self-improvement system for busy people. It's very low-maintenance — you only have to check in once a week.</p>
+        <br />
+        <p class="heropage-explanation-subheader">Here's a quick breakdown of how it works (you can also watch Demetri Martin describe it <a href="https://youtu.be/4qkkQIzQ4VI" target="_blank">here</a>).</p>
+      </div>
+      <div>
+        <h3 class="heropage-explanation-title">1. Design your plan.</h3>
+        <p class="heropage-explanation-text"><span class="heropage-subheader-telescope-span">Percent</span> keeps a master list of goals that you want to repeatedly accomplish each week. Here is a simple example of weekly goals:</p>
+        <div class="heropage-explanation-goals-div">
+          <div class="goalLineWrapper"><span class="goalLineInput">Read this week's&nbsp;<i>New Yorker</i></span></div>
+          <div class="goalLineWrapper"><span class="goalLineInput">Run 30 mins every day</span></div>
+          <div class="goalLineWrapper"><span class="goalLineInput">Work on my side project</span></div>
+        </div>
+        <br/>
+        <p class="heropage-explanation-text">To capture a richer dataset, <span class="heropage-subheader-telescope-span">Percent</span> asks you categorize each of your goals. Let's use two categories: <strong>Personal</strong> (<span class="categoryPill-outerSpan personal"></span>) or <strong>Work</strong> (<span class="categoryPill-outerSpan work"></span>):</p>
+        <div class="heropage-explanation-goals-div">
+          <div class="goalLineWrapper"><span class="goalLineInput">Read this week's&nbsp;<i>New Yorker</i></span><span class="categoryPill-outerSpan personal"></span></div>
+          <div class="goalLineWrapper"><span class="goalLineInput">Run 30 mins every day</span><span class="categoryPill-outerSpan personal"></span></div>
+          <div class="goalLineWrapper"><span class="goalLineInput">Work on my side project</span><span class="categoryPill-outerSpan work"></span></div>
+        </div>
+      </div>
+      <br />
+      <div>
+        <h3 class="heropage-explanation-title">2. Measure how well you execute.</h3>
+        <p class="heropage-explanation-text">Once a week (on Sunday), look at your master list and check off every goal you completed that week:</p>
+        <p class="heropage-explanation-subtext">(Try checking these off!)</p>
+        <div class="heropage-explanation-goals-div">
+          <div class="goalLineWrapper"><input class="goalLineCheck" type="checkbox" /><span class="goalLineInput">Read this week's&nbsp;<i>New Yorker</i></span><span class="categoryPill-outerSpan personal"></span></div>
+          <div class="goalLineWrapper"><input class="goalLineCheck" type="checkbox" id="startchecked"/><span class="goalLineInput">Run 30 mins every day</span><span class="categoryPill-outerSpan personal"></span></div>
+          <div class="goalLineWrapper"><input class="goalLineCheck" type="checkbox" /><span class="goalLineInput">Work on my side project</span><span class="categoryPill-outerSpan work"></span></div>
+        </div>
+        <div class="heropage-progressbar-wrapper" >
+          <p class="heropage-explanation-text percentage-text">Total</p> <p class="heropage-explanation-text percentage-text float-number">33%</p> 
+          <progress class="heropage-progressbar" id="progressbar" max="100" value="33"></progress>
+        </div>
+      </div>
+      <br />
+      <div>
+        <h3 class="heropage-explanation-title">3. Analyze the results, and iterate.</h3>
+        <p class="heropage-explanation-text">When you record your completed goals for the week, <span class="heropage-subheader-telescope-span">Percent</span> stores the data and calculates your percentages for each category. You can then access these insights from your analytics page.</p>
+        <p class="heropage-explanation-text">After recording a few weeks, your analytics page will look something like this:</p>
+        <div class="heropage-gifwrapper">
+          <%= image_tag("analytics.gif", class: "heropage-gifImg", :alt => "Discover the best version of you") %>
+        </div>
+        
+        
+        <p class="heropage-explanation-text">These graphs reveal overall trends in each of your categories, pinpointing what is working well and what needs your attention. The more weekly data you collect, the better your insights will be!</p>
+      </div>
+    </div> 
+    <div class="heropage-hr"></div> 
+    <div class="heropage-feature">
+      <div class="heropage-feature-column img-column">
+        <%= image_tag("cape.jpg", class: "heroPage-featureImage", :alt => "Discover the best version of you") %>
+      </div>
+      <div class="heropage-feature-column text-column">
+        <h2 class="heropage-feature-title">Craft the best version of you</h2>
+        <p class="heropage-feature-text">Research shows that people who vividly picture their goals are more likely to successfully accomplish them than people who don’t. </p>
+        <p class="heropage-feature-text"><span class="heropage-subheader-telescope-span">Percent</span> helps you create a list of goals and measure yourself against it once a week, greatly improving your chances of reaching them consistently.</p>
+      </div>
+    </div>
+    <div class="heropage-hr"/></div> 
+    <div class="heropage-feature">
+      <div class="heropage-feature-column text-column">
+        <h2 class="heropage-feature-title">Make your life data-driven</h2> 
+        <p class="heropage-feature-text">Check in with yourself once a week on <span class="heropage-subheader-telescope-span">Percent</span> to check off the goals you were able to accomplish. You can categorize your goals to track different areas of your life.</p>
+        <p class="heropage-feature-text">Your weekly percentages are calculated automatically after each check-in and are stored for your later viewing.</p>       
+      </div>
+      <div class="heropage-feature-column img-column">
+        <%= image_tag("basketball.jpg", class: "heroPage-featureImage", :alt => "Discover the best version of you") %>
+      </div>
+    </div>
+    <div class="heropage-hr"/></div>
+    <div class="heropage-feature">
+      <div class="heropage-feature-column img-column">
+        <%= image_tag("kids.jpg", class: "heroPage-featureImage", :alt => "Discover the best version of you") %>
+      </div>
+      <div class="heropage-feature-column text-column">
+       <h2 class="heropage-feature-title">Visualize your quantified self</h2>
+       <p class="heropage-feature-text">After capturing a few weeks of data on <span class="heropage-subheader-telescope-span">Percent</span> you'll be able to view your analytics page, which will display a myriad of information about yourself.</p>
+       <p class="heropage-feature-text">View your running averages by category, explore your personal trends over time, and access unique visualizations of your quantified self.</p>
+      </div>
+    </div>
+    <div class="heropage-hr"></div>
+  </div>
+  <div class="heropage-lastdiv">
+  <br />
+    <%= image_tag("umbrella.jpg", class: "heroPage-featureImage circleCat", :alt => "Discover the best version of you") %>
+    <h2 class="heropage-try-header">Try it now</h2>
+    <p class="heropage-feature-text">Percent is free forever. Give it a shot!</p>
+    <div class="heropage-formcontainer">
+      <form action="/signup" method="GET" class="heropage-form">
+        <input type="email" name="email" placeholder="Enter your email address" class="heropage-form-input-email"></input>
+        <input type="submit" value="Get Started" class="heropage-form-input-submit"/>
+      </form>
+    </div>
+  </div>
   <div class="heropage-footer">
     <div class="heropage-footer-leftcontainer">
       <div class="heropage-footer-sub">
@@ -50,9 +151,22 @@
   </div>
 </div>
 <script>
-   $(document).ready(() => {
+  var percentage = 33;
+  document.getElementById('startchecked').checked = true;
+
+  $(document).ready(() => {
      setTimeout(function(){
        $('#heroPageImage').addClass('fadeInHeroPageImage');
      }, 200);
+
+     $('.goalLineCheck').click(function(event){
+       if(event.target.checked){
+         percentage += (1/3)*100;
+       } else {
+         percentage -= (1/3)*100;
+       }
+       $('#progressbar').attr('value',percentage);
+       $('.float-number').html(Math.round(percentage) + '%');
+     })
    })
 </script>
