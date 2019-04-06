@@ -63,7 +63,7 @@ class CategoryPill extends React.Component {
                 return <div className="categoryPill-selectPill" style={ index === 0 ? firstStyle : secondStyle } key={index} onClick={selectCategoryFunct}>{cat}</div>
             });
             newCategoryButton = <div className="categoryPill-selectPill" style={plusStyle} key="-1"> ＋ </div>;
-            categoriesHTML.push(newCategoryButton);
+            // categoriesHTML.push(newCategoryButton);
         }
         var categoryString = this.props.category;
         var emptyCategory = this.props.category === undefined || this.props.category === null;
