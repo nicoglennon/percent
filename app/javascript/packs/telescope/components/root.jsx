@@ -68,7 +68,7 @@ class Root extends React.Component {
         }
         self.addNotification('danger', 'Oops! Error while saving.', errorString.slice(0,-2) + '.');
       } else if (response.status === 200){
-        self.addNotification('success', 'Week recorded!','Your week was recorded sucessfully.', week);
+        self.addNotification('success', 'Week recorded!',`You scored ${week.percentage}% for the week of ${moment(week.date).format('MMMM Do')}! 🐝`, week);
         self.props.history.goBack();
         self.fetchCurrentUserSnapshot(currentUserUsername);
       }
@@ -130,7 +130,7 @@ class Root extends React.Component {
     .then(function (response) {
       var currentUsername = self.state.currentUserSnapshot.username;
       self.fetchCurrentUserSnapshot(currentUsername);
-      self.addNotification('success', 'Deletion complete!','Your week has been deleted successfully.');
+      self.addNotification('success', 'Deletion complete!',`The week of ${moment(week.date).format('MMMM Do')} was deleted successfully.`);
     })
     .catch(function (error) {
       console.log(error);
@@ -146,8 +146,7 @@ class Root extends React.Component {
       }} /></div>
 
       var customNotification = 
-      <div className="notification-item-root" style={{height: '99px', transition: 'height 600ms linear 0ms'}}>
-        <div className="notification-item notification-success animated slow jackInTheBox notification-item-child">
+        <div className="notification-item notification-success notification-item-child">
           <div className="notification-content">
             <div className="notification-close">
               <span>×</span>
@@ -157,7 +156,6 @@ class Root extends React.Component {
             {twitterButton}
           </div>
         </div>
-      </div>
 
       this.notificationDOMRef.current.addNotification({
         type: type,
