@@ -4,6 +4,8 @@ import Navbar from './navbar';
 import axios from 'axios';
 import ReactNotification from 'react-notifications-component';
 import sanitizeHtml from 'sanitize-html-react';
+import {TwitterShareButton} from 'react-twitter-embed';
+import moment from 'moment';
 
 let token = document.getElementsByName('csrf-token')[0].getAttribute('content')
 axios.defaults.headers.common['X-CSRF-Token'] = token
@@ -66,7 +68,7 @@ class Root extends React.Component {
         }
         self.addNotification('danger', 'Oops! Error while saving.', errorString.slice(0,-2) + '.');
       } else if (response.status === 200){
-        self.addNotification('success', 'Week recorded!','Your week was recorded sucessfully.');
+        self.addNotification('success', 'Week recorded!','Your week was recorded sucessfully.', week);
         self.props.history.goBack();
         self.fetchCurrentUserSnapshot(currentUserUsername);
       }
@@ -135,18 +137,51 @@ class Root extends React.Component {
     });
   }
 
-  addNotification(type, title, message) {
-    this.notificationDOMRef.current.addNotification({
-      title: title,
-      message: message,
-      type: type,
-      insert: "bottom",
-      container: "top-right",
-      animationIn: ["animated", "slow", "jackInTheBox"],
-      animationOut: ["animated", "zoomOut"],
-      dismiss: { duration: 6000 },
-      dismissable: { click: true }
-    });
+  addNotification(type, title, message, week = null) {
+    if(week !== null){
+      var twitterButton = <div className="tweetButton-notificationWrapper"><TwitterShareButton url="https://percent.me" options={{
+        text: `I completed ${week.percentage}% of my goals for the week of ${moment(week.date).format('MMM Do')} 🌻`,
+        via: 'percenthq',
+        size: 'large',
+      }} /></div>
+
+      var customNotification = 
+      <div className="notification-item-root" style={{height: '99px', transition: 'height 600ms linear 0ms'}}>
+        <div className="notification-item notification-success animated slow jackInTheBox notification-item-child">
+          <div className="notification-content">
+            <div className="notification-close">
+              <span>×</span>
+            </div>
+            <h4 className="notification-title">{title}</h4>
+            <p className="notification-message">{message}</p>
+            {twitterButton}
+          </div>
+        </div>
+      </div>
+
+      this.notificationDOMRef.current.addNotification({
+        type: type,
+        content: customNotification,
+        insert: "bottom",
+        container: "top-right",
+        animationIn: ["animated", "slow", "jackInTheBox"],
+        animationOut: ["animated", "zoomOut"],
+        dismiss: { duration: 9000 },
+        dismissable: { click: true }
+      });
+    } else {
+      this.notificationDOMRef.current.addNotification({
+        title: title,
+        message: message,
+        type: type,
+        insert: "bottom",
+        container: "top-right",
+        animationIn: ["animated", "slow", "jackInTheBox"],
+        animationOut: ["animated", "zoomOut"],
+        dismiss: { duration: 6000 },
+        dismissable: { click: true }
+      });
+    } 
   }
 
   sanitizeHtmlTwice(html){

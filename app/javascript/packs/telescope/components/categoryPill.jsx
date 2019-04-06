@@ -47,14 +47,23 @@ class CategoryPill extends React.Component {
         var secondStyle = {
             backgroundColor: 'rgb(132, 116, 255)',
             color: 'white'
-            
-
+        }
+        var plusStyle = {
+            backgroundColor: 'rgb(93, 93, 93)',
+            color: 'white',
+            borderRadius: '50%',
+            width: '25px',
+            height: '25px',
+            textAlign: 'center',
         }
         var categoriesHTML;
+        var newCategoryButton;
         if(categories){
             categoriesHTML = categories.map(function(cat, index){
                 return <div className="categoryPill-selectPill" style={ index === 0 ? firstStyle : secondStyle } key={index} onClick={selectCategoryFunct}>{cat}</div>
             });
+            newCategoryButton = <div className="categoryPill-selectPill" style={plusStyle} key="-1"> ＋ </div>;
+            categoriesHTML.push(newCategoryButton);
         }
         var categoryString = this.props.category;
         var emptyCategory = this.props.category === undefined || this.props.category === null;

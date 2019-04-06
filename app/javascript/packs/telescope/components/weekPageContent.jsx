@@ -5,6 +5,7 @@ import moment from 'moment';
 import { Line } from 'rc-progress';
 import NoGoals from '../assets/images/cat.jpg';
 import WeekPageDropdownMenu from './weekPageDropdownMenu';
+import {TwitterShareButton} from 'react-twitter-embed';
 
 function getWeekDays(weekStart) {
   const days = [weekStart];
@@ -108,6 +109,13 @@ class WeekPageContent extends React.Component {
           </div>
           <p className="weekPageContent-weekOfSubtitle">Week of</p>
           <h2 className="weekPageContent-date">{moment(this.props.week.date).format('ll')}</h2>
+          <div className="weekPageContent-twitterButtonWrapper">
+          <TwitterShareButton url="https://percent.me" options={{
+              text: `I completed ${this.props.week.percentage}% of my goals for the week of ${moment(this.props.week.date).format('MMM Do')} 🌻`,
+              via: 'percenthq',
+              size: 'large',
+            }} />
+            </div>
           <div className="weekPageContent-datepicker-wrapper SelectedWeekExample">
             {/* <DayPicker
               selectedDays={selectedDays}
@@ -208,7 +216,6 @@ class WeekPageContent extends React.Component {
                     trailColor="#fbfbfb"
                   />
                 </div>
-            
               </div>
             </div>                
           </div>

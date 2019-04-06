@@ -668,7 +668,7 @@ h2.weekPageContent-date {
   margin-top: 5px;
   margin-bottom: 10px;
   font-size: 24px;
-  display: block;
+  display: inline-block;
 }
 
 h3.weekPageContent-completiontitle {
@@ -934,6 +934,16 @@ div.weekPageContent-datepicker-wrapper {
   margin: 0px 0px 15px 0px;
   width: 100%;
   /* text-align: center; */
+}
+
+div.weekPageContent-twitterButtonWrapper {
+  display: inline-block;
+  vertical-align: sub;
+  margin-left: 17px;
+}
+
+div.weekPageContent-twitterButtonWrapper div{
+  display: inline-block;
 }
 
 div.weekPage-progressLineContainer {

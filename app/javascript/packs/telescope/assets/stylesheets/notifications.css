@@ -1,3 +1,9 @@
+.tweetButton-notificationWrapper {
+    padding: 0px 0px 5px 0px;
+    text-align: right;
+    margin-top: -15px;
+}
+
 .notification-container-top-left {
     left: 20px;
     position: fixed;
