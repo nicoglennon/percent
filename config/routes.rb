@@ -2,13 +2,11 @@ Rails.application.routes.draw do
 
   root to: "pages#hero"
   get '/@:username', :to => 'pages#app'
-  get '/@:username/welcome', :to => 'pages#app'
+  get '/@:username/tour', :to => 'pages#app'
   get '/@:username/weeks/:week_id', :to => 'pages#app'
   get '/@:username/goals', :to => 'pages#app'
+  get '/@:username/faq', :to => 'pages#app'
   get '/@:username/analytics', :to => 'pages#app'
-
-  post '/welcome', to: 'api/v1/users#new'
-  get '/welcome', to: 'api/v1/users#new'
 
   get '/settings', to: 'api/v1/users#edit'
   patch '/settings', to: 'api/v1/users#update'

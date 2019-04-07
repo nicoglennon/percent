@@ -762,6 +762,41 @@ div.welcomePageContent-wrapper {
   height: 100%;
 }
 
+div.faqPageContent-wrapper {
+  position: relative;
+  padding: 20px 0px;
+  font-size: 18px;
+  height: 100%;
+}
+
+ol.faqPageContent-questionOl {
+  font-size:0.9em;
+}
+
+ol.faqPageContent-questionOl li {
+  margin: 10px;
+}
+
+div.faqPageContent-questionWrapper {
+  margin-bottom: 30px;
+}
+
+h3.faqPageContent-questionTitle {
+  margin-bottom: 10px;
+}
+
+p.faqPageContent-questionText {
+  font-size: 0.9em;
+  margin-top: 5px; 
+}
+
+hr.faqPageContent-hr {
+  border: 0px;
+  border-top: 1px rgb(190, 190, 190) solid;
+  width: 40%;
+  margin: auto;
+}
+
 button,input:focus {outline:0;}
 
 button.weekPage-closeModal {
@@ -877,6 +912,7 @@ div.goalsWrapper {
   display: inline-block;
   height: 100%;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 div.goalsWrapper.weekPageGoalsWrapper {
@@ -1087,6 +1123,7 @@ div.AnalyticsPageWrapper {
 
 div.AnalyticsPageContent-Chart {
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   height: 100%;
   width: 100%;
 }
@@ -1130,9 +1167,9 @@ span.analyticsPageContent-lineDiv.overall {
 }
 
 img.WelcomePageContent-GetStarted-Image {
-  width: 85%;
+  width: 75%;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 span.categoryPill-outerSpan {
@@ -1229,6 +1266,7 @@ a.password-reset-link {
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
   }
 
   div.goalsWrapper {
@@ -1317,7 +1355,7 @@ a.password-reset-link {
 
   img.WelcomePageContent-GetStarted-Image {
     width: 95%;
-    margin-top: 45px;
+    margin-top: 10px;
   }
 
   div.AnalyticsPageWrapper {

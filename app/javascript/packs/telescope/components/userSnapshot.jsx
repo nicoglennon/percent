@@ -8,6 +8,7 @@ import BoardPage from './boardPage';
 import NewWeekPage from './newWeekPage';
 import AnalyticsPage from './analyticsPage';
 import WelcomePage from './welcomePage';
+import FaqPage from './faqPage';
 import SundayCard from './sundayCard';
 
 
@@ -101,8 +102,13 @@ class UserSnapshot extends React.Component {
                                 weeks={weeks}
                               />}
                             />
-                            <Route exact path="/@:username/welcome"
+                            <Route exact path="/@:username/tour"
                               render={(props) => <WelcomePage {...props}
+                                username={currentUserSnapshot.username}
+                              />}
+                            />
+                            <Route exact path="/@:username/faq"
+                              render={(props) => <FaqPage {...props}
                                 username={currentUserSnapshot.username}
                               />}
                             />

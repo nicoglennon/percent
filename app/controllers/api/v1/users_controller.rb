@@ -22,7 +22,7 @@ class Api::V1::UsersController < ApplicationController
       upsert_contact_in_email_service(@user)
       UserMailer.welcome_email(@user).deliver_now
       @user.boards.create!(title: 'My Board')
-      return redirect_to '/@' + @user.username + '/welcome'
+      return redirect_to '/@' + @user.username + '/tour'
     else
       @errors = @user.errors.full_messages
       render 'new'

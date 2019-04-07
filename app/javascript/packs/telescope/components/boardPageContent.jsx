@@ -140,7 +140,7 @@ class BoardPageContent extends React.Component {
           <div className="boardPageContent-goalInstructionsWrapper">
             <p className="boardPageContent-goalInstructionsText">Goals are things you want to <strong>repeatedly achieve every week</strong>, not things you want to do only once!</p>
             <p className="boardPageContent-goalInstructionsText">Categorize a goal by clicking on the <strong>gray circle</strong> to its left.</p>
-            <p className="boardPageContent-goalInstructionsText">For best data analysis, keep <strong>at least 20 goals</strong> you want to track.</p>
+            <p className="boardPageContent-goalInstructionsText">For best data analysis, keep <strong>at least 20 goals</strong> you want to track weekly.</p>
           </div>
         </div>
         <div className="goalsWrapper">

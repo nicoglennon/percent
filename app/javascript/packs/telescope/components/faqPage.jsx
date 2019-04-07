@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import ReactModal from 'react-modal';
-import WelcomePageContent from './welcomePageContent';
+import FaqPageContent from './faqPageContent';
 
-class WelcomePage extends React.Component {
+class FaqPage extends React.Component {
   constructor(){
     super();
     this.state = ({
@@ -30,10 +30,10 @@ class WelcomePage extends React.Component {
         className="welcomePage-container"
         style={{content: {overflow: 'scroll', overflowScrolling: 'touch', WebkitOverflowScrolling: 'touch'}}}
         >
-        <WelcomePageContent username={this.props.username} closeModal={this.handleCloseModal}/>
+        <FaqPageContent username={this.props.username} closeModal={this.handleCloseModal}/>
         {goBack}
       </ReactModal>
     )
   }
 }
-export default WelcomePage
+export default FaqPage
