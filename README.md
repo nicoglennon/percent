@@ -1,24 +1,46 @@
-# Datascope
+# 🌼 Percent
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<img style="width: 600px;" src="https://github.com/nicoglennon/percent/blob/master/app/assets/images/flowerpick.jpg?raw=true" />
 
-Things you may want to cover:
+![version 1.0.0](https://img.shields.io/github/package-json/v/nicoglennon/percent.svg)
 
-* Ruby version
+## About
 
-* System dependencies
+Percent is a passion project built by Nico Glennon (https://nico.gl). You can find it on Product Hunt & read more about it here:
 
-* Configuration
+<a href="https://www.producthunt.com/posts/percent?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-percent" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=147344&theme=dark" alt="Percent - Stop reliving the same day over and over | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
 
-* Database creation
+## Running Locally
 
-* Database initialization
+Make sure you have [Ruby (2.4.2)](https://www.ruby-lang.org), [Bundler](http://bundler.io), [Foreman](https://github.com/ddollar/foreman) and [Yarn](http://yarnpkg.com) installed. 
 
-* How to run the test suite
+```sh
+git clone git@github.com:nicoglennon/percent.git
+cd percent
+bundle
+yarn
+rails db:create db:migrate # create & migrate postgres db
+foreman start -f Procfile.dev -p 3000 # starts both the Webpack and Rails servers
+```
+Then head over to `http://localhost:3000` to see the app served.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Development
 
-* Deployment instructions
+Feel free to submit a PR or submit and issue or suggestion for future features / direction of the app!
 
-* ...
+Percent integrates with Mailchimp & Sendgrid for serving onboarding emails & updating the weekly newletter recipients. If you want to work/upgrade these features, make sure you create a file in `/config` called `local_env.yml` to look like this:
+```sh
+SENDGRID_USERNAME: 'username@sendgrid.com' # sendgrid account that will fire off welcome and goodbye emails
+SENDGRID_PASSWORD: 'yoursendgridpassword'
+
+MAILCHIMP_API_KEY: 'yourmailchimpapikey'
+TEST_MAILCHIMP_LISTID: 'listid' # id of the list users will be added/removed from during testing
+```
+
+## Roadmap 
+
+You can find this project's public roadmap hosted on Notion [here](https://www.notion.so/404ab2f97bf54e728cdbe8f552ca9ffc?v=3e5fe998eebd4524bc1babd185c71e86). Feel free to message me on [Twitter](https://twitter.com/nicoglennon) if you have any feature requests!
+
+## License
+
+[MIT](LICENSE)
