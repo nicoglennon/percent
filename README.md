@@ -6,7 +6,7 @@
 
 ## About
 
-Percent is a project built by Nico Glennon (https://nico.gl). You can find out more about it on Product Hunt:
+Percent is a project built by Nico Glennon (https://nico.gl). You can find out more about it on Product Hunt below:
 
 <a href="https://www.producthunt.com/posts/percent?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-percent" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=147344&theme=dark" alt="Percent - Stop reliving the same day over and over | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>
 
