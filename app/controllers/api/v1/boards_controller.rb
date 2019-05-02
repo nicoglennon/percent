@@ -38,6 +38,6 @@ class Api::V1::BoardsController < ApplicationController
 
   private
   def board_params
-    params.require(:board).permit(:title, :goals, :user_id)
+    params.require(:board).permit(:title, :goals, :user_id, { :goals_attributes => [ :id, :order ]})
   end
 end

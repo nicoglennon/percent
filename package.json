@@ -11,6 +11,7 @@
     "query-string": "^6.1.0",
     "rc-progress": "^2.2.6",
     "react": "^16.5.1",
+    "react-beautiful-dnd": "^10.0.0",
     "react-contenteditable": "^3.1.1",
     "react-day-picker": "^7.2.4",
     "react-dom": "^16.5.1",
@@ -21,7 +22,8 @@
     "react-twitter-embed": "^2.0.7",
     "recharts": "^1.4.1",
     "sanitize-html-react": "^1.13.0",
-    "shortid": "^2.2.13"
+    "shortid": "^2.2.13",
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.11.1"

@@ -1,8 +1,12 @@
 import React from 'react';
 import GoalLine from './goalLine';
-import NoGoalsBike from '../assets/images/dog.jpg';
+import NoGoalsDog from '../assets/images/dog.jpg';
 import BoardPageTitle from './boardPageTitle';
 import shortid from 'shortid';
+import {DragDropContext, Droppable} from 'react-beautiful-dnd';
+import styled from 'styled-components';
+
+const StyledGoalsWrapper = styled.div``;
 
 class BoardPageContent extends React.Component {
   constructor(){
@@ -23,6 +27,7 @@ class BoardPageContent extends React.Component {
     this.handleDeleteGoal = this.handleDeleteGoal.bind(this);
     this.clearNewBoardForm = this.clearNewBoardForm.bind(this);
     this.scrollToBottom = this.scrollToBottom.bind(this);
+    // this.onDragEnd = this.onDragEnd.bind(this);
   }
 
   componentDidMount(){
@@ -97,6 +102,17 @@ class BoardPageContent extends React.Component {
     }));
   }
 
+  onDragEnd = result => {
+    const { destination, source, draggableId } = result;
+    if (!destination) {
+      return;
+    }
+    if (destination.index === source.index) {
+      return;
+    }
+    this.props.reorderGoals(result)
+  }
+
   render(){
     var numberOfGoals = 0;
     var goalsToDisplay;
@@ -108,15 +124,16 @@ class BoardPageContent extends React.Component {
 
       if (numberOfGoals === 0) {
         goalsToDisplay = <div className="boardPageContent-noGoalsDiv">
-        <img className="boardPageContent-noGoalsImg" src={NoGoalsBike} />
+        <img className="boardPageContent-noGoalsImg" src={NoGoalsDog} />
         <p className="boardPageContent-noGoalsText">No goals yet!<br />Add a new one above.</p>
         </div>
 
       } else {
-        goalsToDisplay = goalsInState.map( function(goal){
+        goalsToDisplay = goalsInState.map( function(goal, index){
           return(
             <GoalLine goal={goal} 
               key={goal.shortid} 
+              index={index}
               showCheckbox={false} 
               showDeleteButton={true} 
               updateGoal={self.props.updateGoal} 
@@ -150,7 +167,16 @@ class BoardPageContent extends React.Component {
               <button className="weekPage-addNewGoalButton" onClick={this.handleSubmitNewBoardGoal}>Add</button>
             </form>
           </div>
-          {goalsToDisplay}
+          <DragDropContext onDragEnd={this.onDragEnd}>
+            <Droppable droppableId={this.props.board.id.toString()}>
+              {provided => (
+                <StyledGoalsWrapper ref={provided.innerRef} {...provided.droppableProps}>
+                  {goalsToDisplay}
+                  {provided.placeholder}
+                </StyledGoalsWrapper>
+              )}
+            </Droppable>
+          </DragDropContext>
           { (numberOfGoals > 0) && <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>}
           <div ref={el => { this.bottomOfMessages = el; }} />
         </div>

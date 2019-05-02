@@ -31,6 +31,8 @@ class Root extends React.Component {
     this.updateGoal = this.updateGoal.bind(this);
     this.deleteWeek = this.deleteWeek.bind(this);
     this.editBoardTitle = this.editBoardTitle.bind(this);
+    this.reorderGoals = this.reorderGoals.bind(this);
+    this.updateBoardGoals = this.updateBoardGoals.bind(this);
 
 
     this.notificationDOMRef = React.createRef();
@@ -106,6 +108,42 @@ class Root extends React.Component {
     .catch(function (error) {
       console.log(error);
     });
+  }
+
+  reorderGoals(result){
+    const { source, destination } = result;
+    const board = this.state.currentUserSnapshot.boards[0];
+    const goals = board.goals;
+    let reorderedGoals = Array.from(goals);
+    const movedGoals = reorderedGoals.splice(source.index, 1)
+    reorderedGoals.splice(destination.index, 0, movedGoals[0])
+
+    const newState = {
+      ...this.state,
+      currentUserSnapshot: {
+        ...this.state.currentUserSnapshot,
+        boards: {
+          ...this.state.currentUserSnapshot.boards,
+          [0]: {
+            ...this.state.currentUserSnapshot.boards[0],
+            goals: reorderedGoals,
+          }
+        }
+      }
+    }
+    console.log(newState);
+    this.setState(newState);
+
+    this.updateBoardGoals(board.id, reorderedGoals)
+  }
+
+  updateBoardGoals(boardId, goals){
+    var currentUserId = this.state.currentUserSnapshot.id;
+    const board = {
+      goals_attributes: goals,
+    }
+    console.log(board);
+    // axios.put(`/api/v1/users/${currentUserId}/boards/${boardId}`, {board: board})
   }
 
   deleteGoal(goal) {
@@ -220,6 +258,7 @@ class Root extends React.Component {
             submitNewBoardGoal={this.submitNewBoardGoal}
             deleteGoal={this.deleteGoal}
             updateGoal ={this.updateGoal}
+            reorderGoals={this.reorderGoals}
             deleteWeek={this.deleteWeek}
             editBoardTitle={this.editBoardTitle}
           />

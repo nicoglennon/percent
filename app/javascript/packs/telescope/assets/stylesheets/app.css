@@ -501,6 +501,14 @@ div.weekPage-background {
   left:0;right:0;top:0;bottom:0;
   background-color: rgba(125, 114, 255, 0.925);
   z-index:9;
+  text-align:center;
+}
+
+div.weekPage-background:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 
 div.newWeekPage-background {
@@ -517,18 +525,15 @@ div.weekPage-background.boardPage-background {
 
 div.weekPage-container {
   margin: auto;
-  vertical-align: center;
   background-color: white;
   padding: 0px;
-  /* color: white; */
   max-width: 880px;
   height: 85%;
   max-height: 605px;
   border-radius: 9px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
   z-index:11;
+  display: inline-block;
+  vertical-align: middle; /* Center vertically, part 2 */
 }
 
 div.weekPage-container.analyticsPage-container {
@@ -743,6 +748,9 @@ p.weekPageContent-numberofgoals {
 div.weekPageContent-wrapper {
   padding: 0px;
   height: 100%;
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle; /* Center vertically, part 2 */
 }
 
 
@@ -871,7 +879,7 @@ button.weekPage-addNewGoalButton:hover {
 div.goalLineWrapper {
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 9px;
-  padding: 14px 10px 14px 12px;
+  padding: 14px 10px 14px 6px;
   margin: 0px 0px 10px 0px;
   border: 1px solid rgba(0, 0, 0, 0);
   transition: background-color 200ms ease;

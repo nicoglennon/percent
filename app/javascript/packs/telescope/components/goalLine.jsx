@@ -2,6 +2,22 @@ import React from 'react';
 import ContentEditable from 'react-contenteditable';
 import sanitizeHtml from 'sanitize-html-react';
 import CategoryPill from './categoryPill.jsx';
+import {Draggable} from 'react-beautiful-dnd';
+import styled from 'styled-components';
+
+const StyledGoalWrapper = styled.div`
+  margin-bottom: 10px;
+`;
+
+const DragHandle = styled.div`
+  display: inline-block;
+  margin-right: 6px;
+  padding: 0px 3px;
+  opacity: 0.4;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
 
 class GoalLine extends React.Component {
   constructor(){
@@ -131,20 +147,31 @@ class GoalLine extends React.Component {
       }
     }
     return(
-      <div className={'goalLineWrapper' + goalLineWrapperStyling} onMouseOver={this.handleHoverGoal} onMouseLeave={this.handleUnhoverGoal}>
-        {checkbox}
-        {!checkbox && categoryPillEditable}
-        <ContentEditable
-          className="goalLineInput"
-          onChange={this.handleGoalInputChange}
-          onBlur={this.handleGoalInputBlur}
-          onKeyPress={this.handleKeyPress}
-          html={this.state.goalInput}
-          disabled={this.props.disabled}
-        />
-        {checkbox && categoryPillNotEditable}
-        {deleteGoalButton}
-      </div>
+      <Draggable draggableId={this.props.goal.shortid} index={this.props.index}>
+        {(provided) => (
+          <StyledGoalWrapper
+            {...provided.draggableProps} 
+            
+            ref={provided.innerRef}
+          >
+            <div className={'goalLineWrapper' + goalLineWrapperStyling} onMouseOver={this.handleHoverGoal} onMouseLeave={this.handleUnhoverGoal}>
+              {checkbox}
+              {!checkbox && <DragHandle {...provided.dragHandleProps}>≡</DragHandle>}
+              {!checkbox && categoryPillEditable}
+              <ContentEditable
+                className="goalLineInput"
+                onChange={this.handleGoalInputChange}
+                onBlur={this.handleGoalInputBlur}
+                onKeyPress={this.handleKeyPress}
+                html={this.state.goalInput}
+                disabled={this.props.disabled}
+              />
+              {checkbox && categoryPillNotEditable}
+              {deleteGoalButton}
+            </div>
+          </StyledGoalWrapper>
+        )}
+      </Draggable>
     )
   }
 }
