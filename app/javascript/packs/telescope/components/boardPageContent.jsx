@@ -70,9 +70,10 @@ class BoardPageContent extends React.Component {
   handleSubmitNewBoardGoal(e) {
     e.preventDefault();
     if (this.state.newGoal.title !== '') {
-      var newGoal = this.state.newGoal;
+      var newGoal = {...this.state.newGoal};
       newGoal.shortid = shortid.generate();
-      var newGoalsAttributes = this.state.goals_attributes;
+      var newGoalsAttributes = Array.from(this.state.goals_attributes);
+      newGoal.order = newGoalsAttributes.length;
       newGoalsAttributes.push(newGoal);
       this.setState({
         goals_attributes: newGoalsAttributes,
@@ -121,14 +122,15 @@ class BoardPageContent extends React.Component {
     if (goalsInState){
       numberOfGoals = goalsInState.length;
       var self = this;
-
       if (numberOfGoals === 0) {
         goalsToDisplay = <div className="boardPageContent-noGoalsDiv">
         <img className="boardPageContent-noGoalsImg" src={NoGoalsDog} />
         <p className="boardPageContent-noGoalsText">No goals yet!<br />Add a new one above.</p>
         </div>
-
       } else {
+        if(goalsInState[0].order !== null) {
+          goalsInState.sort((a,b) => { return a.order - b.order})
+        }
         goalsToDisplay = goalsInState.map( function(goal, index){
           return(
             <GoalLine goal={goal} 

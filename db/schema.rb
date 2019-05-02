@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190307164526) do
+ActiveRecord::Schema.define(version: 20190502042915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20190307164526) do
     t.bigint "goalable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "order"
     t.index ["goalable_id", "goalable_type"], name: "index_goals_on_goalable_id_and_goalable_type"
     t.index ["goalable_type", "goalable_id"], name: "index_goals_on_goalable_type_and_goalable_id"
   end

@@ -20,6 +20,7 @@ class Api::V1::BoardsController < ApplicationController
   end
 
   def update
+    print board_params
     @board = Board.find(params[:id])
     if @board.update!(board_params)
       render :json => @board
@@ -38,6 +39,6 @@ class Api::V1::BoardsController < ApplicationController
 
   private
   def board_params
-    params.require(:board).permit(:title, :goals, :user_id, { :goals_attributes => [ :id, :order ]})
+    params.require(:board).permit(:title, :goals, :user_id, { :goals_attributes => [ :id, :completed, :title, :goalable_id, :goalable_type, :shortid, :category, :order ]})
   end
 end

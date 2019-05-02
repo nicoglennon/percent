@@ -101,7 +101,6 @@ class Root extends React.Component {
     var cleanGoalType = goalType.toLowerCase() + 's';
     axios.put(`/api/v1/users/${currentUserId}/${cleanGoalType}/${goal.goalable_id}/goals/${goal.shortid}`, {title: newHtml, category: goalCategory})
     .then(function (response) {
-      console.log(response);
       var currentUsername = self.state.currentUserSnapshot.username;
       self.fetchCurrentUserSnapshot(currentUsername);
     })
@@ -115,9 +114,26 @@ class Root extends React.Component {
     const board = this.state.currentUserSnapshot.boards[0];
     const goals = board.goals;
     let reorderedGoals = Array.from(goals);
+
+    // check if order hasn't been set
+    if(reorderedGoals[0].order === null) {
+      reorderedGoals = reorderedGoals.map((goal, index) => ({...goal, order: index}));
+    }
     const movedGoals = reorderedGoals.splice(source.index, 1)
     reorderedGoals.splice(destination.index, 0, movedGoals[0])
 
+    // change order property of the goals
+    reorderedGoals = reorderedGoals.map(goal => {
+      if (goal.id === movedGoals[0].id) {
+        return {...goal, order: destination.index};
+      } else if (source.index < destination.index && goal.order >= source.index && goal.order <= destination.index) {
+        return {...goal, order: goal.order - 1};
+      }  else if (source.index > destination.index && goal.order <= source.index && goal.order >= destination.index) {
+          return {...goal, order: goal.order + 1};
+      } else {
+        return goal;
+      }
+    });
     const newState = {
       ...this.state,
       currentUserSnapshot: {
@@ -131,9 +147,7 @@ class Root extends React.Component {
         }
       }
     }
-    console.log(newState);
     this.setState(newState);
-
     this.updateBoardGoals(board.id, reorderedGoals)
   }
 
@@ -143,7 +157,16 @@ class Root extends React.Component {
       goals_attributes: goals,
     }
     console.log(board);
-    // axios.put(`/api/v1/users/${currentUserId}/boards/${boardId}`, {board: board})
+    axios.put(`/api/v1/users/${currentUserId}/boards/${boardId}`, {board: board})
+      .then(function (response) {
+        // var currentUsername = self.state.currentUserSnapshot.username;
+        // self.fetchCurrentUserSnapshot(currentUsername);
+        // console.log(response);
+        console.log('success!');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   deleteGoal(goal) {
