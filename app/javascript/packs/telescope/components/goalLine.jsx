@@ -19,6 +19,10 @@ const DragHandle = styled.div`
   }
 `;
 
+const DragHandleHidden = styled.span`
+  display: none;
+`;
+
 class GoalLine extends React.Component {
   constructor(){
     super();
@@ -156,6 +160,7 @@ class GoalLine extends React.Component {
           >
             <div className={'goalLineWrapper' + goalLineWrapperStyling} onMouseOver={this.handleHoverGoal} onMouseLeave={this.handleUnhoverGoal}>
               {checkbox}
+              {checkbox && <DragHandleHidden {...provided.dragHandleProps}></DragHandleHidden>}
               {!checkbox && <DragHandle {...provided.dragHandleProps}>≡</DragHandle>}
               {!checkbox && categoryPillEditable}
               <ContentEditable

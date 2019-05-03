@@ -748,7 +748,7 @@ p.weekPageContent-numberofgoals {
 div.weekPageContent-wrapper {
   padding: 0px;
   height: 100%;
-  display: inline-block;
+  display: block;
   text-align: left;
   vertical-align: middle; /* Center vertically, part 2 */
 }
@@ -960,7 +960,7 @@ div.weekPageContent-goalsdata.weekPageData {
 
 input.goalLineCheck {
   float: left;
-  margin: 2px 6px 2px 0px;
+  margin: 2px 6px 2px 6px;
   vertical-align: middle;
   font-size: 18px;
 }

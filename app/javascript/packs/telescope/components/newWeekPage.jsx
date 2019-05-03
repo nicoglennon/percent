@@ -7,9 +7,14 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 import moment from 'moment';
 import { Line } from 'rc-progress';
-import NoGoalsBike from '../assets/images/cat.jpg';
+import NoGoalsCat from '../assets/images/cat.jpg';
 import sanitizeHtml from 'sanitize-html-react';
 import {formatDate, parseDate} from 'react-day-picker/moment';
+import {DragDropContext, Droppable} from 'react-beautiful-dnd';
+import styled from 'styled-components';
+
+const StyledGoalsWrapper = styled.div``;
+
 
 function getWeekDays(weekStart) {
   const days = [weekStart];
@@ -241,29 +246,33 @@ class NewWeekPage extends React.Component {
 
   handleDayChange = date => {
     var selectedDays = getWeekDays(getWeekRange(date).from);
-   this.setState((prevState)=>({
-     newWeek: {
-       date: selectedDays[0],
-       goals_attributes: prevState.newWeek.goals_attributes,
-       percentage: prevState.newWeek.percentage
-     },
-     selectedDays: selectedDays,
-   }));
- };
+    this.setState((prevState)=>({
+      newWeek: {
+        date: selectedDays[0],
+        goals_attributes: prevState.newWeek.goals_attributes,
+        percentage: prevState.newWeek.percentage
+      },
+      selectedDays: selectedDays,
+    }));
+  };
 
- handleDayEnter = date => {
-   this.setState({
-     hoverRange: getWeekRange(date),
-   });
- };
+  handleDayEnter = date => {
+    this.setState({
+      hoverRange: getWeekRange(date),
+    });
+  };
 
- handleDayLeave = () => {
-   this.setState({
-     hoverRange: undefined,
-   });
- };
+  handleDayLeave = () => {
+    this.setState({
+      hoverRange: undefined,
+    });
+  };
 
- // END Daypicker functions
+  // END Daypicker functions
+
+  onDragEnd(){
+    return;
+  }
 
   render(){
     const { hoverRange, selectedDays } = this.state;
@@ -291,16 +300,24 @@ class NewWeekPage extends React.Component {
       
       if (numberOfGoals === 0) {
         goalsToDisplay = <div className="boardPageContent-noGoalsDiv">
-        <img className="boardPageContent-noGoalsImg" src={NoGoalsBike} />
+        <img className="boardPageContent-noGoalsImg" src={NoGoalsCat} />
         <p className="boardPageContent-noGoalsText">No goals yet! <br />Add some <Link className="newWeekPage-noGoalsText-LinkToBoard" to={`/@${this.props.currentUser.username}/goals`}>here</Link>.</p>
         </div>
       } else {
         personalGoals = this.state.newWeek.goals_attributes.filter( goal => goal.category === "Personal");
         workGoals = this.state.newWeek.goals_attributes.filter( goal => goal.category === "Work");
 
-        goalsToDisplay = this.state.newWeek.goals_attributes.map( function(goal){
+        goalsToDisplay = this.state.newWeek.goals_attributes.map( function(goal, index){
           return(
-            <GoalLine categories={self.state.categories} goal={goal} key={goal.shortid} showCheckbox={true} showDeleteButton={false} updateGoal={self.updateGoalLine} deleteGoal={self.deleteGoalLine} updateCheckbox={self.updateCheckbox} disabled={true} />
+            <GoalLine categories={self.state.categories} 
+                      goal={goal} key={goal.shortid} 
+                      index={index}
+                      showCheckbox={true} 
+                      showDeleteButton={false} 
+                      updateGoal={self.updateGoalLine} 
+                      deleteGoal={self.deleteGoalLine} 
+                      updateCheckbox={self.updateCheckbox} 
+                      disabled={true} />
             )
           })
         }
@@ -433,7 +450,16 @@ class NewWeekPage extends React.Component {
                 <button className="weekPage-addNewGoalButton" onClick={this.handleSubmitNewWeekGoal}>Add</button>
               </form> */}
             </div>
-            {goalsToDisplay}
+            <DragDropContext onDragEnd={this.onDragEnd}>
+            <Droppable droppableId={'droppable'}>
+              {provided => (
+                <StyledGoalsWrapper ref={provided.innerRef} {...provided.droppableProps}>
+                  {goalsToDisplay}
+                  {provided.placeholder}
+                </StyledGoalsWrapper>
+              )}
+            </Droppable>
+          </DragDropContext>
             { (numberOfGoals > 0) && <p className="weekPageContent-numberofgoals"> goals <strong>{numberOfGoals}</strong></p> }
             <div ref={el => { this.bottomOfMessages = el; }} />
           </div>
