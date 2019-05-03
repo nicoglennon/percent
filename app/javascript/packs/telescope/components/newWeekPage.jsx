@@ -331,8 +331,8 @@ class NewWeekPage extends React.Component {
         contentLabel="onRequestClose Example"
         onRequestClose={this.handleCloseModal}
         shouldCloseOnOverlayClick={true}
-        overlayClassName="newWeekPage-background"
-        className="newWeekPage-container"
+        overlayClassName="weekPage-background"
+        className="weekPage-container"
         style={{content: {zIndex: '300'}, overlay: {backgroundColor: this.state.lineColor, zIndex: '200'}}}
         >
         <div className="weekPageContent-wrapper">
@@ -451,15 +451,15 @@ class NewWeekPage extends React.Component {
               </form> */}
             </div>
             <DragDropContext onDragEnd={this.onDragEnd}>
-            <Droppable droppableId={'droppable'}>
-              {provided => (
-                <StyledGoalsWrapper ref={provided.innerRef} {...provided.droppableProps}>
-                  {goalsToDisplay}
-                  {provided.placeholder}
-                </StyledGoalsWrapper>
-              )}
-            </Droppable>
-          </DragDropContext>
+              <Droppable droppableId={'droppable'}>
+                {provided => (
+                  <StyledGoalsWrapper ref={provided.innerRef} {...provided.droppableProps}>
+                    {goalsToDisplay}
+                    {provided.placeholder}
+                  </StyledGoalsWrapper>
+                )}
+              </Droppable>
+            </DragDropContext>
             { (numberOfGoals > 0) && <p className="weekPageContent-numberofgoals"> goals <strong>{numberOfGoals}</strong></p> }
             <div ref={el => { this.bottomOfMessages = el; }} />
           </div>

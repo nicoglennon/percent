@@ -133,13 +133,12 @@ class GoalLine extends React.Component {
   }
 
   render(){
-
     var goalLineWrapperStyling = '';
     var checkbox;
     var deleteGoalButton;
     var categoryPillEditable = <CategoryPill edit={true} category={this.state.goalCategory} categories={this.props.categories} handleClearCategory={this.clearCategory} handleSelectCategory={this.handleSelectCategory} />;
     var categoryPillNotEditable = <CategoryPill edit={false} category={this.state.goalCategory} />;
-
+    let draggableId = this.props.goal.shortid ? this.props.goal.shortid : this.props.goal.id;
     if (this.props.showDeleteButton && this.state.isHovered === true) {
       deleteGoalButton = <span className="goalLine-deletebuttonspan" onClick={this.handleDeleteGoal}>✕</span>
     }
@@ -151,7 +150,7 @@ class GoalLine extends React.Component {
       }
     }
     return(
-      <Draggable draggableId={this.props.goal.shortid} index={this.props.index}>
+      <Draggable draggableId={draggableId} index={this.props.index}>
         {(provided) => (
           <StyledGoalWrapper
             {...provided.draggableProps} 

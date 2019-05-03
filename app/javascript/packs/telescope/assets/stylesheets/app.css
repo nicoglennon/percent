@@ -517,7 +517,16 @@ div.newWeekPage-background {
   left:0;right:0;top:0;bottom:0;
   background-color: rgba(255, 185, 54, 0.925);
   z-index:9;
+  text-align:center;
 }
+
+div.newWeekPage-background:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
 
 div.weekPage-background.boardPage-background {
   background-color: rgba(70,70,70, 0.85);
@@ -548,18 +557,16 @@ div.weekPage-container-closemodal.boardPage-container-closemodal {
 }
 
 div.newWeekPage-container {
-  max-height: 605px;
-  height: 85%;
   margin: auto;
-  vertical-align: center;
   background-color: white;
   padding: 0px;
   max-width: 880px;
+  height: 85%;
+  max-height: 605px;
   border-radius: 9px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
   z-index:11;
+  display: inline-block;
+  vertical-align: middle; /* Center vertically, part 2 */
 }
 
 div.welcomePage-container {
@@ -746,6 +753,7 @@ p.weekPageContent-numberofgoals {
 }
 
 div.weekPageContent-wrapper {
+  width: 100%;
   padding: 0px;
   height: 100%;
   display: block;

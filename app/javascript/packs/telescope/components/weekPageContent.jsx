@@ -6,6 +6,10 @@ import { Line } from 'rc-progress';
 import NoGoals from '../assets/images/cat.jpg';
 import WeekPageDropdownMenu from './weekPageDropdownMenu';
 import {TwitterShareButton} from 'react-twitter-embed';
+import {DragDropContext, Droppable} from 'react-beautiful-dnd';
+import styled from 'styled-components';
+
+const StyledGoalsWrapper = styled.div``;
 
 function getWeekDays(weekStart) {
   const days = [weekStart];
@@ -50,6 +54,9 @@ class WeekPageContent extends React.Component {
     })
   }
 
+  onDragEnd(){
+    return;
+  }
 
   render(){
     const { selectedDays } = this.state;
@@ -92,9 +99,16 @@ class WeekPageContent extends React.Component {
           var workPercentage = Math.round(checkedWorkGoals.length/workGoals.length*100);
         }
 
-        goalsToDisplay = this.props.week.goals.map( function(goal){
+        goalsToDisplay = this.props.week.goals.map( function(goal, index){
           return(
-            <GoalLine goal={goal} key={goal.id} showCheckbox={true} showDeleteButton={false} updateGoal={self.props.updateGoal} deleteGoal={self.props.deleteGoal} disabled={true}/>
+            <GoalLine goal={goal} 
+                      key={goal.id} 
+                      index={index} 
+                      showCheckbox={true} 
+                      showDeleteButton={false} 
+                      updateGoal={self.props.updateGoal} 
+                      deleteGoal={self.props.deleteGoal} 
+                      disabled={true}/>
           )
         })
       }
@@ -228,7 +242,16 @@ class WeekPageContent extends React.Component {
               <button className="weekPage-addNewGoalButton" onClick={this.handleSubmitNewBoardGoal}>Add</button>
             </form>*/}
           </div>
-          {goalsToDisplay}
+          <DragDropContext onDragEnd={this.onDragEnd}>
+              <Droppable droppableId={'droppable'}>
+                {provided => (
+                  <StyledGoalsWrapper ref={provided.innerRef} {...provided.droppableProps}>
+                    {goalsToDisplay}
+                    {provided.placeholder}
+                  </StyledGoalsWrapper>
+                )}
+              </Droppable>
+            </DragDropContext>
           <p className="weekPageContent-numberofgoals">goals&nbsp;<strong>{numberOfGoals}</strong></p>
         </div>
       </div>
