@@ -14,8 +14,8 @@ const StyledGoalWrapper = styled.div`
 
 const DragHandle = styled.div`
   display: inline-block;
-  margin-right: 6px;
-  padding: 0px 3px;
+  margin-right: 5px;
+  padding: 0px 6px;
   opacity: 0.4;
   &:hover {
     opacity: 0.8;
@@ -164,7 +164,7 @@ class GoalLine extends React.Component {
             <div className={'goalLineWrapper' + goalLineWrapperStyling} onMouseOver={this.handleHoverGoal} onMouseLeave={this.handleUnhoverGoal}>
               {checkbox}
               {checkbox && <DragHandleHidden {...provided.dragHandleProps}></DragHandleHidden>}
-              {!checkbox && <DragHandle {...provided.dragHandleProps}>≡</DragHandle>}
+              {!checkbox && <DragHandle {...provided.dragHandleProps}>☰</DragHandle>}
               {!checkbox && categoryPillEditable}
               <ContentEditable
                 className="goalLineInput"
