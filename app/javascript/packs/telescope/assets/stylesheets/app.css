@@ -495,7 +495,7 @@ ul.weekCardsWrapper-ul {
   width: 100%;
 }
 
-div.weekPage-background {
+div.dragGoalsPage-background {
   position:fixed;
   width:100%;
   left:0;right:0;top:0;bottom:0;
@@ -504,35 +504,28 @@ div.weekPage-background {
   text-align:center;
 }
 
-div.weekPage-background:before {
+div.dragGoalsPage-background:before {
   content: '';
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
 
-div.newWeekPage-background {
+div.weekPage-background {
   position:fixed;
   width:100%;
   left:0;right:0;top:0;bottom:0;
-  background-color: rgba(255, 185, 54, 0.925);
+  background-color: rgba(70,70,70, 0.85);
+  /* background-color: rgba(255, 185, 54, 0.925); */
   z-index:9;
-  text-align:center;
-}
-
-div.newWeekPage-background:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
 }
 
 
-div.weekPage-background.boardPage-background {
+div.dragGoalsPage-background.boardPage-background {
   background-color: rgba(70,70,70, 0.85);
 }
 
-div.weekPage-container {
+div.dragGoalsPage-container {
   margin: auto;
   background-color: white;
   padding: 0px;
@@ -556,7 +549,7 @@ div.weekPage-container-closemodal.boardPage-container-closemodal {
   /* color: white; */
 }
 
-div.newWeekPage-container {
+div.weekPage-container {
   margin: auto;
   background-color: white;
   padding: 0px;
@@ -564,9 +557,10 @@ div.newWeekPage-container {
   height: 85%;
   max-height: 605px;
   border-radius: 9px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   z-index:11;
-  display: inline-block;
-  vertical-align: middle; /* Center vertically, part 2 */
 }
 
 div.welcomePage-container {
@@ -756,7 +750,7 @@ div.weekPageContent-wrapper {
   width: 100%;
   padding: 0px;
   height: 100%;
-  display: block;
+  display: inline-block;
   text-align: left;
   vertical-align: middle; /* Center vertically, part 2 */
 }
@@ -885,7 +879,6 @@ button.weekPage-addNewGoalButton:hover {
 }
 
 div.goalLineWrapper {
-  background-color: rgba(0, 0, 0, 0.05);
   border-radius: 9px;
   padding: 14px 10px 14px 6px;
   margin: 0px 0px 10px 0px;
@@ -1261,7 +1254,7 @@ a.password-reset-link {
     grid-template-columns: 1fr;
   }
 
-  div.newWeekPage-container {
+  div.weekPage-container {
     box-sizing:border-box;
     height: 98%;
     margin: 0px 7px;
@@ -1269,7 +1262,7 @@ a.password-reset-link {
     overflow: hidden;
   }
 
-  div.weekPage-container {
+  div.dragGoalsPage-container {
     box-sizing:border-box;
     height: 98%;
     margin: 0px 7px;
@@ -1306,11 +1299,11 @@ a.password-reset-link {
   }
 
   div.weekPageContent-goalsdata.weekPageData {
-    top: -275px;
+    top: -300px;
   }
 
   div.weekPageContent-goalsdata.newWeekPageData.weekPageData {
-    top: -300px;
+    top: -315px;
   }
 
   div.weekPageContent-datepicker-wrapper {

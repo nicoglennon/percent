@@ -41,8 +41,8 @@ class BoardPage extends React.Component {
         contentLabel="onRequestClose Example"
         onRequestClose={this.handleCloseModal}
         shouldCloseOnOverlayClick={true}
-        overlayClassName="weekPage-background boardPage-background"
-        className="weekPage-container"
+        overlayClassName="dragGoalsPage-background boardPage-background"
+        className="dragGoalsPage-container"
         
         >
         {/*<button className="weekPage-closeModal" onClick={this.handleCloseModal}>✕</button>*/}

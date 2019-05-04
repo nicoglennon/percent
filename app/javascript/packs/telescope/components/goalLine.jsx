@@ -7,6 +7,9 @@ import styled from 'styled-components';
 
 const StyledGoalWrapper = styled.div`
   margin-bottom: 10px;
+  border-radius: 9px;
+  background-color: ${props => (props.isDragging ? 'rgb(255, 233, 231)' : 'rgba(0, 0, 0, 0.04)')};
+  transition: background-color 400ms ease;
 `;
 
 const DragHandle = styled.div`
@@ -151,11 +154,12 @@ class GoalLine extends React.Component {
     }
     return(
       <Draggable draggableId={draggableId} index={this.props.index}>
-        {(provided) => (
+        {(provided, snapshot) => (
           <StyledGoalWrapper
             {...provided.draggableProps} 
             
             ref={provided.innerRef}
+            isDragging={snapshot.isDragging}
           >
             <div className={'goalLineWrapper' + goalLineWrapperStyling} onMouseOver={this.handleHoverGoal} onMouseLeave={this.handleUnhoverGoal}>
               {checkbox}
