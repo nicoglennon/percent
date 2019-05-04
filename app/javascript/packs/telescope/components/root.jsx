@@ -156,13 +156,11 @@ class Root extends React.Component {
     const board = {
       goals_attributes: goals,
     }
-    console.log(board);
     axios.put(`/api/v1/users/${currentUserId}/boards/${boardId}`, {board: board})
       .then(function (response) {
         // var currentUsername = self.state.currentUserSnapshot.username;
         // self.fetchCurrentUserSnapshot(currentUsername);
         // console.log(response);
-        console.log('success!');
       })
       .catch(function (error) {
         console.log(error);
